@@ -1,0 +1,1 @@
+export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
