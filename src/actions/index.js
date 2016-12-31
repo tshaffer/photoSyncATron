@@ -199,7 +199,6 @@ function fetchGooglePhotos() {
   });
 }
 
-
 function retrievePhotosFromGoogle() {
 
   return new Promise( (resolve, reject) => {
@@ -212,7 +211,6 @@ function retrievePhotosFromGoogle() {
     });
   });
 }
-
 
 export function loadGooglePhotos() {
 
@@ -240,3 +238,11 @@ export function loadGooglePhotos() {
   };
 }
 
+export function readPhotosFromDrive(volumeName) {
+
+  console.log("index.js::readPhotosFromDrive");
+
+  return function (dispatch, getState) {
+    console.log(volumeName, dispatch, getState);
+  };
+}
