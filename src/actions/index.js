@@ -1,5 +1,8 @@
 const fs = require('fs');
 import axios from 'axios';
+const recursive = require('recursive-readdir');
+
+import * as utils from '../utilities/utils';
 
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
 export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
@@ -332,6 +335,33 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
 }
 
+function getPhotoFilesFromDrive() {
+
+  return new Promise( (resolve, reject) => {
+
+    console.log("getPhotoFilesFromDrive");
+    recursive("d:/", (err, files) => {
+            if (err) {
+                console.log("getPhotoFilesFromDrive: error");
+                reject(err);
+            }
+            files = files.filter(utils.isPhotoFile);
+            console.log("Photos on drive: ", files.length);
+            resolve(files);
+        });
+    });
+}
+
+function matchPhotoFiles() {
+
+    getPhotoFilesFromDrive().then( (photoFiles) => {
+        debugger;
+    }, (reason) => {
+        console.log("failure in matchPhotoFiles: ", reason);
+        debugger;
+    });
+}
+
 export function readPhotosFromDrive(volumeName) {
 
   console.log("index.js::readPhotosFromDrive");
@@ -341,5 +371,7 @@ export function readPhotosFromDrive(volumeName) {
 
     let state = getState();
     buildPhotoDictionaries(dispatch, state.googlePhotos);
+
+    matchPhotoFiles();
   };
 }
