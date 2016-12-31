@@ -23,7 +23,7 @@ class Landing extends Component {
   render() {
 
     const self = this;
-    
+
     const style = {
       marginLeft: '2px',
       marginTop: '16px',

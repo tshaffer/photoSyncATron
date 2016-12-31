@@ -1,9 +1,6 @@
 import { ADD_GOOGLE_PHOTOS } from '../actions/index';
 
-const initialState =
-  {
-    allGooglePhotos: []
-  };
+const initialState = [];
 
 
 export default function(state = initialState, action) {
@@ -12,11 +9,7 @@ export default function(state = initialState, action) {
 
     case ADD_GOOGLE_PHOTOS:
       {
-        let newState = {
-          allGooglePhotos: action.payload
-        };
-
-        return newState;
+        return action.payload;
       }
   }
 

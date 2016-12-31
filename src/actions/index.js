@@ -1,30 +1,47 @@
 const fs = require('fs');
 import axios from 'axios';
 
-import * as utils from '../utilities/utils';
-
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
+export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
 
 const googlePhotoAlbums = [
   'Year2016',
-  'Year2015',
-  'Year2014',
-  'Year2013',
-  'Year2012',
-  'Year2008',
-  'Year2007',
-  'Year2006',
-  'Year2005',
-  'Year2004',
-  'Year2003',
-  'Year2002',
-  'Year2001',
-  'Year2000',
-  'YearPre2000'
+  // 'Year2015',
+  // 'Year2014',
+  // 'Year2013',
+  // 'Year2012',
+  // 'Year2008',
+  // 'Year2007',
+  // 'Year2006',
+  // 'Year2005',
+  // 'Year2004',
+  // 'Year2003',
+  // 'Year2002',
+  // 'Year2001',
+  // 'Year2000',
+  // 'YearPre2000'
 ];
 
-let photosById = {};
+function addGooglePhotos(googlePhotos) {
+  return {
+    type: ADD_GOOGLE_PHOTOS,
+    payload: googlePhotos
+  };
+}
 
+function setGooglePhotoDictionaries(
+    photosByExifDateTime,
+    photosByKey,
+    photosByName) {
+  return {
+    type: SET_GOOGLE_PHOTO_DICTIONARIES,
+    payload: {
+      photosByExifDateTime,
+      photosByKey,
+      photosByName
+    }
+  };
+}
 
 // return a list of albumIds for the albums referenced above
 function parseAlbums(albums) {
@@ -155,18 +172,8 @@ function fetchPhotosFromAlbums(googlePhotoAlbumIds) {
       googlePhotoAlbums.forEach( (googlePhotoAlbum) => {
         const photosInAlbum = googlePhotoAlbum.entry;
         photosInAlbum.forEach( (googlePhoto) => {
-          // check to see if photo has already been retrieved
-          const photoId = googlePhoto["gphoto:id"][0];
-          if (!photosById[photoId]) {
-            if (utils.isPhoto(googlePhoto)) {
-              const photo = parseGooglePhoto(googlePhoto);
-              allPhotos.push(photo);
-            }
-          }
-          else {
-            console.log("*************************** DUPLICATE GOOGLE ID FOUND ***********************");
-            debugger;
-          }
+          const photo = parseGooglePhoto(googlePhoto);
+          allPhotos.push(photo);
         });
       });
       resolve(allPhotos);
@@ -216,7 +223,6 @@ export function loadGooglePhotos() {
 
   console.log("index.js::loadGooglePhotos");
   return function(dispatch, getState) {
-    console.log(dispatch);
     console.log(getState);
 
     // initial implementation: read all photos from google; don't read from file and
@@ -226,6 +232,10 @@ export function loadGooglePhotos() {
       let googlePhotosSpec = {};
       googlePhotosSpec.version = 3;
       googlePhotosSpec.photos = photosFromGoogle;
+
+      dispatch(addGooglePhotos(photosFromGoogle));
+      let state = getState();
+      console.log(state);
 
       // // store google photo information in a file
       const googlePhotosSpecStr = JSON.stringify(googlePhotosSpec, null, 2);
@@ -238,11 +248,61 @@ export function loadGooglePhotos() {
   };
 }
 
+
+
+
+function buildPhotoDictionaries(dispatch, googlePhotos) {
+
+  let photosByKey = {};
+  let photosByExifDateTime = {};
+  let photosByName = {};
+
+  let numDuplicates = 0;
+  googlePhotos.forEach( (photo) => {
+
+    const name = photo.name;
+
+    if (photo.exifDateTime && photo.exifDateTime !== '') {
+      photosByExifDateTime[photo.exifDateTime] = photo;
+    }
+
+    const key = (name + '-' + photo.width + photo.height).toLowerCase();
+    if (photosByKey[key]) {
+      numDuplicates++;
+    }
+    else {
+      photosByKey[key] = photo;
+    }
+
+    if (photosByName[name]) {
+      photosByName[name].photoList.push(photo);
+    }
+    else {
+      photosByName[name] = {};
+      photosByName[name].photoList = [photo];
+    }
+  });
+
+  dispatch(setGooglePhotoDictionaries(
+    photosByExifDateTime,
+    photosByKey,
+    photosByName));
+
+  console.log('buildPhotoDictionaries, numDuplicates: ', numDuplicates);
+
+  fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
+  fs.writeFileSync('photosByKey.json', JSON.stringify(photosByKey, null, 2));
+  fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
+}
+
 export function readPhotosFromDrive(volumeName) {
 
   console.log("index.js::readPhotosFromDrive");
 
   return function (dispatch, getState) {
     console.log(volumeName, dispatch, getState);
+
+    let state = getState();
+    buildPhotoDictionaries(dispatch, state.googlePhotos);
   };
 }
