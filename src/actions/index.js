@@ -1,6 +1,9 @@
+const path = require('path');
 const fs = require('fs');
 import axios from 'axios';
 const recursive = require('recursive-readdir');
+const exifImage = require('exif').ExifImage;
+const jpegJS = require('jpeg-js');
 
 import * as utils from '../utilities/utils';
 
@@ -24,6 +27,10 @@ const googlePhotoAlbums = [
   'Year2000',
   'YearPre2000'
 ];
+
+let photosByKey = {};
+let photosByExifDateTime = {};
+let photosByName = {};
 
 function addGooglePhotos(googlePhotos) {
   return {
@@ -293,9 +300,9 @@ export function readGooglePhotos() {
 
 function buildPhotoDictionaries(dispatch, googlePhotos) {
 
-  let photosByKey = {};
-  let photosByExifDateTime = {};
-  let photosByName = {};
+  photosByKey = {};
+  photosByExifDateTime = {};
+  photosByName = {};
 
   let numDuplicates = 0;
   googlePhotos.forEach( (photo) => {
@@ -335,31 +342,252 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
 }
 
+function setSearchResult(photoFile, success, reason, error) {
+
+  let photoList = null;
+  if (!success) {
+    const photoFiles = findPhotoByName(photoFile);
+    if (photoFiles) {
+      photoList = photoFiles;
+    }
+  }
+
+  return {
+    photoFile,
+    success,
+    reason,
+    error,
+    photoList
+  };
+}
+
+function findPhotoByKey(photoFile) {
+  const name = path.basename(photoFile);
+  const jpegData = fs.readFileSync(photoFile);
+  try {
+    const rawImageData = jpegJS.decode(jpegData);
+    const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
+    if (photosByKey[key]) {
+      return setSearchResult(photoFile, true, 'keyMatch', '');
+    }
+    else {
+      return setSearchResult(photoFile, false, 'noKeyMatch', '');
+    }
+  } catch (jpegJSError) {
+    return setSearchResult(photoFile, false, 'jpegJSError', jpegJSError);
+  }
+}
+
+function findPhotoByName(photoFile) {
+
+  const fileName = path.basename(photoFile);
+
+  if (photosByName[fileName]) {
+    let photoFiles = {
+      photoFile,
+      photoList: photosByName[fileName].photoList
+    };
+    return photoFiles;
+  }
+  return false;
+}
+
+function matchPhotoFile(photoFile) {
+
+  let searchResult = {};
+
+  return new Promise( (resolve) => {
+    try {
+      new exifImage({ image : photoFile }, function (error, exifData) {
+
+        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+
+          // no exif date - search in photosByKey if it's a jpeg file
+          if (utils.isJpegFile(photoFile)) {
+            searchResult = findPhotoByKey(photoFile);
+          }
+          else {
+            searchResult = setSearchResult(photoFile, false, 'noExifNotJpg', error);
+          }
+          resolve(searchResult);
+        }
+        else {
+          let dateTimeStr = '';
+          if (exifData.exif.CreateDate) {
+            dateTimeStr = exifData.exif.CreateDate;
+          }
+          else {
+            dateTimeStr = exifData.exif.DateTimeOriginal;
+          }
+          const exifDateTime = utils.getDateFromString(dateTimeStr);
+          const isoString = exifDateTime.toISOString();
+          if (photosByExifDateTime[isoString]) {
+            searchResult = setSearchResult(photoFile, true, 'exifMatch', '');
+          }
+          else {
+            if (utils.isJpegFile(photoFile)) {
+              searchResult = findPhotoByKey(photoFile);
+            }
+            else {
+              searchResult = setSearchResult(photoFile, false, 'noExifMatch', '');
+            }
+          }
+          searchResult.isoString = isoString;
+          resolve(searchResult);
+        }
+      });
+    } catch (error) {
+      searchResult = setSearchResult(photoFile, false, 'other', error);
+      resolve(searchResult);
+    }
+  });
+}
+
+function resolvePhotoLists(searchResults) {
+  searchResults.forEach( (searchResult) => {
+    if (searchResult.photoList) {
+      console.log('');
+      console.log('No match found for:');
+      console.log(searchResult.photoFile);
+      console.log("Possible matches include:");
+      // console.log(searchResult.photoList.photoList);
+      searchResult.photoList.photoList.forEach( (photo) => {
+        console.log(photo);
+      });
+    }
+  });
+}
+
+function saveSearchResults(searchResults) {
+
+  // first time initialization
+  let allResults = {};
+  allResults.Volumes = {};
+
+  // must use async version if file read failure is possible
+  // const existingResultsStr = fs.readFileSync('searchResults.json');
+  // let allResults = JSON.parse(existingResultsStr);
+
+  // build results based on this search
+  let volumeResults = {};
+  volumeResults.noKeyMatch = [];
+  volumeResults.noExifMatch = [];
+  volumeResults.noExifNotJpg = [];
+  volumeResults.errorOther = [];
+
+  let numMatchesFound = 0;
+
+  let numWithPhotoList = 0;
+
+  let numExifMatches = 0;
+  let numKeyMatches = 0;
+
+  let numNoKeyMatches = 0;
+  let numNoExifMatches = 0;
+  let numNoExifNotJpgs = 0;
+
+  let numJpegJsErrors = 0;
+  let numOthers = 0;
+
+  resolvePhotoLists(searchResults);
+
+  searchResults.forEach( (searchResult) => {
+
+    if (searchResult.success) {
+      numMatchesFound++;
+    }
+    else if (searchResult.photoList) {
+      numWithPhotoList++;
+    }
+
+    switch(searchResult.reason) {
+      case 'exifMatch':
+        numExifMatches++;
+        break;
+      case 'keyMatch':
+        numKeyMatches++;
+        break;
+      case 'noExifMatch':
+        volumeResults.noExifMatch.push({file: searchResult.photoFile});
+        numNoExifMatches++;
+        break;
+      case 'noKeyMatch':
+        volumeResults.noKeyMatch.push({file: searchResult.photoFile});
+        numNoKeyMatches++;
+        break;
+      case 'noExifNotJpg':
+        volumeResults.noExifNotJpg.push({file: searchResult.photoFile});
+        numNoExifNotJpgs++;
+        break;
+      case 'jpegJSError':
+        volumeResults.errorOther.push({file: searchResult.photoFile});
+        numJpegJsErrors++;
+        break;
+      case 'other':
+        volumeResults.errorOther.push({file: searchResult.photoFile});
+        numOthers++;
+        break;
+    }
+  });
+
+  console.log('Total number of matches: ', numMatchesFound);
+  console.log('Number of potential matches: ', numWithPhotoList);
+  console.log('numExifMatches', numExifMatches);
+  console.log('numKeyMatches:', numKeyMatches);
+  console.log('numNoExifMatches', numNoExifMatches);
+  console.log('numNoKeyMatches:',numNoKeyMatches);
+  console.log('numNoExifNotJpgs', numNoExifNotJpgs);
+  console.log('numJpegJsErrors:', numJpegJsErrors);
+  console.log('numOthers', numOthers);
+
+  // update data structure
+  allResults.lastUpdated = new Date().toLocaleDateString();
+  const volumeName = 'poo';
+  allResults.Volumes[volumeName] = volumeResults;
+
+  // store search results in a file
+  const allResultsStr = JSON.stringify(allResults, null, 2);
+  fs.writeFileSync('searchResults.json', allResultsStr);
+
+  debugger;
+}
+
+function matchAllPhotoFiles(photoFiles) {
+
+  let promises = [];
+  photoFiles.forEach( (photoFile) => {
+    let promise = matchPhotoFile(photoFile);
+    promises.push(promise);
+  });
+  Promise.all(promises).then( (searchResults) => {
+    saveSearchResults(searchResults);
+  });
+}
+
 function getPhotoFilesFromDrive() {
 
   return new Promise( (resolve, reject) => {
 
     console.log("getPhotoFilesFromDrive");
     recursive("d:/", (err, files) => {
-            if (err) {
-                console.log("getPhotoFilesFromDrive: error");
-                reject(err);
-            }
-            files = files.filter(utils.isPhotoFile);
-            console.log("Photos on drive: ", files.length);
-            resolve(files);
-        });
+      if (err) {
+        console.log("getPhotoFilesFromDrive: error");
+        reject(err);
+      }
+      files = files.filter(utils.isPhotoFile);
+      console.log("Photos on drive: ", files.length);
+      resolve(files);
     });
+  });
 }
 
 function matchPhotoFiles() {
 
-    getPhotoFilesFromDrive().then( (photoFiles) => {
-        debugger;
-    }, (reason) => {
-        console.log("failure in matchPhotoFiles: ", reason);
-        debugger;
-    });
+  getPhotoFilesFromDrive().then( (photoFiles) => {
+    matchAllPhotoFiles(photoFiles);
+  }, (reason) => {
+    console.log("failure in matchPhotoFiles: ", reason);
+  });
 }
 
 export function readPhotosFromDrive(volumeName) {
@@ -371,7 +599,7 @@ export function readPhotosFromDrive(volumeName) {
 
     let state = getState();
     buildPhotoDictionaries(dispatch, state.googlePhotos);
-
     matchPhotoFiles();
   };
 }
+
