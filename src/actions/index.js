@@ -1,9 +1,9 @@
-import * as utils from '../utilities/utils';
 const fs = require('fs');
+import axios from 'axios';
+
+import * as utils from '../utilities/utils';
 
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
-
-const axios = require('axios');
 
 const googlePhotoAlbums = [
   'Year2016',

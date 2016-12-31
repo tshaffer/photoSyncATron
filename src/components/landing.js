@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+
+
 class Landing extends Component {
 
   componentWillMount() {
     console.log("landing.js::componentWillMount invoked");
-    this.props.onLoadGooglePhotos();
   }
 
 
+  handleLoadGooglePhotos() {
+    this.props.onLoadGooglePhotos();
+  }
+
   render() {
+
+    const style = {
+      marginLeft: '2px',
+      marginTop: '16px',
+      fontSize: '16px',
+    };
+
     return (
-      <div>Pizza</div>
+
+      <MuiThemeProvider>
+        <div>
+          <div>Pizza</div>
+          <div>
+            <RaisedButton
+              onClick={this.handleLoadGooglePhotos.bind(this)}
+              label="Load Google Photos"
+              style={style}
+            />
+          </div>
+        </div>
+      </MuiThemeProvider>
     );
   }
 
