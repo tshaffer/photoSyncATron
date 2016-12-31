@@ -248,7 +248,44 @@ export function loadGooglePhotos() {
   };
 }
 
+function readGooglePhotoFiles(path) {
+  return new Promise( (resolve, reject) => {
+    fs.readFile(path, (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      else {
+        resolve(data);
+      }
+    });
+  });
+}
 
+export function readGooglePhotos() {
+
+  return function (dispatch, getState) {
+
+    let promise = readGooglePhotoFiles('googlePhotos.json');
+    promise.then((googlePhotosStr) => {
+      let googlePhotosSpec = JSON.parse(googlePhotosStr);
+      let googlePhotos = googlePhotosSpec.photos;
+      console.log("Number of existing google photos: ", googlePhotos.length);
+
+      googlePhotos.forEach( (photo) => {
+        if (photo.exifDateTime !== '') {
+          photo.exifDateTime = photo.dateTime;
+        }
+      });
+
+      dispatch(addGooglePhotos(googlePhotos));
+      let state = getState();
+      console.log(state);
+    }, (reason) => {
+      console.log('Error reading allGooglePhotos.json: ', reason);
+    });
+
+  };
+}
 
 
 function buildPhotoDictionaries(dispatch, googlePhotos) {

@@ -15,6 +15,10 @@ class Landing extends Component {
     this.props.onLoadGooglePhotos();
   }
 
+  handleReadGooglePhotos() {
+    this.props.onReadGooglePhotos();
+  }
+
   handleReadDrivePhotos() {
     const volumeName = this.volumeNameField.input.value;
     this.props.onReadPhotosFromDrive(volumeName);
@@ -39,7 +43,12 @@ class Landing extends Component {
           <div>
             <RaisedButton
               onClick={this.handleLoadGooglePhotos.bind(this)}
-              label="Load Google Photos"
+              label="Load Photos from Cloud"
+              style={style}
+            />
+            <RaisedButton
+              onClick={this.handleReadGooglePhotos.bind(this)}
+              label="Load Photos from File"
               style={style}
             />
           </div>
@@ -74,6 +83,7 @@ class Landing extends Component {
 Landing.propTypes = {
   onLoadGooglePhotos: React.PropTypes.func.isRequired,
   onReadPhotosFromDrive: React.PropTypes.func.isRequired,
+  onReadGooglePhotos: React.PropTypes.func.isRequired,
 };
 
 export default Landing;
