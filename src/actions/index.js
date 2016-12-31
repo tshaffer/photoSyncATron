@@ -7,9 +7,6 @@ const jpegJS = require('jpeg-js');
 
 import * as utils from '../utilities/utils';
 
-export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
-export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
-
 const googlePhotoAlbums = [
   'Year2016',
   'Year2015',
@@ -32,12 +29,24 @@ let photosByKey = {};
 let photosByExifDateTime = {};
 let photosByName = {};
 
+export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
+export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
+export const SET_NUM_PHOTO_FILES = 'SET_NUM_PHOTO_FILES';
+
 function addGooglePhotos(googlePhotos) {
   return {
     type: ADD_GOOGLE_PHOTOS,
     payload: googlePhotos
   };
 }
+
+function setNumPhotoFiles(numPhotoFiles) {
+    return {
+        type: SET_NUM_PHOTO_FILES,
+        payload: numPhotoFiles
+    };
+}
+
 
 function setGooglePhotoDictionaries(
     photosByExifDateTime,
@@ -575,15 +584,19 @@ function getPhotoFilesFromDrive() {
         reject(err);
       }
       files = files.filter(utils.isPhotoFile);
-      console.log("Photos on drive: ", files.length);
       resolve(files);
     });
   });
 }
 
-function matchPhotoFiles() {
+function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
+
+    const numPhotoFiles = photoFiles.length;
+    console.log("Number of photos on drive: ", numPhotoFiles);
+    dispatch(setNumPhotoFiles(numPhotoFiles));
+
     matchAllPhotoFiles(photoFiles);
   }, (reason) => {
     console.log("failure in matchPhotoFiles: ", reason);
@@ -599,7 +612,7 @@ export function readPhotosFromDrive(volumeName) {
 
     let state = getState();
     buildPhotoDictionaries(dispatch, state.googlePhotos);
-    matchPhotoFiles();
+    matchPhotoFiles(dispatch);
   };
 }
 

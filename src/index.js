@@ -13,6 +13,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import reducers from './reducers';
 
 import App from './components/app';
+import MatchPhotosProgressContainer from './containers/matchPhotosProgressContainer';
 
 const store = createStore(
   reducers,
@@ -29,6 +30,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App} />
+      <Route path="/matchPhotosProgressContainer" component={MatchPhotosProgressContainer}/>
     </Router>
   </Provider>
   , document.getElementById('content'));

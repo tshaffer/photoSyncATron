@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -22,6 +23,7 @@ class Landing extends Component {
   handleReadDrivePhotos() {
     const volumeName = this.volumeNameField.input.value;
     this.props.onReadPhotosFromDrive(volumeName);
+    hashHistory.push('/matchPhotosProgressContainer');
   }
 
   render() {
