@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// import Encoder from '../components/encoder';
+import LandingContainer from '../containers/landingContainer';
 
 export default class App extends Component {
 
@@ -13,7 +13,7 @@ export default class App extends Component {
 
     return (
       <MuiThemeProvider>
-        <div>pizza</div>
+        <LandingContainer />
       </MuiThemeProvider>
     );
   }
