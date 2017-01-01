@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -9,7 +10,8 @@ class ComparePhotos extends Component {
     super(props);
     this.state = {
       diskImage: '',
-      googleImage: ''
+      googleImage: '',
+      remainingPhotosToCompare: 0
     };
   }
 
@@ -23,6 +25,8 @@ class ComparePhotos extends Component {
 
     this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
     this.googlePhotoIndex = 0;
+
+    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare});
 
     this.updatePhotosToCompare();
   }
@@ -40,6 +44,7 @@ class ComparePhotos extends Component {
   moveToNextDrivePhoto() {
     this.drivePhotoIndex++;
     this.googlePhotoIndex = 0;
+    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.drivePhotoIndex});
   }
 
   handlePhotosMatch() {
@@ -80,45 +85,110 @@ class ComparePhotos extends Component {
     this.props.saveResults();
   }
 
-  render () {
+  handleSaveResultsOnCompletion() {
+    console.log('handleSaveResultsOnCompletion');
+    this.props.saveResults();
+    hashHistory.push('/');
+  }
 
-    const style = {
+  handleDiscardResultsOnCompletion() {
+    console.log('handleDiscardResultsOnCompletion');
+    hashHistory.push('/');
+  }
+
+  getImagesJSX() {
+
+    if (this.state.remainingPhotosToCompare > 0) {
+      return (
+        <div className="allImages">
+          <img
+            className="leftImage"
+            src={this.state.diskImage}
+          />
+          <img
+            className="rightImage"
+            src={this.state.googleImage}
+          />
+        </div>
+      );
+    }
+    else {
+      return (
+        <h3>Comparisons complete - save or discard the results.</h3>
+      );
+    }
+  }
+
+  getUIJSX() {
+
+    const leftButtonStyle = {
       marginLeft: '2px',
-      marginTop: '8px',
+      marginTop: '4px',
       fontSize: '12px',
     };
+
+    const style = {
+      marginLeft: '8px',
+      marginTop: '4px',
+      fontSize: '12px',
+    };
+
+    if (this.state.remainingPhotosToCompare > 0) {
+      return (
+        <div>
+          <RaisedButton
+            label="Photos Match"
+            onClick={this.handlePhotosMatch.bind(this)}
+            style={leftButtonStyle}
+          />
+          <RaisedButton
+            label="Photos Don't Match"
+            onClick={this.handlePhotosDontMatch.bind(this)}
+            style={style}
+          />
+          <RaisedButton
+            label="Save Results"
+            onClick={this.handleSaveResults.bind(this)}
+            style={style}
+          />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <RaisedButton
+            label="Save Results"
+            onClick={this.handleSaveResultsOnCompletion.bind(this)}
+            style={leftButtonStyle}
+          />
+          <RaisedButton
+            label="Discard Results"
+            onClick={this.handleDiscardResultsOnCompletion.bind(this)}
+            style={style}
+          />
+        </div>
+      );
+    }
+  }
+
+  render () {
+
+    const imagesJSX = this.getImagesJSX();
+    const uiJSX = this.getUIJSX();
 
     return (
       <MuiThemeProvider>
         <div>
-          <div className="allImages">
-            <img
-              className="leftImage"
-              src={this.state.diskImage}
-                />
-            <img
-              className="rightImage"
-              src={this.state.googleImage}
-                />
-          </div>
-          <div className="clear" />
           <div>
-            <RaisedButton
-              label="Photos Match"
-              onClick={this.handlePhotosMatch.bind(this)}
-              style={style}
-                />
-            <RaisedButton
-              label="Photos Don't Match"
-              onClick={this.handlePhotosDontMatch.bind(this)}
-              style={style}
-                />
-            <RaisedButton
-              label="Save Results"
-              onClick={this.handleSaveResults.bind(this)}
-              style={style}
-            />
+            <h3>Compare photos on drive for possible matches</h3>
+            <span>
+              Remaining drive photos to compare: {this.state.remainingPhotosToCompare}
+            </span>
           </div>
+          {imagesJSX}
+          <div className="clear" />
+          {uiJSX}
         </div>
       </MuiThemeProvider>
     );
