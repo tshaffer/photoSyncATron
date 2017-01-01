@@ -38,6 +38,14 @@ export const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
 export const SET_DRIVE_MATCH_RESULTS = 'SET_DRIVE_MATCH_RESULTS';
 export const MATCH_FOUND = 'MATCH_FOUND';
 export const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
+export const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
+
+function setVolumeName(volumeName) {
+  return {
+    type: SET_VOLUME_NAME,
+      payload: volumeName
+  };
+}
 
 function setDriveMatchResults(driveResults) {
   return {
@@ -562,8 +570,8 @@ export function saveResults() {
 
       // update data structure
     allResults.lastUpdated = new Date().toLocaleDateString();
-    const volumeName = '9-1-2006';
     const state = getState();
+    const volumeName = state.volumeName;
     allResults.Volumes[volumeName] = state.driveMatchResults;
 
         // store search results in a file
@@ -623,7 +631,8 @@ export function readPhotosFromDrive(volumeName) {
   console.log("index.js::readPhotosFromDrive");
 
   return function (dispatch, getState) {
-    console.log(volumeName, dispatch, getState);
+
+    dispatch(setVolumeName(volumeName));
 
     let state = getState();
     buildPhotoDictionaries(dispatch, state.googlePhotos);
