@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import { saveResults, matchFound, noMatchFound } from '../actions/index';
 
 class ComparePhotos extends Component {
 
@@ -40,16 +42,15 @@ class ComparePhotos extends Component {
 
   moveToNextDrivePhoto() {
     this.drivePhotoIndex++;
-    if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
-      console.log("all comparisons complete - do something");
-    }
     this.googlePhotoIndex = 0;
   }
 
   handlePhotosMatch() {
     console.log('handlePhotosMatch');
 
-        // mark this drive photo as matching
+    // mark this drive photo as matching
+    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
+
     this.moveToNextDrivePhoto();
     if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
       console.log("all comparisons complete - do something");
@@ -64,7 +65,10 @@ class ComparePhotos extends Component {
 
     this.googlePhotoIndex++;
     if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
-      // mark this photo as not matching (don't change it's marking?)
+
+      // mark this photo as not matching
+      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
+
       this.moveToNextDrivePhoto();
       if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
         console.log("all comparisons complete - do something");
@@ -72,6 +76,11 @@ class ComparePhotos extends Component {
       }
     }
     this.updatePhotosToCompare();
+  }
+
+  handleSaveResults() {
+    console.log('handleSaveResults');
+    this.props.saveResults();
   }
 
   render () {
@@ -107,6 +116,11 @@ class ComparePhotos extends Component {
               onClick={this.handlePhotosDontMatch.bind(this)}
               style={style}
                 />
+            <RaisedButton
+              label="Save Results"
+              onClick={this.handleSaveResults.bind(this)}
+              style={style}
+            />
           </div>
         </div>
       </MuiThemeProvider>
@@ -115,7 +129,10 @@ class ComparePhotos extends Component {
 }
 
 ComparePhotos.propTypes = {
-  photoCompareList: React.PropTypes.array.isRequired
+  photoCompareList: React.PropTypes.array.isRequired,
+  saveResults: React.PropTypes.func.isRequired,
+  matchFound: React.PropTypes.func.isRequired,
+  noMatchFound: React.PropTypes.func.isRequired,
 };
 
 
@@ -125,4 +142,9 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps)(ComparePhotos);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({saveResults, matchFound, noMatchFound },
+        dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComparePhotos);

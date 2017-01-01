@@ -35,6 +35,30 @@ export const SET_NUM_PHOTO_FILES = 'SET_NUM_PHOTO_FILES';
 export const MATCH_ATTEMPT_COMPLETE = 'MATCH_ATTEMPT_COMPLETE';
 export const PHOTO_MATCHING_COMPLETE = 'PHOTO_MATCHING_COMPLETE';
 export const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
+export const SET_DRIVE_MATCH_RESULTS = 'SET_DRIVE_MATCH_RESULTS';
+export const MATCH_FOUND = 'MATCH_FOUND';
+export const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
+
+function setDriveMatchResults(driveResults) {
+  return {
+    type: SET_DRIVE_MATCH_RESULTS,
+    payload: driveResults
+  };
+}
+
+export function matchFound(photoFilePath) {
+  return {
+    type: MATCH_FOUND,
+    payload: photoFilePath
+  };
+}
+
+export function noMatchFound(photoFilePath) {
+  return {
+    type: NO_MATCH_FOUND,
+    payload: photoFilePath
+  };
+}
 
 function addGooglePhotos(googlePhotos) {
   return {
@@ -44,17 +68,17 @@ function addGooglePhotos(googlePhotos) {
 }
 
 function setNumPhotoFiles(numPhotoFiles) {
-    return {
-        type: SET_NUM_PHOTO_FILES,
-        payload: numPhotoFiles
-    };
+  return {
+    type: SET_NUM_PHOTO_FILES,
+    payload: numPhotoFiles
+  };
 }
 
 function matchAttemptComplete(success) {
-    return {
-        type: MATCH_ATTEMPT_COMPLETE,
-        payload: success
-    };
+  return {
+    type: MATCH_ATTEMPT_COMPLETE,
+    payload: success
+  };
 }
 
 function setPhotoMatchingComplete() {
@@ -64,10 +88,10 @@ function setPhotoMatchingComplete() {
 }
 
 function setPhotoCompareList(photoCompareList) {
-    return {
-        type: SET_PHOTO_COMPARE_LIST,
-        payload: photoCompareList
-    };
+  return {
+    type: SET_PHOTO_COMPARE_LIST,
+    payload: photoCompareList
+  };
 }
 
 function setGooglePhotoDictionaries(
@@ -476,7 +500,7 @@ function matchPhotoFile(dispatch, photoFile) {
   });
 }
 
-function resolvePhotoLists(dispatch, searchResults) {
+function buildManualPhotoMatchList(dispatch, searchResults) {
 
   let photoCompareList = [];
 
@@ -489,41 +513,17 @@ function resolvePhotoLists(dispatch, searchResults) {
     }
   });
 
-    dispatch(setPhotoCompareList(photoCompareList));
+  dispatch(setPhotoCompareList(photoCompareList));
 }
 
 function saveSearchResults(dispatch, searchResults) {
 
-  // first time initialization
-  let allResults = {};
-  allResults.Volumes = {};
-
-  // must use async version if file read failure is possible
-  // const existingResultsStr = fs.readFileSync('searchResults.json');
-  // let allResults = JSON.parse(existingResultsStr);
-
   // build results based on this search
-  let volumeResults = {};
-  volumeResults.noKeyMatch = [];
-  volumeResults.noExifMatch = [];
-  volumeResults.noExifNotJpg = [];
-  volumeResults.errorOther = [];
-
+  let matchPhotosResults = {};
   let numMatchesFound = 0;
-
   let numWithPhotoList = 0;
 
-  let numExifMatches = 0;
-  let numKeyMatches = 0;
-
-  let numNoKeyMatches = 0;
-  let numNoExifMatches = 0;
-  let numNoExifNotJpgs = 0;
-
-  let numJpegJsErrors = 0;
-  let numOthers = 0;
-
-  resolvePhotoLists(dispatch, searchResults);
+  buildManualPhotoMatchList(dispatch, searchResults);
 
   searchResults.forEach( (searchResult) => {
 
@@ -532,61 +532,44 @@ function saveSearchResults(dispatch, searchResults) {
     }
     else if (searchResult.photoList) {
       numWithPhotoList++;
+      matchPhotosResults[searchResult.photoFile] = 'ManualMatchPending';
     }
-
-    switch(searchResult.reason) {
-      case 'exifMatch':
-        numExifMatches++;
-        break;
-      case 'keyMatch':
-        numKeyMatches++;
-        break;
-      case 'noExifMatch':
-        volumeResults.noExifMatch.push({file: searchResult.photoFile});
-        numNoExifMatches++;
-        break;
-      case 'noKeyMatch':
-        volumeResults.noKeyMatch.push({file: searchResult.photoFile});
-        numNoKeyMatches++;
-        break;
-      case 'noExifNotJpg':
-        volumeResults.noExifNotJpg.push({file: searchResult.photoFile});
-        numNoExifNotJpgs++;
-        break;
-      case 'jpegJSError':
-        volumeResults.errorOther.push({file: searchResult.photoFile});
-        numJpegJsErrors++;
-        break;
-      case 'other':
-        volumeResults.errorOther.push({file: searchResult.photoFile});
-        numOthers++;
-        break;
+    else {
+      matchPhotosResults[searchResult.photoFile] = searchResult.reason;
     }
   });
 
   console.log('Total number of matches: ', numMatchesFound);
   console.log('Number of potential matches: ', numWithPhotoList);
-  console.log('numExifMatches', numExifMatches);
-  console.log('numKeyMatches:', numKeyMatches);
-  console.log('numNoExifMatches', numNoExifMatches);
-  console.log('numNoKeyMatches:',numNoKeyMatches);
-  console.log('numNoExifNotJpgs', numNoExifNotJpgs);
-  console.log('numJpegJsErrors:', numJpegJsErrors);
-  console.log('numOthers', numOthers);
 
-  // update data structure
-  allResults.lastUpdated = new Date().toLocaleDateString();
-  const volumeName = 'poo';
-  allResults.Volumes[volumeName] = volumeResults;
-
-  // store search results in a file
-  const allResultsStr = JSON.stringify(allResults, null, 2);
-  fs.writeFileSync('searchResults.json', allResultsStr);
-
-  console.log("ALL DONE");
-
+  dispatch(setDriveMatchResults(matchPhotosResults));
   dispatch(setPhotoMatchingComplete());
-  // debugger;
+  console.log("ALL DONE");
+}
+
+export function saveResults() {
+  console.log('saveResults');
+
+  return function (_, getState) {
+
+    // first time initialization
+    let allResults = {};
+    allResults.Volumes = {};
+
+    // must use async version if file read failure is possible
+    // const existingResultsStr = fs.readFileSync('searchResults.json');
+    // let allResults = JSON.parse(existingResultsStr);
+
+      // update data structure
+    allResults.lastUpdated = new Date().toLocaleDateString();
+    const volumeName = '9-1-2006';
+    const state = getState();
+    allResults.Volumes[volumeName] = state.driveMatchResults;
+
+        // store search results in a file
+    const allResultsStr = JSON.stringify(allResults, null, 2);
+    fs.writeFileSync('searchResults.json', allResultsStr);
+  };
 }
 
 function matchAllPhotoFiles(dispatch, photoFiles) {
@@ -621,7 +604,7 @@ function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
 
-      photoFiles = photoFiles.slice(0, 4);
+    photoFiles = photoFiles.slice(0, 4);
 
     const numPhotoFiles = photoFiles.length;
     console.log('poo');
