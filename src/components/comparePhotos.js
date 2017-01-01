@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
-import { saveResults, matchFound, noMatchFound } from '../actions/index';
 
 class ComparePhotos extends Component {
 
@@ -136,15 +133,4 @@ ComparePhotos.propTypes = {
 };
 
 
-function mapStateToProps (state) {
-  return {
-    photoCompareList: state.matchPhotosData.photoCompareList,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({saveResults, matchFound, noMatchFound },
-        dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ComparePhotos);
+export default ComparePhotos;

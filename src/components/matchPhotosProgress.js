@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 class MatchPhotosProgress extends Component {
 
     handleComparePhotos() {
-        hashHistory.push('/comparePhotos');
+      hashHistory.push('/comparePhotosContainer');
     }
 
     render () {
