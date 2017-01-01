@@ -4,53 +4,60 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class ComparePhotos extends Component {
 
-    constructor(props) {
-        super(props);
-        this.setState( {
-            leftImage: '',
-            rightImage: ''
-        })
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    };
+  }
+
+
+  componentWillMount() {
+    console.log("comparePhotos.js::componentWillMount");
+    const images = this.props.params.images.split(",");
+    console.log('comparePhotos, images: ', images);
+    this.setState({images});
+
+  }
+
+  getImages() {
+
+    if (this.state.images.length === 0) {
+      return (
+        <div>No images to compare</div>
+      );
     }
-
-    componentWillMount() {
-        console.log('fetch images to show');
+    else {
+      return (
+        <div className="allImages">
+          <img
+            className="leftImage"
+            src={this.state.images[0]}
+         />
+          <img
+            className="rightImage"
+            src={this.state.images[1]}
+         />
+        </div>
+      );
     }
+  }
 
-    getImages() {
+  render () {
 
-        if (this.state.leftImage === '' || this.state.rightImage === '') {
-            return (
-                <div>No images to compare</div>
-            );
-        }
-        else {
-            return (
-                <div className="allImages">
-                    <img
-                        className="leftImage"
-                        src={this.state.leftImage}
-                    >
-                    </img>
-                    <img
-                        className="rightImage"
-                        src={this.state.rightImage}
-                    >
-                    </img>
-                </div>
-            );
-        }
-    }
+    const jsx = this.getImages();
 
-    render () {
-
-        const jsx = getImages();
-
-        return (
-            <MuiThemeProvider>
-                {jsx}
-            </MuiThemeProvider>
-        );
-    }
+    return (
+      <MuiThemeProvider>
+        {jsx}
+      </MuiThemeProvider>
+    );
+  }
 }
+
+ComparePhotos.propTypes = {
+  params: React.PropTypes.object.isRequired,
+};
+
 
 export default ComparePhotos;

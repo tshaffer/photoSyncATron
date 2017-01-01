@@ -32,7 +32,7 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path="/" component={App} />
       <Route path="/matchPhotosProgressContainer" component={MatchPhotosProgressContainer}/>
-      <Route path="/comparePhotos" component={ComparePhotos}/>
+      <Route path="/comparePhotos/:images" component={ComparePhotos}/>
     </Router>
   </Provider>
   , document.getElementById('content'));

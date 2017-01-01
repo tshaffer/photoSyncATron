@@ -24,7 +24,11 @@ class Landing extends Component {
     console.log("handleComparePhotos: ");
     console.log(this.props.googlePhotos[0].url);
     console.log(this.props.googlePhotos[1].url);
-    // hashHistory.push('/comparePhotos');
+    let images = [];
+    images.push(encodeURIComponent(this.props.googlePhotos[0].url));
+    images.push(encodeURIComponent(this.props.googlePhotos[1].url));
+
+    hashHistory.push('/comparePhotos/' + images);
   }
 
   handleReadDrivePhotos() {
@@ -98,6 +102,7 @@ Landing.propTypes = {
   onLoadGooglePhotos: React.PropTypes.func.isRequired,
   onReadPhotosFromDrive: React.PropTypes.func.isRequired,
   onReadGooglePhotos: React.PropTypes.func.isRequired,
+  googlePhotos: React.PropTypes.array.isRequired
 };
 
 export default Landing;
