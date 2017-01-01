@@ -11,24 +11,20 @@ class ComparePhotos extends Component {
     this.state = {
       diskImage: '',
       googleImage: '',
-      drivePhotoIndex: 0,
-      googlePhotoIndex: 0,
       remainingPhotosToCompare: 0
     };
   }
 
   componentWillMount() {
 
-    debugger;
-
     console.log("comparePhotos.js::componentWillMount");
     console.log(this.props.photoCompareList);
 
     this.numDrivePhotosToCompare = this.props.photoCompareList.length;
-    this.setState({drivePhotoIndex: 0});
+    this.drivePhotoIndex = 0;
 
-    this.numGooglePhotosToCompare = this.props.photoCompareList[this.state.drivePhotoIndex].photoList.length;
-    this.setState({googlePhotoIndex: 0});
+    this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
+    this.googlePhotoIndex = 0;
 
     this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare});
 
@@ -36,9 +32,9 @@ class ComparePhotos extends Component {
   }
 
   updatePhotosToCompare() {
-    const diskImage = this.props.photoCompareList[this.state.drivePhotoIndex].baseFile;
+    const diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
     const googleImage =
-      this.props.photoCompareList[this.state.drivePhotoIndex].photoList[this.state.googlePhotoIndex].url;
+      this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
 
     this.setState({
       diskImage,
@@ -47,19 +43,20 @@ class ComparePhotos extends Component {
   }
 
   moveToNextDrivePhoto() {
-    this.setState({drivePhotoIndex: this.state.drivePhotoIndex + 1});
-    this.setState({googlePhotoIndex: 0});
-    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.state.drivePhotoIndex});
+    this.drivePhotoIndex++;
+    this.googlePhotoIndex = 0;
+    this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
+    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.drivePhotoIndex});
   }
 
   handlePhotosMatch() {
     console.log('handlePhotosMatch');
 
     // mark this drive photo as matching
-    this.props.matchFound(this.props.photoCompareList[this.state.drivePhotoIndex].baseFile);
+    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
 
     this.moveToNextDrivePhoto();
-    if (this.state.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+    if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
       console.log("all comparisons complete - do something");
     }
     else {
@@ -70,20 +67,17 @@ class ComparePhotos extends Component {
   handlePhotosDontMatch() {
     console.log('handleDontPhotosMatch');
 
-    const nextGooglePhotoIndex = this.state.googlePhotoIndex + 1;
-    if (nextGooglePhotoIndex >= this.numGooglePhotosToCompare) {
+    this.googlePhotoIndex++;
+    if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
 
       // mark this photo as not matching
-      this.props.noMatchFound(this.props.photoCompareList[this.state.drivePhotoIndex].baseFile);
+      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
 
       this.moveToNextDrivePhoto();
-      if (this.state.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+      if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
         console.log("all comparisons complete - do something");
         return;
       }
-    }
-    else {
-      this.setState({googlePhotoIndex: this.state.googlePhotoIndex + 1});
     }
     this.updatePhotosToCompare();
   }
@@ -105,12 +99,12 @@ class ComparePhotos extends Component {
   }
 
   getDriveImageJSX() {
-    return this.props.photoCompareList[this.state.drivePhotoIndex].baseFile;
+    return this.props.photoCompareList[this.drivePhotoIndex].baseFile;
   }
 
   getGoogleImageJSX() {
 
-    const googlePhoto = this.props.photoCompareList[this.state.drivePhotoIndex].photoList[this.state.googlePhotoIndex];
+    const googlePhoto = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex];
 
     let dtStr;
     const exifDateTime = googlePhoto.exifDateTime;

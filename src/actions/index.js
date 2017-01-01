@@ -368,28 +368,30 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   photosByName = {};
 
   let numDuplicates = 0;
-  googlePhotos.forEach( (photo) => {
+  googlePhotos.forEach( (googlePhoto) => {
 
-    const name = photo.name;
+    const name = googlePhoto.name;
 
-    if (photo.exifDateTime && photo.exifDateTime !== '') {
-      photosByExifDateTime[photo.exifDateTime] = photo;
+    if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
+      photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
     }
 
-    const key = (name + '-' + photo.width + photo.height).toLowerCase();
+    const key = (name + '-' + googlePhoto.width + googlePhoto.height).toLowerCase();
     if (photosByKey[key]) {
       numDuplicates++;
     }
     else {
-      photosByKey[key] = photo;
+      photosByKey[key] = googlePhoto;
     }
 
+    // TODO - this should be done when initially retrieving google photos from the cloud
+    googlePhoto.name = googlePhoto.name.toLowerCase();
     if (photosByName[name]) {
-      photosByName[name].photoList.push(photo);
+      photosByName[name].photoList.push(googlePhoto);
     }
     else {
       photosByName[name] = {};
-      photosByName[name].photoList = [photo];
+      photosByName[name].photoList = [googlePhoto];
     }
   });
 
@@ -445,7 +447,7 @@ function findPhotoByKey(dispatch, photoFile) {
 
 function findPhotoByName(photoFile) {
 
-  const fileName = path.basename(photoFile);
+  const fileName = path.basename(photoFile).toLowerCase();
 
   if (photosByName[fileName]) {
     let photoFiles = {
