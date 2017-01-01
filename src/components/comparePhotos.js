@@ -25,42 +25,54 @@ class ComparePhotos extends Component {
     this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
     this.googlePhotoIndex = 0;
 
-      // this.numGooglePhotosToCompare = this.props.photoCompareList.length;
-      // this.photoCompareListIndex = 0;
-      // this.photoCompareListGooglePhotoIndex = 0;
-      // this.photoCompareListNumGooglePhotos = this.props.photoCompareList[this.photoCompareListGooglePhotoIndex].photoList;
-
-    this.updatesPhotosToCompare();
+    this.updatePhotosToCompare();
   }
 
-  updatesPhotosToCompare() {
+  updatePhotosToCompare() {
     const diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
     const googleImage = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
 
-    // const diskImage = this.props.photoCompareList[this.photoCompareListIndex].baseFile;
-    // const googleImage = this.props.photoCompareList[this.photoCompareListGooglePhotoIndex].photoList[0].url;
     this.setState({
       diskImage,
       googleImage
     });
   }
 
-    handlePhotosMatch() {
-        console.log('handlePhotosMatch');
-
-        // this.photoCompareListIndex++;
-        // if (this.photoCompareListIndex >= this.numGooglePhotosToCompare) {
-        //     console.log("all comparisons complete - do something");
-        // }
-        // else {
-        //
-        // }
+  moveToNextDrivePhoto() {
+    this.drivePhotoIndex++;
+    if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+      console.log("all comparisons complete - do something");
     }
+    this.googlePhotoIndex = 0;
+  }
 
-    handlePhotosDontMatch() {
-        console.log('handleDontPhotosMatch');
+  handlePhotosMatch() {
+    console.log('handlePhotosMatch');
+
+        // mark this drive photo as matching
+    this.moveToNextDrivePhoto();
+    if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+      console.log("all comparisons complete - do something");
     }
+    else {
+      this.updatePhotosToCompare();
+    }
+  }
 
+  handlePhotosDontMatch() {
+    console.log('handleDontPhotosMatch');
+
+    this.googlePhotoIndex++;
+    if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
+      // mark this photo as not matching (don't change it's marking?)
+      this.moveToNextDrivePhoto();
+      if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+        console.log("all comparisons complete - do something");
+        return;
+      }
+    }
+    this.updatePhotosToCompare();
+  }
 
   render () {
 
@@ -83,20 +95,19 @@ class ComparePhotos extends Component {
               src={this.state.googleImage}
                 />
           </div>
-            <div className="clear">
-            </div>
-            <div>
-                <RaisedButton
-                    label="Photos Match"
-                    onClick={this.handlePhotosMatch.bind(this)}
-                    style={style}
+          <div className="clear" />
+          <div>
+            <RaisedButton
+              label="Photos Match"
+              onClick={this.handlePhotosMatch.bind(this)}
+              style={style}
                 />
-                <RaisedButton
-                    label="Photos Don't Match"
-                    onClick={this.handlePhotosDontMatch.bind(this)}
-                    style={style}
+            <RaisedButton
+              label="Photos Don't Match"
+              onClick={this.handlePhotosDontMatch.bind(this)}
+              style={style}
                 />
-            </div>
+          </div>
         </div>
       </MuiThemeProvider>
     );
