@@ -30,6 +30,8 @@ let photosByExifDateTime = {};
 let photosByName = {};
 let photosByAltKey = {};
 
+let photoDimensionsByName = {};
+
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
 export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
 export const SET_NUM_PHOTO_FILES = 'SET_NUM_PHOTO_FILES';
@@ -370,6 +372,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   photosByExifDateTime = {};
   photosByName = {};
   photosByAltKey = {};
+  photoDimensionsByName = {};
 
   let numDuplicates = 0;
   googlePhotos.forEach( (googlePhoto) => {
@@ -454,6 +457,12 @@ function findPhotoByKey(dispatch, photoFile) {
   const jpegData = fs.readFileSync(photoFile);
   try {
     const rawImageData = jpegJS.decode(jpegData);
+
+    photoDimensionsByName[photoFile] = {
+      width: rawImageData.width.toString(),
+      height: rawImageData.height.toString()
+    };
+
     const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
     if (photosByKey[key]) {
       return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
@@ -491,7 +500,17 @@ function findPhotoByName(photoFile) {
           };
         }
         photosByAltKey[partialName].forEach( (googlePhoto) => {
-          photoFiles.photoList.push(googlePhoto);
+
+          let googlePhotoAdded = false;
+          if (photoDimensionsByName[photoFile]) {
+            if (googlePhoto.width === photoDimensionsByName[photoFile].width &&
+              googlePhoto.height === photoDimensionsByName[photoFile].height) {
+              photoFiles.photoList.unshift(googlePhoto);
+            }
+          }
+          if (!googlePhotoAdded) {
+            photoFiles.photoList.push(googlePhoto);
+          }
         })
       }
     }
