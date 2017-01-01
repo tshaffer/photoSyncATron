@@ -48,5 +48,5 @@ export function getDateFromString(dateTimeStr) {
 
 export function isNumeric(num){
   if (num === '') return false;
-  return !isNaN(num)
+  return !isNaN(num);
 }

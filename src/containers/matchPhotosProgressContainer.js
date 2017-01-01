@@ -9,9 +9,9 @@ class MatchPhotosProgressContainer extends Component {
     console.log("MatchPhotosProgressContainer render invoked");
 
     return (
-        <MatchPhotosProgress
-            {...this.props}
-        />
+      <MatchPhotosProgress
+        {...this.props}
+      />
     );
   }
 }
@@ -21,8 +21,8 @@ function mapStateToProps (state) {
     numPhotoFiles: state.matchPhotosData.numPhotoFiles,
     successfulMatches: state.matchPhotosData.successfulMatches,
     unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches,
-      photoMatchingComplete: state.matchPhotosData.photoMatchingComplete,
-      photoCompareList: state.matchPhotosData.photoCompareList,
+    photoMatchingComplete: state.matchPhotosData.photoMatchingComplete,
+    photoCompareList: state.matchPhotosData.photoCompareList,
   };
 }
 

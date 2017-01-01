@@ -28,7 +28,7 @@ class MatchPhotosProgress extends Component {
     if (this.props.photoMatchingComplete) {
       resolveInstructions = (
         <p>Click the 'Compare' button to manually match photos.</p>
-      )
+      );
       resolveButton =
                 (<RaisedButton
                   onClick={this.handleComparePhotos.bind(this)}

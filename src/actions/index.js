@@ -400,7 +400,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
         // const altKey = partialName + googlePhoto.width + googlePhoto.height;
         const altKey = partialName;
         if (!photosByAltKey[altKey]) {
-          photosByAltKey[altKey] = []
+          photosByAltKey[altKey] = [];
         }
         photosByAltKey[altKey].push(googlePhoto);
       }
@@ -511,7 +511,7 @@ function findPhotoByName(photoFile) {
           if (!googlePhotoAdded) {
             photoFiles.photoList.push(googlePhoto);
           }
-        })
+        });
       }
     }
   }

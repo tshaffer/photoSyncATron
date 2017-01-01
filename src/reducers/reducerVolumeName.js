@@ -4,13 +4,13 @@ const initialState = '';
 
 export default function(state = initialState, action) {
 
-    switch (action.type) {
+  switch (action.type) {
 
-        case SET_VOLUME_NAME:
-        {
-            return action.payload;
-        }
-    }
+    case SET_VOLUME_NAME:
+      {
+        return action.payload;
+      }
+  }
 
-    return state;
+  return state;
 }
