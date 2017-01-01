@@ -43,7 +43,7 @@ export const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 function setVolumeName(volumeName) {
   return {
     type: SET_VOLUME_NAME,
-      payload: volumeName
+    payload: volumeName
   };
 }
 
@@ -517,6 +517,9 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
       let photoCompareItem = {};
       photoCompareItem.baseFile = searchResult.photoFile;
       photoCompareItem.photoList = searchResult.photoList.photoList;
+      if (photoCompareItem.photoList.length > 1) {
+        debugger;
+      }
       photoCompareList.push(photoCompareItem);
     }
   });
@@ -555,28 +558,42 @@ function saveSearchResults(dispatch, searchResults) {
   console.log("ALL DONE");
 }
 
+function loadExistingSearchResults() {
+
+  return new Promise( (resolve) => {
+    fs.readFile('searchResults.json', (err, data) => {
+
+      let existingSearchResults;
+
+      if (err) {
+        existingSearchResults = {};
+        existingSearchResults.Volumes = {};
+      }
+      else {
+        existingSearchResults = JSON.parse(data);
+      }
+      resolve(existingSearchResults);
+    });
+  });
+}
+
 export function saveResults() {
-  console.log('saveResults');
 
   return function (_, getState) {
 
-    // first time initialization
-    let allResults = {};
-    allResults.Volumes = {};
-
-    // must use async version if file read failure is possible
-    // const existingResultsStr = fs.readFileSync('searchResults.json');
-    // let allResults = JSON.parse(existingResultsStr);
-
+    loadExistingSearchResults().then((searchResults) => {
       // update data structure
-    allResults.lastUpdated = new Date().toLocaleDateString();
-    const state = getState();
-    const volumeName = state.volumeName;
-    allResults.Volumes[volumeName] = state.driveMatchResults;
+      searchResults.lastUpdated = new Date().toLocaleDateString();
+      const state = getState();
+      const volumeName = state.volumeName;
+      searchResults.Volumes[volumeName] = state.driveMatchResults;
 
-        // store search results in a file
-    const allResultsStr = JSON.stringify(allResults, null, 2);
-    fs.writeFileSync('searchResults.json', allResultsStr);
+      // store search results in a file
+      const searchResultsStr = JSON.stringify(searchResults, null, 2);
+      fs.writeFileSync('searchResults.json', searchResultsStr);
+
+      console.log('searchResults.json saved');
+    });
   };
 }
 
