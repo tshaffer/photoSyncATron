@@ -20,17 +20,6 @@ class Landing extends Component {
     this.props.onReadGooglePhotos();
   }
 
-  handleComparePhotos() {
-    console.log("handleComparePhotos: ");
-    console.log(this.props.googlePhotos[0].url);
-    console.log(this.props.googlePhotos[1].url);
-    let images = [];
-    images.push(encodeURIComponent(this.props.googlePhotos[0].url));
-    images.push(encodeURIComponent(this.props.googlePhotos[1].url));
-
-    hashHistory.push('/comparePhotos/' + images);
-  }
-
   handleReadDrivePhotos() {
     const volumeName = this.volumeNameField.input.value;
     this.props.onReadPhotosFromDrive(volumeName);
@@ -62,11 +51,6 @@ class Landing extends Component {
             <RaisedButton
               onClick={this.handleReadGooglePhotos.bind(this)}
               label="Load Photos from File"
-              style={style}
-            />
-            <RaisedButton
-              onClick={this.handleComparePhotos.bind(this)}
-              label="Compare Photos"
               style={style}
             />
           </div>

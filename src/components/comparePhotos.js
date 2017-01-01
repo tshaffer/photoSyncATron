@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -7,57 +8,49 @@ class ComparePhotos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      diskImage: '',
+      googleImage: ''
     };
   }
 
-
   componentWillMount() {
     console.log("comparePhotos.js::componentWillMount");
-    const images = this.props.params.images.split(",");
-    console.log('comparePhotos, images: ', images);
-    this.setState({images});
-
-  }
-
-  getImages() {
-
-    if (this.state.images.length === 0) {
-      return (
-        <div>No images to compare</div>
-      );
-    }
-    else {
-      return (
-        <div className="allImages">
-          <img
-            className="leftImage"
-            src={this.state.images[0]}
-         />
-          <img
-            className="rightImage"
-            src={this.state.images[1]}
-         />
-        </div>
-      );
-    }
+    const diskImage = this.props.photoCompareList[0].baseFile;
+    const googleImage = this.props.photoCompareList[0].photoList[0].url;
+    this.setState({
+        diskImage,
+        googleImage
+    });
   }
 
   render () {
 
-    const jsx = this.getImages();
-
     return (
       <MuiThemeProvider>
-        {jsx}
+        <div className="allImages">
+          <img
+            className="leftImage"
+            src={this.state.diskImage}
+        />
+          <img
+            className="rightImage"
+            src={this.state.googleImage}
+        />
+        </div>
       </MuiThemeProvider>
     );
   }
 }
 
 ComparePhotos.propTypes = {
-  params: React.PropTypes.object.isRequired,
+  photoCompareList: React.PropTypes.array.isRequired
 };
 
 
-export default ComparePhotos;
+function mapStateToProps (state) {
+  return {
+    photoCompareList: state.matchPhotosData.photoCompareList,
+  };
+}
+
+export default connect(mapStateToProps)(ComparePhotos);

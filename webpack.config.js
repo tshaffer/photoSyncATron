@@ -7,7 +7,10 @@ module.exports = {
         filename: 'bundle.js',
     },
     devtool: "source-map",
-  target: 'electron',
+    watchOptions: {
+        poll: true
+    },
+    target: 'electron',
     module: {
         preLoaders: [
             {

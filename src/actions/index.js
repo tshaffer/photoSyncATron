@@ -33,6 +33,8 @@ export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
 export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
 export const SET_NUM_PHOTO_FILES = 'SET_NUM_PHOTO_FILES';
 export const MATCH_ATTEMPT_COMPLETE = 'MATCH_ATTEMPT_COMPLETE';
+export const PHOTO_MATCHING_COMPLETE = 'PHOTO_MATCHING_COMPLETE';
+export const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
 
 function addGooglePhotos(googlePhotos) {
   return {
@@ -52,6 +54,19 @@ function matchAttemptComplete(success) {
     return {
         type: MATCH_ATTEMPT_COMPLETE,
         payload: success
+    };
+}
+
+function setPhotoMatchingComplete() {
+  return {
+    type: PHOTO_MATCHING_COMPLETE
+  };
+}
+
+function setPhotoCompareList(photoCompareList) {
+    return {
+        type: SET_PHOTO_COMPARE_LIST,
+        payload: photoCompareList
     };
 }
 
@@ -461,22 +476,23 @@ function matchPhotoFile(dispatch, photoFile) {
   });
 }
 
-function resolvePhotoLists(searchResults) {
+function resolvePhotoLists(dispatch, searchResults) {
+
+  let photoCompareList = [];
+
   searchResults.forEach( (searchResult) => {
     if (searchResult.photoList) {
-      console.log('');
-      console.log('No match found for:');
-      console.log(searchResult.photoFile);
-      console.log("Possible matches include:");
-      // console.log(searchResult.photoList.photoList);
-      searchResult.photoList.photoList.forEach( (photo) => {
-        console.log(photo);
-      });
+      let photoCompareItem = {};
+      photoCompareItem.baseFile = searchResult.photoFile;
+      photoCompareItem.photoList = searchResult.photoList.photoList;
+      photoCompareList.push(photoCompareItem);
     }
   });
+
+    dispatch(setPhotoCompareList(photoCompareList));
 }
 
-function saveSearchResults(searchResults) {
+function saveSearchResults(dispatch, searchResults) {
 
   // first time initialization
   let allResults = {};
@@ -507,7 +523,7 @@ function saveSearchResults(searchResults) {
   let numJpegJsErrors = 0;
   let numOthers = 0;
 
-  resolvePhotoLists(searchResults);
+  resolvePhotoLists(dispatch, searchResults);
 
   searchResults.forEach( (searchResult) => {
 
@@ -568,6 +584,8 @@ function saveSearchResults(searchResults) {
   fs.writeFileSync('searchResults.json', allResultsStr);
 
   console.log("ALL DONE");
+
+  dispatch(setPhotoMatchingComplete());
   // debugger;
 }
 
@@ -579,7 +597,7 @@ function matchAllPhotoFiles(dispatch, photoFiles) {
     promises.push(promise);
   });
   Promise.all(promises).then( (searchResults) => {
-    saveSearchResults(searchResults);
+    saveSearchResults(dispatch, searchResults);
   });
 }
 
@@ -603,9 +621,13 @@ function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
 
+      photoFiles = photoFiles.slice(0, 4);
+
     const numPhotoFiles = photoFiles.length;
+    console.log('poo');
     console.log("Number of photos on drive: ", numPhotoFiles);
     dispatch(setNumPhotoFiles(numPhotoFiles));
+
 
     matchAllPhotoFiles(dispatch, photoFiles);
   }, (reason) => {

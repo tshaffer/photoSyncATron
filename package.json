@@ -4,7 +4,7 @@
   "description": "sync photos between local drive and Google photos",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js"
+    "build": "webpack --config ./webpack.config.js --watch"
   },
   "author": "Ted Shaffer",
   "license": "MIT",

@@ -20,7 +20,9 @@ function mapStateToProps (state) {
   return {
     numPhotoFiles: state.matchPhotosData.numPhotoFiles,
     successfulMatches: state.matchPhotosData.successfulMatches,
-    unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches
+    unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches,
+      photoMatchingComplete: state.matchPhotosData.photoMatchingComplete,
+      photoCompareList: state.matchPhotosData.photoCompareList,
   };
 }
 

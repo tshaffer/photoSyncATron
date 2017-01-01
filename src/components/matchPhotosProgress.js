@@ -22,14 +22,21 @@ class MatchPhotosProgress extends Component {
             fontSize: '16px',
         };
 
+        let resolveButton = '';
+        if (this.props.photoMatchingComplete) {
+            resolveButton =
+                <RaisedButton
+                    onClick={this.handleComparePhotos.bind(this)}
+                    label="Resolve"
+                    style={style}
+                />
+            ;
+        }
+
         return (
             <MuiThemeProvider>
                 <div>
-                    <RaisedButton
-                        onClick={this.handleComparePhotos.bind(this)}
-                        label="Resolve"
-                        style={style}
-                    />
+                    {resolveButton}
                     <div>
                         Number of photo files on drive:
                         <span>
@@ -58,6 +65,8 @@ MatchPhotosProgress.propTypes = {
   numPhotoFiles: React.PropTypes.number.isRequired,
   successfulMatches: React.PropTypes.number.isRequired,
   unsuccessfulMatches: React.PropTypes.number.isRequired,
+    photoMatchingComplete: React.PropTypes.bool.isRequired,
+    photoCompareList: React.PropTypes.array.isRequired,
 };
 
 export default MatchPhotosProgress;
