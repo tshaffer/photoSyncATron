@@ -14,6 +14,7 @@ import reducers from './reducers';
 
 import App from './components/app';
 import MatchPhotosProgressContainer from './containers/matchPhotosProgressContainer';
+import ComparePhotos from './components/comparePhotos';
 
 const store = createStore(
   reducers,
@@ -31,6 +32,7 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path="/" component={App} />
       <Route path="/matchPhotosProgressContainer" component={MatchPhotosProgressContainer}/>
+      <Route path="/comparePhotos" component={ComparePhotos}/>
     </Router>
   </Provider>
   , document.getElementById('content'));

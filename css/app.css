@@ -1,3 +1,20 @@
 body {
     height: 100%;
 }
+
+.allImages {
+    width: 800px;
+}
+.leftImage {
+    float: left;
+    width: 350px;
+}
+
+.rightImage {
+    float: left;
+    width: 350px;
+}
+
+.clear {
+    clear: left;
+}

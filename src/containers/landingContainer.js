@@ -6,19 +6,11 @@ import { loadGooglePhotos } from '../actions/index';
 import { readGooglePhotos } from '../actions/index';
 import { readPhotosFromDrive } from '../actions/index';
 
-// function mapStateToProps (state, ownProps) {
-//   return {
-//     activity: getActivity(state, ownProps.params.id),
-//     activities: state.activities,
-//     segments: state.segments,
-//     segmentEfforts: state.segmentEfforts,
-//     effortsForSegments: getEffortsForActivitySegments(state, ownProps.params.id),
-//     segmentEffortsForActivity: getSegmentEffortsForActivity(state, ownProps.params.id),
-//     segmentEndPoint: state.segmentEndPoint,
-//     activityLocations: state.activityLocations,
-//     locationCoordinates: state.locationCoordinates
-//   };
-// }
+function mapStateToProps (state) {
+  return {
+    googlePhotos: state.googlePhotos,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -35,7 +27,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const LandingContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Landing);
 

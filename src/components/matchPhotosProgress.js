@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class MatchPhotosProgress extends Component {
+
+    handleComparePhotos() {
+        hashHistory.push('/comparePhotos');
+    }
 
     render () {
 
@@ -10,8 +16,20 @@ class MatchPhotosProgress extends Component {
         console.log('successful matches: ', this.props.successfulMatches);
         console.log('unsuccessful matches: ', this.props.unsuccessfulMatches);
 
+        const style = {
+            marginLeft: '2px',
+            marginTop: '16px',
+            fontSize: '16px',
+        };
+
         return (
+            <MuiThemeProvider>
                 <div>
+                    <RaisedButton
+                        onClick={this.handleComparePhotos.bind(this)}
+                        label="Resolve"
+                        style={style}
+                    />
                     <div>
                         Number of photo files on drive:
                         <span>
@@ -31,6 +49,7 @@ class MatchPhotosProgress extends Component {
                         </span>
                     </div>
                 </div>
+            </MuiThemeProvider>
         );
     }
 }
