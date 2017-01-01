@@ -45,20 +45,21 @@ class ComparePhotos extends Component {
     });
   }
 
-    // handlePhotosMatch() {
-    //
-    //
-    //     // this.photoCompareListIndex++;
-    //     // if (this.photoCompareListIndex >= this.numGooglePhotosToCompare) {
-    //     //     console.log("all comparisons complete - do something");
-    //     // }
-    //     // else {
-    //     //
-    //     // }
-    // }
-    //
-    // handlePhotosDontMatch() {
-    // }
+    handlePhotosMatch() {
+        console.log('handlePhotosMatch');
+
+        // this.photoCompareListIndex++;
+        // if (this.photoCompareListIndex >= this.numGooglePhotosToCompare) {
+        //     console.log("all comparisons complete - do something");
+        // }
+        // else {
+        //
+        // }
+    }
+
+    handlePhotosDontMatch() {
+        console.log('handleDontPhotosMatch');
+    }
 
 
   render () {
@@ -68,20 +69,6 @@ class ComparePhotos extends Component {
       marginTop: '8px',
       fontSize: '12px',
     };
-
-      // {/*/!*<div>*!/*/}
-      //     {/*/!*<RaisedButton*!/*/}
-      //         {/*/!*onClick={this.handlePhotosMatch.bind(this)}*!/*/}
-      //         {/*/!*label="Photos Match"*!/*/}
-      //         {/*/!*style={style}*!/*/}
-      // //     {/*/>*/}
-      // //     {/*<RaisedButton*/}
-      // // //         onClick={this.handlePhotosDontMatch.bind(this)}
-      // // //         label="Photos Dont Match"
-      // // //         style={style}
-      // // //     />
-      // // //
-      // // // </div>
 
     return (
       <MuiThemeProvider>
@@ -101,10 +88,12 @@ class ComparePhotos extends Component {
             <div>
                 <RaisedButton
                     label="Photos Match"
+                    onClick={this.handlePhotosMatch.bind(this)}
                     style={style}
                 />
                 <RaisedButton
                     label="Photos Don't Match"
+                    onClick={this.handlePhotosDontMatch.bind(this)}
                     style={style}
                 />
             </div>
