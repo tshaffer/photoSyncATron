@@ -629,7 +629,7 @@ function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
 
-    photoFiles = photoFiles.slice(0, 4);
+    // photoFiles = photoFiles.slice(0, 4);
 
     const numPhotoFiles = photoFiles.length;
     console.log('poo');
