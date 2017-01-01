@@ -11,20 +11,24 @@ class ComparePhotos extends Component {
     this.state = {
       diskImage: '',
       googleImage: '',
+      drivePhotoIndex: 0,
+      googlePhotoIndex: 0,
       remainingPhotosToCompare: 0
     };
   }
 
   componentWillMount() {
 
+    debugger;
+
     console.log("comparePhotos.js::componentWillMount");
     console.log(this.props.photoCompareList);
 
     this.numDrivePhotosToCompare = this.props.photoCompareList.length;
-    this.drivePhotoIndex = 0;
+    this.setState({drivePhotoIndex: 0});
 
-    this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
-    this.googlePhotoIndex = 0;
+    this.numGooglePhotosToCompare = this.props.photoCompareList[this.state.drivePhotoIndex].photoList.length;
+    this.setState({googlePhotoIndex: 0});
 
     this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare});
 
@@ -32,8 +36,9 @@ class ComparePhotos extends Component {
   }
 
   updatePhotosToCompare() {
-    const diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
-    const googleImage = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
+    const diskImage = this.props.photoCompareList[this.state.drivePhotoIndex].baseFile;
+    const googleImage =
+      this.props.photoCompareList[this.state.drivePhotoIndex].photoList[this.state.googlePhotoIndex].url;
 
     this.setState({
       diskImage,
@@ -42,19 +47,19 @@ class ComparePhotos extends Component {
   }
 
   moveToNextDrivePhoto() {
-    this.drivePhotoIndex++;
-    this.googlePhotoIndex = 0;
-    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.drivePhotoIndex});
+    this.setState({drivePhotoIndex: this.state.drivePhotoIndex + 1});
+    this.setState({googlePhotoIndex: 0});
+    this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.state.drivePhotoIndex});
   }
 
   handlePhotosMatch() {
     console.log('handlePhotosMatch');
 
     // mark this drive photo as matching
-    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
+    this.props.matchFound(this.props.photoCompareList[this.state.drivePhotoIndex].baseFile);
 
     this.moveToNextDrivePhoto();
-    if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+    if (this.state.drivePhotoIndex >= this.numDrivePhotosToCompare) {
       console.log("all comparisons complete - do something");
     }
     else {
@@ -65,17 +70,20 @@ class ComparePhotos extends Component {
   handlePhotosDontMatch() {
     console.log('handleDontPhotosMatch');
 
-    this.googlePhotoIndex++;
-    if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
+    const nextGooglePhotoIndex = this.state.googlePhotoIndex + 1;
+    if (nextGooglePhotoIndex >= this.numGooglePhotosToCompare) {
 
       // mark this photo as not matching
-      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
+      this.props.noMatchFound(this.props.photoCompareList[this.state.drivePhotoIndex].baseFile);
 
       this.moveToNextDrivePhoto();
-      if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
+      if (this.state.drivePhotoIndex >= this.numDrivePhotosToCompare) {
         console.log("all comparisons complete - do something");
         return;
       }
+    }
+    else {
+      this.setState({googlePhotoIndex: this.state.googlePhotoIndex + 1});
     }
     this.updatePhotosToCompare();
   }
@@ -96,19 +104,53 @@ class ComparePhotos extends Component {
     hashHistory.push('/');
   }
 
+  getDriveImageJSX() {
+    return this.props.photoCompareList[this.state.drivePhotoIndex].baseFile;
+  }
+
+  getGoogleImageJSX() {
+
+    const googlePhoto = this.props.photoCompareList[this.state.drivePhotoIndex].photoList[this.state.googlePhotoIndex];
+
+    let dtStr;
+    const exifDateTime = googlePhoto.exifDateTime;
+    if (exifDateTime === '') {
+      dtStr = googlePhoto.dateTime;
+    }
+    else {
+      dtStr = exifDateTime;
+    }
+
+    return googlePhoto.name + ' from ' + dtStr;
+  }
+
   getImagesJSX() {
 
+    /*
+    file on drive:
+      this.props.photoCompareList[this.drivePhotoIndex].baseFile
+    google file:
+      this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex]
+      object properties that are of interest:
+        name
+        exifDateTime if not ''; else dateTime.
+     */
     if (this.state.remainingPhotosToCompare > 0) {
       return (
-        <div className="allImages">
-          <img
-            className="leftImage"
-            src={this.state.diskImage}
-          />
-          <img
-            className="rightImage"
-            src={this.state.googleImage}
-          />
+        <div>
+          <div className="allImages">
+            <img
+              className="leftImage"
+              src={this.state.diskImage}
+            />
+            <img
+              className="rightImage"
+              src={this.state.googleImage}
+            />
+          </div>
+          <div className="clear" />
+          <p>Photo on left: {this.getDriveImageJSX()}</p>
+          <p>Photo on right: {this.getGoogleImageJSX()}</p>
         </div>
       );
     }

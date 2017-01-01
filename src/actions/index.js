@@ -517,9 +517,6 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
       let photoCompareItem = {};
       photoCompareItem.baseFile = searchResult.photoFile;
       photoCompareItem.photoList = searchResult.photoList.photoList;
-      if (photoCompareItem.photoList.length > 1) {
-        debugger;
-      }
       photoCompareList.push(photoCompareItem);
     }
   });
