@@ -45,3 +45,8 @@ export function getDateFromString(dateTimeStr) {
   const dateTime = new Date(year, month, day, hours, minutes, seconds);
   return dateTime;
 }
+
+export function isNumeric(num){
+  if (num === '') return false;
+  return !isNaN(num)
+}

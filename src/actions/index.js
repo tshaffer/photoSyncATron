@@ -28,6 +28,7 @@ const googlePhotoAlbums = [
 let photosByKey = {};
 let photosByExifDateTime = {};
 let photosByName = {};
+let photosByAltKey = {};
 
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
 export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
@@ -105,13 +106,15 @@ function setPhotoCompareList(photoCompareList) {
 function setGooglePhotoDictionaries(
     photosByExifDateTime,
     photosByKey,
-    photosByName) {
+    photosByName,
+    photosByAltKey) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
       photosByExifDateTime,
       photosByKey,
-      photosByName
+      photosByName,
+      photosByAltKey
     }
   };
 }
@@ -366,6 +369,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   photosByKey = {};
   photosByExifDateTime = {};
   photosByName = {};
+  photosByAltKey = {};
 
   let numDuplicates = 0;
   googlePhotos.forEach( (googlePhoto) => {
@@ -384,7 +388,22 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
       photosByKey[key] = googlePhoto;
     }
 
-    // TODO - this should be done when initially retrieving google photos from the cloud
+    // add to photosByAltKey if name includes only digits and is > 2 characters
+    // name includes extension
+    if (name.length >= 7) {
+      const nameWithoutExtension = name.slice(0, -4);
+      if (utils.isNumeric(nameWithoutExtension)) {
+        const partialName = name.slice(name.length - 6);
+        // const altKey = partialName + googlePhoto.width + googlePhoto.height;
+        const altKey = partialName;
+        if (!photosByAltKey[altKey]) {
+          photosByAltKey[altKey] = []
+        }
+        photosByAltKey[altKey].push(googlePhoto);
+      }
+    }
+
+    // TODO - the next line (converting to lwoer case) should be done when initially retrieving google photos from the cloud
     googlePhoto.name = googlePhoto.name.toLowerCase();
     if (photosByName[name]) {
       photosByName[name].photoList.push(googlePhoto);
@@ -398,13 +417,15 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   dispatch(setGooglePhotoDictionaries(
     photosByExifDateTime,
     photosByKey,
-    photosByName));
+    photosByName,
+    photosByAltKey));
 
   console.log('buildPhotoDictionaries, numDuplicates: ', numDuplicates);
 
   fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
   fs.writeFileSync('photosByKey.json', JSON.stringify(photosByKey, null, 2));
   fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
+  fs.writeFileSync('photosByAltKey.json', JSON.stringify(photosByAltKey, null, 2));
 }
 
 function setSearchResult(dispatch, photoFile, success, reason, error) {
@@ -447,16 +468,36 @@ function findPhotoByKey(dispatch, photoFile) {
 
 function findPhotoByName(photoFile) {
 
+  let photoFiles = null;
+
   const fileName = path.basename(photoFile).toLowerCase();
 
   if (photosByName[fileName]) {
-    let photoFiles = {
+    photoFiles = {
       photoFile,
       photoList: photosByName[fileName].photoList
     };
-    return photoFiles;
   }
-  return false;
+
+  if (fileName.length >= 6) {
+    const nameWithoutExtension = fileName.slice(0, -4);
+    if (utils.isNumeric(nameWithoutExtension)) {
+      const partialName = fileName.slice(fileName.length - 6);
+      if (photosByAltKey[partialName]) {
+        if (!photoFiles) {
+          photoFiles = {
+            photoFile,
+            photoList: []
+          };
+        }
+        photosByAltKey[partialName].forEach( (googlePhoto) => {
+          photoFiles.photoList.push(googlePhoto);
+        })
+      }
+    }
+  }
+
+  return photoFiles;
 }
 
 function matchPhotoFile(dispatch, photoFile) {
