@@ -6,9 +6,11 @@ import MatchPhotosProgress from '../components/matchPhotosProgress';
 class MatchPhotosProgressContainer extends Component {
 
   render() {
+    console.log("MatchPhotosProgressContainer render invoked");
+
     return (
         <MatchPhotosProgress
-            numPhotoFiles={this.props.numPhotoFiles}
+            {...this.props}
         />
     );
   }
@@ -16,7 +18,9 @@ class MatchPhotosProgressContainer extends Component {
 
 function mapStateToProps (state) {
   return {
-    numPhotoFiles: state.matchPhotosData.numPhotoFiles
+    numPhotoFiles: state.matchPhotosData.numPhotoFiles,
+    successfulMatches: state.matchPhotosData.successfulMatches,
+    unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches
   };
 }
 

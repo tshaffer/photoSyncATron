@@ -32,6 +32,7 @@ let photosByName = {};
 export const ADD_GOOGLE_PHOTOS = 'ADD_GOOGLE_PHOTOS';
 export const SET_GOOGLE_PHOTO_DICTIONARIES = 'SET_GOOGLE_PHOTO_DICTIONARIES';
 export const SET_NUM_PHOTO_FILES = 'SET_NUM_PHOTO_FILES';
+export const MATCH_ATTEMPT_COMPLETE = 'MATCH_ATTEMPT_COMPLETE';
 
 function addGooglePhotos(googlePhotos) {
   return {
@@ -47,6 +48,12 @@ function setNumPhotoFiles(numPhotoFiles) {
     };
 }
 
+function matchAttemptComplete(success) {
+    return {
+        type: MATCH_ATTEMPT_COMPLETE,
+        payload: success
+    };
+}
 
 function setGooglePhotoDictionaries(
     photosByExifDateTime,
@@ -351,7 +358,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
 }
 
-function setSearchResult(photoFile, success, reason, error) {
+function setSearchResult(dispatch, photoFile, success, reason, error) {
 
   let photoList = null;
   if (!success) {
@@ -360,6 +367,8 @@ function setSearchResult(photoFile, success, reason, error) {
       photoList = photoFiles;
     }
   }
+
+  dispatch(matchAttemptComplete(success));
 
   return {
     photoFile,
@@ -370,20 +379,20 @@ function setSearchResult(photoFile, success, reason, error) {
   };
 }
 
-function findPhotoByKey(photoFile) {
+function findPhotoByKey(dispatch, photoFile) {
   const name = path.basename(photoFile);
   const jpegData = fs.readFileSync(photoFile);
   try {
     const rawImageData = jpegJS.decode(jpegData);
     const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
     if (photosByKey[key]) {
-      return setSearchResult(photoFile, true, 'keyMatch', '');
+      return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
     }
     else {
-      return setSearchResult(photoFile, false, 'noKeyMatch', '');
+      return setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
     }
   } catch (jpegJSError) {
-    return setSearchResult(photoFile, false, 'jpegJSError', jpegJSError);
+    return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
   }
 }
 
@@ -401,7 +410,7 @@ function findPhotoByName(photoFile) {
   return false;
 }
 
-function matchPhotoFile(photoFile) {
+function matchPhotoFile(dispatch, photoFile) {
 
   let searchResult = {};
 
@@ -413,10 +422,10 @@ function matchPhotoFile(photoFile) {
 
           // no exif date - search in photosByKey if it's a jpeg file
           if (utils.isJpegFile(photoFile)) {
-            searchResult = findPhotoByKey(photoFile);
+            searchResult = findPhotoByKey(dispatch, photoFile);
           }
           else {
-            searchResult = setSearchResult(photoFile, false, 'noExifNotJpg', error);
+            searchResult = setSearchResult(dispatch, photoFile, false, 'noExifNotJpg', error);
           }
           resolve(searchResult);
         }
@@ -431,14 +440,14 @@ function matchPhotoFile(photoFile) {
           const exifDateTime = utils.getDateFromString(dateTimeStr);
           const isoString = exifDateTime.toISOString();
           if (photosByExifDateTime[isoString]) {
-            searchResult = setSearchResult(photoFile, true, 'exifMatch', '');
+            searchResult = setSearchResult(dispatch, photoFile, true, 'exifMatch', '');
           }
           else {
             if (utils.isJpegFile(photoFile)) {
-              searchResult = findPhotoByKey(photoFile);
+              searchResult = findPhotoByKey(dispatch, photoFile);
             }
             else {
-              searchResult = setSearchResult(photoFile, false, 'noExifMatch', '');
+              searchResult = setSearchResult(dispatch, photoFile, false, 'noExifMatch', '');
             }
           }
           searchResult.isoString = isoString;
@@ -446,7 +455,7 @@ function matchPhotoFile(photoFile) {
         }
       });
     } catch (error) {
-      searchResult = setSearchResult(photoFile, false, 'other', error);
+      searchResult = setSearchResult(dispatch, photoFile, false, 'other', error);
       resolve(searchResult);
     }
   });
@@ -558,14 +567,15 @@ function saveSearchResults(searchResults) {
   const allResultsStr = JSON.stringify(allResults, null, 2);
   fs.writeFileSync('searchResults.json', allResultsStr);
 
-  debugger;
+  console.log("ALL DONE");
+  // debugger;
 }
 
-function matchAllPhotoFiles(photoFiles) {
+function matchAllPhotoFiles(dispatch, photoFiles) {
 
   let promises = [];
   photoFiles.forEach( (photoFile) => {
-    let promise = matchPhotoFile(photoFile);
+    let promise = matchPhotoFile(dispatch, photoFile);
     promises.push(promise);
   });
   Promise.all(promises).then( (searchResults) => {
@@ -597,7 +607,7 @@ function matchPhotoFiles(dispatch) {
     console.log("Number of photos on drive: ", numPhotoFiles);
     dispatch(setNumPhotoFiles(numPhotoFiles));
 
-    matchAllPhotoFiles(photoFiles);
+    matchAllPhotoFiles(dispatch, photoFiles);
   }, (reason) => {
     console.log("failure in matchPhotoFiles: ", reason);
   });
