@@ -45,7 +45,9 @@ class ComparePhotos extends Component {
   moveToNextDrivePhoto() {
     this.drivePhotoIndex++;
     this.googlePhotoIndex = 0;
-    this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
+    if (this.drivePhotoIndex < this.numDrivePhotosToCompare) {
+      this.numGooglePhotosToCompare = this.props.photoCompareList[this.drivePhotoIndex].photoList.length;
+    }
     this.setState({remainingPhotosToCompare: this.numDrivePhotosToCompare - this.drivePhotoIndex});
   }
 
