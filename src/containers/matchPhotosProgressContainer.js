@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { saveResults } from '../actions/index';
 
 import MatchPhotosProgress from '../components/matchPhotosProgress';
 
@@ -26,5 +28,11 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps)(MatchPhotosProgressContainer);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ saveResults },
+    dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MatchPhotosProgressContainer);
 

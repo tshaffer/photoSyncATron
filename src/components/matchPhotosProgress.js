@@ -11,6 +11,12 @@ class MatchPhotosProgress extends Component {
     hashHistory.push('/comparePhotosContainer');
   }
 
+  handleSaveResults() {
+    console.log('handleSaveResults');
+    this.props.saveResults();
+  }
+
+
   render () {
 
     console.log('MatchPhotosProgress render invoked');
@@ -26,16 +32,31 @@ class MatchPhotosProgress extends Component {
     let resolveInstructions = '';
     let resolveButton = '';
     if (this.props.photoMatchingComplete) {
-      resolveInstructions = (
-        <p>Click the 'Compare' button to manually match photos.</p>
-      );
-      resolveButton =
-                (<RaisedButton
-                  onClick={this.handleComparePhotos.bind(this)}
-                  label="Compare"
-                  style={style}
-                />)
-            ;
+      if (this.props.photoCompareList.length === 0) {
+        resolveInstructions = (
+          <p>Comparisons complete - click below to save the results.</p>
+        );
+        resolveButton =
+          (<RaisedButton
+            label="Save Results"
+            onClick={this.handleSaveResults.bind(this)}
+            style={style}
+          />)
+        ;
+
+      }
+      else {
+        resolveInstructions = (
+          <p>Click the 'Compare' button to manually match photos.</p>
+        );
+        resolveButton =
+          (<RaisedButton
+            onClick={this.handleComparePhotos.bind(this)}
+            label="Compare"
+            style={style}
+          />)
+        ;
+      }
     }
     else {
       progressIndicator =
@@ -81,6 +102,8 @@ MatchPhotosProgress.propTypes = {
   unsuccessfulMatches: React.PropTypes.number.isRequired,
   photoMatchingComplete: React.PropTypes.bool.isRequired,
   photoCompareList: React.PropTypes.array.isRequired,
+  saveResults: React.PropTypes.func.isRequired,
+
 };
 
 export default MatchPhotosProgress;
