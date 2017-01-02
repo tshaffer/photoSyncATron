@@ -1,3 +1,5 @@
+const ConvertTiff = require('tiff-to-png');
+
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
 
@@ -33,6 +35,24 @@ class ComparePhotos extends Component {
 
   updatePhotosToCompare() {
     const diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
+
+    debugger;
+    const options = {
+      logLevel: 1
+    };
+
+    const converter = new ConvertTiff(options);
+
+    const tiffs = [
+      diskImage
+    ];
+    const location = 'C:\\Users\\Ted\\Documents\\PizzaFolder';
+
+    converter.convertArray(tiffs, location);
+
+
+
+
     const googleImage =
       this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
 

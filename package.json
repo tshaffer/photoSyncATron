@@ -36,6 +36,7 @@
     "recursive-readdir": "^2.1.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
+    "tiff-to-png": "^1.0.5",
     "xml2js": "^0.4.17"
   }
 }
