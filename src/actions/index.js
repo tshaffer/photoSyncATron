@@ -5,6 +5,7 @@ const recursive = require('recursive-readdir');
 const exifImage = require('exif').ExifImage;
 const jpegJS = require('jpeg-js');
 const deepcopy = require("deepcopy");
+const sizeOf = require('image-size');
 
 import * as utils from '../utilities/utils';
 
@@ -378,7 +379,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   let numDuplicates = 0;
   googlePhotos.forEach( (googlePhoto) => {
 
-    const name = googlePhoto.name;
+    const name = googlePhoto.name.toLowerCase();
 
     if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
       photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
@@ -398,7 +399,6 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
       const nameWithoutExtension = name.slice(0, -4);
       if (utils.isNumeric(nameWithoutExtension)) {
         const partialName = name.slice(name.length - 6);
-        // const altKey = partialName + googlePhoto.width + googlePhoto.height;
         const altKey = partialName;
         if (!photosByAltKey[altKey]) {
           photosByAltKey[altKey] = [];
@@ -407,7 +407,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
       }
     }
 
-    // TODO - the next line (converting to lwoer case) should be done when initially retrieving google photos from the cloud
+    // TODO - the next line (converting to lower case) should be done when initially retrieving google photos from the cloud
     googlePhoto.name = googlePhoto.name.toLowerCase();
     if (photosByName[name]) {
       photosByName[name].photoList.push(googlePhoto);
@@ -455,16 +455,16 @@ function setSearchResult(dispatch, photoFile, success, reason, error) {
 
 function findPhotoByKey(dispatch, photoFile) {
   const name = path.basename(photoFile);
-  const jpegData = fs.readFileSync(photoFile);
+
   try {
-    const rawImageData = jpegJS.decode(jpegData);
+    const dimensions = sizeOf(photoFile);
 
     photoDimensionsByName[photoFile] = {
-      width: rawImageData.width.toString(),
-      height: rawImageData.height.toString()
+      width: dimensions.width.toString(),
+      height: dimensions.height.toString()
     };
 
-    const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
+    const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
     if (photosByKey[key]) {
       return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
     }
@@ -474,7 +474,28 @@ function findPhotoByKey(dispatch, photoFile) {
   } catch (jpegJSError) {
     return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
   }
+
 }
+//   const jpegData = fs.readFileSync(photoFile);
+//   try {
+//     const rawImageData = jpegJS.decode(jpegData);
+//
+//     photoDimensionsByName[photoFile] = {
+//       width: rawImageData.width.toString(),
+//       height: rawImageData.height.toString()
+//     };
+//
+//     const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
+//     if (photosByKey[key]) {
+//       return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
+//     }
+//     else {
+//       return setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
+//     }
+//   } catch (jpegJSError) {
+//     return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
+//   }
+// }
 
 function findPhotoByName(photoFile) {
 
@@ -692,7 +713,7 @@ function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
 
-    // photoFiles = photoFiles.slice(0, 4);
+    // photoFiles = photoFiles.slice(0, 10);
 
     const numPhotoFiles = photoFiles.length;
     console.log('poo');
