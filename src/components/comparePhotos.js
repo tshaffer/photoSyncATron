@@ -47,7 +47,8 @@ class ComparePhotos extends Component {
       const options = {
         logLevel: 1
       };
-      const location = 'C:\\Users\\Ted\\Documents\\PizzaFolder';
+
+      const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
       const converter = new ConvertTiff(options);
 
       converter.complete = function(errors, total){
@@ -57,7 +58,7 @@ class ComparePhotos extends Component {
           return;
         }
         let fileNameWithoutExtension = path.basename(diskImage, '.tif');
-        diskImage = path.join(location, fileNameWithoutExtension, 'page1.png');
+        diskImage = path.join(targetDir, fileNameWithoutExtension, 'page1.png');
         self.setState({
           diskImage,
           googleImage
@@ -65,7 +66,7 @@ class ComparePhotos extends Component {
         return;
       };
 
-      converter.convertArray([diskImage], location);
+      converter.convertArray([diskImage], targetDir);
     }
     else {
       this.setState({
