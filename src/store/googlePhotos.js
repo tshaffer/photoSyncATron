@@ -33,7 +33,7 @@ const googlePhotoAlbums = [
 function parseGooglePhoto(photo) {
 
   const photoId = photo['gphoto:id'][0];
-  const name = photo.title[0]._;
+  const name = photo.title[0]._.toLowerCase();
   const url = photo['media:group'][0]['media:content'][0].$.url;
   const width = photo["gphoto:width"][0];
   const height = photo["gphoto:height"][0];
@@ -110,7 +110,6 @@ function parseAlbums(albums) {
     const albumIndex = googlePhotoAlbums.indexOf(albumName);
     if (albumIndex >= 0) {
       const albumId = album['gphoto:id'][0];
-      // console.log("albumId: ", albumId, " albumName: ", googlePhotoAlbums[albumIndex]);
       googlePhotoAlbumIds.push(albumId);
     }
   });
@@ -224,21 +223,17 @@ export function buildPhotoDictionaries(dispatch, getState) {
   let photosByExifDateTime = {};
   let photosByName = {};
   let photosByAltKey = {};
-  // let photoDimensionsByName = {};
 
   let numDuplicates = 0;
   let googlePhotos = getState().googlePhotos.googlePhotos;
 
   googlePhotos.forEach( (googlePhoto) => {
 
-    // TODO - do this on reading from google photos
-    const name = googlePhoto.name.toLowerCase();
-
     if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
       photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
     }
 
-    const key = (name + '-' + googlePhoto.width + googlePhoto.height).toLowerCase();
+    const key = (name + '-' + googlePhoto.width + googlePhoto.height);
     if (photosByKey[key]) {
       numDuplicates++;
     }
@@ -259,9 +254,6 @@ export function buildPhotoDictionaries(dispatch, getState) {
         photosByAltKey[altKey].push(googlePhoto);
       }
     }
-
-    // TODO - the next line (converting to lower case) should be done when initially retrieving google photos from the cloud
-    googlePhoto.name = googlePhoto.name.toLowerCase();
 
     if (photosByName[name]) {
       photosByName[name].photoList.push(googlePhoto);
