@@ -3,7 +3,6 @@ const fs = require('fs');
 import axios from 'axios';
 const recursive = require('recursive-readdir');
 const exifImage = require('exif').ExifImage;
-const jpegJS = require('jpeg-js');
 const deepcopy = require("deepcopy");
 const sizeOf = require('image-size');
 
@@ -471,31 +470,10 @@ function findPhotoByKey(dispatch, photoFile) {
     else {
       return setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
     }
-  } catch (jpegJSError) {
-    return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
+  } catch (sizeOfError) {
+    return setSearchResult(dispatch, photoFile, false, 'sizeOfError', sizeOfError);
   }
-
 }
-//   const jpegData = fs.readFileSync(photoFile);
-//   try {
-//     const rawImageData = jpegJS.decode(jpegData);
-//
-//     photoDimensionsByName[photoFile] = {
-//       width: rawImageData.width.toString(),
-//       height: rawImageData.height.toString()
-//     };
-//
-//     const key = (name + '-' + rawImageData.width.toString() + rawImageData.height.toString()).toLowerCase();
-//     if (photosByKey[key]) {
-//       return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
-//     }
-//     else {
-//       return setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
-//     }
-//   } catch (jpegJSError) {
-//     return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
-//   }
-// }
 
 function findPhotoByName(photoFile) {
 
