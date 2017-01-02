@@ -188,21 +188,21 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
 
     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
     if (photosByKey[key]) {
-      return setSearchResult(dispatch, drivePhotoFile, true, 'keyMatch', '');
+      return setSearchResult(dispatch, getState, drivePhotoFile, true, 'keyMatch', '');
     }
     else {
-      return setSearchResult(dispatch, drivePhotoFile, false, 'noKeyMatch', '');
+      return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noKeyMatch', '');
     }
   } catch (sizeOfError) {
-    return setSearchResult(dispatch, drivePhotoFile, false, 'sizeOfError', sizeOfError);
+    return setSearchResult(dispatch, getState, drivePhotoFile, false, 'sizeOfError', sizeOfError);
   }
 }
 
-function setSearchResult(dispatch, photoFile, success, reason, error) {
+function setSearchResult(dispatch, getState, photoFile, success, reason, error) {
 
   let photoList = null;
   if (!success) {
-    const photoFiles = findPhotoByName(photoFile);
+    const photoFiles = findPhotoByName(getState, photoFile);
     if (photoFiles) {
       photoList = photoFiles;
     }
@@ -237,7 +237,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
             searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
           }
           else {
-            searchResult = setSearchResult(dispatch, drivePhotoFile, false, 'noExifNotJpg', error);
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noExifNotJpg', error);
           }
           resolve(searchResult);
         }
@@ -252,14 +252,14 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
           const exifDateTime = utils.getDateFromString(dateTimeStr);
           const isoString = exifDateTime.toISOString();
           if (photosByExifDateTime[isoString]) {
-            searchResult = setSearchResult(dispatch, drivePhotoFile, true, 'exifMatch', '');
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, true, 'exifMatch', '');
           }
           else {
             if (utils.isJpegFile(drivePhotoFile)) {
               searchResult = findPhotoByKey(dispatch, drivePhotoFile);
             }
             else {
-              searchResult = setSearchResult(dispatch, drivePhotoFile, false, 'noExifMatch', '');
+              searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noExifMatch', '');
             }
           }
           searchResult.isoString = isoString;
@@ -267,7 +267,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         }
       });
     } catch (error) {
-      searchResult = setSearchResult(dispatch, drivePhotoFile, false, 'other', error);
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'other', error);
       resolve(searchResult);
     }
   });
@@ -290,7 +290,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotoFiles = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  // drivePhotoFiles = drivePhotoFiles.slice(0, 4);
+  drivePhotoFiles = drivePhotoFiles.slice(0, 4);
 
   const numPhotoFiles = drivePhotoFiles.length;
   console.log("Number of photos on drive: ", numPhotoFiles);

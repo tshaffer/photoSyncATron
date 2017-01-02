@@ -93,7 +93,7 @@ export default function(state = initialState, action) {
     case SET_DRIVE_PHOTOS:
       {
         newState = Object.assign({}, state);
-        newState.drivePhotos = action.drivePhotos;
+        newState.drivePhotos = action.payload;
         newState.numPhotoFiles = newState.drivePhotos.length;
         return newState;
       }

@@ -20,7 +20,7 @@ class MatchPhotosProgressContainer extends Component {
 
 function mapStateToProps (state) {
   return {
-    numPhotoFiles: state.matchPhotosData.numPhotoFiles,
+    numPhotoFiles: state.drivePhotos.numPhotoFiles,
     successfulMatches: state.matchPhotosData.successfulMatches,
     unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches,
     photoMatchingComplete: state.matchPhotosData.photoMatchingComplete,

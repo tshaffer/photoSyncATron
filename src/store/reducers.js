@@ -1,12 +1,12 @@
 import {combineReducers} from 'redux';
 import GooglePhotosReducer from './googlePhotos';
 import DrivePhotosReducer from './drivePhotos';
-import PhotoMatcherReducer from './photoMatcher';
+import PhotosMatcherReducer from './photoMatcher';
 
 const rootReducer = combineReducers({
   googlePhotos: GooglePhotosReducer,
   drivePhotos: DrivePhotosReducer,
-  photoMatchingData: PhotoMatcherReducer
+  matchPhotosData: PhotosMatcherReducer
 });
 
 export default rootReducer;

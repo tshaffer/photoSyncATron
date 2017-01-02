@@ -17,9 +17,9 @@ class Landing extends Component {
     this.props.onLoadGooglePhotos();
   }
 
-  handleReadDrivePhotos() {
+  handleMatchPhotos() {
     const volumeName = this.volumeNameField.input.value;
-    this.props.onReadPhotosFromDrive(volumeName);
+    this.props.onMatchPhotos(volumeName);
     hashHistory.push('/matchPhotosProgressContainer');
   }
 
@@ -63,7 +63,7 @@ class Landing extends Component {
                 floatingLabelFixed={true}
               />
               <RaisedButton
-                onClick={this.handleReadDrivePhotos.bind(this)}
+                onClick={this.handleMatchPhotos.bind(this)}
                 label="Match Photos"
                 style={style}
               />
@@ -81,7 +81,7 @@ class Landing extends Component {
 
 Landing.propTypes = {
   onLoadGooglePhotos: React.PropTypes.func.isRequired,
-  onReadPhotosFromDrive: React.PropTypes.func.isRequired,
+  onMatchPhotos: React.PropTypes.func.isRequired,
   onReadGooglePhotos: React.PropTypes.func.isRequired,
   googlePhotos: React.PropTypes.array.isRequired
 };

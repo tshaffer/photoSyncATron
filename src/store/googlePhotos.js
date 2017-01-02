@@ -227,7 +227,7 @@ export function buildPhotoDictionaries(dispatch, getState) {
   // let photoDimensionsByName = {};
 
   let numDuplicates = 0;
-  let googlePhotos = getState().googlePhotos;
+  let googlePhotos = getState().googlePhotos.googlePhotos;
 
   googlePhotos.forEach( (googlePhoto) => {
 
@@ -293,8 +293,7 @@ export function buildPhotoDictionaries(dispatch, getState) {
 export function loadGooglePhotos() {
 
   console.log("index.js::loadGooglePhotos");
-  return function(dispatch, getState) {
-    console.log(getState);
+  return function(dispatch, _) {
 
     // initial implementation: read all photos from google; don't read from file and
     // therefore don't merge photos from file with photos from cloud.
@@ -305,8 +304,6 @@ export function loadGooglePhotos() {
       googlePhotosSpec.photos = photosFromGoogle;
 
       dispatch(addGooglePhotos(photosFromGoogle));
-      let state = getState();
-      console.log(state);
 
       // // store google photo information in a file
       const googlePhotosSpecStr = JSON.stringify(googlePhotosSpec, null, 2);
@@ -321,7 +318,7 @@ export function loadGooglePhotos() {
 
 export function readGooglePhotos() {
 
-  return function (dispatch, getState) {
+  return function (dispatch, _) {
 
     let promise = readGooglePhotoFiles('googlePhotos.json');
     promise.then((googlePhotosStr) => {
@@ -336,8 +333,6 @@ export function readGooglePhotos() {
       });
 
       dispatch(addGooglePhotos(googlePhotos));
-      let state = getState();
-      console.log(state);
     }, (reason) => {
       console.log('Error reading allGooglePhotos.json: ', reason);
     });

@@ -4,11 +4,11 @@ import Landing from '../components/landing';
 
 import { loadGooglePhotos } from '../store/googlePhotos';
 import { readGooglePhotos } from '../store/googlePhotos';
-import { readPhotosFromDrive } from '../store/drivePhotos';
+import { matchPhotos } from '../store/photoMatcher';
 
 function mapStateToProps (state) {
   return {
-    googlePhotos: state.googlePhotos,
+    googlePhotos: state.googlePhotos.googlePhotos,
   };
 }
 
@@ -20,8 +20,8 @@ function mapDispatchToProps(dispatch) {
     onReadGooglePhotos: () => {
       dispatch(readGooglePhotos());
     },
-    onReadPhotosFromDrive: (volumeName) => {
-      dispatch(readPhotosFromDrive(volumeName));
+    onMatchPhotos: (volumeName) => {
+      dispatch(matchPhotos(volumeName));
     }
   };
 }
