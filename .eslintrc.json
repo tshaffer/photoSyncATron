@@ -38,7 +38,7 @@
       1, //GJO turn to warn until semi colon issue resolved
       "always"
     ],
-    "max-len": [1, 120, {"ignoreComments": true}],
+    "max-len": [1, 240, {"ignoreComments": true}],
     "space-infix-ops": [1],
     "eqeqeq": [1, "smart"], //GJO: warning for now
     "react/display-name": [1, {"ignoreTranspilerName": false}],

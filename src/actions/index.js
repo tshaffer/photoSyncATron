@@ -378,6 +378,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
   let numDuplicates = 0;
   googlePhotos.forEach( (googlePhoto) => {
 
+    // TODO - do this on reading from google photos
     const name = googlePhoto.name.toLowerCase();
 
     if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
@@ -408,6 +409,7 @@ function buildPhotoDictionaries(dispatch, googlePhotos) {
 
     // TODO - the next line (converting to lower case) should be done when initially retrieving google photos from the cloud
     googlePhoto.name = googlePhoto.name.toLowerCase();
+
     if (photosByName[name]) {
       photosByName[name].photoList.push(googlePhoto);
     }
@@ -477,8 +479,38 @@ function findPhotoByKey(dispatch, photoFile) {
 
 function findPhotoByName(photoFile) {
 
+  // photosByName is a structure mapping google photo names to google photos
+
+  // cases for possible match between file on drive and google photo
+  // case 1 - look for a match with the file name as read from the drive
+  // case 2 - look for a match between a tif file on the drive and a corresponding jpg google file
+  // case 3 - look for a match between the file name from the drive and the modified google file names (3301.jpg => 01.jpg for example)
+
+  // return value
+  //    photoFiles
+  //      object that contains
+  //        photoFile - path to photo on drive
+  //            QUESTION - in the case of .tif files, should this be the original path, or the path as modified to have the .jpg extension?
+  //            I think it should have the original path.
+  //        photoList
+  //          array of google photos that match photoFile (see cases above)
+
+  let nameWithoutExtension = '';
   let photoFiles = null;
-  const fileName = path.basename(photoFile).toLowerCase();
+
+  let fileName = path.basename(photoFile).toLowerCase();
+
+  const extension = path.extname(photoFile);
+  if (extension !== '') {
+    nameWithoutExtension = fileName.slice(0, -4);
+  }
+
+  if (!photosByName[fileName]) {
+    if (extension === '.tif') {
+      fileName = nameWithoutExtension + ".jpg";
+    }
+  }
+
   if (photosByName[fileName]) {
 
     let photoList = null;
@@ -491,8 +523,8 @@ function findPhotoByName(photoFile) {
     };
   }
 
+  // TODO - use path.extname to figure stuff out (check whether or not it's blank) rather than length of string (if it makes sense)
   if (fileName.length >= 6) {
-    const nameWithoutExtension = fileName.slice(0, -4);
     if (utils.isNumeric(nameWithoutExtension)) {
       const partialName = fileName.slice(fileName.length - 6);
       if (photosByAltKey[partialName]) {
@@ -691,7 +723,7 @@ function matchPhotoFiles(dispatch) {
 
   getPhotoFilesFromDrive().then( (photoFiles) => {
 
-    // photoFiles = photoFiles.slice(0, 10);
+    photoFiles = photoFiles.slice(0, 10);
 
     const numPhotoFiles = photoFiles.length;
     console.log('poo');
