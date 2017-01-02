@@ -74,10 +74,11 @@ function saveSearchResults(dispatch, searchResults) {
 
     if (searchResult.success) {
       numMatchesFound++;
+      matchPhotosResults[searchResult.photoFile] = 'matchFound';
     }
     else if (searchResult.photoList) {
       numWithPhotoList++;
-      matchPhotosResults[searchResult.photoFile] = 'ManualMatchPending';
+      matchPhotosResults[searchResult.photoFile] = 'manualMatchPending';
     }
     else {
       matchPhotosResults[searchResult.photoFile] = searchResult.reason;
@@ -191,10 +192,10 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
       return setSearchResult(dispatch, getState, drivePhotoFile, true, 'keyMatch', '');
     }
     else {
-      return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noKeyMatch', '');
+      return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', '');
     }
   } catch (sizeOfError) {
-    return setSearchResult(dispatch, getState, drivePhotoFile, false, 'sizeOfError', sizeOfError);
+    return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', sizeOfError);
   }
 }
 
@@ -237,7 +238,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
             searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
           }
           else {
-            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noExifNotJpg', error);
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', error);
           }
           resolve(searchResult);
         }
@@ -259,7 +260,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
               searchResult = findPhotoByKey(dispatch, drivePhotoFile);
             }
             else {
-              searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noExifMatch', '');
+              searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', '');
             }
           }
           searchResult.isoString = isoString;
@@ -267,7 +268,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         }
       });
     } catch (error) {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'other', error);
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', error);
       resolve(searchResult);
     }
   });
@@ -375,8 +376,8 @@ export function saveResults() {
       // update data structure
       searchResults.lastUpdated = new Date().toLocaleDateString();
       const state = getState();
-      const volumeName = state.volumeName;
-      searchResults.Volumes[volumeName] = state.driveMatchResults;
+      const volumeName = state.drivePhotos.volumeName;
+      searchResults.Volumes[volumeName] = state.matchPhotosData.driveMatchResults;
 
       // store search results in a file
       const searchResultsStr = JSON.stringify(searchResults, null, 2);

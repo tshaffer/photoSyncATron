@@ -50,24 +50,6 @@ export function setDrivePhotos(drivePhotos) {
 // ------------------------------------
 // Actions
 // ------------------------------------
-// export function readPhotosFromDrive(volumeName) {
-//
-//   return function (dispatch, getState) {
-//
-//     recursive("d:/", (err, files) => {
-//       if (err) {
-//         console.log("getPhotoFilesFromDrive: error");
-//         reject(err);
-//       }
-//       files = files.filter(utils.isPhotoFile);
-//       resolve(files);
-//     });
-//
-//     // let state = getState();
-//     // buildPhotoDictionaries(dispatch, state.googlePhotos);
-//     // matchPhotoFiles(dispatch);
-//   };
-// }
 
 // ------------------------------------
 // Reducer
