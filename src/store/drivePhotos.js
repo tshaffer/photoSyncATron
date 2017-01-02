@@ -85,18 +85,18 @@ export default function(state = initialState, action) {
   switch (action.type) {
 
     case SET_VOLUME_NAME:
-    {
-      newState = Object.assign({}, state);
-      newState.volumeName = action.payload;
-      return newState;
-    }
+      {
+        newState = Object.assign({}, state);
+        newState.volumeName = action.payload;
+        return newState;
+      }
     case SET_DRIVE_PHOTOS:
-    {
-      newState = Object.assign({}, state);
-      newState.drivePhotos = action.drivePhotos;
-      newState.numPhotoFiles = newState.drivePhotos.length;
-      return newState;
-    }
+      {
+        newState = Object.assign({}, state);
+        newState.drivePhotos = action.drivePhotos;
+        newState.numPhotoFiles = newState.drivePhotos.length;
+        return newState;
+      }
   }
 
   return state;

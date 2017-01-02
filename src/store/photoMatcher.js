@@ -394,7 +394,10 @@ const initialState = {
   successfulMatches: 0,
   unsuccessfulMatches: 0,
   photoMatchingComplete: false,
-  photoCompareList: []
+  photoCompareList: [],
+  driveMatchResults: false,
+  matchFound: false,
+  noMatchFound: false
 };
 
 export default function(state = initialState, action) {
@@ -422,6 +425,23 @@ export default function(state = initialState, action) {
     case SET_PHOTO_COMPARE_LIST: {
       let newState = Object.assign({}, state);
       newState.photoCompareList = action.payload;
+      return newState;
+    }
+    case SET_DRIVE_MATCH_RESULTS: {
+      let newState = Object.assign({}, state);
+      newState.driveMatchResults = action.payload;
+      return newState;
+    }
+    case MATCH_FOUND: {
+      debugger;
+      let newState = Object.assign({}, state);
+      // delete newState[action.payload];
+      return newState;
+    }
+    case NO_MATCH_FOUND: {
+      debugger;
+      let newState = Object.assign({}, state);
+      // newState[action.payload] = 'NoManualMatch';
       return newState;
     }
   }

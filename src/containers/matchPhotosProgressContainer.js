@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { saveResults } from '../actions/index';
+import { saveResults } from '../store/photoMatcher';
 
 import MatchPhotosProgress from '../components/matchPhotosProgress';
 

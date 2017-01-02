@@ -344,7 +344,6 @@ export function readGooglePhotos() {
   };
 }
 
-
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -385,25 +384,24 @@ const initialState = {
 
 export default function(state = initialState, action) {
 
-  let newState;
-
   switch (action.type) {
 
     case ADD_GOOGLE_PHOTOS:
-    {
-      newState = Object.assign({}, state);
-      newState.googlePhotos = action.payload;
-      return newState;
-    }
+      {
+        let newState = Object.assign({}, state);
+        newState.googlePhotos = action.payload;
+        return newState;
+      }
     case SET_GOOGLE_PHOTO_DICTIONARIES:
-    {
-      newState = Object.assign({}, state);
-      newState.photosByExifDateTime = payload.photosByExifDateTime;
-      newState.photosByKey = payload.photosByKey;
-      nweState.photosByName = payload.photosByName;
-      newState.photosByAltKey = payload.photosByAltKey;
-      return newState;
-    }
+      {
+        let payload = action.payload;
+        let newState = Object.assign({}, state);
+        newState.photosByExifDateTime = payload.photosByExifDateTime;
+        newState.photosByKey = payload.photosByKey;
+        newState.photosByName = payload.photosByName;
+        newState.photosByAltKey = payload.photosByAltKey;
+        return newState;
+      }
   }
 
   return state;

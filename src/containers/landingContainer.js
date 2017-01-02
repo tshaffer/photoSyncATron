@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import Landing from '../components/landing';
 
-import { loadGooglePhotos } from '../actions/index';
-import { readGooglePhotos } from '../actions/index';
-import { readPhotosFromDrive } from '../actions/index';
+import { loadGooglePhotos } from '../store/googlePhotos';
+import { readGooglePhotos } from '../store/googlePhotos';
+import { readPhotosFromDrive } from '../store/drivePhotos';
 
 function mapStateToProps (state) {
   return {

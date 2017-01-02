@@ -51,7 +51,8 @@ class ComparePhotos extends Component {
       const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
       const converter = new ConvertTiff(options);
 
-      converter.complete = function(errors, total){
+      // converter.complete = function(errors, total){
+      converter.complete = function(errors, _){
 
         if (errors && errors.length > 0) {
           console.log("converter errors: ", errors);
