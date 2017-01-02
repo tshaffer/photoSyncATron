@@ -2,7 +2,8 @@ const path = require('path');
 const fs = require('fs');
 import axios from 'axios';
 const recursive = require('recursive-readdir');
-const exifImage = require('exif').ExifImage;
+// const exifImage = require('exif').ExifImage;
+const exif = require('fast-exif');
 const deepcopy = require("deepcopy");
 const sizeOf = require('image-size');
 
@@ -528,49 +529,100 @@ function matchPhotoFile(dispatch, photoFile) {
   let searchResult = {};
 
   return new Promise( (resolve) => {
-    try {
-      new exifImage({ image : photoFile }, function (error, exifData) {
+    exif.read(photoFile).then( (exifData) => {
+      if (!exifData) {
+        console.log('no exif data');
+      }
 
-        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+      if (!exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
 
-          // no exif date - search in photosByKey if it's a jpeg file
+        console.log('no exif date data');
+
+        // no exif date - search in photosByKey if it's a jpeg file
+        if (utils.isJpegFile(photoFile)) {
+          searchResult = findPhotoByKey(dispatch, photoFile);
+        }
+        else {
+          searchResult = setSearchResult(dispatch, photoFile, false, 'noExifNotJpg', error);
+        }
+        resolve(searchResult);
+      }
+      else {
+        console.log('exif data');
+
+        let dateTimeStr = '';
+        if (exifData.exif.CreateDate) {
+          dateTimeStr = exifData.exif.CreateDate;
+        }
+        else {
+          dateTimeStr = exifData.exif.DateTimeOriginal;
+        }
+        const exifDateTime = utils.getDateFromString(dateTimeStr);
+        const isoString = exifDateTime.toISOString();
+        if (photosByExifDateTime[isoString]) {
+          searchResult = setSearchResult(dispatch, photoFile, true, 'exifMatch', '');
+        }
+        else {
           if (utils.isJpegFile(photoFile)) {
             searchResult = findPhotoByKey(dispatch, photoFile);
           }
           else {
-            searchResult = setSearchResult(dispatch, photoFile, false, 'noExifNotJpg', error);
+            searchResult = setSearchResult(dispatch, photoFile, false, 'noExifMatch', '');
           }
-          resolve(searchResult);
         }
-        else {
-          let dateTimeStr = '';
-          if (exifData.exif.CreateDate) {
-            dateTimeStr = exifData.exif.CreateDate;
-          }
-          else {
-            dateTimeStr = exifData.exif.DateTimeOriginal;
-          }
-          const exifDateTime = utils.getDateFromString(dateTimeStr);
-          const isoString = exifDateTime.toISOString();
-          if (photosByExifDateTime[isoString]) {
-            searchResult = setSearchResult(dispatch, photoFile, true, 'exifMatch', '');
-          }
-          else {
-            if (utils.isJpegFile(photoFile)) {
-              searchResult = findPhotoByKey(dispatch, photoFile);
-            }
-            else {
-              searchResult = setSearchResult(dispatch, photoFile, false, 'noExifMatch', '');
-            }
-          }
-          searchResult.isoString = isoString;
-          resolve(searchResult);
-        }
-      });
-    } catch (error) {
+        searchResult.isoString = isoString;
+        resolve(searchResult);
+      }
+    })
+    .catch( (error) => {
+      console.log('exif error:', error);
       searchResult = setSearchResult(dispatch, photoFile, false, 'other', error);
       resolve(searchResult);
-    }
+    });
+
+
+    //   new exifImage({ image : photoFile }, function (error, exifData) {
+    //
+    //     if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+    //
+    //       // no exif date - search in photosByKey if it's a jpeg file
+    //       if (utils.isJpegFile(photoFile)) {
+    //         searchResult = findPhotoByKey(dispatch, photoFile);
+    //       }
+    //       else {
+    //         searchResult = setSearchResult(dispatch, photoFile, false, 'noExifNotJpg', error);
+    //       }
+    //       resolve(searchResult);
+    //     }
+    //     else {
+    //       let dateTimeStr = '';
+    //       if (exifData.exif.CreateDate) {
+    //         dateTimeStr = exifData.exif.CreateDate;
+    //       }
+    //       else {
+    //         dateTimeStr = exifData.exif.DateTimeOriginal;
+    //       }
+    //       const exifDateTime = utils.getDateFromString(dateTimeStr);
+    //       const isoString = exifDateTime.toISOString();
+    //       if (photosByExifDateTime[isoString]) {
+    //         searchResult = setSearchResult(dispatch, photoFile, true, 'exifMatch', '');
+    //       }
+    //       else {
+    //         if (utils.isJpegFile(photoFile)) {
+    //           searchResult = findPhotoByKey(dispatch, photoFile);
+    //         }
+    //         else {
+    //           searchResult = setSearchResult(dispatch, photoFile, false, 'noExifMatch', '');
+    //         }
+    //       }
+    //       searchResult.isoString = isoString;
+    //       resolve(searchResult);
+    //     }
+    //   });
+    // } catch (error) {
+    //   searchResult = setSearchResult(dispatch, photoFile, false, 'other', error);
+    //   resolve(searchResult);
+    // }
   });
 }
 
