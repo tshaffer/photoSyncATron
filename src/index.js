@@ -10,7 +10,7 @@ import { Router, hashHistory } from 'react-router';
 import { Route } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import reducers from './reducers';
+import reducers from './store/reducers';
 
 import App from './components/app';
 import MatchPhotosProgressContainer from './containers/matchPhotosProgressContainer';
