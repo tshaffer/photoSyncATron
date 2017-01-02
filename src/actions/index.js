@@ -4,6 +4,7 @@ import axios from 'axios';
 const recursive = require('recursive-readdir');
 const exifImage = require('exif').ExifImage;
 const jpegJS = require('jpeg-js');
+const deepcopy = require("deepcopy");
 
 import * as utils from '../utilities/utils';
 
@@ -468,7 +469,11 @@ function findPhotoByKey(dispatch, photoFile) {
       return setSearchResult(dispatch, photoFile, true, 'keyMatch', '');
     }
     else {
-      return setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
+      const results = setSearchResult(dispatch, photoFile, false, 'noKeyMatch', '');
+      // if (photoFile === 'd:\\Complete\\Feb_98_02\\00.jpg') {
+      //   debugger;
+      // }
+      return results;
     }
   } catch (jpegJSError) {
     return setSearchResult(dispatch, photoFile, false, 'jpegJSError', jpegJSError);
@@ -477,14 +482,23 @@ function findPhotoByKey(dispatch, photoFile) {
 
 function findPhotoByName(photoFile) {
 
+  // if (photoFile === 'd:\\Complete\\Feb_98_02\\00.jpg') {
+  //   debugger;
+  // }
+
   let photoFiles = null;
 
   const fileName = path.basename(photoFile).toLowerCase();
 
   if (photosByName[fileName]) {
+
+    let photoList = null;
+    if (photosByName[fileName].photoList) {
+      photoList = deepcopy(photosByName[fileName].photoList);
+    }
     photoFiles = {
       photoFile,
-      photoList: photosByName[fileName].photoList
+      photoList
     };
   }
 
@@ -492,6 +506,12 @@ function findPhotoByName(photoFile) {
     const nameWithoutExtension = fileName.slice(0, -4);
     if (utils.isNumeric(nameWithoutExtension)) {
       const partialName = fileName.slice(fileName.length - 6);
+
+      // if (partialName === '00.jpg') {
+      //   debugger;
+      // }
+
+
       if (photosByAltKey[partialName]) {
         if (!photoFiles) {
           photoFiles = {
@@ -506,6 +526,7 @@ function findPhotoByName(photoFile) {
             if (googlePhoto.width === photoDimensionsByName[photoFile].width &&
               googlePhoto.height === photoDimensionsByName[photoFile].height) {
               photoFiles.photoList.unshift(googlePhoto);
+              googlePhotoAdded = true;
             }
           }
           if (!googlePhotoAdded) {
@@ -574,12 +595,32 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
 
   let photoCompareList = [];
 
-  searchResults.forEach( (searchResult) => {
+  // searchResults.forEach( (searchResult, index) => {
+  //   if (searchResult.photoFile === 'd:\\Complete\\Feb_98_02\\00.jpg') {
+  //     console.log(index);
+  //     debugger;
+  //   }
+  // });
+
+    searchResults.forEach( (searchResult, index) => {
     if (searchResult.photoList) {
       let photoCompareItem = {};
       photoCompareItem.baseFile = searchResult.photoFile;
       photoCompareItem.photoList = searchResult.photoList.photoList;
       photoCompareList.push(photoCompareItem);
+
+      // if (searchResult.photoList.photoList.length === 9) {
+      //   console.log("item with 9 found");
+      //   console.log(index);
+      //   console.log(searchResult.photoFile);
+      //   debugger;
+      // }
+      // if (searchResult.photoList.photoList.length === 15) {
+      //   console.log("item with 15 found");
+      //   console.log(index);
+      //   console.log(searchResult.photoFile);
+      //   debugger;
+      // }
     }
   });
 
@@ -659,7 +700,13 @@ export function saveResults() {
 function matchAllPhotoFiles(dispatch, photoFiles) {
 
   let promises = [];
+  let index = 0;
   photoFiles.forEach( (photoFile) => {
+    // if (photoFile === 'd:\\Complete\\Feb_98_02\\00.jpg') {
+    //   console.log(index);
+    //   debugger;
+    // }
+    index++;
     let promise = matchPhotoFile(dispatch, photoFile);
     promises.push(promise);
   });
