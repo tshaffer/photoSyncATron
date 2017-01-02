@@ -1,3 +1,4 @@
+const path = require('path');
 const ConvertTiff = require('tiff-to-png');
 
 import React, { Component } from 'react';
@@ -34,32 +35,44 @@ class ComparePhotos extends Component {
   }
 
   updatePhotosToCompare() {
-    const diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
 
-    debugger;
-    const options = {
-      logLevel: 1
-    };
+    let self = this;
 
-    const converter = new ConvertTiff(options);
+    const googleImage = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
+    let diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
 
-    const tiffs = [
-      diskImage
-    ];
-    const location = 'C:\\Users\\Ted\\Documents\\PizzaFolder';
+    const extension = path.extname(diskImage);
+    if (extension === '.tif') {
+      // convert to jpeg for display
+      const options = {
+        logLevel: 1
+      };
+      const location = 'C:\\Users\\Ted\\Documents\\PizzaFolder';
+      const converter = new ConvertTiff(options);
 
-    converter.convertArray(tiffs, location);
+      converter.complete = function(errors, total){
 
+        if (errors && errors.length > 0) {
+          console.log("converter errors: ", errors);
+          return;
+        }
+        let fileNameWithoutExtension = path.basename(diskImage, '.tif');
+        diskImage = path.join(location, fileNameWithoutExtension, 'page1.png');
+        self.setState({
+          diskImage,
+          googleImage
+        });
+        return;
+      };
 
-
-
-    const googleImage =
-      this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
-
-    this.setState({
-      diskImage,
-      googleImage
-    });
+      converter.convertArray([diskImage], location);
+    }
+    else {
+      this.setState({
+        diskImage,
+        googleImage
+      });
+    }
   }
 
   moveToNextDrivePhoto() {
