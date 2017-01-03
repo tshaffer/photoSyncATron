@@ -72,17 +72,34 @@ function saveSearchResults(dispatch, searchResults) {
 
   searchResults.forEach( (searchResult) => {
 
-    if (searchResult.success) {
+    const path = searchResult.photoFile;
+
+    let resultData = {};
+
+    if (searchResult.googlePhotoFile) {
       numMatchesFound++;
-      matchPhotosResults[searchResult.photoFile] = 'matchFound';
+      resultData.result = 'matchFound';
+      const googlePhotoFile = searchResult.googlePhotoFile;
+      let googlePhoto = {};
+      if (googlePhotoFile.exifDateTime) {
+        googlePhoto.dateTime = googlePhotoFile.exifDateTime;
+      }
+      else {
+        googlePhoto.dateTime = googlePhotoFile.dateTime;
+      }
+      googlePhoto.name = googlePhotoFile.name;
+      googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
+      resultData.googlePhoto = googlePhoto;
     }
     else if (searchResult.photoList) {
       numWithPhotoList++;
-      matchPhotosResults[searchResult.photoFile] = 'manualMatchPending';
+      resultData.result = 'manualMatchPending';
     }
     else {
-      matchPhotosResults[searchResult.photoFile] = searchResult.reason;
+      resultData.result = searchResult.reason;
     }
+
+    matchPhotosResults[path] = resultData;
   });
 
   console.log('Total number of matches: ', numMatchesFound);
@@ -94,7 +111,7 @@ function saveSearchResults(dispatch, searchResults) {
 }
 
 
-function findPhotoByName(getState, photoFile) {
+function findPhotoByName(getState, pathOnDrive) {
 
   const photosByName = getState().googlePhotos.photosByName;
   const photosByAltKey = getState().googlePhotos.photosByAltKey;
@@ -118,9 +135,9 @@ function findPhotoByName(getState, photoFile) {
   let nameWithoutExtension = '';
   let photoFiles = null;
 
-  let fileName = path.basename(photoFile).toLowerCase();
+  let fileName = path.basename(pathOnDrive).toLowerCase();
 
-  const extension = path.extname(photoFile);
+  const extension = path.extname(pathOnDrive);
   if (extension !== '') {
     nameWithoutExtension = fileName.slice(0, -4);
   }
@@ -138,7 +155,7 @@ function findPhotoByName(getState, photoFile) {
       photoList = deepcopy(photosByName[fileName].photoList);
     }
     photoFiles = {
-      photoFile,
+      pathOnDrive,
       photoList
     };
   }
@@ -150,16 +167,16 @@ function findPhotoByName(getState, photoFile) {
       if (photosByAltKey[partialName]) {
         if (!photoFiles) {
           photoFiles = {
-            photoFile,
+            pathOnDrive,
             photoList: []
           };
         }
         photosByAltKey[partialName].forEach( (googlePhoto) => {
 
           let googlePhotoAdded = false;
-          if (photoDimensionsByName[photoFile]) {
-            if (googlePhoto.width === photoDimensionsByName[photoFile].width &&
-              googlePhoto.height === photoDimensionsByName[photoFile].height) {
+          if (photoDimensionsByName[pathOnDrive]) {
+            if (googlePhoto.width === photoDimensionsByName[pathOnDrive].width &&
+              googlePhoto.height === photoDimensionsByName[pathOnDrive].height) {
               photoFiles.photoList.unshift(googlePhoto);
               googlePhotoAdded = true;
             }
@@ -176,6 +193,7 @@ function findPhotoByName(getState, photoFile) {
 }
 
 function findPhotoByKey(dispatch, getState, drivePhotoFile) {
+
   const name = path.basename(drivePhotoFile);
   const photosByKey = getState().googlePhotos.photosByKey;
 
@@ -189,17 +207,23 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
 
     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
     if (photosByKey[key]) {
-      return setSearchResult(dispatch, getState, drivePhotoFile, true, 'keyMatch', '');
+      const googlePhotoFile = photosByKey[key];
+      return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
     }
     else {
-      return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', '');
+      return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
     }
   } catch (sizeOfError) {
-    return setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', sizeOfError);
+    return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
   }
 }
 
-function setSearchResult(dispatch, getState, photoFile, success, reason, error) {
+function setSearchResult(dispatch, getState, photoFile, googlePhotoFile, reason, error) {
+
+  let success = false;
+  if (googlePhotoFile) {
+    success = true;
+  }
 
   let photoList = null;
   if (!success) {
@@ -213,7 +237,7 @@ function setSearchResult(dispatch, getState, photoFile, success, reason, error) 
 
   return {
     photoFile,
-    success,
+    googlePhotoFile,
     reason,
     error,
     photoList
@@ -238,7 +262,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
             searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
           }
           else {
-            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', error);
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
           }
           resolve(searchResult);
         }
@@ -253,14 +277,15 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
           const exifDateTime = utils.getDateFromString(dateTimeStr);
           const isoString = exifDateTime.toISOString();
           if (photosByExifDateTime[isoString]) {
-            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, true, 'exifMatch', '');
+            const googlePhotoFile = photosByExifDateTime[isoString];
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'exifMatch', '');
           }
           else {
             if (utils.isJpegFile(drivePhotoFile)) {
-              searchResult = findPhotoByKey(dispatch, drivePhotoFile);
+              searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
             }
             else {
-              searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', '');
+              searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
             }
           }
           searchResult.isoString = isoString;
@@ -268,7 +293,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         }
       });
     } catch (error) {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, false, 'noMatch', error);
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
       resolve(searchResult);
     }
   });
@@ -291,7 +316,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotoFiles = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  drivePhotoFiles = drivePhotoFiles.slice(0, 4);
+  // drivePhotoFiles = drivePhotoFiles.slice(0, 40);
 
   const numPhotoFiles = drivePhotoFiles.length;
   console.log("Number of photos on drive: ", numPhotoFiles);
