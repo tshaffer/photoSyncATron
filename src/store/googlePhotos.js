@@ -229,6 +229,8 @@ export function buildPhotoDictionaries(dispatch, getState) {
 
   googlePhotos.forEach( (googlePhoto) => {
 
+    const name = googlePhoto.name;
+
     if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
       photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
     }
