@@ -23,6 +23,7 @@ const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
 const SET_DRIVE_MATCH_RESULTS = 'SET_DRIVE_MATCH_RESULTS';
 const MATCH_FOUND = 'MATCH_FOUND';
 const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
+const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 
 // ------------------------------------
 // Helper functions
@@ -353,6 +354,13 @@ function setPhotoMatchingComplete() {
   };
 }
 
+function setSearchResults(searchResults) {
+  return {
+    type: SET_SEARCH_RESULTS,
+    payload: searchResults
+  };
+}
+
 export function matchFound(photoFilePath, googlePhoto) {
   return {
     type: MATCH_FOUND,
@@ -380,25 +388,35 @@ export function matchPhotos(volumeName) {
 
   return function (dispatch, getState) {
 
-    // save the volume name for later use
-    dispatch(setVolumeName(volumeName));
+    // load prior search results
+    loadExistingSearchResults().then((searchResults) => {
 
-    // read the photo files from the drive
-    readDrivePhotoFiles().then( (drivePhotoFiles) => {
-      // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
-      // to wait for it to complete before moving on. true??
-      dispatch(setDrivePhotos(drivePhotoFiles));
-      // TODO - it's very possible that the following could be called via dispatch - I think it's completely synchronous
-      buildPhotoDictionaries(dispatch, getState);
-      matchPhotoFiles(dispatch, getState);
+      // store search results for use in comparisons
+      dispatch(setSearchResults(searchResults));
+
+      // store the volume name for later use
+      dispatch(setVolumeName(volumeName));
+
+      // read the photo files from the drive
+      readDrivePhotoFiles().then( (drivePhotoFiles) => {
+        // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
+        // to wait for it to complete before moving on. true??
+        dispatch(setDrivePhotos(drivePhotoFiles));
+        // TODO - it's very possible that the following could be called via dispatch - I think it's completely synchronous
+        buildPhotoDictionaries(dispatch, getState);
+        matchPhotoFiles(dispatch, getState);
+      });
+      // TODO catch errors
     });
-    // TODO catch errors
   };
 }
 
 export function saveResults() {
 
   return function (_, getState) {
+
+    debugger;
+    // no longer load results here - they were loaded earlier
 
     loadExistingSearchResults().then((searchResults) => {
       // update data structure
