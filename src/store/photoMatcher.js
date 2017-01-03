@@ -397,8 +397,7 @@ const initialState = {
   photoMatchingComplete: false,
   photoCompareList: [],
   driveMatchResults: false,
-  matchFound: false,
-  noMatchFound: false
+  matchResultsByPath: {}
 };
 
 export default function(state = initialState, action) {
@@ -434,15 +433,13 @@ export default function(state = initialState, action) {
       return newState;
     }
     case MATCH_FOUND: {
-      debugger;
       let newState = Object.assign({}, state);
-      // delete newState[action.payload];
+      newState.matchResultsByPath[action.payload] = 'matchFound';
       return newState;
     }
     case NO_MATCH_FOUND: {
-      debugger;
       let newState = Object.assign({}, state);
-      // newState[action.payload] = 'NoManualMatch';
+      newState.matchResultsByPath[action.payload] = 'manualMatchFailure';
       return newState;
     }
   }
