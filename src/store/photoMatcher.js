@@ -353,10 +353,13 @@ function setPhotoMatchingComplete() {
   };
 }
 
-export function matchFound(photoFilePath) {
+export function matchFound(photoFilePath, googlePhoto) {
   return {
     type: MATCH_FOUND,
-    payload: photoFilePath
+    payload: {
+      photoFilePath,
+      googlePhoto
+    }
   };
 }
 
@@ -457,8 +460,26 @@ export default function(state = initialState, action) {
       return newState;
     }
     case MATCH_FOUND: {
+      const filePath = action.payload.photoFilePath;
+      const googlePhotoFile = action.payload.googlePhoto;
+
+      // TODO - this duplicates code from saveSearchResults
+      let resultData = {};
+      resultData.result = 'matchFound';
+
+      let googlePhoto = {};
+      if (googlePhotoFile.exifDateTime) {
+        googlePhoto.dateTime = googlePhotoFile.exifDateTime;
+      }
+      else {
+        googlePhoto.dateTime = googlePhotoFile.dateTime;
+      }
+      googlePhoto.name = googlePhotoFile.name;
+      googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
+      resultData.googlePhoto = googlePhoto;
+
       let newState = Object.assign({}, state);
-      newState.driveMatchResults[action.payload] = 'matchFound';
+      newState.driveMatchResults[filePath] = resultData;
       return newState;
     }
     case NO_MATCH_FOUND: {
