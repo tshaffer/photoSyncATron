@@ -28,6 +28,30 @@ const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 // ------------------------------------
 // Helper functions
 // ------------------------------------
+let _results = null;
+function searchForPhoto(drivePhotoFile) {
+
+  // if a result for this photo doesn't exist, ensure that it is included in the search
+  if (!_results[drivePhotoFile]) return true;
+
+  // only include the photo in the search if its result was 'matchPending'
+  let result = _results[drivePhotoFile].result;
+  if (result) {
+    return (result === 'matchPending');
+  }
+  return true;
+}
+
+function filterDrivePhotos(volumeName, searchResults, drivePhotoFiles) {
+
+  if (searchResults.Volumes[volumeName]) {
+    _results = searchResults.Volumes[volumeName];
+    return drivePhotoFiles.filter(searchForPhoto);
+  }
+  return drivePhotoFiles;
+}
+
+
 function loadExistingSearchResults() {
 
   return new Promise( (resolve) => {
@@ -399,11 +423,16 @@ export function matchPhotos(volumeName) {
 
       // read the photo files from the drive
       readDrivePhotoFiles().then( (drivePhotoFiles) => {
+
+        drivePhotoFiles = filterDrivePhotos(volumeName, searchResults, drivePhotoFiles);
+
         // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
         // to wait for it to complete before moving on. true??
         dispatch(setDrivePhotos(drivePhotoFiles));
+
         // TODO - it's very possible that the following could be called via dispatch - I think it's completely synchronous
         buildPhotoDictionaries(dispatch, getState);
+
         matchPhotoFiles(dispatch, getState);
       });
       // TODO catch errors
