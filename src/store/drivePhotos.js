@@ -23,6 +23,7 @@ export function readDrivePhotoFiles() {
         reject(err);
       }
       files = files.filter(utils.isPhotoFile);
+      files = files.map(function(x){ return x.toLowerCase();});
       resolve(files);
     }, (reason) => {
       reject(reason);

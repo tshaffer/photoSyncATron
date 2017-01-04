@@ -31,13 +31,15 @@ const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 let _results = null;
 function searchForPhoto(drivePhotoFile) {
 
+  drivePhotoFile = drivePhotoFile.toLowerCase();
+
   // if a result for this photo doesn't exist, ensure that it is included in the search
   if (!_results[drivePhotoFile]) return true;
 
   // only include the photo in the search if its result was 'matchPending'
   let result = _results[drivePhotoFile].result;
   if (result) {
-    return (result === 'matchPending');
+    return (result === 'manualMatchPending');
   }
   return true;
 }
@@ -97,7 +99,7 @@ function saveSearchResults(dispatch, searchResults) {
 
   searchResults.forEach( (searchResult) => {
 
-    const path = searchResult.photoFile;
+    const path = searchResult.photoFile.toLowerCase();
 
     let resultData = {};
 
@@ -112,7 +114,7 @@ function saveSearchResults(dispatch, searchResults) {
       else {
         googlePhoto.dateTime = googlePhotoFile.dateTime;
       }
-      googlePhoto.name = googlePhotoFile.name;
+      googlePhoto.name = googlePhotoFile.name.toLowerCase();
       googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
       resultData.googlePhoto = googlePhoto;
     }
@@ -444,22 +446,52 @@ export function saveResults() {
 
   return function (_, getState) {
 
-    debugger;
-    // no longer load results here - they were loaded earlier
+    // merge together searchResults and driveMatchResults
+    const state = getState();
+    const volumeName = state.drivePhotos.volumeName;
 
-    loadExistingSearchResults().then((searchResults) => {
-      // update data structure
-      searchResults.lastUpdated = new Date().toLocaleDateString();
-      const state = getState();
-      const volumeName = state.drivePhotos.volumeName;
-      searchResults.Volumes[volumeName] = state.matchPhotosData.driveMatchResults;
+    // start with existing search results
+    let searchResults = state.matchPhotosData.searchResults;
 
-      // store search results in a file
-      const searchResultsStr = JSON.stringify(searchResults, null, 2);
-      fs.writeFileSync('searchResults.json', searchResultsStr);
+    // search results for current volume
+    let driveMatchResults = state.matchPhotosData.driveMatchResults;
 
-      console.log('searchResults.json saved');
-    });
+    // if necessary, merge them together
+    const existingVolumeResults = searchResults.Volumes[volumeName];
+    if (existingVolumeResults) {
+      for (let photoFilePath in driveMatchResults) {
+        if (driveMatchResults.hasOwnProperty(photoFilePath)) {
+          existingVolumeResults[photoFilePath] = driveMatchResults[photoFilePath];
+        }
+      }
+    }
+    else searchResults.Volumes[volumeName] = driveMatchResults;
+
+    // update last modified
+    searchResults.lastUpdated = new Date().toLocaleDateString();
+
+    // store search results in a file
+    const searchResultsStr = JSON.stringify(searchResults, null, 2);
+    fs.writeFileSync('searchResults.json', searchResultsStr);
+
+    console.log('searchResults.json saved');
+    //
+    //
+    // // no longer load results here - they were loaded earlier
+    //
+    // loadExistingSearchResults().then((searchResults) => {
+    //   // update data structure
+    //   searchResults.lastUpdated = new Date().toLocaleDateString();
+    //   const state = getState();
+    //   const volumeName = state.drivePhotos.volumeName;
+    //   searchResults.Volumes[volumeName] = state.matchPhotosData.driveMatchResults;
+    //
+    //   // store search results in a file
+    //   const searchResultsStr = JSON.stringify(searchResults, null, 2);
+    //   fs.writeFileSync('searchResults.json', searchResultsStr);
+    //
+    //   console.log('searchResults.json saved');
+    // });
   };
 }
 
@@ -532,6 +564,11 @@ export default function(state = initialState, action) {
     case NO_MATCH_FOUND: {
       let newState = Object.assign({}, state);
       newState.driveMatchResults[action.payload] = 'manualMatchFailure';
+      return newState;
+    }
+    case SET_SEARCH_RESULTS: {
+      let newState = Object.assign({}, state);
+      newState.searchResults = action.payload;
       return newState;
     }
   }

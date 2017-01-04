@@ -91,7 +91,7 @@ class ComparePhotos extends Component {
 
     // mark this drive photo as matching
     const googlePhoto = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex];
-    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile, googlePhoto);
+    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.toLowerCase(), googlePhoto);
 
     this.moveToNextDrivePhoto();
     if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
@@ -109,7 +109,7 @@ class ComparePhotos extends Component {
     if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
 
       // mark this photo as not matching
-      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
+      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.toLowerCase());
 
       this.moveToNextDrivePhoto();
       if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
