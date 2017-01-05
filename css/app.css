@@ -1,26 +1,37 @@
 body {
     height: 100%;
-}
-
-.allImages {
-    width: 800px;
-}
-.leftImage {
-    float: left;
-    width: 350px;
-}
-
-.rightImage {
-    float: left;
-    width: 350px;
-}
-
-.clear {
-    clear: left;
+    margin-left: 8px;
 }
 
 .sideBySidePhotos {
     height: 800px;
+    width: 1200px;
+}
+
+.allImages {
+    width: 1200px;
+    background-color: green;
+}
+
+.leftPanel {
+    float: left;
+}
+.leftImage {
+    width: 450px;
+    max-width:450px;
+}
+
+.rightPanel {
+    float: left;
+    margin-left: 100px;
+}
+.rightImage {
+    width: 450px;
+    max-width: 450px;
+}
+
+.clear {
+    clear: left;
 }
 
 .comparePhotos {

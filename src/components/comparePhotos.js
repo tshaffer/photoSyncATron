@@ -223,6 +223,9 @@ class ComparePhotos extends Component {
     if (this.state.remainingPhotosToCompare > 0) {
       return (
         <div className="comparePhotosActions">
+          <p>
+              Remaining drive photos to compare: {this.state.remainingPhotosToCompare}
+          </p>
           <RaisedButton
             label="Photos Match"
             onClick={this.handlePhotosMatch.bind(this)}
@@ -273,9 +276,6 @@ class ComparePhotos extends Component {
           {imagesJSX}
           <div className="clear" />
           {uiJSX}
-          <span>
-              Remaining drive photos to compare: {this.state.remainingPhotosToCompare}
-            </span>
         </div>
       </MuiThemeProvider>
     );
