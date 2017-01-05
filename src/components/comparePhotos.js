@@ -1,5 +1,6 @@
 const path = require('path');
 const ConvertTiff = require('tiff-to-png');
+const childProcess = require('child_process');
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
@@ -34,6 +35,21 @@ class ComparePhotos extends Component {
     this.updatePhotosToCompare();
   }
 
+  convertPhoto(sourcePhoto, targetPath) {
+
+    return new Promise( (resolve, reject) => {
+      // let command = "convert " + sourcePhoto + " " + path.join(targetDir, "%d.jpg");
+      let command = "convert " + sourcePhoto + " " + targetPath;
+      console.log(command);
+      childProcess.exec(command, (err, stdout, stderr) => {
+        if (err) {
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  }
+
   updatePhotosToCompare() {
 
     let self = this;
@@ -43,31 +59,20 @@ class ComparePhotos extends Component {
 
     const extension = path.extname(diskImage);
     if (extension === '.tif') {
-      // convert to jpeg for display
-      const options = {
-        logLevel: 1
-      };
 
       const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
-      const converter = new ConvertTiff(options);
+      const fileNameWithoutExtension = path.basename(diskImage, '.tif');
+      const targetPath = path.join(targetDir, fileNameWithoutExtension + ".jpg");
 
-      // converter.complete = function(errors, total){
-      converter.complete = function(errors, _){
-
-        if (errors && errors.length > 0) {
-          console.log("converter errors: ", errors);
-          return;
-        }
-        let fileNameWithoutExtension = path.basename(diskImage, '.tif');
-        diskImage = path.join(targetDir, fileNameWithoutExtension, 'page1.png');
+      let promise = this.convertPhoto(diskImage, targetPath);
+      promise.then( () => {
+        // diskImage = path.join(targetDir, fileNameWithoutExtension, '0.jpg');
+        // jpgdiskImage = path.join(targetDir, '0.jpg');
         self.setState({
-          diskImage,
+          diskImage: targetPath,
           googleImage
         });
-        return;
-      };
-
-      converter.convertArray([diskImage], targetDir);
+      });
     }
     else {
       this.setState({

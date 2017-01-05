@@ -343,7 +343,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotoFiles = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  // drivePhotoFiles = drivePhotoFiles.slice(0, 40);
+  // drivePhotoshotoFiles = drivePhotoFiles.slice(0, 20);
 
   const numPhotoFiles = drivePhotoFiles.length;
   console.log("Number of photos on drive: ", numPhotoFiles);
@@ -562,8 +562,12 @@ export default function(state = initialState, action) {
       return newState;
     }
     case NO_MATCH_FOUND: {
+
+      let resultData = {};
+      resultData.result = 'manualMatchFailure';
+
       let newState = Object.assign({}, state);
-      newState.driveMatchResults[action.payload] = 'manualMatchFailure';
+      newState.driveMatchResults[action.payload] = resultData;
       return newState;
     }
     case SET_SEARCH_RESULTS: {
