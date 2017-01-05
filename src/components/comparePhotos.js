@@ -177,22 +177,25 @@ class ComparePhotos extends Component {
         name
         exifDateTime if not ''; else dateTime.
      */
+
     if (this.state.remainingPhotosToCompare > 0) {
       return (
         <div className="sideBySidePhotos">
           <div className="allImages">
-            <img
-              className="leftImage"
-              src={this.state.diskImage}
-            />
-            <img
-              className="rightImage"
-              src={this.state.googleImage}
-            />
+            <div className="leftPanel">
+              <p>{this.getDriveImageJSX()}</p>
+              <img className="leftImage"
+                src={this.state.diskImage}
+              />
+            </div>
+            <div className="rightPanel">
+              <p>{this.getGoogleImageJSX()}</p>
+              <img className="rightImage"
+                src={this.state.googleImage}
+              />
+            </div>
           </div>
           <div className="clear" />
-          <p>Photo on left: {this.getDriveImageJSX()}</p>
-          <p>Photo on right: {this.getGoogleImageJSX()}</p>
         </div>
       );
     }
@@ -266,13 +269,13 @@ class ComparePhotos extends Component {
         <div>
           <div>
             <h3>Compare photos on drive for possible matches</h3>
-            <span>
-              Remaining drive photos to compare: {this.state.remainingPhotosToCompare}
-            </span>
           </div>
           {imagesJSX}
           <div className="clear" />
           {uiJSX}
+          <span>
+              Remaining drive photos to compare: {this.state.remainingPhotosToCompare}
+            </span>
         </div>
       </MuiThemeProvider>
     );
