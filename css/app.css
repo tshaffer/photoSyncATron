@@ -18,3 +18,16 @@ body {
 .clear {
     clear: left;
 }
+
+.sideBySidePhotos {
+    height: 800px;
+}
+
+.comparePhotos {
+    position: absolute;
+}
+
+.comparePhotosActions {
+    position: absolute;
+    bottom: 16px;
+}

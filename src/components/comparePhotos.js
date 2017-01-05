@@ -1,5 +1,4 @@
 const path = require('path');
-const ConvertTiff = require('tiff-to-png');
 const childProcess = require('child_process');
 
 import React, { Component } from 'react';
@@ -7,6 +6,12 @@ import { hashHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+
+// ------------------------------------
+// Constants
+// ------------------------------------
+// const convertCmd = 'convert';
+const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 class ComparePhotos extends Component {
 
@@ -39,9 +44,9 @@ class ComparePhotos extends Component {
 
     return new Promise( (resolve, reject) => {
       // let command = "convert " + sourcePhoto + " " + path.join(targetDir, "%d.jpg");
-      let command = "convert " + sourcePhoto + " " + targetPath;
+      let command = convertCmd + " " + sourcePhoto + " " + targetPath;
       console.log(command);
-      childProcess.exec(command, (err, stdout, stderr) => {
+      childProcess.exec(command, (err) => {
         if (err) {
           reject(err);
         }
@@ -174,7 +179,7 @@ class ComparePhotos extends Component {
      */
     if (this.state.remainingPhotosToCompare > 0) {
       return (
-        <div>
+        <div className="sideBySidePhotos">
           <div className="allImages">
             <img
               className="leftImage"
@@ -214,7 +219,7 @@ class ComparePhotos extends Component {
 
     if (this.state.remainingPhotosToCompare > 0) {
       return (
-        <div>
+        <div className="comparePhotosActions">
           <RaisedButton
             label="Photos Match"
             onClick={this.handlePhotosMatch.bind(this)}
