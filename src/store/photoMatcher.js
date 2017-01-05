@@ -343,7 +343,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotoFiles = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  // drivePhotoFiles = drivePhotoFiles.slice(0, 40);
+  drivePhotoFiles = drivePhotoFiles.slice(0, 4);
 
   const numPhotoFiles = drivePhotoFiles.length;
   console.log("Number of photos on drive: ", numPhotoFiles);
