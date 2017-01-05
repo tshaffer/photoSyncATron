@@ -1,4 +1,6 @@
 const recursive = require('recursive-readdir');
+import fs from 'fs';
+import path from 'path';
 
 import * as utils from '../utilities/utils';
 
@@ -9,15 +11,17 @@ const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
 const driveLetter = "d:/";
-
 // ------------------------------------
 // Helper functions
 // ------------------------------------
 export function readDrivePhotoFiles() {
 
+  // let dir = driveLetter;
+  let dir = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
+
   return new Promise( (resolve, reject) => {
 
-    recursive(driveLetter, (err, files) => {
+    recursive(dir, (err, files) => {
       if (err) {
         console.log("getPhotoFilesFromDrive: error");
         reject(err);
