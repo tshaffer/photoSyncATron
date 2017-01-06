@@ -78,10 +78,22 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
   let photoCompareList = [];
   searchResults.forEach( (searchResult) => {
     if (searchResult.photoList) {
-      let photoCompareItem = {};
-      photoCompareItem.baseFile = searchResult.photoFile;
-      photoCompareItem.photoList = searchResult.photoList.photoList;
-      photoCompareList.push(photoCompareItem);
+      searchResult.reason = 'noMatch';    // reset value if match is possible (dimensions match)
+      // add the google photos to the list whose dimensions match that of the baseFile
+      const filePath = searchResult.photoFile;
+      const dimensions = photoDimensionsByName[filePath];
+      if (dimensions) {
+        const photoList = searchResult.photoList.photoList;
+        photoList.forEach( (googlePhoto) => {
+          if (googlePhoto.width === dimensions.width && googlePhoto.height === dimensions.height) {
+            let photoCompareItem = {};
+            photoCompareItem.baseFile = searchResult.photoFile;
+            photoCompareItem.photoList = searchResult.photoList.photoList;
+            photoCompareList.push(photoCompareItem);
+            searchResult.reason = 'manualMatchPending';
+          }
+        });
+      }
     }
   });
 
@@ -120,7 +132,7 @@ function saveSearchResults(dispatch, searchResults) {
     }
     else if (searchResult.photoList) {
       numWithPhotoList++;
-      resultData.result = 'manualMatchPending';
+      resultData.result = searchResult.reason;
     }
     else {
       resultData.result = searchResult.reason;
@@ -343,7 +355,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotoFiles = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  // drivePhotoshotoFiles = drivePhotoFiles.slice(0, 20);
+  // drivePhotoFiles = drivePhotoFiles.slice(0, 20);
 
   const numPhotoFiles = drivePhotoFiles.length;
   console.log("Number of photos on drive: ", numPhotoFiles);
