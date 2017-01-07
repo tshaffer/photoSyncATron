@@ -47,7 +47,7 @@ function searchForPhoto(drivePhotoFile) {
 function filterDrivePhotos(volumeName, searchResults, drivePhotoFiles) {
 
   if (searchResults.Volumes[volumeName]) {
-    _results = searchResults.Volumes[volumeName];
+    _results = searchResults.Volumes[volumeName].resultsByPhoto;
     return drivePhotoFiles.filter(searchForPhoto);
   }
   return drivePhotoFiles;
@@ -113,8 +113,6 @@ function saveSearchResults(dispatch, searchResults) {
 
   // build results based on this search
   let matchPhotosResults = {};
-  let numMatchesFound = 0;
-  let numWithPhotoList = 0;
 
   buildManualPhotoMatchList(dispatch, searchResults);
 
@@ -125,7 +123,6 @@ function saveSearchResults(dispatch, searchResults) {
     let resultData = {};
 
     if (searchResult.googlePhotoFile) {
-      numMatchesFound++;
       resultData.result = 'matchFound';
       const googlePhotoFile = searchResult.googlePhotoFile;
       let googlePhoto = {};
@@ -140,18 +137,16 @@ function saveSearchResults(dispatch, searchResults) {
       resultData.googlePhoto = googlePhoto;
     }
     else if (searchResult.photoList) {
-      numWithPhotoList++;
       resultData.result = searchResult.reason;
+      resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
     }
     else {
       resultData.result = searchResult.reason;
+      resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
     }
 
     matchPhotosResults[path] = resultData;
   });
-
-  console.log('Total number of matches: ', numMatchesFound);
-  console.log('Number of potential matches: ', numWithPhotoList);
 
   dispatch(setDriveMatchResults(matchPhotosResults));
   dispatch(setPhotoMatchingComplete());
@@ -266,7 +261,7 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
   }
 }
 
-function setSearchResult(dispatch, getState, photoFile, googlePhotoFile, reason, error) {
+function setSearchResult(dispatch, getState, drivePhotoPath, googlePhotoFile, reason, error) {
 
   let success = false;
   if (googlePhotoFile) {
@@ -275,23 +270,25 @@ function setSearchResult(dispatch, getState, photoFile, googlePhotoFile, reason,
 
   let photoList = null;
   if (!success) {
-    const photoFiles = findPhotoByName(getState, photoFile);
+    const photoFiles = findPhotoByName(getState, drivePhotoPath);
     if (photoFiles) {
       photoList = photoFiles;
     }
   }
 
+  const drivePhotoDimensions = photoDimensionsByName[drivePhotoPath];
+
   dispatch(matchAttemptComplete(success));
 
   return {
-    photoFile,
+    photoFile : drivePhotoPath,
     googlePhotoFile,
     reason,
     error,
-    photoList
+    photoList,
+    drivePhotoDimensions
   };
 }
-
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
@@ -491,14 +488,17 @@ export function saveResults() {
     if (existingVolumeResults) {
       for (let photoFilePath in driveMatchResults) {
         if (driveMatchResults.hasOwnProperty(photoFilePath)) {
-          existingVolumeResults[photoFilePath] = driveMatchResults[photoFilePath];
+          existingVolumeResults.resultsByPhoto[photoFilePath] = driveMatchResults[photoFilePath];
         }
       }
     }
-    else searchResults.Volumes[volumeName] = driveMatchResults;
+    else {
+      searchResults.Volumes[volumeName] = {};
+      searchResults.Volumes[volumeName].resultsByPhoto = driveMatchResults;
+    }
 
     // update statistics for current volume
-    let driveResults = searchResults.Volumes[volumeName];
+    let driveResults = searchResults.Volumes[volumeName].resultsByPhoto;
     let numMatchesFound = 0;
     let numNoMatchesFound = 0;
     let numManualMatchFailures = 0;
@@ -525,9 +525,12 @@ export function saveResults() {
         }
       }
     }
-    driveResults.matchesFoundCount = numMatchesFound;
-    driveResults.noMatchesFoundCount = numNoMatchesFound + numManualMatchFailures;
-    driveResults.manualMatchesPendingCount = numManualMatchesPending;
+
+    let summaryResults = {};
+    summaryResults.matchesFoundCount = numMatchesFound;
+    summaryResults.noMatchesFoundCount = numNoMatchesFound + numManualMatchFailures;
+    summaryResults.manualMatchesPendingCount = numManualMatchesPending;
+    searchResults.Volumes[volumeName].summaryResults = summaryResults;
 
     // update last modified
     searchResults.lastUpdated = new Date().toLocaleDateString();
@@ -537,23 +540,6 @@ export function saveResults() {
     fs.writeFileSync('searchResults.json', searchResultsStr);
 
     console.log('searchResults.json saved');
-    //
-    //
-    // // no longer load results here - they were loaded earlier
-    //
-    // loadExistingSearchResults().then((searchResults) => {
-    //   // update data structure
-    //   searchResults.lastUpdated = new Date().toLocaleDateString();
-    //   const state = getState();
-    //   const volumeName = state.drivePhotos.volumeName;
-    //   searchResults.Volumes[volumeName] = state.matchPhotosData.driveMatchResults;
-    //
-    //   // store search results in a file
-    //   const searchResultsStr = JSON.stringify(searchResults, null, 2);
-    //   fs.writeFileSync('searchResults.json', searchResultsStr);
-    //
-    //   console.log('searchResults.json saved');
-    // });
   };
 }
 
@@ -624,10 +610,9 @@ export default function(state = initialState, action) {
       return newState;
     }
     case NO_MATCH_FOUND: {
-
       let resultData = {};
       resultData.result = 'manualMatchFailure';
-
+      resultData.drivePhotoDimensions = photoDimensionsByName[action.payload];
       let newState = Object.assign({}, state);
       newState.driveMatchResults[action.payload] = resultData;
       return newState;
