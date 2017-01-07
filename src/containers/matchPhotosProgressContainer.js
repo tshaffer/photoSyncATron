@@ -8,8 +8,6 @@ import MatchPhotosProgress from '../components/matchPhotosProgress';
 class MatchPhotosProgressContainer extends Component {
 
   render() {
-    console.log("MatchPhotosProgressContainer render invoked");
-
     return (
       <MatchPhotosProgress
         {...this.props}
