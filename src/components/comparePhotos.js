@@ -43,12 +43,8 @@ class ComparePhotos extends Component {
   convertPhoto(sourcePhoto, targetPath) {
 
     return new Promise( (resolve, reject) => {
-      // let command = "convert " + sourcePhoto + " " + path.join(targetDir, "%d.jpg");
-      // let command = convertCmd + " '" + sourcePhoto + "' " + targetPath;
-      // let command = "convert d:\\photos\\'in progress'\\nov_99_3\\agf00011.tif C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles\\agf00011.jpg";
-      // let command = "convert 'd:\\photos\\in progress\\nov_99_3'\\agf00011.tif C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles\\agf00011.jpg";
 
-
+      // deal with spaces in the sourcePhoto path as needed.
       let paths = sourcePhoto.split(path.sep);
       paths.forEach( (subPath, index) => {
         if (subPath.indexOf(' ') >= 0) {
@@ -64,16 +60,6 @@ class ComparePhotos extends Component {
 
       let command = convertCmd + " " + sourcePhoto + " " + targetPath;
       console.log(command);
-
-
-      // Command failed: convert d:\photos\"in progress"\nov_99_3\agf00011.tif C:\Users\Ted\Documents\Projects\photoSyncATron\tmpFiles\agf00011.jpg
-      // fails: let command = "convert d:\\photos\\'in progress'\\nov_99_3\\agf00011.tif C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles\\agf00011.jpg";
-      // fails: let command = "convert 'd:\\photos\\in progress\\nov_99_3'\\agf00011.tif C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles\\agf00011.jpg";
-      // fails: let command = "'convert d:\\photos\\in progress\\nov_99_3\\agf00011.tif C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles\\agf00011.jpg'";
-      // WORKS: let command = "convert d:/photos/\"in progress\"/nov_99_3/agf00011.tif C:/Users/Ted/Documents/Projects/photoSyncATron/tmpFiles/agf00011.jpg";
-      // command = "convert d:/photos/\"in progress\"/nov_99_3/agf00011.tif C:/Users/Ted/Documents/Projects/photoSyncATron/tmpFiles/agf00011.jpg";
-      // console.log(command);
-
       childProcess.exec(command, (err) => {
         if (err) {
           reject(err);
@@ -99,8 +85,6 @@ class ComparePhotos extends Component {
 
       let promise = this.convertPhoto(diskImage, targetPath);
       promise.then( () => {
-        // diskImage = path.join(targetDir, fileNameWithoutExtension, '0.jpg');
-        // jpgdiskImage = path.join(targetDir, '0.jpg');
         self.setState({
           diskImage: targetPath,
           googleImage
