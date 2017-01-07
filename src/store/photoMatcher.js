@@ -497,6 +497,38 @@ export function saveResults() {
     }
     else searchResults.Volumes[volumeName] = driveMatchResults;
 
+    // update statistics for current volume
+    let driveResults = searchResults.Volumes[volumeName];
+    let numMatchesFound = 0;
+    let numNoMatchesFound = 0;
+    let numManualMatchFailures = 0;
+    let numManualMatchesPending = 0;
+    for (let drivePhotoFilePath in driveResults) {
+      if (driveResults.hasOwnProperty(drivePhotoFilePath)) {
+        const compareResult = driveResults[drivePhotoFilePath].result;
+        switch (compareResult) {
+          case 'matchFound':
+            numMatchesFound++;
+            break;
+          case 'noMatch':
+            numNoMatchesFound++;
+            break;
+          case 'manualMatchFailure':
+            numManualMatchFailures++;
+            break;
+          case 'manualMatchPending':
+            numManualMatchesPending++;
+            break;
+          default:
+            debugger;
+            break;
+        }
+      }
+    }
+    driveResults.matchesFoundCount = numMatchesFound;
+    driveResults.noMatchesFoundCount = numNoMatchesFound + numManualMatchFailures;
+    driveResults.manualMatchesPendingCount = numManualMatchesPending;
+
     // update last modified
     searchResults.lastUpdated = new Date().toLocaleDateString();
 
