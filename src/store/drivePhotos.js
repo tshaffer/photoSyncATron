@@ -10,18 +10,16 @@ import * as utils from '../utilities/utils';
 const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
-const driveLetter = "d:/";
+const rootFolder = "d:/";
+// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
 // ------------------------------------
 // Helper functions
 // ------------------------------------
 export function readDrivePhotoFiles() {
 
-  // let dir = driveLetter;
-  let dir = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
-
   return new Promise( (resolve, reject) => {
 
-    recursive(dir, (err, files) => {
+    recursive(rootFolder, (err, files) => {
       if (err) {
         console.log("getPhotoFilesFromDrive: error");
         reject(err);
