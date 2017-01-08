@@ -1,4 +1,5 @@
 const path = require('path');
+var fs = require('fs-extra');
 const childProcess = require('child_process');
 
 import React, { Component } from 'react';
@@ -17,6 +18,7 @@ class ComparePhotos extends Component {
 
   constructor(props) {
     super(props);
+    this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
     this.state = {
       diskImage: '',
       googleImage: '',
@@ -80,9 +82,8 @@ class ComparePhotos extends Component {
     const extension = path.extname(diskImage);
     if (extension === '.tif') {
 
-      const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
       const fileNameWithoutExtension = path.basename(diskImage, '.tif');
-      const targetPath = path.join(targetDir, fileNameWithoutExtension + ".jpg");
+      const targetPath = path.join(this.targetDir, fileNameWithoutExtension + ".jpg");
 
       let promise = this.convertPhoto(diskImage, targetPath);
       promise.then( () => {
@@ -145,18 +146,32 @@ class ComparePhotos extends Component {
 
   handleSaveResults() {
     console.log('handleSaveResults');
+    this.emptyTmpDir();
     this.props.saveResults();
   }
 
   handleSaveResultsOnCompletion() {
     console.log('handleSaveResultsOnCompletion');
+    this.emptyTmpDir();
     this.props.saveResults();
     hashHistory.push('/');
   }
 
   handleDiscardResultsOnCompletion() {
     console.log('handleDiscardResultsOnCompletion');
+    this.emptyTmpDir();
     hashHistory.push('/');
+  }
+
+  emptyTmpDir() {
+    fs.emptyDir(this.targetDir, function (err) {
+      if (!err) {
+        console.log('emptyTmpDir success!');
+      }
+      else {
+        console.log("emptyTmpDir failure: ", err);
+      }
+    })
   }
 
   getDriveImageJSX() {

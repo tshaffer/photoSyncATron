@@ -115,7 +115,6 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
             if (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), drivePhotoDimensions.width, drivePhotoDimensions.height)) {
               // if this is the first google photo in the photo list to match the drive photo's dimensions,
               // create the necessary data structures
-              // debugger;
               if (!photoCompareItem) {
                 photoCompareItem = {};
                 photoCompareItem.baseFile = searchResult.photoFile;
