@@ -298,26 +298,26 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
   return googlePhotosMatchingDrivePhotoDimensions;
 }
 
-// function findPhotoByKey(dispatch, getState, drivePhotoFile) {
-//
-//   const name = path.basename(drivePhotoFile.path);
-//   const photosByKey = getState().googlePhotos.photosByKey;
-//
-//   try {
-//     const dimensions = drivePhotoFile.dimensions;
-//
-//     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
-//     if (photosByKey[key]) {
-//       const googlePhotoFile = photosByKey[key];
-//       return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
-//     }
-//     else {
-//       return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
-//     }
-//   } catch (sizeOfError) {
-//     return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
-//   }
-// }
+function findPhotoByKey(dispatch, getState, drivePhotoFile) {
+
+  const name = path.basename(drivePhotoFile.path);
+  const photosByKey = getState().googlePhotos.photosByKey;
+
+  try {
+    const dimensions = drivePhotoFile.dimensions;
+
+    const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
+    if (photosByKey[key]) {
+      const googlePhotoFile = photosByKey[key];
+      return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
+    }
+    else {
+      return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
+    }
+  } catch (sizeOfError) {
+    return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
+  }
+}
 
 function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
 
@@ -347,6 +347,66 @@ function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, re
   };
 }
 
+let pendingExifImageCalls = [];
+let exifImageCallInvoked = false;
+
+function launchExifImageCall(resolve, dispatch, getState) {
+  if (pendingExifImageCalls.length > 0) {
+
+    let searchResult = null;
+
+    let pendingExifImageCall = pendingExifImageCalls.shift();
+    const drivePhotoFile = pendingExifImageCall.drivePhotoFile;
+    const googlePhotosMatchingDrivePhotoDimensions = pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions;
+    const googlePhotosByExifDateTime = pendingExifImageCall.googlePhotosByExifDateTime;
+
+    try {
+
+      console.log('invoke exifImage: ', pendingExifImageCall.image);
+      new exifImage({image: pendingExifImageCall.image}, function (error, exifData) {
+
+        console.log('return from exifImage call: ', drivePhotoFile.path);
+
+        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+
+          searchResult = setSearchResult(dispatch, getState,
+            drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+          resolve(searchResult);
+          launchExifImageCall(resolve, dispatch, getState);
+        }
+        else {
+          let dateTimeStr = '';
+          if (exifData.exif.CreateDate) {
+            dateTimeStr = exifData.exif.CreateDate;
+          }
+          else {
+            dateTimeStr = exifData.exif.DateTimeOriginal;
+          }
+          const exifDateTime = utils.getDateFromString(dateTimeStr);
+          const isoString = exifDateTime.toISOString();
+          if (googlePhotosByExifDateTime[isoString]) {
+            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+          }
+          else {
+            searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
+          }
+          searchResult.isoString = isoString;
+          resolve(searchResult);
+
+          launchExifImageCall(resolve, dispatch, getState);
+        }
+      });
+    } catch (error) {
+      console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
+
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+      resolve(searchResult);
+      launchExifImageCall(resolve, dispatch, getState);
+    }
+  }
+}
+
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   let googlePhotosByExifDateTime = getState().googlePhotos.photosByExifDateTime;
@@ -363,44 +423,25 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       resolve(searchResult);
     }
     else {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-      resolve(searchResult);
+      // searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+      // resolve(searchResult);
 
       // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
       // if it is, try workaround of invoking it sequentially
-      // try {
-      //   new exifImage({image: drivePhotoFile.path}, function (error, exifData) {
-      //
-      //     if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
-      //
-      //       searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
-      //       resolve(searchResult);
-      //     }
-      //     else {
-      //       let dateTimeStr = '';
-      //       if (exifData.exif.CreateDate) {
-      //         dateTimeStr = exifData.exif.CreateDate;
-      //       }
-      //       else {
-      //         dateTimeStr = exifData.exif.DateTimeOriginal;
-      //       }
-      //       const exifDateTime = utils.getDateFromString(dateTimeStr);
-      //       const isoString = exifDateTime.toISOString();
-      //       if (googlePhotosByExifDateTime[isoString]) {
-      //         const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-      //         searchResult = setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'exifMatch', '');
-      //       }
-      //       else {
-      //         searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
-      //       }
-      //       searchResult.isoString = isoString;
-      //       resolve(searchResult);
-      //     }
-      //   });
-      // } catch (error) {
-      //   searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
-      //   resolve(searchResult);
-      // }
+
+      let pendingExifImageCall = {};
+      pendingExifImageCall.image = drivePhotoFile.path;
+      pendingExifImageCall.drivePhotoFile = drivePhotoFile;
+      pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions = googlePhotosMatchingDrivePhotoDimensions;
+      pendingExifImageCall.googlePhotosByExifDateTime = googlePhotosByExifDateTime;
+      pendingExifImageCalls.push(pendingExifImageCall);
+
+      console.log('Push exifImageCall: ', drivePhotoFile.path);
+      // TODO - bogus
+      if (!exifImageCallInvoked) {
+        exifImageCallInvoked = true;
+        launchExifImageCall(resolve, dispatch, getState);
+      }
     }
   });
 }
