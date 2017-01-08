@@ -12,8 +12,6 @@ import { buildPhotoDictionaries } from './googlePhotos';
 
 import * as utils from '../utilities/utils';
 
-let photoDimensionsByName = {};
-
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -28,29 +26,55 @@ const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 // ------------------------------------
 // Helper functions
 // ------------------------------------
-let _results = null;
-function searchForPhoto(drivePhotoFile) {
+function getPhotoDimensions(photoFilePath) {
 
-  drivePhotoFile = drivePhotoFile.toLowerCase();
+  let dimensions = null;
+
+  try {
+    dimensions = sizeOf(photoFilePath);
+  } catch (sizeOfError) {
+    console.log(sizeOfError, " invoking sizeOf on: ", photoFilePath);
+  }
+
+  return dimensions;
+}
+
+function buildDrivePhotoFiles(drivePhotoFilePaths) {
+
+  let drivePhotoFiles = [];
+  drivePhotoFilePaths.forEach( (drivePhotoFilePath) => {
+    let drivePhotoFile = {};
+    drivePhotoFile.path = drivePhotoFilePath;
+    drivePhotoFile.dimensions = getPhotoDimensions(drivePhotoFilePath);
+    drivePhotoFiles.push(drivePhotoFile);
+  });
+
+  return drivePhotoFiles;
+}
+
+let _results = null;
+function searchForPhoto(drivePhotoFilePath) {
+
+  drivePhotoFilePath = drivePhotoFilePath.toLowerCase();
 
   // if a result for this photo doesn't exist, ensure that it is included in the search
-  if (!_results[drivePhotoFile]) return true;
+  if (!_results[drivePhotoFilePath]) return true;
 
   // only include the photo in the search if its result was 'matchPending'
-  let result = _results[drivePhotoFile].result;
+  let result = _results[drivePhotoFilePath].result;
   if (result) {
     return (result === 'manualMatchPending');
   }
   return true;
 }
 
-function filterDrivePhotos(volumeName, searchResults, drivePhotoFiles) {
+function filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths) {
 
   if (searchResults.Volumes[volumeName]) {
     _results = searchResults.Volumes[volumeName].resultsByPhoto;
-    return drivePhotoFiles.filter(searchForPhoto);
+    return drivePhotoFilePaths.filter(searchForPhoto);
   }
-  return drivePhotoFiles;
+  return drivePhotoFilePaths;
 }
 
 
@@ -81,15 +105,16 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
     if (searchResult.photoList) {
       searchResult.reason = 'noMatch';    // reset value if match is possible (dimensions match)
       // add the google photos to the list whose dimensions match that of the baseFile
-      const filePath = searchResult.photoFile;
-      const drivePhotoDimensions = photoDimensionsByName[filePath];
+      const photoFile = searchResult.photoFile;
+      const drivePhotoDimensions = photoFile.dimensions;
       if (drivePhotoDimensions) {
         let photoCompareItem = null;
         const googlePhotoList = searchResult.photoList.photoList;
         googlePhotoList.forEach( (googlePhoto) => {
-          if (googlePhoto.width === drivePhotoDimensions.width && googlePhoto.height === drivePhotoDimensions.height) {
+          if (Number(googlePhoto.width) === drivePhotoDimensions.width && Number(googlePhoto.height) === drivePhotoDimensions.height) {
             // if this is the first google photo in the photo list to match the drive photo's dimensions,
             // create the necessary data structures
+            // debugger;
             if (!photoCompareItem) {
               photoCompareItem = {};
               photoCompareItem.baseFile = searchResult.photoFile;
@@ -118,7 +143,7 @@ function saveSearchResults(dispatch, searchResults) {
 
   searchResults.forEach( (searchResult) => {
 
-    const path = searchResult.photoFile.toLowerCase();
+    const path = searchResult.photoFile.path.toLowerCase();
 
     let resultData = {};
 
@@ -154,7 +179,7 @@ function saveSearchResults(dispatch, searchResults) {
 }
 
 
-function findPhotoByName(getState, pathOnDrive) {
+function findPhotoByFilePath(getState, drivePhotoFile) {
 
   const photosByName = getState().googlePhotos.photosByName;
   const photosByAltKey = getState().googlePhotos.photosByAltKey;
@@ -169,18 +194,20 @@ function findPhotoByName(getState, pathOnDrive) {
   // return value
   //    photoFiles
   //      object that contains
-  //        photoFile - path to photo on drive
+  //        photoFile - object representing the photo file on the drive. includes
+  //          path
+  //          dimensions
   //            QUESTION - in the case of .tif files, should this be the original path, or the path as modified to have the .jpg extension?
   //            I think it should have the original path.
   //        photoList
-  //          array of google photos that match photoFile (see cases above)
+  //          array of google photos that match photoFile (see above for what 'match' means)
 
   let nameWithoutExtension = '';
   let photoFiles = null;
 
-  let fileName = path.basename(pathOnDrive).toLowerCase();
+  let fileName = path.basename(drivePhotoFile.path).toLowerCase();
 
-  const extension = path.extname(pathOnDrive);
+  const extension = path.extname(drivePhotoFile.path);
   if (extension !== '') {
     nameWithoutExtension = fileName.slice(0, -4);
   }
@@ -198,7 +225,7 @@ function findPhotoByName(getState, pathOnDrive) {
       photoList = deepcopy(photosByName[fileName].photoList);
     }
     photoFiles = {
-      pathOnDrive,
+      pathOnDrive: drivePhotoFile.path,
       photoList
     };
   }
@@ -210,16 +237,16 @@ function findPhotoByName(getState, pathOnDrive) {
       if (photosByAltKey[partialName]) {
         if (!photoFiles) {
           photoFiles = {
-            pathOnDrive,
+            pathOnDrive: drivePhotoFile.path,
             photoList: []
           };
         }
         photosByAltKey[partialName].forEach( (googlePhoto) => {
 
           let googlePhotoAdded = false;
-          if (photoDimensionsByName[pathOnDrive]) {
-            if (googlePhoto.width === photoDimensionsByName[pathOnDrive].width &&
-              googlePhoto.height === photoDimensionsByName[pathOnDrive].height) {
+          if (drivePhotoFile.dimensions) {
+            if (googlePhoto.width === drivePhotoFile.dimensions.width &&
+              googlePhoto.height === drivePhotoFile.dimensions.height) {
               photoFiles.photoList.unshift(googlePhoto);
               googlePhotoAdded = true;
             }
@@ -237,16 +264,11 @@ function findPhotoByName(getState, pathOnDrive) {
 
 function findPhotoByKey(dispatch, getState, drivePhotoFile) {
 
-  const name = path.basename(drivePhotoFile);
+  const name = path.basename(drivePhotoFile.path);
   const photosByKey = getState().googlePhotos.photosByKey;
 
   try {
-    const dimensions = sizeOf(drivePhotoFile);
-
-    photoDimensionsByName[drivePhotoFile] = {
-      width: dimensions.width.toString(),
-      height: dimensions.height.toString()
-    };
+    const dimensions = drivePhotoFile.dimensions;
 
     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
     if (photosByKey[key]) {
@@ -261,7 +283,7 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
   }
 }
 
-function setSearchResult(dispatch, getState, drivePhotoPath, googlePhotoFile, reason, error) {
+function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error) {
 
   let success = false;
   if (googlePhotoFile) {
@@ -270,18 +292,18 @@ function setSearchResult(dispatch, getState, drivePhotoPath, googlePhotoFile, re
 
   let photoList = null;
   if (!success) {
-    const photoFiles = findPhotoByName(getState, drivePhotoPath);
+    const photoFiles = findPhotoByFilePath(getState, drivePhotoFile);
     if (photoFiles) {
       photoList = photoFiles;
     }
   }
 
-  const drivePhotoDimensions = photoDimensionsByName[drivePhotoPath];
+  const drivePhotoDimensions = drivePhotoFile.dimensions;
 
   dispatch(matchAttemptComplete(success));
 
   return {
-    photoFile : drivePhotoPath,
+    photoFile : drivePhotoFile,
     googlePhotoFile,
     reason,
     error,
@@ -292,30 +314,35 @@ function setSearchResult(dispatch, getState, drivePhotoPath, googlePhotoFile, re
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
-  let photosByExifDateTime = getState().googlePhotos.photosByExifDateTime;
+  let googlePhotosByExifDateTime = getState().googlePhotos.photosByExifDateTime;
 
   let searchResult = {};
 
   return new Promise( (resolve) => {
 
-    // eliminate files whose dimensions don't match - cheap comparison
-    searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
-    if (searchResult.reason !== 'keyMatch') {
+    // get list of google photos whose name 'matches' name of photo on drive
+    // and whose dimension matches as well
+
+    // if (drivePhotoFile.path.indexOf('agf00010.tif') > 0) {
+    //   debugger;
+    // }
+    const photoFiles = findPhotoByFilePath(getState, drivePhotoFile);
+    if (!photoFiles) {
+      // TODO - inefficient, we already know it will fail.
+      searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
       resolve(searchResult);
     }
+    // eliminate files whose dimensions don't match - cheap comparison
+    // searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
+    // if (searchResult.reason !== 'keyMatch') {
+    //   resolve(searchResult);
+    // }
     else {
       try {
-        new exifImage({image: drivePhotoFile}, function (error, exifData) {
+        new exifImage({image: drivePhotoFile.path}, function (error, exifData) {
 
           if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
 
-            // // no exif date - search in photosByKey if it's a jpeg file
-            // if (utils.isJpegFile(drivePhotoFile)) {
-            //   searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
-            // }
-            // else {
-            //   searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
-            // }
             searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error);
             resolve(searchResult);
           }
@@ -329,17 +356,12 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
             }
             const exifDateTime = utils.getDateFromString(dateTimeStr);
             const isoString = exifDateTime.toISOString();
-            if (photosByExifDateTime[isoString]) {
-              const googlePhotoFile = photosByExifDateTime[isoString];
+            if (googlePhotosByExifDateTime[isoString]) {
+              const googlePhotoFile = googlePhotosByExifDateTime[isoString];
               searchResult = setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'exifMatch', '');
             }
             else {
-              if (utils.isJpegFile(drivePhotoFile)) {
-                searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
-              }
-              else {
-                searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
-              }
+              searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
             }
             searchResult.isoString = isoString;
             resolve(searchResult);
@@ -451,9 +473,11 @@ export function matchPhotos(volumeName) {
       dispatch(setVolumeName(volumeName));
 
       // read the photo files from the drive
-      readDrivePhotoFiles().then( (drivePhotoFiles) => {
+      readDrivePhotoFiles().then( (drivePhotoFilePaths) => {
 
-        drivePhotoFiles = filterDrivePhotos(volumeName, searchResults, drivePhotoFiles);
+        drivePhotoFilePaths = filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths);
+
+        let drivePhotoFiles = buildDrivePhotoFiles(drivePhotoFilePaths);
 
         // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
         // to wait for it to complete before moving on. true??
@@ -612,7 +636,7 @@ export default function(state = initialState, action) {
     case NO_MATCH_FOUND: {
       let resultData = {};
       resultData.result = 'manualMatchFailure';
-      resultData.drivePhotoDimensions = photoDimensionsByName[action.payload];
+      resultData.drivePhotoDimensions = action.payload.dimensions;
       let newState = Object.assign({}, state);
       newState.driveMatchResults[action.payload] = resultData;
       return newState;

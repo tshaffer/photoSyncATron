@@ -74,7 +74,8 @@ class ComparePhotos extends Component {
     let self = this;
 
     const googleImage = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex].url;
-    let diskImage = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
+    let photoFile = this.props.photoCompareList[this.drivePhotoIndex].baseFile;
+    let diskImage = photoFile.path;
 
     const extension = path.extname(diskImage);
     if (extension === '.tif') {
@@ -113,7 +114,7 @@ class ComparePhotos extends Component {
 
     // mark this drive photo as matching
     const googlePhoto = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex];
-    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.toLowerCase(), googlePhoto);
+    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.path.toLowerCase(), googlePhoto);
 
     this.moveToNextDrivePhoto();
     if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
@@ -131,7 +132,7 @@ class ComparePhotos extends Component {
     if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
 
       // mark this photo as not matching
-      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.toLowerCase());
+      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.path.toLowerCase());
 
       this.moveToNextDrivePhoto();
       if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
@@ -159,7 +160,7 @@ class ComparePhotos extends Component {
   }
 
   getDriveImageJSX() {
-    return this.props.photoCompareList[this.drivePhotoIndex].baseFile;
+    return this.props.photoCompareList[this.drivePhotoIndex].baseFile.path;
   }
 
   getGoogleImageJSX() {
