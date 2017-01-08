@@ -298,26 +298,26 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
   return googlePhotosMatchingDrivePhotoDimensions;
 }
 
-function findPhotoByKey(dispatch, getState, drivePhotoFile) {
-
-  const name = path.basename(drivePhotoFile.path);
-  const photosByKey = getState().googlePhotos.photosByKey;
-
-  try {
-    const dimensions = drivePhotoFile.dimensions;
-
-    const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
-    if (photosByKey[key]) {
-      const googlePhotoFile = photosByKey[key];
-      return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
-    }
-    else {
-      return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
-    }
-  } catch (sizeOfError) {
-    return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
-  }
-}
+// function findPhotoByKey(dispatch, getState, drivePhotoFile) {
+//
+//   const name = path.basename(drivePhotoFile.path);
+//   const photosByKey = getState().googlePhotos.photosByKey;
+//
+//   try {
+//     const dimensions = drivePhotoFile.dimensions;
+//
+//     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
+//     if (photosByKey[key]) {
+//       const googlePhotoFile = photosByKey[key];
+//       return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
+//     }
+//     else {
+//       return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
+//     }
+//   } catch (sizeOfError) {
+//     return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
+//   }
+// }
 
 function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error) {
 
@@ -328,6 +328,7 @@ function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, re
 
   let photoList = null;
   if (!success) {
+    // is there ever any reason to call this (as I think it's always been called already)
     const photoFile = findPhotoByFilePath(getState, drivePhotoFile);
     if (photoFile) {
       photoList = photoFile;
@@ -364,19 +365,15 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     // }
     const photoFiles = findPhotoByFilePath(getState, drivePhotoFile);
     if (!photoFiles) {
-      // TODO - inefficient, we already know it will fail.
-      searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
       resolve(searchResult);
     }
-    // eliminate files whose dimensions don't match - cheap comparison
-    // searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
-    // if (searchResult.reason !== 'keyMatch') {
-    //   resolve(searchResult);
-    // }
     else {
       searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
       resolve(searchResult);
 
+      // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
+      // if it is, try workaround of invoking it sequentially
       // try {
       //   new exifImage({image: drivePhotoFile.path}, function (error, exifData) {
       //
