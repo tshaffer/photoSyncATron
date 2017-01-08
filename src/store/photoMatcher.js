@@ -191,7 +191,9 @@ function dimensionsMatch(googlePhoto) {
 
 // return true if the dimensions match or their aspect ratios are 'really' close
 function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, drivePhotoHeight) {
-  if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) return true;
+  if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) {
+    return true;
+  }
 
   const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
   const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
@@ -209,8 +211,8 @@ function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, dri
 
 function findPhotoByFilePath(getState, drivePhotoFile) {
 
-  const photosByName = getState().googlePhotos.photosByName;
-  const photosByAltKey = getState().googlePhotos.photosByAltKey;
+  const googlePhotosByName = getState().googlePhotos.photosByName;
+  const googlePhotosByAltKey = getState().googlePhotos.photosByAltKey;
 
   // photosByName is a structure mapping google photo names to a list of google photos that have the same name
 
@@ -231,7 +233,7 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
   //          array of google photos that match photoFile (see above for what 'match' means)
 
   let nameWithoutExtension = '';
-  let photoFiles = null;
+  let googlePhotosMatchingDrivePhotoDimensions = null;
 
   let fileName = path.basename(drivePhotoFile.path).toLowerCase();
 
@@ -240,27 +242,27 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
     nameWithoutExtension = fileName.slice(0, -4);
   }
 
-  if (!photosByName[fileName]) {
+  if (!googlePhotosByName[fileName]) {
     if (extension === '.tif') {
       fileName = nameWithoutExtension + ".jpg";
     }
   }
 
-  if (photosByName[fileName]) {
+  if (googlePhotosByName[fileName]) {
 
-    let photoList = null;
-    if (photosByName[fileName].photoList) {
-      photoList = deepcopy(photosByName[fileName].photoList);
+    let googlePhotoListMatchingDimensions = null;
+    if (googlePhotosByName[fileName].photoList) {
+      googlePhotoListMatchingDimensions = deepcopy(googlePhotosByName[fileName].photoList);
     }
-    if (photoList) {
-      photoList = photoList.filter(dimensionsMatch, drivePhotoFile.dimensions);
-      if (photoList && photoList.length === 0) {
-        photoList = null;
+    if (googlePhotoListMatchingDimensions) {
+      googlePhotoListMatchingDimensions = googlePhotoListMatchingDimensions.filter(dimensionsMatch, drivePhotoFile.dimensions);
+      if (googlePhotoListMatchingDimensions && googlePhotoListMatchingDimensions.length === 0) {
+        googlePhotoListMatchingDimensions = null;
       }
     }
-    photoFiles = {
+    googlePhotosMatchingDrivePhotoDimensions = {
       pathOnDrive: drivePhotoFile.path,
-      photoList
+      photoList: googlePhotoListMatchingDimensions
     };
   }
 
@@ -268,32 +270,32 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
   if (fileName.length >= 6) {
     if (utils.isNumeric(nameWithoutExtension)) {
       const partialName = fileName.slice(fileName.length - 6);
-      if (photosByAltKey[partialName]) {
-        if (!photoFiles) {
-          photoFiles = {
+      if (googlePhotosByAltKey[partialName]) {
+        if (!googlePhotosMatchingDrivePhotoDimensions) {
+          googlePhotosMatchingDrivePhotoDimensions = {
             pathOnDrive: drivePhotoFile.path,
             photoList: []
           };
         }
-        photosByAltKey[partialName].forEach( (googlePhoto) => {
+        googlePhotosByAltKey[partialName].forEach( (googlePhoto) => {
 
           let googlePhotoAdded = false;
           if (drivePhotoFile.dimensions) {
             if (googlePhoto.width === drivePhotoFile.dimensions.width &&
               googlePhoto.height === drivePhotoFile.dimensions.height) {
-              photoFiles.photoList.unshift(googlePhoto);
+              googlePhotosMatchingDrivePhotoDimensions.photoList.unshift(googlePhoto);
               googlePhotoAdded = true;
             }
           }
           if (!googlePhotoAdded) {
-            photoFiles.photoList.push(googlePhoto);
+            googlePhotosMatchingDrivePhotoDimensions.photoList.push(googlePhoto);
           }
         });
       }
     }
   }
 
-  return photoFiles;
+  return googlePhotosMatchingDrivePhotoDimensions;
 }
 
 function findPhotoByKey(dispatch, getState, drivePhotoFile) {
