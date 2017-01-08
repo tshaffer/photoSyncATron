@@ -110,19 +110,21 @@ function buildManualPhotoMatchList(dispatch, searchResults) {
       if (drivePhotoDimensions) {
         let photoCompareItem = null;
         const googlePhotoList = searchResult.photoList.photoList;
-        googlePhotoList.forEach( (googlePhoto) => {
-          if (Number(googlePhoto.width) === drivePhotoDimensions.width && Number(googlePhoto.height) === drivePhotoDimensions.height) {
-            // if this is the first google photo in the photo list to match the drive photo's dimensions,
-            // create the necessary data structures
-            // debugger;
-            if (!photoCompareItem) {
-              photoCompareItem = {};
-              photoCompareItem.baseFile = searchResult.photoFile;
-              photoCompareItem.photoList = [];
+        if (googlePhotoList) {
+          googlePhotoList.forEach( (googlePhoto) => {
+            if (Number(googlePhoto.width) === drivePhotoDimensions.width && Number(googlePhoto.height) === drivePhotoDimensions.height) {
+              // if this is the first google photo in the photo list to match the drive photo's dimensions,
+              // create the necessary data structures
+              // debugger;
+              if (!photoCompareItem) {
+                photoCompareItem = {};
+                photoCompareItem.baseFile = searchResult.photoFile;
+                photoCompareItem.photoList = [];
+              }
+              photoCompareItem.photoList.push(googlePhoto);
             }
-            photoCompareItem.photoList.push(googlePhoto);
-          }
-        });
+          });
+        }
         if (photoCompareItem) {
           photoCompareList.push(photoCompareItem);
           searchResult.reason = 'manualMatchPending';
@@ -178,13 +180,20 @@ function saveSearchResults(dispatch, searchResults) {
   console.log("ALL DONE");
 }
 
+function dimensionsMatch(googlePhoto) {
+  if (Number(googlePhoto.width) === this.width && Number(googlePhoto.height) === this.height) {
+    return true;
+  }
+
+  return false;
+}
 
 function findPhotoByFilePath(getState, drivePhotoFile) {
 
   const photosByName = getState().googlePhotos.photosByName;
   const photosByAltKey = getState().googlePhotos.photosByAltKey;
 
-  // photosByName is a structure mapping google photo names to google photos
+  // photosByName is a structure mapping google photo names to a list of google photos that have the same name
 
   // cases for possible match between file on drive and google photo
   // case 1 - look for a match with the file name as read from the drive
@@ -223,6 +232,12 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
     let photoList = null;
     if (photosByName[fileName].photoList) {
       photoList = deepcopy(photosByName[fileName].photoList);
+    }
+    if (photoList) {
+      photoList = photoList.filter(dimensionsMatch, drivePhotoFile.dimensions);
+      if (photoList && photoList.length === 0) {
+        photoList = null;
+      }
     }
     photoFiles = {
       pathOnDrive: drivePhotoFile.path,
