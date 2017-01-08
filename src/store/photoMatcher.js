@@ -181,7 +181,27 @@ function saveSearchResults(dispatch, searchResults) {
 }
 
 function dimensionsMatch(googlePhoto) {
-  if (Number(googlePhoto.width) === this.width && Number(googlePhoto.height) === this.height) {
+  // if (Number(googlePhoto.width) === this.width && Number(googlePhoto.height) === this.height) {
+  //   return true;
+  // }
+
+  return (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), this.width, this.height));
+
+  // return false;
+}
+
+// return true if the dimensions match or their aspect ratios are 'really' close
+function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, drivePhotoHeight) {
+  if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) return true;
+
+  const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
+  const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
+
+  const minValue = 0.99;
+  const maxValue = 1.01;
+
+  const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
+  if ( aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
     return true;
   }
 
@@ -606,8 +626,8 @@ export default function(state = initialState, action) {
         newState.unsuccessfulMatches++;
       }
 
-      console.log('Successful matches, unsuccessful matches: ',
-        newState.successfulMatches, newState.unsuccessfulMatches);
+      // console.log('Successful matches, unsuccessful matches: ',
+      //   newState.successfulMatches, newState.unsuccessfulMatches);
       return newState;
     }
     case PHOTO_MATCHING_COMPLETE: {
