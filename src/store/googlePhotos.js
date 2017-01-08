@@ -274,10 +274,10 @@ export function buildPhotoDictionaries(dispatch, getState) {
 
   console.log('buildPhotoDictionaries, numDuplicates: ', numDuplicates);
 
-  fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
-  fs.writeFileSync('photosByKey.json', JSON.stringify(photosByKey, null, 2));
-  fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
-  fs.writeFileSync('photosByAltKey.json', JSON.stringify(photosByAltKey, null, 2));
+  // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
+  // fs.writeFileSync('photosByKey.json', JSON.stringify(photosByKey, null, 2));
+  // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
+  // fs.writeFileSync('photosByAltKey.json', JSON.stringify(photosByAltKey, null, 2));
 }
 
 
