@@ -66,7 +66,7 @@ class MatchPhotosProgress extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h2>Reading photos from drive...</h2>
+          <h2>Reading photos from {this.props.volumeName} </h2>
           {progressIndicator}
           <div>
             Number of photo files on drive:
@@ -101,6 +101,7 @@ MatchPhotosProgress.propTypes = {
   photoMatchingComplete: React.PropTypes.bool.isRequired,
   photoCompareList: React.PropTypes.array.isRequired,
   saveResults: React.PropTypes.func.isRequired,
+  volumeName: React.PropTypes.string.isRequired
 
 };
 

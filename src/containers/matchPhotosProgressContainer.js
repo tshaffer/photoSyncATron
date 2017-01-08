@@ -23,6 +23,7 @@ function mapStateToProps (state) {
     unsuccessfulMatches: state.matchPhotosData.unsuccessfulMatches,
     photoMatchingComplete: state.matchPhotosData.photoMatchingComplete,
     photoCompareList: state.matchPhotosData.photoCompareList,
+    volumeName: state.drivePhotos.volumeName
   };
 }
 
