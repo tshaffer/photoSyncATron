@@ -319,7 +319,7 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
 //   }
 // }
 
-function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error) {
+function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
 
   let success = false;
   if (googlePhotoFile) {
@@ -328,10 +328,8 @@ function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, re
 
   let photoList = null;
   if (!success) {
-    // is there ever any reason to call this (as I think it's always been called already)
-    const photoFile = findPhotoByFilePath(getState, drivePhotoFile);
-    if (photoFile) {
-      photoList = photoFile;
+    if (googlePhotosMatchingDrivePhotoDimensions) {
+      photoList = googlePhotosMatchingDrivePhotoDimensions;
     }
   }
 
@@ -359,17 +357,13 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
     // get list of google photos whose name 'matches' name of photo on drive
     // and whose dimension matches as well
-
-    // if (drivePhotoFile.path.indexOf('agf00010.tif') > 0) {
-    //   debugger;
-    // }
-    const photoFiles = findPhotoByFilePath(getState, drivePhotoFile);
-    if (!photoFiles) {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
+    const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
+    if (!googlePhotosMatchingDrivePhotoDimensions) {
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
       resolve(searchResult);
     }
     else {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
+      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
       resolve(searchResult);
 
       // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
