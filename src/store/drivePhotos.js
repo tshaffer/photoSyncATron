@@ -10,8 +10,10 @@ import * as utils from '../utilities/utils';
 const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
-const rootFolder = "d:/";
+// const rootFolder = "d:/";
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
+const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos";
+
 // ------------------------------------
 // Helper functions
 // ------------------------------------
