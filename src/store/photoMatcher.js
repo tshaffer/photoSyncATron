@@ -363,6 +363,9 @@ function launchExifImageCall(resolve, dispatch, getState) {
     try {
 
       console.log('invoke exifImage: ', pendingExifImageCall.image);
+      // if (pendingExifImageCall.image.indexOf('_dsc3755') >= 0) {
+      //   debugger;
+      // }
       new exifImage({image: pendingExifImageCall.image}, function (error, exifData) {
 
         console.log('return from exifImage call: ', drivePhotoFile.path);
@@ -415,10 +418,17 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise( (resolve) => {
 
+    let fileIsBlacklisted = false;
+
+    // check for blacklisted files
+    if (drivePhotoFile.path.indexOf('_dsc3755') >= 0) {
+      fileIsBlacklisted = true;
+    }
+
     // get list of google photos whose name 'matches' name of photo on drive
     // and whose dimension matches as well
     const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
-    if (!googlePhotosMatchingDrivePhotoDimensions) {
+    if (!googlePhotosMatchingDrivePhotoDimensions || fileIsBlacklisted) {
       searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
       resolve(searchResult);
     }
