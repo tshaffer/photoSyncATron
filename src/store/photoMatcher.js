@@ -309,17 +309,17 @@ function findPhotoByKey(dispatch, getState, drivePhotoFile) {
     const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
     if (photosByKey[key]) {
       const googlePhotoFile = photosByKey[key];
-      return setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
+      return setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
     }
     else {
-      return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '');
+      return setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '');
     }
   } catch (sizeOfError) {
-    return setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', sizeOfError);
+    return setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', sizeOfError);
   }
 }
 
-function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
+function setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
 
   let success = false;
   if (googlePhotoFile) {
@@ -350,7 +350,7 @@ function setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, re
 let pendingExifImageCalls = [];
 let exifImageCallInvoked = false;
 
-function launchExifImageCall(resolve, dispatch, getState) {
+function launchExifImageCall(dispatch, getState) {
   if (pendingExifImageCalls.length > 0) {
 
     let searchResult = null;
@@ -359,6 +359,7 @@ function launchExifImageCall(resolve, dispatch, getState) {
     const drivePhotoFile = pendingExifImageCall.drivePhotoFile;
     const googlePhotosMatchingDrivePhotoDimensions = pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions;
     const googlePhotosByExifDateTime = pendingExifImageCall.googlePhotosByExifDateTime;
+    let resolve = pendingExifImageCall.resolve;
 
     try {
 
@@ -372,10 +373,10 @@ function launchExifImageCall(resolve, dispatch, getState) {
 
         if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
 
-          searchResult = setSearchResult(dispatch, getState,
+          searchResult = setSearchResult(dispatch,
             drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
           resolve(searchResult);
-          launchExifImageCall(resolve, dispatch, getState);
+          launchExifImageCall(dispatch, getState);
         }
         else {
           let dateTimeStr = '';
@@ -389,23 +390,22 @@ function launchExifImageCall(resolve, dispatch, getState) {
           const isoString = exifDateTime.toISOString();
           if (googlePhotosByExifDateTime[isoString]) {
             const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-            searchResult = setSearchResult(dispatch, getState, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
           }
           else {
             searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
           }
           searchResult.isoString = isoString;
           resolve(searchResult);
-
-          launchExifImageCall(resolve, dispatch, getState);
+          launchExifImageCall(dispatch, getState);
         }
       });
     } catch (error) {
       console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
 
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
       resolve(searchResult);
-      launchExifImageCall(resolve, dispatch, getState);
+      launchExifImageCall(dispatch, getState);
     }
   }
 }
@@ -429,28 +429,35 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     // and whose dimension matches as well
     const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
     if (!googlePhotosMatchingDrivePhotoDimensions || fileIsBlacklisted) {
-      searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+      console.log('resolve: ', searchResult.photoFile.path);
       resolve(searchResult);
     }
     else {
-      // searchResult = setSearchResult(dispatch, getState, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+      // searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
       // resolve(searchResult);
 
       // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
       // if it is, try workaround of invoking it sequentially
-
-      let pendingExifImageCall = {};
-      pendingExifImageCall.image = drivePhotoFile.path;
-      pendingExifImageCall.drivePhotoFile = drivePhotoFile;
-      pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions = googlePhotosMatchingDrivePhotoDimensions;
-      pendingExifImageCall.googlePhotosByExifDateTime = googlePhotosByExifDateTime;
+      let pendingExifImageCall = {
+        image: drivePhotoFile.path,
+        drivePhotoFile,
+        googlePhotosMatchingDrivePhotoDimensions,
+        googlePhotosByExifDateTime,
+        resolve
+      };
+      // let pendingExifImageCall = {};
+      // pendingExifImageCall.image = drivePhotoFile.path;
+      // pendingExifImageCall.drivePhotoFile = drivePhotoFile;
+      // pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions = googlePhotosMatchingDrivePhotoDimensions;
+      // pendingExifImageCall.googlePhotosByExifDateTime = googlePhotosByExifDateTime;
       pendingExifImageCalls.push(pendingExifImageCall);
 
       console.log('Push exifImageCall: ', drivePhotoFile.path);
       // TODO - bogus
       if (!exifImageCallInvoked) {
         exifImageCallInvoked = true;
-        launchExifImageCall(resolve, dispatch, getState);
+        launchExifImageCall(dispatch, getState);
       }
     }
   });
@@ -460,11 +467,13 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
 
   let promises = [];
   drivePhotoFiles.forEach( (drivePhotoFile) => {
-    let promise = matchPhotoFile(dispatch, getState, drivePhotoFile);
-    promises.push(promise);
+    promises.push(matchPhotoFile(dispatch, getState, drivePhotoFile));
   });
   Promise.all(promises).then( (searchResults) => {
     saveSearchResults(dispatch, searchResults);
+  }, (err) => {
+    console.log("matchAllPhotos err: ", err);
+    debugger;
   });
 }
 
