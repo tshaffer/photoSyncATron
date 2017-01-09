@@ -1,5 +1,4 @@
 const recursive = require('recursive-readdir');
-import fs from 'fs';
 import path from 'path';
 
 import * as utils from '../utilities/utils';

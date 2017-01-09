@@ -54,11 +54,11 @@ class ComparePhotos extends Component {
         }
       });
       sourcePhoto = "";
-      paths.forEach( (subPath, index) => {
+      paths.forEach( (subPath) => {
         sourcePhoto += subPath + "/";
       });
       // sourcePhoto = path.join.apply(null, paths);
-      sourcePhoto = sourcePhoto.substr(0, sourcePhoto.length - 1)
+      sourcePhoto = sourcePhoto.substr(0, sourcePhoto.length - 1);
 
       let command = convertCmd + " " + sourcePhoto + " " + targetPath;
       console.log(command);
@@ -171,7 +171,7 @@ class ComparePhotos extends Component {
       else {
         console.log("emptyTmpDir failure: ", err);
       }
-    })
+    });
   }
 
   getDriveImageJSX() {
