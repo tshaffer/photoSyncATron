@@ -13,7 +13,8 @@ const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 // const rootFolder = "d:/";
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos";
-const rootFolder = "C:\\Users\\Ted\\Documents\\TestPhoto-Photos2";
+// const rootFolder = "C:\\Users\\Ted\\Documents\\TestPhoto-Photos2";
+const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
 // ------------------------------------
 // Helper functions
 // ------------------------------------
