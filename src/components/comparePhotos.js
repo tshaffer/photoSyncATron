@@ -11,14 +11,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 // ------------------------------------
 // Constants
 // ------------------------------------
-const convertCmd = 'convert';
-// const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
+// const convertCmd = 'convert';
+const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 class ComparePhotos extends Component {
 
   constructor(props) {
     super(props);
-    this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+    // this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+    this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
     this.state = {
       diskImage: '',
       googleImage: '',
