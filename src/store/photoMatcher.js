@@ -199,7 +199,6 @@ function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, dri
 
     const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
     if (aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
-      console.log(googlePhotoWidth, " ", googlePhotoHeight, " ", drivePhotoWidth, " ", drivePhotoHeight);
       return true;
     }
   }
@@ -366,15 +365,29 @@ function launchExifImageCall(dispatch, getState) {
         if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
 
           // get last modified, created date from node
-          // const stats = fs.lstatSync(pendingExifImageCall.image);
-          // const lastModifiedTime = stats.mtime; // Date object
-          // console.log(drivePhotoFile.path, " ", lastModifiedTime.toISOString());
-          // console.log(googlePhotosByExifDateTime);
-
-          searchResult = setSearchResult(dispatch,
-            drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+          const stats = fs.lstatSync(pendingExifImageCall.image);
+          const lastModifiedTime = stats.mtime; // Date object
+          const isoString = lastModifiedTime.toISOString();
+          if (googlePhotosByExifDateTime[isoString]) {
+            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+            console.log("match: ", pendingExifImageCall.image, " using fsStat");
+          }
+          else {
+            console.log("failure:");
+            console.log(pendingExifImageCall.image.substring(59), " ", isoString);
+            // searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
+            searchResult = setSearchResult(dispatch,
+              drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+          }
+          searchResult.isoString = isoString;
           resolve(searchResult);
           launchExifImageCall(dispatch, getState);
+
+          // searchResult = setSearchResult(dispatch,
+          //   drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+          // resolve(searchResult);
+          // launchExifImageCall(dispatch, getState);
         }
         else {
           let dateTimeStr = '';
