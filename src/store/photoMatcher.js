@@ -363,15 +363,15 @@ function launchExifImageCall(dispatch, getState) {
 
     try {
 
-      console.log('invoke exifImage: ', pendingExifImageCall.image);
-      // if (pendingExifImageCall.image.indexOf('_dsc3755') >= 0) {
-      //   debugger;
-      // }
       new exifImage({image: pendingExifImageCall.image}, function (error, exifData) {
 
-        console.log('return from exifImage call: ', drivePhotoFile.path);
-
         if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+
+          // get last modified, created date from node
+          // const stats = fs.lstatSync(pendingExifImageCall.image);
+          // const lastModifiedTime = stats.mtime; // Date object
+          // console.log(drivePhotoFile.path, " ", lastModifiedTime.toISOString());
+          // console.log(googlePhotosByExifDateTime);
 
           searchResult = setSearchResult(dispatch,
             drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
@@ -446,11 +446,6 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         googlePhotosByExifDateTime,
         resolve
       };
-      // let pendingExifImageCall = {};
-      // pendingExifImageCall.image = drivePhotoFile.path;
-      // pendingExifImageCall.drivePhotoFile = drivePhotoFile;
-      // pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions = googlePhotosMatchingDrivePhotoDimensions;
-      // pendingExifImageCall.googlePhotosByExifDateTime = googlePhotosByExifDateTime;
       pendingExifImageCalls.push(pendingExifImageCall);
 
       console.log('Push exifImageCall: ', drivePhotoFile.path);
