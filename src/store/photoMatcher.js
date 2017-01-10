@@ -180,30 +180,28 @@ function saveSearchResults(dispatch, searchResults) {
 }
 
 function dimensionsMatch(googlePhoto) {
-  // if (Number(googlePhoto.width) === this.width && Number(googlePhoto.height) === this.height) {
-  //   return true;
-  // }
-
   return (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), this.width, this.height));
-
-  // return false;
 }
 
 // return true if the dimensions match or their aspect ratios are 'really' close
+const minSizeRequiringComparison = 1750000;
 function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, drivePhotoHeight) {
   if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) {
     return true;
   }
 
-  const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
-  const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
+  if (drivePhotoWidth * drivePhotoHeight > minSizeRequiringComparison) {
+    const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
+    const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
 
-  const minValue = 0.99;
-  const maxValue = 1.01;
+    const minValue = 0.99;
+    const maxValue = 1.01;
 
-  const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
-  if ( aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
-    return true;
+    const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
+    if (aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
+      console.log(googlePhotoWidth, " ", googlePhotoHeight, " ", drivePhotoWidth, " ", drivePhotoHeight);
+      return true;
+    }
   }
 
   return false;
@@ -430,7 +428,6 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
     if (!googlePhotosMatchingDrivePhotoDimensions || fileIsBlacklisted) {
       searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-      console.log('resolve: ', searchResult.photoFile.path);
       resolve(searchResult);
     }
     else {
@@ -448,7 +445,6 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       };
       pendingExifImageCalls.push(pendingExifImageCall);
 
-      console.log('Push exifImageCall: ', drivePhotoFile.path);
       // TODO - bogus
       if (!exifImageCallInvoked) {
         exifImageCallInvoked = true;
