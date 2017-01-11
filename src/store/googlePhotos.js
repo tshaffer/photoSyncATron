@@ -191,19 +191,6 @@ function fetchGooglePhotos() {
   });
 }
 
-function retrievePhotosFromGoogle() {
-
-  return new Promise( (resolve, reject) => {
-    fetchGooglePhotos().then( (googlePhotos) => {
-      console.log("Number of photos retrieved from google: ", googlePhotos.length);
-      resolve(googlePhotos);
-    }, (reason) => {
-      console.log("fetchGooglePhotos failed: ", reason);
-      reject(null);
-    });
-  });
-}
-
 function readGooglePhotoFiles(path) {
   return new Promise( (resolve, reject) => {
     fs.readFile(path, (err, data) => {
@@ -223,7 +210,6 @@ export function buildPhotoDictionaries(dispatch, getState) {
   let photosByName = {};
   let photosByAltKey = {};
 
-  let numDuplicates = 0;
   let googlePhotos = getState().googlePhotos.googlePhotos;
 
   googlePhotos.forEach( (googlePhoto) => {
@@ -262,8 +248,6 @@ export function buildPhotoDictionaries(dispatch, getState) {
     photosByName,
     photosByAltKey));
 
-  console.log('buildPhotoDictionaries, numDuplicates: ', numDuplicates);
-
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
   // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
   // fs.writeFileSync('photosByAltKey.json', JSON.stringify(photosByAltKey, null, 2));
@@ -280,7 +264,8 @@ export function loadGooglePhotos() {
 
     // initial implementation: read all photos from google; don't read from file and
     // therefore don't merge photos from file with photos from cloud.
-    retrievePhotosFromGoogle().then( (photosFromGoogle) => {
+    fetchGooglePhotos().then( (photosFromGoogle) => {
+      console.log("Number of photos retrieved from google: ", photosFromGoogle.length);
 
       let googlePhotosSpec = {};
       googlePhotosSpec.version = 3;
@@ -292,9 +277,8 @@ export function loadGooglePhotos() {
       const googlePhotosSpecStr = JSON.stringify(googlePhotosSpec, null, 2);
       fs.writeFileSync('googlePhotos.json', googlePhotosSpecStr);
       console.log('Google photos reference file generation complete.');
-
     }, (reason) => {
-      console.log("loadGooglePhotos error: ", reason);
+      console.log("loadGooglePhotos failed: ", reason);
     });
   };
 }
