@@ -219,7 +219,6 @@ function readGooglePhotoFiles(path) {
 
 export function buildPhotoDictionaries(dispatch, getState) {
 
-  let photosByKey = {};
   let photosByExifDateTime = {};
   let photosByName = {};
   let photosByAltKey = {};
@@ -233,14 +232,6 @@ export function buildPhotoDictionaries(dispatch, getState) {
 
     if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
       photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
-    }
-
-    const key = (name + '-' + googlePhoto.width + googlePhoto.height);
-    if (photosByKey[key]) {
-      numDuplicates++;
-    }
-    else {
-      photosByKey[key] = googlePhoto;
     }
 
     // add to photosByAltKey if name includes only digits and is > 2 characters
@@ -268,14 +259,12 @@ export function buildPhotoDictionaries(dispatch, getState) {
 
   dispatch(setGooglePhotoDictionaries(
     photosByExifDateTime,
-    photosByKey,
     photosByName,
     photosByAltKey));
 
   console.log('buildPhotoDictionaries, numDuplicates: ', numDuplicates);
 
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
-  // fs.writeFileSync('photosByKey.json', JSON.stringify(photosByKey, null, 2));
   // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
   // fs.writeFileSync('photosByAltKey.json', JSON.stringify(photosByAltKey, null, 2));
 }
@@ -345,14 +334,12 @@ function addGooglePhotos(googlePhotos) {
 
 function setGooglePhotoDictionaries(
   photosByExifDateTime,
-  photosByKey,
   photosByName,
   photosByAltKey) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
       photosByExifDateTime,
-      photosByKey,
       photosByName,
       photosByAltKey
     }
@@ -365,7 +352,6 @@ function setGooglePhotoDictionaries(
 const initialState = {
   googlePhotos: [],
   photosByExifDateTime: {},
-  photosByKey: {},
   photosByName: {},
   photosByAltKey: {}
 
@@ -386,7 +372,6 @@ export default function(state = initialState, action) {
         let payload = action.payload;
         let newState = Object.assign({}, state);
         newState.photosByExifDateTime = payload.photosByExifDateTime;
-        newState.photosByKey = payload.photosByKey;
         newState.photosByName = payload.photosByName;
         newState.photosByAltKey = payload.photosByAltKey;
         return newState;

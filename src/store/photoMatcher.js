@@ -295,26 +295,6 @@ function findPhotoByFilePath(getState, drivePhotoFile) {
   return googlePhotosMatchingDrivePhotoDimensions;
 }
 
-function findPhotoByKey(dispatch, getState, drivePhotoFile) {
-
-  const name = path.basename(drivePhotoFile.path);
-  const photosByKey = getState().googlePhotos.photosByKey;
-
-  try {
-    const dimensions = drivePhotoFile.dimensions;
-
-    const key = (name + '-' + dimensions.width.toString() + dimensions.height.toString()).toLowerCase();
-    if (photosByKey[key]) {
-      const googlePhotoFile = photosByKey[key];
-      return setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'keyMatch', '');
-    }
-    else {
-      return setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '');
-    }
-  } catch (sizeOfError) {
-    return setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', sizeOfError);
-  }
-}
 
 function setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
 
@@ -374,20 +354,12 @@ function launchExifImageCall(dispatch, getState) {
             console.log("match: ", pendingExifImageCall.image, " using fsStat");
           }
           else {
-            console.log("failure:");
-            console.log(pendingExifImageCall.image.substring(59), " ", isoString);
-            // searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
             searchResult = setSearchResult(dispatch,
               drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
           }
           searchResult.isoString = isoString;
           resolve(searchResult);
           launchExifImageCall(dispatch, getState);
-
-          // searchResult = setSearchResult(dispatch,
-          //   drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
-          // resolve(searchResult);
-          // launchExifImageCall(dispatch, getState);
         }
         else {
           let dateTimeStr = '';
@@ -404,7 +376,9 @@ function launchExifImageCall(dispatch, getState) {
             searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
           }
           else {
-            searchResult = findPhotoByKey(dispatch, getState, drivePhotoFile);
+            // // given the fact that the code has made it here implies that it has matching photo dimensions with one or more google photos
+            searchResult = setSearchResult(dispatch,
+              drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
           }
           searchResult.isoString = isoString;
           resolve(searchResult);
