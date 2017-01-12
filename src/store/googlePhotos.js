@@ -206,18 +206,23 @@ function readGooglePhotoFiles(path) {
 
 export function buildPhotoDictionaries(dispatch, getState) {
 
-  let photosByExifDateTime = {};
+  let gfsByExifDateTime = {};
+  let gfsByDateTime = {};
   let gfsByName = {};
-  let photosByAltKey = {};
+  let gfsByAltKey = {};
 
-  let googlePhotos = getState().googlePhotos.googlePhotos;
+  let gfs = getState().googlePhotos.googlePhotos;
 
-  googlePhotos.forEach( (googlePhoto) => {
+  gfs.forEach( (gf) => {
 
-    const name = googlePhoto.name;
+    const name = gf.name;
 
-    if (googlePhoto.exifDateTime && googlePhoto.exifDateTime !== '') {
-      photosByExifDateTime[googlePhoto.exifDateTime] = googlePhoto;
+    if (gf.dateTime && gf.dateTime !== '') {
+      gfsByDateTime[gf.dateTime] = gf;
+    }
+
+    if (gf.exifDateTime && gf.exifDateTime !== '') {
+      gfsByExifDateTime[gf.exifDateTime] = gf;
     }
 
     // add to photosByAltKey if name includes only digits and is > 2 characters
@@ -227,26 +232,27 @@ export function buildPhotoDictionaries(dispatch, getState) {
       if (utils.isNumeric(nameWithoutExtension)) {
         const partialName = name.slice(name.length - 6);
         const altKey = partialName;
-        if (!photosByAltKey[altKey]) {
-          photosByAltKey[altKey] = [];
+        if (!gfsByAltKey[altKey]) {
+          gfsByAltKey[altKey] = [];
         }
-        photosByAltKey[altKey].push(googlePhoto);
+        gfsByAltKey[altKey].push(gf);
       }
     }
 
     if (gfsByName[name]) {
-      gfsByName[name].gfList.push(googlePhoto);
+      gfsByName[name].gfList.push(gf);
     }
     else {
       gfsByName[name] = {};
-      gfsByName[name].gfList = [googlePhoto];
+      gfsByName[name].gfList = [gf];
     }
   });
 
   dispatch(setGooglePhotoDictionaries(
-    photosByExifDateTime,
+    gfsByDateTime,
+    gfsByExifDateTime,
     gfsByName,
-    photosByAltKey));
+    gfsByAltKey));
 
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
   // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
@@ -292,13 +298,6 @@ export function readGooglePhotos() {
       let googlePhotosSpec = JSON.parse(googlePhotosStr);
       let googlePhotos = googlePhotosSpec.photos;
       console.log("Number of existing google photos: ", googlePhotos.length);
-
-      googlePhotos.forEach( (photo) => {
-        if (photo.exifDateTime !== '') {
-          photo.exifDateTime = photo.dateTime;
-        }
-      });
-
       dispatch(addGooglePhotos(googlePhotos));
     }, (reason) => {
       console.log('Error reading allGooglePhotos.json: ', reason);
@@ -317,13 +316,15 @@ function addGooglePhotos(googlePhotos) {
 }
 
 function setGooglePhotoDictionaries(
-  photosByExifDateTime,
+  gfsByDateTime,
+  gfsByExifDateTime,
   gfsByName,
   photosByAltKey) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
-      photosByExifDateTime,
+      gfsByDateTime,
+      gfsByExifDateTime,
       gfsByName,
       photosByAltKey
     }
@@ -335,7 +336,7 @@ function setGooglePhotoDictionaries(
 // ------------------------------------
 const initialState = {
   googlePhotos: [],
-  photosByExifDateTime: {},
+  gfsByExifDateTime: {},
   gfsByName: {},
   photosByAltKey: {}
 
@@ -355,7 +356,8 @@ export default function(state = initialState, action) {
       {
         let payload = action.payload;
         let newState = Object.assign({}, state);
-        newState.photosByExifDateTime = payload.photosByExifDateTime;
+        newState.gfsByDateTime = payload.gfsByDateTime;
+        newState.gfsByExifDateTime = payload.gfsByExifDateTime;
         newState.gfsByName = payload.gfsByName;
         newState.photosByAltKey = payload.photosByAltKey;
         return newState;

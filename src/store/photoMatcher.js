@@ -131,15 +131,85 @@ function getNameWithDimensionsMatch(df, gfStore) {
   return gfsMatchingDFDimensions;
 }
 
+
+function getExifDateTimeMatch(df, gfStore) {
+
+  const dfPath = df.path;
+
+  return new Promise((resolve, reject) => {
+
+    // check for blacklisted files
+    if (dfPath.path.indexOf('_dsc3755') >= 0) {
+      resolve(false);
+    }
+
+    try {
+
+      new exifImage({image: dfPath}, function (error, exifData) {
+
+        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+
+          // get last modified, created date from node
+          const stats = fs.lstatSync(pendingExifImageCall.image);
+          const lastModifiedTime = stats.mtime; // Date object
+          const isoString = lastModifiedTime.toISOString();
+          if (googlePhotosByExifDateTime[isoString]) {
+            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+            console.log("match: ", pendingExifImageCall.image, " using fsStat");
+          }
+          else {
+            searchResult = setSearchResult(dispatch,
+              drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+          }
+          searchResult.isoString = isoString;
+          resolve(searchResult);
+          launchExifImageCall(dispatch, getState);
+        }
+        else {
+          let dateTimeStr = '';
+          if (exifData.exif.CreateDate) {
+            dateTimeStr = exifData.exif.CreateDate;
+          }
+          else {
+            dateTimeStr = exifData.exif.DateTimeOriginal;
+          }
+          const exifDateTime = utils.getDateFromString(dateTimeStr);
+          const isoString = exifDateTime.toISOString();
+          if (googlePhotosByExifDateTime[isoString]) {
+            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+          }
+          else {
+            // // given the fact that the code has made it here implies that it has matching photo dimensions with one or more google photos
+            searchResult = setSearchResult(dispatch,
+              drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+          }
+          searchResult.isoString = isoString;
+          resolve(searchResult);
+          launchExifImageCall(dispatch, getState);
+        }
+      });
+    } catch (error) {
+      console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
+
+      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+      resolve(searchResult);
+      launchExifImageCall(dispatch, getState);
+    }
+
+    console.log('poo');
+  });
+}
+
+
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
-  let gfsMatchingDFDimensions = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
-  if (gfsMatchingDFDimensions.nameMatchResult === NAME_MATCH_EXACT || gfsMatchingDFDimensions.nameMatchResult === TIF_NAME_MATCH || gfsMatchingDFDimensions.nameMatchResult === ALT_NAME_MATCH) {
-    console.log('match');
-    console.log(gfsMatchingDFDimensions);
-  }
+  let gfsMatchingDFNameAndDimensions = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
 
-  let googlePhotosByExifDateTime = getState().googlePhotos.photosByExifDateTime;
+  let exifDateTimeMatchPromise = getExifDateTimeMatch(df, gfStore);
+
+  let gfsByExifDateTime = getState().googlePhotos.gfsByExifDateTime;
 
   let searchResult = {};
 
@@ -169,7 +239,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         image: drivePhotoFile.path,
         drivePhotoFile,
         googlePhotosMatchingDrivePhotoDimensions,
-        googlePhotosByExifDateTime,
+        gfsByExifDateTime,
         resolve
       };
       pendingExifImageCalls.push(pendingExifImageCall);
