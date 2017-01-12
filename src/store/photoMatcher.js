@@ -20,6 +20,7 @@ import * as utils from '../utilities/utils';
 // ------------------------------------
 // df - drivePhotoFile
 // gfStore - google photo store contents
+let numgfsMatchingDFDimensions = 0;
 function getNameWithDimensionsMatch(df, gfStore) {
 
   // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
@@ -128,9 +129,15 @@ function getNameWithDimensionsMatch(df, gfStore) {
   }
 
   gfsMatchingDFDimensions.nameMatchResult = nameMatchResult;
+
+  if (nameMatchResult !== NO_NAME_MATCH) {
+    console.log(gfsMatchingDFDimensions);
+    numgfsMatchingDFDimensions++;
+  }
+  console.log("Number of google photos matching drive photos names and dimensions: ", numgfsMatchingDFDimensions);
+
   return gfsMatchingDFDimensions;
 }
-
 
 function getDateTimeMatch(dateTime, fsByDateTime) {
 
@@ -212,18 +219,18 @@ function getDFGFSDateTimeMatch(df, gfStore) {
 
     // look for matches between drive photo file's exif date and google photos' dates
     let allExifDateTimeMatchesPromise = getAllExifDateTimeMatches(df, gfStore);
-    allExifDateTimeMatchesPromise.then(( results) => {
-      if (results) {
-        console.log(df.path, ": allExifDateTimeMatches: ", results);
-      }
-    });
+    // allExifDateTimeMatchesPromise.then(( results) => {
+    //   if (results) {
+    //     console.log(df.path, ": allExifDateTimeMatches: ", results);
+    //   }
+    // });
 
     let allLastModifiedDateTimeMatchesPromise = getAllLastModifiedDateTimeMatches(df, gfStore);
-    allLastModifiedDateTimeMatchesPromise.then(( results) => {
-      if (results) {
-        console.log(df.path, ": allLastModifiedDateTimeMatches: ", results);
-      }
-    });
+    // allLastModifiedDateTimeMatchesPromise.then(( results) => {
+    //   if (results) {
+    //     console.log(df.path, ": allLastModifiedDateTimeMatches: ", results);
+    //   }
+    // });
 
     Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
       resolve(results);
