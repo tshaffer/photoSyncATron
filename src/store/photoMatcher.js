@@ -20,7 +20,7 @@ let exifImageCallInvoked = false;
 // ------------------------------------
 // df - drivePhotoFile
 // gfStore - google photo store contents
-function getNameMatch(df, gfStore) {
+function getNameWithDimensionsMatch(df, gfStore) {
 
   // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
 
@@ -28,7 +28,7 @@ function getNameMatch(df, gfStore) {
   // case 1 - look for a match with the file name as read from the drive
   // case 2 - look for a match between a tif file on the drive and a corresponding jpg google file
   // case 3 - look for a match between the file name from the drive and the modified google file names (3301.jpg => 01.jpg for example)
-  const gfsByName = gfStore.photosByName;
+  const gfsByName = gfStore.gfsByName;
   const gfsByAltKey = gfStore.photosByAltKey;
 
   const dfPath = df.path;
@@ -61,8 +61,8 @@ function getNameMatch(df, gfStore) {
 
   if (gfsByName[dfName]) {
     let gfsMatchingDimensions = null;
-    if (gfsByName[dfName].photoList) {
-      gfsMatchingDimensions = deepcopy(gfsByName[dfName].photoList);
+    if (gfsByName[dfName].gfList) {
+      gfsMatchingDimensions = deepcopy(gfsByName[dfName].gfList);
     }
     if (gfsMatchingDimensions) {
       gfsMatchingDimensions = gfsMatchingDimensions.filter(dimensionsMatch, df.dimensions);
@@ -87,7 +87,7 @@ function getNameMatch(df, gfStore) {
     }
     gfsMatchingDFDimensions = {
       pathOnDrive: dfPath,
-      photoList: gfsMatchingDimensions
+      gfList: gfsMatchingDimensions
     };
   }
 
@@ -101,7 +101,7 @@ function getNameMatch(df, gfStore) {
         if (!gfsMatchingDFDimensions) {
           gfsMatchingDFDimensions = {
             pathOnDrive: dfPath,
-            photoList: []
+            gfList: []
           };
         }
         gfsByAltKey[partialName].forEach( (gf) => {
@@ -109,15 +109,15 @@ function getNameMatch(df, gfStore) {
           if (df.dimensions) {
             if (gf.width === df.dimensions.width &&
               gf.height === df.dimensions.height) {
-              gfsMatchingDFDimensions.photoList.unshift(gf);
+              gfsMatchingDFDimensions.gfList.unshift(gf);
               gfAdded = true;
             }
           }
           if (!gfAdded) {
-            gfsMatchingDFDimensions.photoList.push(gf);
+            gfsMatchingDFDimensions.gfList.push(gf);
           }
         });
-        if (gfsMatchingDFDimensions.photoList.length > 0) {
+        if (gfsMatchingDFDimensions.gfList.length > 0) {
           nameMatchResult = ALT_NAME_MATCH;
         }
         else {
@@ -133,7 +133,11 @@ function getNameMatch(df, gfStore) {
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
-  let gfsMatchingDFDimensions = getNameMatch( drivePhotoFile, getState().googlePhotos);
+  let gfsMatchingDFDimensions = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
+  if (gfsMatchingDFDimensions.nameMatchResult === NAME_MATCH_EXACT || gfsMatchingDFDimensions.nameMatchResult === TIF_NAME_MATCH || gfsMatchingDFDimensions.nameMatchResult === ALT_NAME_MATCH) {
+    console.log('match');
+    console.log(gfsMatchingDFDimensions);
+  }
 
   let googlePhotosByExifDateTime = getState().googlePhotos.photosByExifDateTime;
 

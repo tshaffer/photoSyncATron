@@ -207,7 +207,7 @@ function readGooglePhotoFiles(path) {
 export function buildPhotoDictionaries(dispatch, getState) {
 
   let photosByExifDateTime = {};
-  let photosByName = {};
+  let gfsByName = {};
   let photosByAltKey = {};
 
   let googlePhotos = getState().googlePhotos.googlePhotos;
@@ -234,18 +234,18 @@ export function buildPhotoDictionaries(dispatch, getState) {
       }
     }
 
-    if (photosByName[name]) {
-      photosByName[name].photoList.push(googlePhoto);
+    if (gfsByName[name]) {
+      gfsByName[name].gfList.push(googlePhoto);
     }
     else {
-      photosByName[name] = {};
-      photosByName[name].photoList = [googlePhoto];
+      gfsByName[name] = {};
+      gfsByName[name].gfList = [googlePhoto];
     }
   });
 
   dispatch(setGooglePhotoDictionaries(
     photosByExifDateTime,
-    photosByName,
+    gfsByName,
     photosByAltKey));
 
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
@@ -318,13 +318,13 @@ function addGooglePhotos(googlePhotos) {
 
 function setGooglePhotoDictionaries(
   photosByExifDateTime,
-  photosByName,
+  gfsByName,
   photosByAltKey) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
       photosByExifDateTime,
-      photosByName,
+      gfsByName,
       photosByAltKey
     }
   };
@@ -336,7 +336,7 @@ function setGooglePhotoDictionaries(
 const initialState = {
   googlePhotos: [],
   photosByExifDateTime: {},
-  photosByName: {},
+  gfsByName: {},
   photosByAltKey: {}
 
 };
@@ -356,7 +356,7 @@ export default function(state = initialState, action) {
         let payload = action.payload;
         let newState = Object.assign({}, state);
         newState.photosByExifDateTime = payload.photosByExifDateTime;
-        newState.photosByName = payload.photosByName;
+        newState.gfsByName = payload.gfsByName;
         newState.photosByAltKey = payload.photosByAltKey;
         return newState;
       }
