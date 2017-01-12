@@ -12,8 +12,8 @@ import { buildPhotoDictionaries } from './googlePhotos';
 
 import * as utils from '../utilities/utils';
 
-let pendingExifImageCalls = [];
-let exifImageCallInvoked = false;
+// let pendingExifImageCalls = [];
+// let exifImageCallInvoked = false;
 
 // ------------------------------------
 // Helper functions
@@ -132,195 +132,237 @@ function getNameWithDimensionsMatch(df, gfStore) {
 }
 
 
-function getExifDateTimeMatch(df, gfStore) {
+function getDateTimeMatch(dateTime, fsByDateTime) {
+
+  if (!dateTime) return null;
+
+  const dateTimeStr = dateTime;
+  const exifDateTime = utils.getDateFromString(dateTimeStr);
+  const isoString = exifDateTime.toISOString();
+  return fsByDateTime[isoString];
+}
+
+function getAllExifDateTimeMatches(df, gfStore) {
 
   const dfPath = df.path;
+  const gfsByDateTime = gfStore.gfsByDateTime;
+  const gfsByExifDateTime = gfStore.gfsByExifDateTime;
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
 
     // check for blacklisted files
-    if (dfPath.path.indexOf('_dsc3755') >= 0) {
-      resolve(false);
+    if (dfPath.indexOf('_dsc3755') >= 0) {
+      resolve(null);
     }
 
     try {
-
       new exifImage({image: dfPath}, function (error, exifData) {
-
         if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
-
-          // get last modified, created date from node
-          const stats = fs.lstatSync(pendingExifImageCall.image);
-          const lastModifiedTime = stats.mtime; // Date object
-          const isoString = lastModifiedTime.toISOString();
-          if (googlePhotosByExifDateTime[isoString]) {
-            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-            console.log("match: ", pendingExifImageCall.image, " using fsStat");
-          }
-          else {
-            searchResult = setSearchResult(dispatch,
-              drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
-          }
-          searchResult.isoString = isoString;
-          resolve(searchResult);
-          launchExifImageCall(dispatch, getState);
+          resolve(null);
         }
         else {
-          let dateTimeStr = '';
-          if (exifData.exif.CreateDate) {
-            dateTimeStr = exifData.exif.CreateDate;
-          }
-          else {
-            dateTimeStr = exifData.exif.DateTimeOriginal;
-          }
-          const exifDateTime = utils.getDateFromString(dateTimeStr);
-          const isoString = exifDateTime.toISOString();
-          if (googlePhotosByExifDateTime[isoString]) {
-            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-          }
-          else {
-            // // given the fact that the code has made it here implies that it has matching photo dimensions with one or more google photos
-            searchResult = setSearchResult(dispatch,
-              drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-          }
-          searchResult.isoString = isoString;
-          resolve(searchResult);
-          launchExifImageCall(dispatch, getState);
+          const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
+          const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimOriginal, gfsByDateTime);
+          const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
+          const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal. gfsByExifDateTime);
+
+          const exifDateTimeCompareResults = [
+            createDateToDateTimeExifMatch,
+            dateTimeOriginalToDateTimeExifMatch,
+            createDateToExifDateTimeExifMatch,
+            dateTimeOriginalToExifDateTime];
+          resolve(exifDateTimeCompareResults);
+          // searchResult.isoString = isoString;
         }
       });
     } catch (error) {
-      console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
-
-      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
-      resolve(searchResult);
-      launchExifImageCall(dispatch, getState);
+      console.log('FAILED return from exifImage call: ', dfPath);
+      resolve(null);
     }
+  });
+}
 
-    console.log('poo');
+function getAllLastModifiedDateTimeMatches(df, gfStore) {
+
+  const dfPath = df.path;
+  const gfsByDateTime = gfStore.gfsByDateTime;
+  const gfsByExifDateTime = gfStore.gfsByExifDateTime;
+
+  return new Promise( (resolve, reject) => {
+    fs.lstat(dfPath, (err, stats) => {
+      if (err) reject(err);
+      const lastModified = stats.mtime; // Date object
+      const lastModifiedISO = lastModified.toISOString();
+      const lastModifiedToDateTimeMatch = gfsByDateTime[lastModifiedISO];
+      const lastModifiedToExifDateTimeMatch = gfsByExifDateTime[lastModifiedISO];
+
+      const lastModifiedCompareResults = [
+        lastModifiedToDateTimeMatch,
+        lastModifiedToExifDateTimeMatch
+      ];
+      resolve(lastModifiedCompareResults);
+    });
   });
 }
 
 
-function matchPhotoFile(dispatch, getState, drivePhotoFile) {
-
-  let gfsMatchingDFNameAndDimensions = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
-
-  let exifDateTimeMatchPromise = getExifDateTimeMatch(df, gfStore);
-
-  let gfsByExifDateTime = getState().googlePhotos.gfsByExifDateTime;
-
-  let searchResult = {};
+function getDFGFSDateTimeMatch(df, gfStore) {
 
   return new Promise( (resolve) => {
 
-    let fileIsBlacklisted = false;
-
-    // check for blacklisted files
-    if (drivePhotoFile.path.indexOf('_dsc3755') >= 0) {
-      fileIsBlacklisted = true;
-    }
-
-    // get list of google photos whose name 'matches' name of photo on drive
-    // and whose dimension matches as well
-    const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
-    if (!googlePhotosMatchingDrivePhotoDimensions || fileIsBlacklisted) {
-      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-      resolve(searchResult);
-    }
-    else {
-      // searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-      // resolve(searchResult);
-
-      // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
-      // if it is, try workaround of invoking it sequentially
-      let pendingExifImageCall = {
-        image: drivePhotoFile.path,
-        drivePhotoFile,
-        googlePhotosMatchingDrivePhotoDimensions,
-        gfsByExifDateTime,
-        resolve
-      };
-      pendingExifImageCalls.push(pendingExifImageCall);
-
-      // TODO - bogus
-      if (!exifImageCallInvoked) {
-        exifImageCallInvoked = true;
-        launchExifImageCall(dispatch, getState);
+    // look for matches between drive photo file's exif date and google photos' dates
+    let allExifDateTimeMatchesPromise = getAllExifDateTimeMatches(df, gfStore);
+    allExifDateTimeMatchesPromise.then(( results) => {
+      if (results) {
+        console.log(df.path, ": allExifDateTimeMatches: ", results);
       }
-    }
+    });
+
+    let allLastModifiedDateTimeMatchesPromise = getAllLastModifiedDateTimeMatches(df, gfStore);
+    allLastModifiedDateTimeMatchesPromise.then(( results) => {
+      if (results) {
+        console.log(df.path, ": allLastModifiedDateTimeMatches: ", results);
+      }
+    });
+
+    Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
+      resolve(results);
+    }, (err) => {
+      console.log(err);
+      debugger;
+    });
   });
 }
 
-function launchExifImageCall(dispatch, getState) {
-  if (pendingExifImageCalls.length > 0) {
 
-    let searchResult = null;
+function matchPhotoFile(_, getState, drivePhotoFile) {
 
-    let pendingExifImageCall = pendingExifImageCalls.shift();
-    const drivePhotoFile = pendingExifImageCall.drivePhotoFile;
-    const googlePhotosMatchingDrivePhotoDimensions = pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions;
-    const googlePhotosByExifDateTime = pendingExifImageCall.googlePhotosByExifDateTime;
-    let resolve = pendingExifImageCall.resolve;
+  return new Promise( (resolve) => {
+    let gfsMatchingDFNameAndDimensionsPromise = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
 
-    try {
+    let dateTimeMatchPromise = getDFGFSDateTimeMatch(drivePhotoFile, getState().googlePhotos);
 
-      new exifImage({image: pendingExifImageCall.image}, function (error, exifData) {
+    Promise.all([gfsMatchingDFNameAndDimensionsPromise, dateTimeMatchPromise]).then( (results) => {
+      resolve(results);
+    }, (err) => {
+      console.log(err);
+      debugger;
+    });
+  });
 
-        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
-
-          // get last modified, created date from node
-          const stats = fs.lstatSync(pendingExifImageCall.image);
-          const lastModifiedTime = stats.mtime; // Date object
-          const isoString = lastModifiedTime.toISOString();
-          if (googlePhotosByExifDateTime[isoString]) {
-            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-            console.log("match: ", pendingExifImageCall.image, " using fsStat");
-          }
-          else {
-            searchResult = setSearchResult(dispatch,
-              drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
-          }
-          searchResult.isoString = isoString;
-          resolve(searchResult);
-          launchExifImageCall(dispatch, getState);
-        }
-        else {
-          let dateTimeStr = '';
-          if (exifData.exif.CreateDate) {
-            dateTimeStr = exifData.exif.CreateDate;
-          }
-          else {
-            dateTimeStr = exifData.exif.DateTimeOriginal;
-          }
-          const exifDateTime = utils.getDateFromString(dateTimeStr);
-          const isoString = exifDateTime.toISOString();
-          if (googlePhotosByExifDateTime[isoString]) {
-            const googlePhotoFile = googlePhotosByExifDateTime[isoString];
-            searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-          }
-          else {
-            // // given the fact that the code has made it here implies that it has matching photo dimensions with one or more google photos
-            searchResult = setSearchResult(dispatch,
-              drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
-          }
-          searchResult.isoString = isoString;
-          resolve(searchResult);
-          launchExifImageCall(dispatch, getState);
-        }
-      });
-    } catch (error) {
-      console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
-
-      searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
-      resolve(searchResult);
-      launchExifImageCall(dispatch, getState);
-    }
-  }
+  // debugger;
+  // let gfsByExifDateTime = getState().googlePhotos.gfsByExifDateTime;
+  //
+  // let searchResult = {};
+  //
+  // return new Promise( (resolve) => {
+  //
+  //   let fileIsBlacklisted = false;
+  //
+  //   // check for blacklisted files
+  //   if (drivePhotoFile.path.indexOf('_dsc3755') >= 0) {
+  //     fileIsBlacklisted = true;
+  //   }
+  //
+  //   // get list of google photos whose name 'matches' name of photo on drive
+  //   // and whose dimension matches as well
+  //   const googlePhotosMatchingDrivePhotoDimensions = findPhotoByFilePath(getState, drivePhotoFile);
+  //   if (!googlePhotosMatchingDrivePhotoDimensions || fileIsBlacklisted) {
+  //     searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+  //     resolve(searchResult);
+  //   }
+  //   else {
+  //     // searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+  //     // resolve(searchResult);
+  //
+  //     // remove exifImage until I can determine whether or not it's causing lockup, or it's just coincidental
+  //     // if it is, try workaround of invoking it sequentially
+  //     let pendingExifImageCall = {
+  //       image: drivePhotoFile.path,
+  //       drivePhotoFile,
+  //       googlePhotosMatchingDrivePhotoDimensions,
+  //       gfsByExifDateTime,
+  //       resolve
+  //     };
+  //     pendingExifImageCalls.push(pendingExifImageCall);
+  //
+  //     // TODO - bogus
+  //     if (!exifImageCallInvoked) {
+  //       exifImageCallInvoked = true;
+  //       launchExifImageCall(dispatch, getState);
+  //     }
+  //   }
+  // });
 }
 
+// function launchExifImageCall(dispatch, getState) {
+//   if (pendingExifImageCalls.length > 0) {
+//
+//     let searchResult = null;
+//
+//     let pendingExifImageCall = pendingExifImageCalls.shift();
+//     const drivePhotoFile = pendingExifImageCall.drivePhotoFile;
+//     const googlePhotosMatchingDrivePhotoDimensions = pendingExifImageCall.googlePhotosMatchingDrivePhotoDimensions;
+//     const googlePhotosByExifDateTime = pendingExifImageCall.googlePhotosByExifDateTime;
+//     let resolve = pendingExifImageCall.resolve;
+//
+//     try {
+//
+//       new exifImage({image: pendingExifImageCall.image}, function (error, exifData) {
+//
+//         if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
+//
+//           // get last modified, created date from node
+//           const stats = fs.lstatSync(pendingExifImageCall.image);
+//           const lastModifiedTime = stats.mtime; // Date object
+//           const isoString = lastModifiedTime.toISOString();
+//           if (googlePhotosByExifDateTime[isoString]) {
+//             const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+//             searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+//             console.log("match: ", pendingExifImageCall.image, " using fsStat");
+//           }
+//           else {
+//             searchResult = setSearchResult(dispatch,
+//               drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+//           }
+//           searchResult.isoString = isoString;
+//           resolve(searchResult);
+//           launchExifImageCall(dispatch, getState);
+//         }
+//         else {
+//           let dateTimeStr = '';
+//           if (exifData.exif.CreateDate) {
+//             dateTimeStr = exifData.exif.CreateDate;
+//           }
+//           else {
+//             dateTimeStr = exifData.exif.DateTimeOriginal;
+//           }
+//           const exifDateTime = utils.getDateFromString(dateTimeStr);
+//           const isoString = exifDateTime.toISOString();
+//           if (googlePhotosByExifDateTime[isoString]) {
+//             const googlePhotoFile = googlePhotosByExifDateTime[isoString];
+//             searchResult = setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, 'exifMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+//           }
+//           else {
+//             // // given the fact that the code has made it here implies that it has matching photo dimensions with one or more google photos
+//             searchResult = setSearchResult(dispatch,
+//               drivePhotoFile, null, 'noMatch', '', googlePhotosMatchingDrivePhotoDimensions);
+//           }
+//           searchResult.isoString = isoString;
+//           resolve(searchResult);
+//           launchExifImageCall(dispatch, getState);
+//         }
+//       });
+//     } catch (error) {
+//       console.log('FAILED return from exifImage call: ', drivePhotoFile.pathOnDrive);
+//
+//       searchResult = setSearchResult(dispatch, drivePhotoFile, null, 'noMatch', error, googlePhotosMatchingDrivePhotoDimensions);
+//       resolve(searchResult);
+//       launchExifImageCall(dispatch, getState);
+//     }
+//   }
+// }
+//
 
 function getPhotoDimensions(photoFilePath) {
 
@@ -393,88 +435,88 @@ function loadExistingSearchResults() {
   });
 }
 
-function buildManualPhotoMatchList(dispatch, searchResults) {
+// function buildManualPhotoMatchList(dispatch, searchResults) {
+//
+//   let photoCompareList = [];
+//
+//   searchResults.forEach( (searchResult) => {
+//     if (searchResult.photoList) {
+//       searchResult.reason = 'noMatch';    // reset value if match is possible (dimensions match)
+//       // add the google photos to the list whose dimensions match that of the baseFile
+//       const photoFile = searchResult.photoFile;
+//       const drivePhotoDimensions = photoFile.dimensions;
+//       if (drivePhotoDimensions) {
+//         let photoCompareItem = null;
+//         const googlePhotoList = searchResult.photoList.photoList;
+//         if (googlePhotoList) {
+//           googlePhotoList.forEach( (googlePhoto) => {
+//             if (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), drivePhotoDimensions.width, drivePhotoDimensions.height)) {
+//               // if this is the first google photo in the photo list to match the drive photo's dimensions,
+//               // create the necessary data structures
+//               if (!photoCompareItem) {
+//                 photoCompareItem = {};
+//                 photoCompareItem.baseFile = searchResult.photoFile;
+//                 photoCompareItem.photoList = [];
+//               }
+//               photoCompareItem.photoList.push(googlePhoto);
+//             }
+//           });
+//         }
+//         if (photoCompareItem) {
+//           photoCompareList.push(photoCompareItem);
+//           searchResult.reason = 'manualMatchPending';
+//         }
+//       }
+//     }
+//   });
+//
+//   dispatch(setPhotoCompareList(photoCompareList));
+// }
 
-  let photoCompareList = [];
-
-  searchResults.forEach( (searchResult) => {
-    if (searchResult.photoList) {
-      searchResult.reason = 'noMatch';    // reset value if match is possible (dimensions match)
-      // add the google photos to the list whose dimensions match that of the baseFile
-      const photoFile = searchResult.photoFile;
-      const drivePhotoDimensions = photoFile.dimensions;
-      if (drivePhotoDimensions) {
-        let photoCompareItem = null;
-        const googlePhotoList = searchResult.photoList.photoList;
-        if (googlePhotoList) {
-          googlePhotoList.forEach( (googlePhoto) => {
-            if (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), drivePhotoDimensions.width, drivePhotoDimensions.height)) {
-              // if this is the first google photo in the photo list to match the drive photo's dimensions,
-              // create the necessary data structures
-              if (!photoCompareItem) {
-                photoCompareItem = {};
-                photoCompareItem.baseFile = searchResult.photoFile;
-                photoCompareItem.photoList = [];
-              }
-              photoCompareItem.photoList.push(googlePhoto);
-            }
-          });
-        }
-        if (photoCompareItem) {
-          photoCompareList.push(photoCompareItem);
-          searchResult.reason = 'manualMatchPending';
-        }
-      }
-    }
-  });
-
-  dispatch(setPhotoCompareList(photoCompareList));
-}
-
-function saveSearchResults(dispatch, searchResults) {
-
-  // build results based on this search
-  let matchPhotosResults = {};
-
-  buildManualPhotoMatchList(dispatch, searchResults);
-
-  searchResults.forEach( (searchResult) => {
-
-    const path = searchResult.photoFile.path.toLowerCase();
-
-    let resultData = {};
-
-    if (searchResult.googlePhotoFile) {
-      resultData.result = 'matchFound';
-      const googlePhotoFile = searchResult.googlePhotoFile;
-      let googlePhoto = {};
-      if (googlePhotoFile.exifDateTime) {
-        googlePhoto.dateTime = googlePhotoFile.exifDateTime;
-      }
-      else {
-        googlePhoto.dateTime = googlePhotoFile.dateTime;
-      }
-      googlePhoto.name = googlePhotoFile.name.toLowerCase();
-      googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
-      resultData.googlePhoto = googlePhoto;
-    }
-    else if (searchResult.photoList) {
-      resultData.result = searchResult.reason;
-      resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
-    }
-    else {
-      resultData.result = searchResult.reason;
-      resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
-    }
-
-    matchPhotosResults[path] = resultData;
-  });
-
-  dispatch(setDriveMatchResults(matchPhotosResults));
-  dispatch(setPhotoMatchingComplete());
-  console.log("ALL DONE");
-}
-
+// function saveSearchResults(dispatch, searchResults) {
+//
+//   // build results based on this search
+//   let matchPhotosResults = {};
+//
+//   buildManualPhotoMatchList(dispatch, searchResults);
+//
+//   searchResults.forEach( (searchResult) => {
+//
+//     const path = searchResult.photoFile.path.toLowerCase();
+//
+//     let resultData = {};
+//
+//     if (searchResult.googlePhotoFile) {
+//       resultData.result = 'matchFound';
+//       const googlePhotoFile = searchResult.googlePhotoFile;
+//       let googlePhoto = {};
+//       if (googlePhotoFile.exifDateTime) {
+//         googlePhoto.dateTime = googlePhotoFile.exifDateTime;
+//       }
+//       else {
+//         googlePhoto.dateTime = googlePhotoFile.dateTime;
+//       }
+//       googlePhoto.name = googlePhotoFile.name.toLowerCase();
+//       googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
+//       resultData.googlePhoto = googlePhoto;
+//     }
+//     else if (searchResult.photoList) {
+//       resultData.result = searchResult.reason;
+//       resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
+//     }
+//     else {
+//       resultData.result = searchResult.reason;
+//       resultData.drivePhotoDimensions = searchResult.drivePhotoDimensions;
+//     }
+//
+//     matchPhotosResults[path] = resultData;
+//   });
+//
+//   dispatch(setDriveMatchResults(matchPhotosResults));
+//   dispatch(setPhotoMatchingComplete());
+//   console.log("ALL DONE");
+// }
+//
 function dimensionsMatch(googlePhoto) {
   return (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), this.width, this.height));
 }
@@ -502,123 +544,123 @@ function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, dri
   return false;
 }
 
-function findPhotoByFilePath(getState, drivePhotoFile) {
+// function findPhotoByFilePath(getState, drivePhotoFile) {
+//
+//   const googlePhotosByName = getState().googlePhotos.photosByName;
+//   const googlePhotosByAltKey = getState().googlePhotos.photosByAltKey;
+//
+//   // photosByName is a structure mapping google photo names to a list of google photos that have the same name
+//
+//   // cases for possible match between file on drive and google photo
+//   // case 1 - look for a match with the file name as read from the drive
+//   // case 2 - look for a match between a tif file on the drive and a corresponding jpg google file
+//   // case 3 - look for a match between the file name from the drive and the modified google file names (3301.jpg => 01.jpg for example)
+//
+//   // return value
+//   //    photoFiles
+//   //      object that contains
+//   //        photoFile - object representing the photo file on the drive. includes
+//   //          path
+//   //          dimensions
+//   //            QUESTION - in the case of .tif files, should this be the original path, or the path as modified to have the .jpg extension?
+//   //            I think it should have the original path.
+//   //        photoList
+//   //          array of google photos that match photoFile (see above for what 'match' means)
+//
+//   let nameWithoutExtension = '';
+//   let googlePhotosMatchingDrivePhotoDimensions = null;
+//
+//   let fileName = path.basename(drivePhotoFile.path).toLowerCase();
+//
+//   const extension = path.extname(drivePhotoFile.path);
+//   if (extension !== '') {
+//     nameWithoutExtension = fileName.slice(0, -4);
+//   }
+//
+//   if (!googlePhotosByName[fileName]) {
+//     if (extension === '.tif') {
+//       fileName = nameWithoutExtension + ".jpg";
+//     }
+//   }
+//
+//   if (googlePhotosByName[fileName]) {
+//
+//     let googlePhotoListMatchingDimensions = null;
+//     if (googlePhotosByName[fileName].photoList) {
+//       googlePhotoListMatchingDimensions = deepcopy(googlePhotosByName[fileName].photoList);
+//     }
+//     if (googlePhotoListMatchingDimensions) {
+//       googlePhotoListMatchingDimensions = googlePhotoListMatchingDimensions.filter(dimensionsMatch, drivePhotoFile.dimensions);
+//       if (googlePhotoListMatchingDimensions && googlePhotoListMatchingDimensions.length === 0) {
+//         googlePhotoListMatchingDimensions = null;
+//       }
+//     }
+//     googlePhotosMatchingDrivePhotoDimensions = {
+//       pathOnDrive: drivePhotoFile.path,
+//       photoList: googlePhotoListMatchingDimensions
+//     };
+//   }
+//
+//   // TODO - use path.extname to figure stuff out (check whether or not it's blank) rather than length of string (if it makes sense)
+//   if (fileName.length >= 6) {
+//     if (utils.isNumeric(nameWithoutExtension)) {
+//       const partialName = fileName.slice(fileName.length - 6);
+//       if (googlePhotosByAltKey[partialName]) {
+//         if (!googlePhotosMatchingDrivePhotoDimensions) {
+//           googlePhotosMatchingDrivePhotoDimensions = {
+//             pathOnDrive: drivePhotoFile.path,
+//             photoList: []
+//           };
+//         }
+//         googlePhotosByAltKey[partialName].forEach( (googlePhoto) => {
+//
+//           let googlePhotoAdded = false;
+//           if (drivePhotoFile.dimensions) {
+//             if (googlePhoto.width === drivePhotoFile.dimensions.width &&
+//               googlePhoto.height === drivePhotoFile.dimensions.height) {
+//               googlePhotosMatchingDrivePhotoDimensions.photoList.unshift(googlePhoto);
+//               googlePhotoAdded = true;
+//             }
+//           }
+//           if (!googlePhotoAdded) {
+//             googlePhotosMatchingDrivePhotoDimensions.photoList.push(googlePhoto);
+//           }
+//         });
+//       }
+//     }
+//   }
+//
+//   return googlePhotosMatchingDrivePhotoDimensions;
+// }
+//
 
-  const googlePhotosByName = getState().googlePhotos.photosByName;
-  const googlePhotosByAltKey = getState().googlePhotos.photosByAltKey;
-
-  // photosByName is a structure mapping google photo names to a list of google photos that have the same name
-
-  // cases for possible match between file on drive and google photo
-  // case 1 - look for a match with the file name as read from the drive
-  // case 2 - look for a match between a tif file on the drive and a corresponding jpg google file
-  // case 3 - look for a match between the file name from the drive and the modified google file names (3301.jpg => 01.jpg for example)
-
-  // return value
-  //    photoFiles
-  //      object that contains
-  //        photoFile - object representing the photo file on the drive. includes
-  //          path
-  //          dimensions
-  //            QUESTION - in the case of .tif files, should this be the original path, or the path as modified to have the .jpg extension?
-  //            I think it should have the original path.
-  //        photoList
-  //          array of google photos that match photoFile (see above for what 'match' means)
-
-  let nameWithoutExtension = '';
-  let googlePhotosMatchingDrivePhotoDimensions = null;
-
-  let fileName = path.basename(drivePhotoFile.path).toLowerCase();
-
-  const extension = path.extname(drivePhotoFile.path);
-  if (extension !== '') {
-    nameWithoutExtension = fileName.slice(0, -4);
-  }
-
-  if (!googlePhotosByName[fileName]) {
-    if (extension === '.tif') {
-      fileName = nameWithoutExtension + ".jpg";
-    }
-  }
-
-  if (googlePhotosByName[fileName]) {
-
-    let googlePhotoListMatchingDimensions = null;
-    if (googlePhotosByName[fileName].photoList) {
-      googlePhotoListMatchingDimensions = deepcopy(googlePhotosByName[fileName].photoList);
-    }
-    if (googlePhotoListMatchingDimensions) {
-      googlePhotoListMatchingDimensions = googlePhotoListMatchingDimensions.filter(dimensionsMatch, drivePhotoFile.dimensions);
-      if (googlePhotoListMatchingDimensions && googlePhotoListMatchingDimensions.length === 0) {
-        googlePhotoListMatchingDimensions = null;
-      }
-    }
-    googlePhotosMatchingDrivePhotoDimensions = {
-      pathOnDrive: drivePhotoFile.path,
-      photoList: googlePhotoListMatchingDimensions
-    };
-  }
-
-  // TODO - use path.extname to figure stuff out (check whether or not it's blank) rather than length of string (if it makes sense)
-  if (fileName.length >= 6) {
-    if (utils.isNumeric(nameWithoutExtension)) {
-      const partialName = fileName.slice(fileName.length - 6);
-      if (googlePhotosByAltKey[partialName]) {
-        if (!googlePhotosMatchingDrivePhotoDimensions) {
-          googlePhotosMatchingDrivePhotoDimensions = {
-            pathOnDrive: drivePhotoFile.path,
-            photoList: []
-          };
-        }
-        googlePhotosByAltKey[partialName].forEach( (googlePhoto) => {
-
-          let googlePhotoAdded = false;
-          if (drivePhotoFile.dimensions) {
-            if (googlePhoto.width === drivePhotoFile.dimensions.width &&
-              googlePhoto.height === drivePhotoFile.dimensions.height) {
-              googlePhotosMatchingDrivePhotoDimensions.photoList.unshift(googlePhoto);
-              googlePhotoAdded = true;
-            }
-          }
-          if (!googlePhotoAdded) {
-            googlePhotosMatchingDrivePhotoDimensions.photoList.push(googlePhoto);
-          }
-        });
-      }
-    }
-  }
-
-  return googlePhotosMatchingDrivePhotoDimensions;
-}
-
-
-function setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
-
-  let success = false;
-  if (googlePhotoFile) {
-    success = true;
-  }
-
-  let photoList = null;
-  if (!success) {
-    if (googlePhotosMatchingDrivePhotoDimensions) {
-      photoList = googlePhotosMatchingDrivePhotoDimensions;
-    }
-  }
-
-  const drivePhotoDimensions = drivePhotoFile.dimensions;
-
-  dispatch(matchAttemptComplete(success));
-
-  return {
-    photoFile : drivePhotoFile,
-    googlePhotoFile,
-    reason,
-    error,
-    photoList,
-    drivePhotoDimensions
-  };
-}
+// function setSearchResult(dispatch, drivePhotoFile, googlePhotoFile, reason, error, googlePhotosMatchingDrivePhotoDimensions) {
+//
+//   let success = false;
+//   if (googlePhotoFile) {
+//     success = true;
+//   }
+//
+//   let photoList = null;
+//   if (!success) {
+//     if (googlePhotosMatchingDrivePhotoDimensions) {
+//       photoList = googlePhotosMatchingDrivePhotoDimensions;
+//     }
+//   }
+//
+//   const drivePhotoDimensions = drivePhotoFile.dimensions;
+//
+//   dispatch(matchAttemptComplete(success));
+//
+//   return {
+//     photoFile : drivePhotoFile,
+//     googlePhotoFile,
+//     reason,
+//     error,
+//     photoList,
+//     drivePhotoDimensions
+//   };
+// }
 
 function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
 
@@ -626,8 +668,9 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
   drivePhotoFiles.forEach( (drivePhotoFile) => {
     promises.push(matchPhotoFile(dispatch, getState, drivePhotoFile));
   });
-  Promise.all(promises).then( (searchResults) => {
-    saveSearchResults(dispatch, searchResults);
+  Promise.all(promises).then( (_) => {
+    debugger;
+    // saveSearchResults(dispatch, searchResults);
   }, (err) => {
     console.log("matchAllPhotos err: ", err);
     debugger;
@@ -649,33 +692,33 @@ function matchPhotoFiles(dispatch, getState) {
 // ------------------------------------
 // Actions
 // ------------------------------------
-function matchAttemptComplete(success) {
-  return {
-    type: MATCH_ATTEMPT_COMPLETE,
-    payload: success
-  };
-}
+// function matchAttemptComplete(success) {
+//   return {
+//     type: MATCH_ATTEMPT_COMPLETE,
+//     payload: success
+//   };
+// }
+//
+// function setPhotoCompareList(photoCompareList) {
+//   return {
+//     type: SET_PHOTO_COMPARE_LIST,
+//     payload: photoCompareList
+//   };
+// }
 
-function setPhotoCompareList(photoCompareList) {
-  return {
-    type: SET_PHOTO_COMPARE_LIST,
-    payload: photoCompareList
-  };
-}
-
-function setDriveMatchResults(driveResults) {
-  return {
-    type: SET_DRIVE_MATCH_RESULTS,
-    payload: driveResults
-  };
-}
-
-function setPhotoMatchingComplete() {
-  return {
-    type: PHOTO_MATCHING_COMPLETE
-  };
-}
-
+// function setDriveMatchResults(driveResults) {
+//   return {
+//     type: SET_DRIVE_MATCH_RESULTS,
+//     payload: driveResults
+//   };
+// }
+//
+// function setPhotoMatchingComplete() {
+//   return {
+//     type: PHOTO_MATCHING_COMPLETE
+//   };
+// }
+//
 function setSearchResults(searchResults) {
   return {
     type: SET_SEARCH_RESULTS,
