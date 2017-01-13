@@ -130,11 +130,11 @@ function getNameWithDimensionsMatch(df, gfStore) {
 
   gfsMatchingDFDimensions.nameMatchResult = nameMatchResult;
 
-  if (nameMatchResult !== NO_NAME_MATCH) {
-    console.log(gfsMatchingDFDimensions);
-    numgfsMatchingDFDimensions++;
-  }
-  console.log("Number of google photos matching drive photos names and dimensions: ", numgfsMatchingDFDimensions);
+  // if (nameMatchResult !== NO_NAME_MATCH) {
+  //   console.log(gfsMatchingDFDimensions);
+  //   numgfsMatchingDFDimensions++;
+  // }
+  // console.log("Number of google photos matching drive photos names and dimensions: ", numgfsMatchingDFDimensions);
 
   return gfsMatchingDFDimensions;
 }
@@ -149,6 +149,17 @@ function getDateTimeMatch(dateTime, fsByDateTime) {
   return fsByDateTime[isoString];
 }
 
+function resultsOut(df, lbl, dfDateTime, dateTimeMatch) {
+  if (dateTimeMatch) {
+    console.log(df);
+    console.log(lbl);
+    console.log(dfDateTime);
+    console.log(dateTimeMatch);
+    numgfsMatchingDateTime++;
+  }
+}
+
+let numgfsMatchingDateTime = 0;
 function getAllExifDateTimeMatches(df, gfStore) {
 
   const dfPath = df.path;
@@ -173,12 +184,24 @@ function getAllExifDateTimeMatches(df, gfStore) {
           const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
           const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal. gfsByExifDateTime);
 
+          resultsOut(df, "createDateToDateTimeExifMatch", exifData.exif.CreateDate, createDateToDateTimeExifMatch);
+          resultsOut(df, "dateTimeOriginalToDateTimeExifMatch", exifData.exif.DateTimOriginal, dateTimeOriginalToDateTimeExifMatch);
+          resultsOut(df, "createDateToExifDateTimeExifMatch", exifData.exif.CreateDate, createDateToExifDateTimeExifMatch);
+          resultsOut(df, "dateTimeOriginalToExifDateTime", exifData.exif.DateTimeOriginal, dateTimeOriginalToExifDateTime);
+
           const exifDateTimeCompareResults = [
             createDateToDateTimeExifMatch,
             dateTimeOriginalToDateTimeExifMatch,
             createDateToExifDateTimeExifMatch,
             dateTimeOriginalToExifDateTime];
-          resolve(exifDateTimeCompareResults);
+          const dfDateTimeCompareResults = {
+            df,
+            exifDateTimeCompareResults
+          };
+
+          console.log("Number of date/time matches: ", numgfsMatchingDateTime);
+
+          resolve(dfDateTimeCompareResults);
           // searchResult.isoString = isoString;
         }
       });
