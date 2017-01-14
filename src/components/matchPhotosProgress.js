@@ -19,7 +19,7 @@ class MatchPhotosProgress extends Component {
 
   render () {
 
-    console.log('matches: ', this.props.successfulMatches, ', failures: ', this.props.unsuccessfulMatches, ', total: ', this.props.numPhotoFiles);
+    // console.log('matches: ', this.props.successfulMatches, ', failures: ', this.props.unsuccessfulMatches, ', total: ', this.props.numPhotoFiles);
 
     const style = {
       marginLeft: '2px',
