@@ -182,26 +182,26 @@ function getAllExifDateTimeMatches(df, gfStore) {
           const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
           const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimOriginal, gfsByDateTime);
           const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
-          const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal. gfsByExifDateTime);
+          const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal.gfsByExifDateTime);
 
-          resultsOut(df, "createDateToDateTimeExifMatch", exifData.exif.CreateDate, createDateToDateTimeExifMatch);
-          resultsOut(df, "dateTimeOriginalToDateTimeExifMatch", exifData.exif.DateTimOriginal, dateTimeOriginalToDateTimeExifMatch);
-          resultsOut(df, "createDateToExifDateTimeExifMatch", exifData.exif.CreateDate, createDateToExifDateTimeExifMatch);
-          resultsOut(df, "dateTimeOriginalToExifDateTime", exifData.exif.DateTimeOriginal, dateTimeOriginalToExifDateTime);
+          // resultsOut(df, "createDateToDateTimeExifMatch", exifData.exif.CreateDate, createDateToDateTimeExifMatch);
+          // resultsOut(df, "dateTimeOriginalToDateTimeExifMatch", exifData.exif.DateTimOriginal, dateTimeOriginalToDateTimeExifMatch);
+          // resultsOut(df, "createDateToExifDateTimeExifMatch", exifData.exif.CreateDate, createDateToExifDateTimeExifMatch);
+          // resultsOut(df, "dateTimeOriginalToExifDateTime", exifData.exif.DateTimeOriginal, dateTimeOriginalToExifDateTime);
 
           const exifDateTimeCompareResults = [
             createDateToDateTimeExifMatch,
             dateTimeOriginalToDateTimeExifMatch,
             createDateToExifDateTimeExifMatch,
             dateTimeOriginalToExifDateTime];
-          const dfDateTimeCompareResults = {
+          const dfExifDateTimeCompareResults = {
             df,
             exifDateTimeCompareResults
           };
 
           console.log("Number of date/time matches: ", numgfsMatchingDateTime);
 
-          resolve(dfDateTimeCompareResults);
+          resolve(dfExifDateTimeCompareResults);
           // searchResult.isoString = isoString;
         }
       });
@@ -223,14 +223,22 @@ function getAllLastModifiedDateTimeMatches(df, gfStore) {
       if (err) reject(err);
       const lastModified = stats.mtime; // Date object
       const lastModifiedISO = lastModified.toISOString();
+
       const lastModifiedToDateTimeMatch = gfsByDateTime[lastModifiedISO];
       const lastModifiedToExifDateTimeMatch = gfsByExifDateTime[lastModifiedISO];
+
+      // resultsOut(df, "lastModifiedToDateTimeMatch", lastModifiedISO, lastModifiedToDateTimeMatch);
+      // resultsOut(df, "lastModifiedToExifDateTimeMatch", lastModifiedISO, lastModifiedToExifDateTimeMatch);
 
       const lastModifiedCompareResults = [
         lastModifiedToDateTimeMatch,
         lastModifiedToExifDateTimeMatch
       ];
-      resolve(lastModifiedCompareResults);
+      const dfLastModifiedDateTimeCompareResults = {
+        df,
+        lastModifiedCompareResults
+      };
+      resolve(dfLastModifiedDateTimeCompareResults);
     });
   });
 }
@@ -242,18 +250,7 @@ function getDFGFSDateTimeMatch(df, gfStore) {
 
     // look for matches between drive photo file's exif date and google photos' dates
     let allExifDateTimeMatchesPromise = getAllExifDateTimeMatches(df, gfStore);
-    // allExifDateTimeMatchesPromise.then(( results) => {
-    //   if (results) {
-    //     console.log(df.path, ": allExifDateTimeMatches: ", results);
-    //   }
-    // });
-
     let allLastModifiedDateTimeMatchesPromise = getAllLastModifiedDateTimeMatches(df, gfStore);
-    // allLastModifiedDateTimeMatchesPromise.then(( results) => {
-    //   if (results) {
-    //     console.log(df.path, ": allLastModifiedDateTimeMatches: ", results);
-    //   }
-    // });
 
     Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
       resolve(results);
