@@ -159,7 +159,6 @@ function getAllExifDateTimeMatches(df, gfStore) {
           resolve(null);
         }
         else {
-          console.log(df);
           const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
           const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimeOriginal, gfsByDateTime);
           const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
@@ -172,7 +171,7 @@ function getAllExifDateTimeMatches(df, gfStore) {
             dateTimeOriginalToExifDateTime
           };
 
-          console.log("Number of df's with exif date/time: ", numgfsMatchingDateTime++);
+          // console.log("Number of df's with exif date/time: ", numgfsMatchingDateTime++);
 
           resolve(exifDateTimeCompareResults);
           // searchResult.isoString = isoString;
@@ -183,6 +182,26 @@ function getAllExifDateTimeMatches(df, gfStore) {
       resolve(null);
     }
   });
+}
+
+function dtDownToSecond(dt) {
+  const newDate = new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
+  return newDate;
+}
+
+function dateTimeMatch(dt, secondsOffset, gfsByDateTime) {
+
+  const newDate = (new Date(dt.getTime() + (secondsOffset * 1000))).toISOString();
+  const matchingGF = gfsByDateTime[newDate];
+  return matchingGF;
+}
+
+function matchAdjustedLastModifiedToGF(dt, secondsOffset, gfsByDateTime, gfsByExifDateTime) {
+  let dtMatch = dateTimeMatch(dt, secondsOffset, gfsByDateTime);
+  if (!dtMatch) {
+    dtMatch = dateTimeMatch(dt, secondsOffset, gfsByExifDateTime);
+  }
+  return dtMatch;
 }
 
 function getAllLastModifiedDateTimeMatches(df, gfStore) {
@@ -200,10 +219,30 @@ function getAllLastModifiedDateTimeMatches(df, gfStore) {
       const lastModifiedToDateTimeMatch = gfsByDateTime[lastModifiedISO];
       const lastModifiedToExifDateTimeMatch = gfsByExifDateTime[lastModifiedISO];
 
-      const lastModifiedCompareResults = [
-        lastModifiedToDateTimeMatch,
-        lastModifiedToExifDateTimeMatch
-      ];
+      let lastModifiedCompareResults = null;
+
+      if (!lastModifiedToDateTimeMatch && !lastModifiedToExifDateTimeMatch) {
+
+        let baseDT = dtDownToSecond(lastModified);
+
+        let dtMatch = null;
+        for (let i = -5; i <= 5; i++) {
+          dtMatch = matchAdjustedLastModifiedToGF(baseDT, i, gfsByDateTime, gfsByExifDateTime);
+          if (dtMatch) break;
+        }
+
+        // TODO - tmp
+        lastModifiedCompareResults = [
+          dtMatch,
+          null
+        ];
+      }
+      else {
+        lastModifiedCompareResults = [
+          lastModifiedToDateTimeMatch,
+          lastModifiedToExifDateTimeMatch
+        ];
+      }
       resolve(lastModifiedCompareResults);
     });
   });
