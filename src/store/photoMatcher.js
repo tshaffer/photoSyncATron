@@ -12,8 +12,7 @@ import { buildPhotoDictionaries } from './googlePhotos';
 
 import * as utils from '../utilities/utils';
 
-// let pendingExifImageCalls = [];
-// let exifImageCallInvoked = false;
+let photoCompareList = [];
 
 // ------------------------------------
 // Helper functions
@@ -320,6 +319,12 @@ function matchPhotoFile(_, getState, drivePhotoFile) {
         };
       }
       else if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+
+        let photoCompareItem = {};
+        photoCompareItem.baseFile = drivePhotoFile;
+        photoCompareItem.photoList = nameMatchResults.gfList;
+        photoCompareList.push(photoCompareItem);
+
         result = {
           drivePhotoFile,
           summaryResult: MANUAL_MATCH_PENDING,
@@ -340,6 +345,7 @@ function matchPhotoFile(_, getState, drivePhotoFile) {
     });
   });
 }
+
 
 function getPhotoDimensions(photoFilePath) {
 
@@ -528,6 +534,9 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
     promises.push(matchPhotoFile(dispatch, getState, drivePhotoFile));
   });
   Promise.all(promises).then( (_) => {
+
+    dispatch(setPhotoCompareList(photoCompareList));
+
     console.log(allResults);
     debugger;
     // saveSearchResults(dispatch, searchResults);
