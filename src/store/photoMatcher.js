@@ -2,8 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const deepcopy = require("deepcopy");
 const sizeOf = require('image-size');
-
 const exifImage = require('exif').ExifImage;
+
+import { DrivePhotoFile } from '../entities/drivePhotoFile';
 
 import { setVolumeName } from './drivePhotos';
 import { readDrivePhotoFiles } from './drivePhotos';
@@ -31,7 +32,7 @@ function getNameWithDimensionsMatch(df, gfStore) {
   const gfsByName = gfStore.gfsByName;
   const gfsByAltKey = gfStore.photosByAltKey;
 
-  const dfPath = df.path;
+  const dfPath = df.getPath();
   let nameWithoutExtension = '';
 
   let dfName = path.basename(dfPath).toLowerCase();
@@ -141,7 +142,7 @@ function getDateTimeMatch(dateTime, fsByDateTime) {
 let numgfsMatchingDateTime = 0;
 function getAllExifDateTimeMatches(df, gfStore) {
 
-  const dfPath = df.path;
+  const dfPath = df.getPath();
   const gfsByDateTime = gfStore.gfsByDateTime;
   const gfsByExifDateTime = gfStore.gfsByExifDateTime;
 
@@ -206,13 +207,17 @@ function matchAdjustedLastModifiedToGF(dt, secondsOffset, gfsByDateTime, gfsByEx
 
 function getAllLastModifiedDateTimeMatches(df, gfStore) {
 
-  const dfPath = df.path;
+  const dfPath = df.getPath();
   const gfsByDateTime = gfStore.gfsByDateTime;
   const gfsByExifDateTime = gfStore.gfsByExifDateTime;
 
   return new Promise( (resolve, reject) => {
+    console.log(dfPath);
     fs.lstat(dfPath, (err, stats) => {
-      if (err) reject(err);
+      if (err) {
+        console.log(dfPath);
+        reject(err);
+      }
       const lastModified = stats.mtime; // Date object
       const lastModifiedISO = lastModified.toISOString();
 
@@ -259,10 +264,6 @@ function getDFGFSDateTimeMatch(df, gfStore) {
 
     Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
       resolve(results);
-      // resolve ( {
-      //   exifDateTimeCompareResults: results[0],
-      //   dfLastModifiedDateTimeCompareResults: results[1]
-      // });
     }, (err) => {
       console.log(err);
       debugger;
@@ -272,7 +273,7 @@ function getDFGFSDateTimeMatch(df, gfStore) {
 
 let allResults = {};
 function setResults(df, result) {
-  allResults[df.path] = result;
+  allResults[df.getPath()] = result;
 }
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
@@ -286,25 +287,14 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
       // analyze results
       // TODO - figure out a better way to do this?
-      const df = drivePhotoFile;
       const nameMatchResults = results[0];
       const exifDateTimeMatches = results[1][0];
       const lastModifiedDateTimeMatches = results[1][1];
 
-      // let createDateToDateTimeExifMatch = null;
-      // let dateTimeOriginalToDateTimeExifMatch = null;
-      // let createDateToExifDateTimeExifMatch = null;
-      // let dateTimeOriginalToExifDateTime = null;
-      // var createDateToDateTimeExifMatch;
-      // var dateTimeOriginalToDateTimeExifMatch;
-      // var createDateToExifDateTimeExifMatch;
-      // var dateTimeOriginalToExifDateTime;
-
-
       let matchingGF = null;
       if (exifDateTimeMatches) {
 
-        // TODO - Joel, why doesn't this work?
+        // TODO - Joel, why doesn't this work (declared them earlier)?
         // TODO - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
         // {{createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches};
 
@@ -371,7 +361,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         };
       }
       dispatch(matchAttemptComplete(result.matchResult === MATCH_FOUND));
-      setResults(df, result);
+      setResults(drivePhotoFile, result);
       resolve();
     }, (err) => {
       console.log(err);
@@ -398,9 +388,8 @@ function buildDrivePhotoFiles(drivePhotoFilePaths) {
 
   let drivePhotoFiles = [];
   drivePhotoFilePaths.forEach( (drivePhotoFilePath) => {
-    let drivePhotoFile = {};
-    drivePhotoFile.path = drivePhotoFilePath;
-    drivePhotoFile.dimensions = getPhotoDimensions(drivePhotoFilePath);
+    let drivePhotoFile = new DrivePhotoFile(drivePhotoFilePath);
+    drivePhotoFile.setDimensions(getPhotoDimensions(drivePhotoFilePath));
     drivePhotoFiles.push(drivePhotoFile);
   });
 
