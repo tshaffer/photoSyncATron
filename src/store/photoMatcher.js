@@ -212,7 +212,6 @@ function getAllLastModifiedDateTimeMatches(df, gfStore) {
   const gfsByExifDateTime = gfStore.gfsByExifDateTime;
 
   return new Promise( (resolve, reject) => {
-    console.log(dfPath);
     fs.lstat(dfPath, (err, stats) => {
       if (err) {
         console.log(dfPath);
@@ -533,20 +532,30 @@ function setSearchResults(searchResults) {
   };
 }
 
-export function matchFound(photoFilePath, googlePhoto) {
+export function matchFound(drivePhotoFile, googlePhoto) {
   return {
     type: MATCH_FOUND,
     payload: {
-      photoFilePath,
+      drivePhotoFile,
       googlePhoto
     }
   };
 }
 
-export function noMatchFound(photoFilePath) {
+export function manualMatchFound(drivePhotoFile, googlePhoto) {
+  return {
+    type: MATCH_FOUND,
+    payload: {
+      drivePhotoFile,
+      googlePhoto
+    }
+  };
+}
+
+export function noMatchFound(drivePhotoFile) {
   return {
     type: NO_MATCH_FOUND,
-    payload: photoFilePath
+    payload: drivePhotoFile
   };
 }
 
@@ -577,7 +586,7 @@ export function matchPhotos(volumeName) {
         let drivePhotoFiles = buildDrivePhotoFiles(drivePhotoFilePaths);
 
         // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
-        // to wait for it to complete before moving on. true??
+        // TODO - to wait for it to complete before moving on. true??
         dispatch(setDrivePhotos(drivePhotoFiles));
 
         // TODO - it's very possible that the following could be called via dispatch - I think it's completely synchronous
@@ -705,6 +714,8 @@ export default function(state = initialState, action) {
       return newState;
     }
     case MATCH_FOUND: {
+      // action.payload.drivePhotoFile
+      // action.payload.googlePhoto
       const filePath = action.payload.photoFilePath;
       const googlePhotoFile = action.payload.googlePhoto;
 
@@ -727,7 +738,12 @@ export default function(state = initialState, action) {
       newState.driveMatchResults[filePath] = resultData;
       return newState;
     }
+    case MANUAL_MATCH_FOUND:
+      // action.payload.drivePhotoFile
+      // action.payload.googlePhoto
+      return null;
     case NO_MATCH_FOUND: {
+      // action.payload.drivePhotoFile
       let resultData = {};
       resultData.matchResult = MANUAL_MATCH_FAILURE;
       resultData.drivePhotoDimensions = action.payload.dimensions;
@@ -755,6 +771,7 @@ const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
 const SET_DRIVE_MATCH_RESULTS = 'SET_DRIVE_MATCH_RESULTS';
 const MATCH_FOUND = 'MATCH_FOUND';
 const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
+const MANUAL_MATCH_FOUND = 'MANUAL_MATCH_FOUND';
 const MANUAL_MATCH_PENDING = 'MANUAL_MATCH_PENDING';
 const MANUAL_MATCH_FAILURE = 'MANUAL_MATCH_FAILURE';
 

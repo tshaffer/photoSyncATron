@@ -1,6 +1,7 @@
 const fs = require('fs');
 import axios from 'axios';
 
+import { GooglePhoto } from '../entities/googlePhoto';
 import * as utils from '../utilities/utils';
 
 // ------------------------------------
@@ -296,7 +297,12 @@ export function readGooglePhotos() {
     let promise = readGooglePhotoFiles('googlePhotos.json');
     promise.then((googlePhotosStr) => {
       let googlePhotosSpec = JSON.parse(googlePhotosStr);
-      let googlePhotos = googlePhotosSpec.photos;
+
+      let googlePhotos = [];
+      googlePhotosSpec.photos.forEach( (googlePhotoSpec) => {
+        googlePhotos.push(new GooglePhoto(googlePhotoSpec));
+      });
+
       console.log("Number of existing google photos: ", googlePhotos.length);
       dispatch(addGooglePhotos(googlePhotos));
     }, (reason) => {
