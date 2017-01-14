@@ -4,7 +4,8 @@ body {
 }
 
 .sideBySidePhotos {
-    height: 800px;
+    /*height: 800px;*/
+    height: 600px;
     width: 1200px;
 }
 
@@ -17,8 +18,10 @@ body {
     float: left;
 }
 .leftImage {
-    width: 450px;
-    max-width:450px;
+    /*width: 450px;*/
+    /*max-width:450px;*/
+    width: 350px;
+    max-width:350px;
 }
 
 .rightPanel {
@@ -26,8 +29,10 @@ body {
     margin-left: 100px;
 }
 .rightImage {
-    width: 450px;
-    max-width: 450px;
+    /*width: 450px;*/
+    /*max-width:450px;*/
+    width: 350px;
+    max-width: 350px;
 }
 
 .clear {
