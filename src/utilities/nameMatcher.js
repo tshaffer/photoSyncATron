@@ -13,19 +13,24 @@ const ALT_NAME_MATCH_NO_DIMS_MATCH = 'ALT_NAME_MATCH_NO_DIMS_MATCH';
 
 // return true if the dimensions match or their aspect ratios are 'really' close
 const minSizeRequiringComparison = 1750000;
-function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, drivePhotoHeight) {
-  if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) {
+function photoDimensionsMatch(gf, df) {
+  const gfWidth = Number(gf.getWidth());
+  const gfHeight = Number(gf.getHeight());
+  const dfWidth = df.getWidth();
+  const dfHeight = df.getHeight();
+
+  if (gfWidth === dfWidth && gfHeight === dfHeight) {
     return true;
   }
 
-  if (drivePhotoWidth * drivePhotoHeight > minSizeRequiringComparison) {
-    const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
-    const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
+  if (dfWidth * dfHeight > minSizeRequiringComparison) {
+    const gfAspectRatio = gfWidth / gfHeight;
+    const dfAspectRatio = dfWidth / dfHeight;
 
     const minValue = 0.99;
     const maxValue = 1.01;
 
-    const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
+    const aspectRatioRatio = gfAspectRatio / dfAspectRatio;
     if (aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
       return true;
     }
@@ -34,11 +39,11 @@ function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, dri
   return false;
 }
 
-function dimensionsMatch(googlePhoto) {
-  return (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), this.width, this.height));
+// this is DrivePhoto
+function dimensionsMatchFilter(gf) {
+  return (photoDimensionsMatch(gf, this));
 }
-
-export function getNameWithDimensionsMatch(df, gfStore) {
+export function gfsMatchDFDimensions(df, gfStore) {
 
   // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
 
@@ -75,7 +80,7 @@ export function getNameWithDimensionsMatch(df, gfStore) {
       gfsMatchingDimensions = deepcopy(gfsByName[dfName].gfList);
     }
     if (gfsMatchingDimensions) {
-      gfsMatchingDimensions = gfsMatchingDimensions.filter(dimensionsMatch, df.dimensions);
+      gfsMatchingDimensions = gfsMatchingDimensions.filter(dimensionsMatchFilter, df);
       if (gfsMatchingDimensions && gfsMatchingDimensions.length === 0) {
         gfsMatchingDimensions = null;
         if (extension === '.tif') {

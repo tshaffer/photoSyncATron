@@ -1,19 +1,44 @@
 const fs = require('fs');
 const exifImage = require('exif').ExifImage;
 
-import * as utils from '../utilities/utils';
-
-function getDateTimeMatch(dateTime, fsByDateTime) {
-
-  if (!dateTime) return null;
-
-  const dateTimeStr = dateTime;
-  const exifDateTime = utils.getDateFromString(dateTimeStr);
-  const isoString = exifDateTime.toISOString();
-  return fsByDateTime[isoString];
+// ------------------------------------
+// Photo Date Utility functions
+// ------------------------------------
+function getDateFromString(dateTimeStr) {
+  const year = Number(dateTimeStr.substring(0, 4));
+  const month = Number(dateTimeStr.substring(5, 7)) - 1;
+  const day = Number(dateTimeStr.substring(8, 10));
+  const hours = Number(dateTimeStr.substring(11, 13));
+  const minutes = Number(dateTimeStr.substring(14, 16));
+  const seconds = Number(dateTimeStr.substring(17, 19));
+  return new Date(year, month, day, hours, minutes, seconds);
 }
 
-function getAllExifDateTimeMatches(df, gfStore) {
+function dtStartOfSecond(dt) {
+  return new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
+}
+
+function addSeconds(dt, secondsOffset) {
+  return (new Date(dt.getTime() + (secondsOffset * 1000))).toISOString();
+}
+
+// ------------------------------------
+// Photo Date Helper functions
+// ------------------------------------
+function gfsMatchingDateTime(dt, gfsByDateTime) {
+  return gfsByDateTime[dt];
+}
+
+function gfsMatchingExifDateTime(exifDateTimeStr, gfsByDateTime) {
+
+  if (!exifDateTimeStr) return null;
+
+  const exifDateTime = getDateFromString(exifDateTimeStr);
+  const isoString = exifDateTime.toISOString();
+  return gfsByDateTime[isoString];
+}
+
+function gfsMatchingExifDateTimes(df, gfStore) {
 
   const dfPath = df.getPath();
   const gfsByDateTime = gfStore.gfsByDateTime;
@@ -36,10 +61,10 @@ function getAllExifDateTimeMatches(df, gfStore) {
           df.setExifCreateDate(exifData.exif.CreateDate);
           df.setExifDateTimeOriginal(exifData.exif.DateTimeOriginal);
 
-          const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
-          const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimeOriginal, gfsByDateTime);
-          const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
-          const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal.gfsByExifDateTime);
+          const createDateToDateTimeExifMatch = gfsMatchingExifDateTime(exifData.exif.CreateDate, gfsByDateTime);
+          const dateTimeOriginalToDateTimeExifMatch = gfsMatchingExifDateTime(exifData.exif.DateTimeOriginal, gfsByDateTime);
+          const createDateToExifDateTimeExifMatch = gfsMatchingExifDateTime(exifData.exif.CreateDate, gfsByExifDateTime);
+          const dateTimeOriginalToExifDateTime = gfsMatchingExifDateTime(exifData.exif.DateTimeOriginal.gfsByExifDateTime);
 
           const exifDateTimeCompareResults = {
             createDateToDateTimeExifMatch,
@@ -47,8 +72,6 @@ function getAllExifDateTimeMatches(df, gfStore) {
             createDateToExifDateTimeExifMatch,
             dateTimeOriginalToExifDateTime
           };
-
-          // console.log("Number of df's with exif date/time: ", numgfsMatchingDateTime++);
 
           resolve(exifDateTimeCompareResults);
           // searchResult.isoString = isoString;
@@ -61,23 +84,15 @@ function getAllExifDateTimeMatches(df, gfStore) {
   });
 }
 
-function dtStartOfSecond(dt) {
-  return new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
-}
-
-function dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime) {
-  return gfsByDateTime[(new Date(dt.getTime() + (secondsOffset * 1000))).toISOString()];
-}
-
-function matchAdjustedLastModifiedToGF(dt, secondsOffset, gfsByDateTime, gfsByExifDateTime) {
-  let dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime);
+function gfsMatchingAdjustedDFDateTime(dt, secondsOffset, gfsByDateTime, gfsByExifDateTime) {
+  let dtMatch = gfsMatchingDateTime(addSeconds(dt, secondsOffset), gfsByDateTime);
   if (!dtMatch) {
-    dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByExifDateTime);
+    dtMatch = gfsMatchingDateTime(addSeconds(dt, secondsOffset), gfsByExifDateTime);
   }
   return dtMatch;
 }
 
-export function getAllLastModifiedDateTimeMatches(df, gfStore) {
+function gfsMatchingLastModifiedDateTimes(df, gfStore) {
 
   const dfPath = df.getPath();
   const gfsByDateTime = gfStore.gfsByDateTime;
@@ -106,7 +121,7 @@ export function getAllLastModifiedDateTimeMatches(df, gfStore) {
 
         let dtMatch = null;
         for (let i = -5; i <= 5; i++) {
-          dtMatch = matchAdjustedLastModifiedToGF(baseDT, i, gfsByDateTime, gfsByExifDateTime);
+          dtMatch = gfsMatchingAdjustedDFDateTime(baseDT, i, gfsByDateTime, gfsByExifDateTime);
           if (dtMatch) break;
         }
 
@@ -127,13 +142,13 @@ export function getAllLastModifiedDateTimeMatches(df, gfStore) {
   });
 }
 
-export function getDFGFSDateTimeMatch(df, gfStore) {
+export function gfsMatchingDFDateTimes(df, gfStore) {
 
   return new Promise( (resolve) => {
 
     // look for matches between drive photo file's exif date and google photos' dates
-    let allExifDateTimeMatchesPromise = getAllExifDateTimeMatches(df, gfStore);
-    let allLastModifiedDateTimeMatchesPromise = getAllLastModifiedDateTimeMatches(df, gfStore);
+    let allExifDateTimeMatchesPromise = gfsMatchingExifDateTimes(df, gfStore);
+    let allLastModifiedDateTimeMatchesPromise = gfsMatchingLastModifiedDateTimes(df, gfStore);
 
     Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
       resolve(results);
