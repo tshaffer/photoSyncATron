@@ -11,14 +11,17 @@ import * as utils from '../utilities/utils';
 const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
+// CD / DVD drive
 // const rootFolder = "d:/";
+
+// On Mac
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
-// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
+const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "PHOTOS5");
 
 // On Windows PC
-const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\d6-25-2006";
+// const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\d6-25-2006";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\d2005Photos8";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos2";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos5";

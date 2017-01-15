@@ -3,6 +3,7 @@
 const path = require('path');
 var fs = require('fs-extra');
 const childProcess = require('child_process');
+const Jimp = require("jimp");
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
@@ -13,8 +14,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 // ------------------------------------
 // Constants
 // ------------------------------------
-const convertCmd = 'convert';
-// const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
+// const convertCmd = 'convert';
+const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 class ComparePhotos extends Component {
 
@@ -27,8 +28,8 @@ class ComparePhotos extends Component {
 
   constructor(props: Object) {
     super(props);
-    this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
-    // this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
+    // this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+    this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
     this.state = {
       diskImage: '',
       googleImage: '',
@@ -104,6 +105,30 @@ class ComparePhotos extends Component {
       });
     }
     else {
+
+      // Jimp.read(googleImage).then( (gImage) => {
+      //   console.log('read google image');
+      // }).catch( (err) => {
+      //   console.error(err);
+      // });
+      // https://github.com/oliver-moran/jimp
+      Jimp.read(diskImage).then( (dfImage) => {
+        Jimp.read(googleImage).then( (gfImage) => {
+          const dfHash = dfImage.hash();
+          const gfHash = gfImage.hash();
+          const hammingDistance = Jimp.distance(dfImage, gfImage);
+          console.log(dfHash);
+          console.log(gfHash);
+          console.log(hammingDistance);
+        }).catch( (err) => {
+          console.error(err);
+          debugger;
+        });
+      }).catch( (err) => {
+        console.error(err);
+        debugger;
+      });
+
       this.setState({
         diskImage,
         googleImage
