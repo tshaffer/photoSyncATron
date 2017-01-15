@@ -1,6 +1,6 @@
 // @flow
 
-export class DrivePhotoFile {
+export class DrivePhoto {
 
   path: string;
   dimensions: Array<Number>;

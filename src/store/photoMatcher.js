@@ -4,7 +4,7 @@ const deepcopy = require("deepcopy");
 const sizeOf = require('image-size');
 const exifImage = require('exif').ExifImage;
 
-import { DrivePhotoFile } from '../entities/drivePhotoFile';
+import { DrivePhoto } from '../entities/drivePhoto';
 
 import { setVolumeName } from './drivePhotos';
 import { readDrivePhotoFiles } from './drivePhotos';
@@ -389,7 +389,7 @@ function buildDrivePhotoFiles(drivePhotoFilePaths) {
 
   let drivePhotoFiles = [];
   drivePhotoFilePaths.forEach( (drivePhotoFilePath) => {
-    let drivePhotoFile = new DrivePhotoFile(drivePhotoFilePath);
+    let drivePhotoFile = new DrivePhoto(drivePhotoFilePath);
     drivePhotoFile.setDimensions(getPhotoDimensions(drivePhotoFilePath));
     drivePhotoFiles.push(drivePhotoFile);
   });
