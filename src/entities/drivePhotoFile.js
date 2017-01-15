@@ -5,6 +5,8 @@ export class DrivePhotoFile {
     this.dimensions = [];
     this.lastModified = null;
     this.lastModifiedISO = '';
+    this.exifCreateDate = '';
+    this.exifDateTimeOriginal = '';
   }
 
   getPath() {
@@ -33,5 +35,21 @@ export class DrivePhotoFile {
 
   getLastModifiedISO() {
     return this.lastModifiedISO;
+  }
+
+  setExifCreateDate(exifCreateDate) {
+    this.exifCreateDate = exifCreateDate;
+  }
+
+  getExifCreateDate() {
+    return this.exifCreateDate;
+  }
+
+  setExifDateTimeOriginal(exifDateTimeOriginal) {
+    this.exifDateTimeOriginal = exifDateTimeOriginal;
+  }
+
+  getExifDateTimeOriginal() {
+    return this.exifDateTimeOriginal;
   }
 }

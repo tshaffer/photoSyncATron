@@ -160,6 +160,9 @@ function getAllExifDateTimeMatches(df, gfStore) {
           resolve(null);
         }
         else {
+          df.setExifCreateDate(exifData.exif.CreateDate);
+          df.setExifDateTimeOriginal(exifData.exif.DateTimeOriginal);
+
           const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
           const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimeOriginal, gfsByDateTime);
           const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
@@ -613,8 +616,9 @@ function summarizeSearchResult(rawSearchResult) {
       summarySearchResult.gfName = rawSearchResult.matchingGF.getName();
       break;
     case 'MANUAL_MATCH_FOUND':
-      // TODO - need to add exif date to summarySearchResult (as well as to df)
       summarySearchResult.dfLastModifiedISO = rawSearchResult.drivePhotoFile.getLastModifiedISO();
+      summarySearchResult.dfExifCreateDate = rawSearchResult.drivePhotoFile.getExifCreateDate();
+      summarySearchResult.dfExifDateTimeOriginal = rawSearchResult.drivePhotoFile.getExifDateTimeOriginal();
       summarySearchResult.gfName = rawSearchResult.matchingGF.getName();
       summarySearchResult.gfDateTime = rawSearchResult.matchingGF.getDateTime();
       summarySearchResult.gfExifDateTime = rawSearchResult.matchingGF.getExifDateTime();
@@ -625,8 +629,9 @@ function summarizeSearchResult(rawSearchResult) {
       summarySearchResult.matchResult = 'NO_MATCH_FOUND';
       break;
     case 'MANUAL_MATCH_PENDING':
-      // TODO - need to add exif date to summarySearchResult (as well as to df)
       summarySearchResult.dfLastModifiedISO = rawSearchResult.drivePhotoFile.getLastModifiedISO();
+      summarySearchResult.dfExifCreateDate = rawSearchResult.drivePhotoFile.getExifCreateDate();
+      summarySearchResult.dfExifDateTimeOriginal = rawSearchResult.drivePhotoFile.getExifDateTimeOriginal();
       // TODO - show gfList summary (names only)?
       break;
     default:
