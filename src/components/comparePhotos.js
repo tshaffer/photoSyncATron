@@ -11,15 +11,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 // ------------------------------------
 // Constants
 // ------------------------------------
-// const convertCmd = 'convert';
-const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
+const convertCmd = 'convert';
+// const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 class ComparePhotos extends Component {
 
   constructor(props) {
     super(props);
-    // this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
-    this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
+    this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+    // this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
     this.state = {
       diskImage: '',
       googleImage: '',
@@ -116,7 +116,8 @@ class ComparePhotos extends Component {
 
     // mark this drive photo as matching
     const googlePhoto = this.props.photoCompareList[this.drivePhotoIndex].photoList[this.googlePhotoIndex];
-    this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.path.toLowerCase(), googlePhoto);
+    // this.props.matchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.path.toLowerCase(), googlePhoto);
+    this.props.manualMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile, googlePhoto);
 
     this.moveToNextDrivePhoto();
     if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
@@ -134,7 +135,7 @@ class ComparePhotos extends Component {
     if (this.googlePhotoIndex >= this.numGooglePhotosToCompare) {
 
       // mark this photo as not matching
-      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile.path.toLowerCase());
+      this.props.noMatchFound(this.props.photoCompareList[this.drivePhotoIndex].baseFile);
 
       this.moveToNextDrivePhoto();
       if (this.drivePhotoIndex >= this.numDrivePhotosToCompare) {
@@ -314,7 +315,7 @@ class ComparePhotos extends Component {
 ComparePhotos.propTypes = {
   photoCompareList: React.PropTypes.array.isRequired,
   saveResults: React.PropTypes.func.isRequired,
-  matchFound: React.PropTypes.func.isRequired,
+  manualMatchFound: React.PropTypes.func.isRequired,
   noMatchFound: React.PropTypes.func.isRequired,
 };
 

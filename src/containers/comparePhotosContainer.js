@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { saveResults, matchFound, noMatchFound } from '../store/photoMatcher';
+import { saveResults, manualMatchFound, noMatchFound } from '../store/photoMatcher';
 
 import ComparePhotos from '../components/comparePhotos';
 
@@ -25,7 +25,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({saveResults, matchFound, noMatchFound },
+  return bindActionCreators({saveResults, manualMatchFound, noMatchFound },
     dispatch);
 }
 

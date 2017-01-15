@@ -139,7 +139,7 @@ function getDateTimeMatch(dateTime, fsByDateTime) {
   return fsByDateTime[isoString];
 }
 
-let numgfsMatchingDateTime = 0;
+// let numgfsMatchingDateTime = 0;
 function getAllExifDateTimeMatches(df, gfStore) {
 
   const dfPath = df.getPath();
@@ -547,7 +547,7 @@ export function matchFound(drivePhotoFile, googlePhoto) {
 
 export function manualMatchFound(drivePhotoFile, googlePhoto) {
   return {
-    type: MATCH_FOUND,
+    type: MANUAL_MATCH_FOUND,
     payload: {
       drivePhotoFile,
       googlePhoto
@@ -717,41 +717,26 @@ export default function(state = initialState, action) {
       return newState;
     }
     case MATCH_FOUND: {
-      // action.payload.drivePhotoFile
-      // action.payload.googlePhoto
-      const filePath = action.payload.photoFilePath;
-      const googlePhotoFile = action.payload.googlePhoto;
-
-      // TODO - this duplicates code from saveSearchResults
-      let resultData = {};
-      resultData.matchResult = 'MATCH_FOUND';
-
-      let googlePhoto = {};
-      if (googlePhotoFile.exifDateTime) {
-        googlePhoto.dateTime = googlePhotoFile.exifDateTime;
-      }
-      else {
-        googlePhoto.dateTime = googlePhotoFile.dateTime;
-      }
-      googlePhoto.name = googlePhotoFile.name;
-      googlePhoto.imageUniqueId = googlePhotoFile.imageUniqueId;
-      resultData.googlePhoto = googlePhoto;
-
+      debugger;
+      return null;
+    }
+    case MANUAL_MATCH_FOUND: {
+      let result = {};
+      result.matchResult = MANUAL_MATCH_FOUND;
+      result.drivePhotoFile = action.payload.drivePhotoFile;
+      result.matchingGF = action.payload.googlePhoto;
       let newState = Object.assign({}, state);
-      newState.driveMatchResults[filePath] = resultData;
+      newState.driveMatchResults[result.drivePhotoFile.getPath().toLowerCase()] = result;
       return newState;
     }
-    case MANUAL_MATCH_FOUND:
-      // action.payload.drivePhotoFile
-      // action.payload.googlePhoto
-      return null;
     case NO_MATCH_FOUND: {
       // action.payload.drivePhotoFile
       let resultData = {};
+      resultData.drivePhotoFile = action.payload;
       resultData.matchResult = MANUAL_MATCH_FAILURE;
-      resultData.drivePhotoDimensions = action.payload.dimensions;
+      // resultData.drivePhotoDimensions = action.payload.dimensions;
       let newState = Object.assign({}, state);
-      newState.driveMatchResults[action.payload] = resultData;
+      newState.driveMatchResults[action.payload.getPath().toLowerCase()] = resultData;
       return newState;
     }
     case SET_SEARCH_RESULTS: {
