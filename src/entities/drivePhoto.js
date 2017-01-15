@@ -31,11 +31,11 @@ export class DrivePhoto {
     return this.dimensions;
   }
 
-  getWidth(): Number {
+  getWidth(): number {
     return this.dimensions.width;
   }
 
-  getHeight(): Number {
+  getHeight(): number {
     return this.dimensions.height;
   }
 

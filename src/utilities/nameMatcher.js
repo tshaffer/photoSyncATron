@@ -1,5 +1,10 @@
+// @flow
+
 const path = require('path');
 const deepcopy = require("deepcopy");
+
+import { DrivePhoto } from '../entities/drivePhoto';
+import { GooglePhoto } from '../entities/googlePhoto';
 
 import * as utils from '../utilities/utils';
 
@@ -13,7 +18,11 @@ const ALT_NAME_MATCH_NO_DIMS_MATCH = 'ALT_NAME_MATCH_NO_DIMS_MATCH';
 
 // return true if the dimensions match or their aspect ratios are 'really' close
 const minSizeRequiringComparison = 1750000;
-function photoDimensionsMatch(gf, df) {
+function photoDimensionsMatch(gf: GooglePhoto, df: DrivePhoto) {
+  // const gfWidth: number = Number(gf.getWidth());
+  // const gfHeight: number = Number(gf.getHeight());
+  // const dfWidth: number = df.getWidth();
+  // const dfHeight: number = df.getHeight();
   const gfWidth = Number(gf.getWidth());
   const gfHeight = Number(gf.getHeight());
   const dfWidth = df.getWidth();
@@ -24,8 +33,8 @@ function photoDimensionsMatch(gf, df) {
   }
 
   if (dfWidth * dfHeight > minSizeRequiringComparison) {
-    const gfAspectRatio = gfWidth / gfHeight;
-    const dfAspectRatio = dfWidth / dfHeight;
+    const gfAspectRatio: number = gfWidth / gfHeight;
+    const dfAspectRatio: number = dfWidth / dfHeight;
 
     const minValue = 0.99;
     const maxValue = 1.01;
@@ -43,7 +52,7 @@ function photoDimensionsMatch(gf, df) {
 function dimensionsMatchFilter(gf) {
   return (photoDimensionsMatch(gf, this));
 }
-export function gfsMatchDFDimensions(df, gfStore) {
+export function gfsMatchDFDimensions(df: DrivePhoto, gfStore: Object) {
 
   // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
 
@@ -64,7 +73,17 @@ export function gfsMatchDFDimensions(df, gfStore) {
     nameWithoutExtension = dfName.slice(0, -4);
   }
 
-  let gfsMatchingDFDimensions = {};
+  let gfsMatchingDFDimensions:
+    {
+      nameMatchResult: string,
+      gfList: Array < Object >
+    }
+    =
+    {
+      nameMatchResult: '',
+      gfList: []
+    };
+
 
   let nameMatchResult = NO_NAME_MATCH;
 
@@ -100,9 +119,8 @@ export function gfsMatchDFDimensions(df, gfStore) {
         }
       }
     }
-    gfsMatchingDFDimensions = {
-      gfList: gfsMatchingDimensions
-    };
+
+    gfsMatchingDFDimensions.gfList = gfsMatchingDimensions;
   }
 
   if (dfName.length >= 6) {
@@ -111,12 +129,12 @@ export function gfsMatchDFDimensions(df, gfStore) {
     if (utils.isNumeric(nameWithoutExtension)) {
       const partialName = dfName.slice(dfName.length - 6);
       if (gfsByAltKey[partialName]) {
-        // this doesn't make sense to me - won't this always be null?
-        if (!gfsMatchingDFDimensions) {
-          gfsMatchingDFDimensions = {
-            gfList: []
-          };
-        }
+        // TODO this doesn't make sense to me - won't this always be null?
+        // if (!gfsMatchingDFDimensions) {
+        //   gfsMatchingDFDimensions = {
+        //     gfList: []
+        //   };
+        // }
         gfsByAltKey[partialName].forEach( (gf) => {
           let gfAdded = false;
           if (df.dimensions) {

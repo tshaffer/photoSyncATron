@@ -1,6 +1,15 @@
+// @flow
+
 export class GooglePhoto {
 
-  constructor(googlePhotoSpec) {
+  name: string;
+  url: string;
+  width: string;
+  height: string;
+  dateTime: string;
+  exifDateTime: string;
+
+  constructor(googlePhotoSpec: Object) {
     this.name = googlePhotoSpec.name;
     this.url = googlePhotoSpec.url;
     this.width = googlePhotoSpec.width;
@@ -9,23 +18,23 @@ export class GooglePhoto {
     this.exifDateTime = googlePhotoSpec.exifDateTime;
   }
 
-  getName() {
+  getName(): string {
     return this.name;
   }
 
-  getWidth() {
+  getWidth(): string {
     return this.width;
   }
 
-  getHeight() {
+  getHeight(): string {
     return this.height;
   }
 
-  getDateTime() {
+  getDateTime(): string {
     return this.dateTime;
   }
 
-  getExifDateTime() {
+  getExifDateTime(): string {
     return this.exifDateTime;
   }
 }

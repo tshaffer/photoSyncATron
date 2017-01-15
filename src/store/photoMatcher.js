@@ -24,6 +24,7 @@ function setResults(df, result) {
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise( (resolve) => {
+
     let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchDFDimensions( drivePhotoFile, getState().googlePhotos);
 
     let dateTimeMatchPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, getState().googlePhotos);
