@@ -12,24 +12,24 @@ import * as nameMatcher from '../utilities/nameMatcher';
 import * as dateMatcher from '../utilities/dateMatcher';
 
 let photoCompareList = [];
+let dfMatchResults = {};
 
 // ------------------------------------
 // Helper functions
 // ------------------------------------
-let allResults = {};
-function setResults(df, result) {
-  allResults[df.getPath()] = result;
+function setDrivePhotoMatchResult(df, result) {
+  dfMatchResults[df.getPath()] = result;
 }
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise( (resolve) => {
 
-    let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchDFDimensions( drivePhotoFile, getState().googlePhotos);
+    let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchingDFDimensions( drivePhotoFile, getState().googlePhotos);
 
-    let dateTimeMatchPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, getState().googlePhotos);
+    let gfsMatchingDFDateTimesPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, getState().googlePhotos);
 
-    Promise.all([gfsMatchingDFNameAndDimensionsPromise, dateTimeMatchPromise]).then( (results) => {
+    Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then( (results) => {
 
       // analyze results
       // TODO - figure out a better way to do this?
@@ -42,8 +42,11 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
         // TODO - Joel, why doesn't this work (declared them earlier)?
         // TODO - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-        // {{createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches};
-
+        // let createDateToDateTimeExifMatch;
+        // let dateTimeOriginalToDateTimeExifMatch;
+        // let createDateToExifDateTimeExifMatch;
+        // let dateTimeOriginalToExifDateTime;
+        // {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
         let {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
 
 
@@ -106,8 +109,8 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
           matchResult: NO_MATCH_FOUND
         };
       }
-      dispatch(matchAttemptComplete(result.matchResult === MATCH_FOUND));
-      setResults(drivePhotoFile, result);
+      dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+      setDrivePhotoMatchResult(drivePhotoFile, result);
       resolve();
     }, (err) => {
       console.log(err);
@@ -130,7 +133,7 @@ function getPhotoDimensions(photoFilePath) {
   return dimensions;
 }
 
-function buildDrivePhotoFiles(drivePhotoFilePaths) {
+function buildDrivePhotos(drivePhotoFilePaths) {
 
   let drivePhotoFiles = [];
   drivePhotoFilePaths.forEach( (drivePhotoFilePath) => {
@@ -158,6 +161,7 @@ function searchForPhoto(drivePhotoFilePath) {
   return true;
 }
 
+// TODO - figure out what this is doing, why it is doing it, and document / rename appropriately
 function filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths) {
 
   if (searchResults.Volumes[volumeName]) {
@@ -195,7 +199,7 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
   });
   Promise.all(promises).then( (_) => {
     dispatch(setPhotoCompareList(photoCompareList));
-    dispatch(setDriveMatchResults(allResults));
+    dispatch(setPhotoMatchResults(dfMatchResults));
     dispatch(setPhotoMatchingComplete());
   }, (err) => {
     console.log("matchAllPhotos err: ", err);
@@ -205,20 +209,19 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
 
 function matchPhotoFiles(dispatch, getState) {
 
-  let drivePhotoFiles = getState().drivePhotos.drivePhotos;
+  let drivePhotos = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
   // drivePhotoFiles = drivePhotoFiles.slice(0, 20);
 
-  const numPhotoFiles = drivePhotoFiles.length;
-  console.log("Number of photos on drive: ", numPhotoFiles);
-  matchAllPhotoFiles(dispatch, getState, drivePhotoFiles);
+  console.log("Number of photos on drive: ", drivePhotos.length);
+  matchAllPhotoFiles(dispatch, getState, drivePhotos);
 }
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-function matchAttemptComplete(success) {
+function automaticMatchAttemptComplete(success) {
   return {
     type: MATCH_ATTEMPT_COMPLETE,
     payload: success
@@ -232,10 +235,10 @@ function setPhotoCompareList(photoCompareList) {
   };
 }
 
-function setDriveMatchResults(driveResults) {
+function setPhotoMatchResults(photoMatchResults) {
   return {
-    type: SET_DRIVE_MATCH_RESULTS,
-    payload: driveResults
+    type: SET_PHOTO_MATCH_RESULTS,
+    payload: photoMatchResults
   };
 }
 
@@ -245,20 +248,11 @@ function setPhotoMatchingComplete() {
   };
 }
 
+// TODO - rename me?
 function setSearchResults(searchResults) {
   return {
     type: SET_SEARCH_RESULTS,
     payload: searchResults
-  };
-}
-
-export function matchFound(drivePhotoFile, googlePhoto) {
-  return {
-    type: MATCH_FOUND,
-    payload: {
-      drivePhotoFile,
-      googlePhoto
-    }
   };
 }
 
@@ -303,7 +297,7 @@ export function matchPhotos(volumeName) {
 
         drivePhotoFilePaths = filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths);
 
-        let drivePhotoFiles = buildDrivePhotoFiles(drivePhotoFilePaths);
+        let drivePhotoFiles = buildDrivePhotos(drivePhotoFilePaths);
 
         // TODO - instead of this construct, could pass dispatch into readDrivePhotos. however, code would still need
         // TODO - to wait for it to complete before moving on. true??
@@ -475,7 +469,7 @@ export default function(state = initialState, action) {
       newState.photoCompareList = action.payload;
       return newState;
     }
-    case SET_DRIVE_MATCH_RESULTS: {
+    case SET_PHOTO_MATCH_RESULTS: {
       let newState = Object.assign({}, state);
       newState.driveMatchResults = action.payload;
       return newState;
@@ -520,7 +514,7 @@ export default function(state = initialState, action) {
 const MATCH_ATTEMPT_COMPLETE = 'MATCH_ATTEMPT_COMPLETE';
 const PHOTO_MATCHING_COMPLETE = 'PHOTO_MATCHING_COMPLETE';
 const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
-const SET_DRIVE_MATCH_RESULTS = 'SET_DRIVE_MATCH_RESULTS';
+const SET_PHOTO_MATCH_RESULTS = 'SET_PHOTO_MATCH_RESULTS';
 const MATCH_FOUND = 'MATCH_FOUND';
 const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
 const MANUAL_MATCH_FOUND = 'MANUAL_MATCH_FOUND';

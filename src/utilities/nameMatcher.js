@@ -52,7 +52,7 @@ function photoDimensionsMatch(gf: GooglePhoto, df: DrivePhoto) {
 function dimensionsMatchFilter(gf) {
   return (photoDimensionsMatch(gf, this));
 }
-export function gfsMatchDFDimensions(df: DrivePhoto, gfStore: Object) {
+export function gfsMatchingDFDimensions(df: DrivePhoto, gfStore: Object) {
 
   // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
 
@@ -76,7 +76,7 @@ export function gfsMatchDFDimensions(df: DrivePhoto, gfStore: Object) {
   let gfsMatchingDFDimensions:
     {
       nameMatchResult: string,
-      gfList: Array < Object >
+      gfList: ?Array<Object>
     }
     =
     {
@@ -94,7 +94,7 @@ export function gfsMatchDFDimensions(df: DrivePhoto, gfStore: Object) {
   }
 
   if (gfsByName[dfName]) {
-    let gfsMatchingDimensions = null;
+    let gfsMatchingDimensions: ?Array<Object> = null;
     if (gfsByName[dfName].gfList) {
       gfsMatchingDimensions = deepcopy(gfsByName[dfName].gfList);
     }
@@ -140,15 +140,19 @@ export function gfsMatchDFDimensions(df: DrivePhoto, gfStore: Object) {
           if (df.dimensions) {
             if (gf.width === df.dimensions.width &&
               gf.height === df.dimensions.height) {
-              gfsMatchingDFDimensions.gfList.unshift(gf);
-              gfAdded = true;
+              if (gfsMatchingDFDimensions.gfList) {
+                gfsMatchingDFDimensions.gfList.unshift(gf);
+                gfAdded = true;
+              }
             }
           }
           if (!gfAdded) {
-            gfsMatchingDFDimensions.gfList.push(gf);
+            if (gfsMatchingDFDimensions.gfList) {
+              gfsMatchingDFDimensions.gfList.push(gf);
+            }
           }
         });
-        if (gfsMatchingDFDimensions.gfList.length > 0) {
+        if (gfsMatchingDFDimensions && gfsMatchingDFDimensions.gfList && gfsMatchingDFDimensions.gfList.length > 0) {
           nameMatchResult = ALT_NAME_MATCH;
         }
         else {
