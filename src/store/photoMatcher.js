@@ -188,7 +188,7 @@ function getAllExifDateTimeMatches(df, gfStore) {
   });
 }
 
-function dtDownToSecond(dt) {
+function dtStartOfSecond(dt) {
   const newDate = new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
   return newDate;
 }
@@ -233,7 +233,7 @@ function getAllLastModifiedDateTimeMatches(df, gfStore) {
 
       if (!lastModifiedToDateTimeMatch && !lastModifiedToExifDateTimeMatch) {
 
-        let baseDT = dtDownToSecond(lastModified);
+        let baseDT = dtStartOfSecond(lastModified);
 
         let dtMatch = null;
         for (let i = -5; i <= 5; i++) {
