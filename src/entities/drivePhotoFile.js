@@ -5,7 +5,7 @@ export class DrivePhotoFile {
   path: string;
   dimensions: Array<Number>;
   // https://flowtype.org/docs/nullable-types.html
-  lastModified: ?Object = null;
+  lastModified: ?Date = null;
   lastModifiedISO: string;
   exifCreateDate: string;
   exifDateTimeOriginal: string;
@@ -19,7 +19,7 @@ export class DrivePhotoFile {
     this.exifDateTimeOriginal = '';
   }
 
-  getPath() {
+  getPath(): string {
     return this.path;
   }
 
@@ -27,15 +27,15 @@ export class DrivePhotoFile {
     this.dimensions = dimensions;
   }
 
-  getDimensions() {
+  getDimensions(): Array<Number> {
     return this.dimensions;
   }
 
-  setLastModified(lastModified: Object) {
+  setLastModified(lastModified: Date) {
     this.lastModified = lastModified;
   }
 
-  getLastModified() {
+  getLastModified(): ?Date {
     return this.lastModified;
   }
 
@@ -43,7 +43,7 @@ export class DrivePhotoFile {
     this.lastModifiedISO = lastModifiedISO;
   }
 
-  getLastModifiedISO() {
+  getLastModifiedISO(): string {
     return this.lastModifiedISO;
   }
 
@@ -51,7 +51,7 @@ export class DrivePhotoFile {
     this.exifCreateDate = exifCreateDate;
   }
 
-  getExifCreateDate() {
+  getExifCreateDate(): string {
     return this.exifCreateDate;
   }
 
@@ -59,7 +59,7 @@ export class DrivePhotoFile {
     this.exifDateTimeOriginal = exifDateTimeOriginal;
   }
 
-  getExifDateTimeOriginal() {
+  getExifDateTimeOriginal(): string {
     return this.exifDateTimeOriginal;
   }
 }

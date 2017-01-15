@@ -189,21 +189,17 @@ function getAllExifDateTimeMatches(df, gfStore) {
 }
 
 function dtStartOfSecond(dt) {
-  const newDate = new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
-  return newDate;
+  return new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
 }
 
-function dateTimeMatch(dt, secondsOffset, gfsByDateTime) {
-
-  const newDate = (new Date(dt.getTime() + (secondsOffset * 1000))).toISOString();
-  const matchingGF = gfsByDateTime[newDate];
-  return matchingGF;
+function dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime) {
+  return gfsByDateTime[(new Date(dt.getTime() + (secondsOffset * 1000))).toISOString()];
 }
 
 function matchAdjustedLastModifiedToGF(dt, secondsOffset, gfsByDateTime, gfsByExifDateTime) {
-  let dtMatch = dateTimeMatch(dt, secondsOffset, gfsByDateTime);
+  let dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime);
   if (!dtMatch) {
-    dtMatch = dateTimeMatch(dt, secondsOffset, gfsByExifDateTime);
+    dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByExifDateTime);
   }
   return dtMatch;
 }
