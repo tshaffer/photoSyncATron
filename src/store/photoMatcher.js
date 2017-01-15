@@ -218,7 +218,10 @@ function getAllLastModifiedDateTimeMatches(df, gfStore) {
         reject(err);
       }
       const lastModified = stats.mtime; // Date object
+      df.setLastModified(lastModified);
+
       const lastModifiedISO = lastModified.toISOString();
+      df.setLastModifiedISO(lastModifiedISO);
 
       const lastModifiedToDateTimeMatch = gfsByDateTime[lastModifiedISO];
       const lastModifiedToExifDateTimeMatch = gfsByExifDateTime[lastModifiedISO];
