@@ -4,7 +4,6 @@ const fs = require('fs');
 const exifImage = require('exif').ExifImage;
 
 import { DrivePhoto } from '../entities/drivePhoto';
-import { GooglePhoto } from '../entities/googlePhoto';
 
 // ------------------------------------
 // Photo Date Utility functions
