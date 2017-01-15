@@ -1,7 +1,10 @@
+// @flow
+
 const fs = require('fs');
 const sizeOf = require('image-size');
 
 import { DrivePhoto } from '../entities/drivePhoto';
+import { GooglePhoto } from '../entities/googlePhoto';
 
 import { setVolumeName } from './drivePhotos';
 import { readDrivePhotoFiles } from './drivePhotos';
@@ -17,7 +20,7 @@ let dfMatchResults = {};
 // ------------------------------------
 // Helper functions
 // ------------------------------------
-function setDrivePhotoMatchResult(df, result) {
+function setDrivePhotoMatchResult(df: DrivePhoto, result) {
   dfMatchResults[df.getPath()] = result;
 }
 
@@ -120,9 +123,9 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 }
 
 
-function getPhotoDimensions(photoFilePath) {
+function getPhotoDimensions(photoFilePath): ?Object {
 
-  let dimensions = null;
+  let dimensions: ?Object = null;
 
   try {
     dimensions = sizeOf(photoFilePath);
@@ -137,15 +140,15 @@ function buildDrivePhotos(drivePhotoFilePaths) {
 
   let drivePhotoFiles = [];
   drivePhotoFilePaths.forEach( (drivePhotoFilePath) => {
-    let drivePhotoFile = new DrivePhoto(drivePhotoFilePath);
-    drivePhotoFile.setDimensions(getPhotoDimensions(drivePhotoFilePath));
-    drivePhotoFiles.push(drivePhotoFile);
+    let drivePhoto = new DrivePhoto(drivePhotoFilePath);
+    drivePhoto.setDimensions(getPhotoDimensions(drivePhotoFilePath));
+    drivePhotoFiles.push(drivePhoto);
   });
 
   return drivePhotoFiles;
 }
 
-let _results = null;
+let _results = {};
 function searchForPhoto(drivePhotoFilePath) {
 
   drivePhotoFilePath = drivePhotoFilePath.toLowerCase();
@@ -175,7 +178,7 @@ function filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths) {
 function loadExistingSearchResults() {
 
   return new Promise( (resolve) => {
-    fs.readFile('searchResults.json', (err, data) => {
+    fs.readFile('searchResults.json', (err: ?Object, data: string) => {
 
       let existingSearchResults;
 
@@ -256,20 +259,20 @@ function setSearchResults(searchResults) {
   };
 }
 
-export function manualMatchFound(drivePhotoFile, googlePhoto) {
+export function manualMatchFound(drivePhoto: DrivePhoto, googlePhoto: GooglePhoto) {
   return {
     type: MANUAL_MATCH_FOUND,
     payload: {
-      drivePhotoFile,
+      drivePhoto,
       googlePhoto
     }
   };
 }
 
-export function noMatchFound(drivePhotoFile) {
+export function noMatchFound(drivePhoto: DrivePhoto) {
   return {
     type: NO_MATCH_FOUND,
-    payload: drivePhotoFile
+    payload: drivePhoto
   };
 }
 
@@ -277,11 +280,11 @@ export function noMatchFound(drivePhotoFile) {
 // ------------------------------------
 // Actions Creators
 // ------------------------------------
-export function matchPhotos(volumeName) {
+export function matchPhotos(volumeName: string) {
 
   console.log("photoMatcher.js::matchPhotos");
 
-  return function (dispatch, getState) {
+  return function (dispatch: Function, getState: Function) {
 
     // load prior search results
     loadExistingSearchResults().then((searchResults) => {
@@ -351,7 +354,7 @@ function summarizeSearchResult(rawSearchResult) {
 
 export function saveResults() {
 
-  return function (_, getState) {
+  return function (_: Function, getState: Function) {
 
     // merge together searchResults and driveMatchResults
     const state = getState();
@@ -437,7 +440,7 @@ export function saveResults() {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {
+const initialState: Object = {
   successfulMatches: 0,
   unsuccessfulMatches: 0,
   photoMatchingComplete: false,
@@ -445,7 +448,7 @@ const initialState = {
   driveMatchResults: {},
 };
 
-export default function(state = initialState, action) {
+export default function(state: Object = initialState, action: Object) {
 
   switch (action.type) {
 
@@ -481,7 +484,7 @@ export default function(state = initialState, action) {
     case MANUAL_MATCH_FOUND: {
       let result = {};
       result.matchResult = MANUAL_MATCH_FOUND;
-      result.drivePhotoFile = action.payload.drivePhotoFile;
+      result.drivePhotoFile = action.payload.drivePhoto;
       result.matchingGF = action.payload.googlePhoto;
       let newState = Object.assign({}, state);
       newState.driveMatchResults[result.drivePhotoFile.getPath().toLowerCase()] = result;
