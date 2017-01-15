@@ -1,8 +1,5 @@
-const path = require('path');
 const fs = require('fs');
-const deepcopy = require("deepcopy");
 const sizeOf = require('image-size');
-const exifImage = require('exif').ExifImage;
 
 import { DrivePhoto } from '../entities/drivePhoto';
 
@@ -11,267 +8,14 @@ import { readDrivePhotoFiles } from './drivePhotos';
 import { setDrivePhotos } from './drivePhotos';
 import { buildPhotoDictionaries } from './googlePhotos';
 
-import * as utils from '../utilities/utils';
+import * as nameMatcher from '../utilities/nameMatcher';
+import * as dateMatcher from '../utilities/dateMatcher';
 
 let photoCompareList = [];
 
 // ------------------------------------
 // Helper functions
 // ------------------------------------
-// df - drivePhotoFile
-// gfStore - google photo store contents
-// let numgfsMatchingDFDimensions = 0;
-function getNameWithDimensionsMatch(df, gfStore) {
-
-  // gfsByName is a structure mapping google photo names to a list of google photos that have the same name
-
-  // cases for possible match between file on drive and google photo
-  // case 1 - look for a match with the file name as read from the drive
-  // case 2 - look for a match between a tif file on the drive and a corresponding jpg google file
-  // case 3 - look for a match between the file name from the drive and the modified google file names (3301.jpg => 01.jpg for example)
-  const gfsByName = gfStore.gfsByName;
-  const gfsByAltKey = gfStore.photosByAltKey;
-
-  const dfPath = df.getPath();
-  let nameWithoutExtension = '';
-
-  let dfName = path.basename(dfPath).toLowerCase();
-
-  const extension = path.extname(dfPath);
-  if (extension !== '') {
-    nameWithoutExtension = dfName.slice(0, -4);
-  }
-
-  let gfsMatchingDFDimensions = {};
-
-  let nameMatchResult = NO_NAME_MATCH;
-
-  if (!gfsByName[dfName]) {
-    if (extension === '.tif') {
-      dfName = nameWithoutExtension + ".jpg";
-    }
-  }
-
-  if (gfsByName[dfName]) {
-    let gfsMatchingDimensions = null;
-    if (gfsByName[dfName].gfList) {
-      gfsMatchingDimensions = deepcopy(gfsByName[dfName].gfList);
-    }
-    if (gfsMatchingDimensions) {
-      gfsMatchingDimensions = gfsMatchingDimensions.filter(dimensionsMatch, df.dimensions);
-      if (gfsMatchingDimensions && gfsMatchingDimensions.length === 0) {
-        gfsMatchingDimensions = null;
-        if (extension === '.tif') {
-          nameMatchResult = TIF_NAME_MATCH_NO_DIMS_MATCH;
-        }
-        else {
-          nameMatchResult = NAME_MATCH_EXACT_NO_DIMS_MATCH;
-        }
-      }
-      else {
-        // name match found with matching dimensions
-        if (extension === '.tif') {
-          nameMatchResult = TIF_NAME_MATCH;
-        }
-        else {
-          nameMatchResult = NAME_MATCH_EXACT;
-        }
-      }
-    }
-    gfsMatchingDFDimensions = {
-      gfList: gfsMatchingDimensions
-    };
-  }
-
-  if (dfName.length >= 6) {
-    // look for match with alt names
-    // TODO - don't use hardcoded constant below
-    if (utils.isNumeric(nameWithoutExtension)) {
-      const partialName = dfName.slice(dfName.length - 6);
-      if (gfsByAltKey[partialName]) {
-        // this doesn't make sense to me - won't this always be null?
-        if (!gfsMatchingDFDimensions) {
-          gfsMatchingDFDimensions = {
-            gfList: []
-          };
-        }
-        gfsByAltKey[partialName].forEach( (gf) => {
-          let gfAdded = false;
-          if (df.dimensions) {
-            if (gf.width === df.dimensions.width &&
-              gf.height === df.dimensions.height) {
-              gfsMatchingDFDimensions.gfList.unshift(gf);
-              gfAdded = true;
-            }
-          }
-          if (!gfAdded) {
-            gfsMatchingDFDimensions.gfList.push(gf);
-          }
-        });
-        if (gfsMatchingDFDimensions.gfList.length > 0) {
-          nameMatchResult = ALT_NAME_MATCH;
-        }
-        else {
-          nameMatchResult = ALT_NAME_MATCH_NO_DIMS_MATCH;
-        }
-      }
-    }
-  }
-
-  gfsMatchingDFDimensions.nameMatchResult = nameMatchResult;
-
-  // if (nameMatchResult !== NO_NAME_MATCH) {
-  //   console.log(gfsMatchingDFDimensions);
-  //   numgfsMatchingDFDimensions++;
-  // }
-  // console.log("Number of google photos matching drive photos names and dimensions: ", numgfsMatchingDFDimensions);
-
-  return gfsMatchingDFDimensions;
-}
-
-function getDateTimeMatch(dateTime, fsByDateTime) {
-
-  if (!dateTime) return null;
-
-  const dateTimeStr = dateTime;
-  const exifDateTime = utils.getDateFromString(dateTimeStr);
-  const isoString = exifDateTime.toISOString();
-  return fsByDateTime[isoString];
-}
-
-// let numgfsMatchingDateTime = 0;
-function getAllExifDateTimeMatches(df, gfStore) {
-
-  const dfPath = df.getPath();
-  const gfsByDateTime = gfStore.gfsByDateTime;
-  const gfsByExifDateTime = gfStore.gfsByExifDateTime;
-
-  return new Promise((resolve) => {
-
-    // check for blacklisted files
-    if (dfPath.indexOf('_dsc3755') >= 0) {
-      resolve(null);
-      return;
-    }
-
-    try {
-      new exifImage({image: dfPath}, function (error, exifData) {
-        if (error || !exifData || !exifData.exif || (!exifData.exif.CreateDate && !exifData.exif.DateTimeOriginal)) {
-          resolve(null);
-        }
-        else {
-          df.setExifCreateDate(exifData.exif.CreateDate);
-          df.setExifDateTimeOriginal(exifData.exif.DateTimeOriginal);
-
-          const createDateToDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByDateTime);
-          const dateTimeOriginalToDateTimeExifMatch = getDateTimeMatch(exifData.exif.DateTimeOriginal, gfsByDateTime);
-          const createDateToExifDateTimeExifMatch = getDateTimeMatch(exifData.exif.CreateDate, gfsByExifDateTime);
-          const dateTimeOriginalToExifDateTime = getDateTimeMatch(exifData.exif.DateTimeOriginal.gfsByExifDateTime);
-
-          const exifDateTimeCompareResults = {
-            createDateToDateTimeExifMatch,
-            dateTimeOriginalToDateTimeExifMatch,
-            createDateToExifDateTimeExifMatch,
-            dateTimeOriginalToExifDateTime
-          };
-
-          // console.log("Number of df's with exif date/time: ", numgfsMatchingDateTime++);
-
-          resolve(exifDateTimeCompareResults);
-          // searchResult.isoString = isoString;
-        }
-      });
-    } catch (error) {
-      console.log('FAILED return from exifImage call: ', dfPath);
-      resolve(null);
-    }
-  });
-}
-
-function dtStartOfSecond(dt) {
-  return new Date( dt.getFullYear(), dt.getMonth(), dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds(), 0);
-}
-
-function dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime) {
-  return gfsByDateTime[(new Date(dt.getTime() + (secondsOffset * 1000))).toISOString()];
-}
-
-function matchAdjustedLastModifiedToGF(dt, secondsOffset, gfsByDateTime, gfsByExifDateTime) {
-  let dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByDateTime);
-  if (!dtMatch) {
-    dtMatch = dfToGFDateTimeMatch(dt, secondsOffset, gfsByExifDateTime);
-  }
-  return dtMatch;
-}
-
-function getAllLastModifiedDateTimeMatches(df, gfStore) {
-
-  const dfPath = df.getPath();
-  const gfsByDateTime = gfStore.gfsByDateTime;
-  const gfsByExifDateTime = gfStore.gfsByExifDateTime;
-
-  return new Promise( (resolve, reject) => {
-    fs.lstat(dfPath, (err, stats) => {
-      if (err) {
-        console.log(dfPath);
-        reject(err);
-      }
-      const lastModified = stats.mtime; // Date object
-      df.setLastModified(lastModified);
-
-      const lastModifiedISO = lastModified.toISOString();
-      df.setLastModifiedISO(lastModifiedISO);
-
-      const lastModifiedToDateTimeMatch = gfsByDateTime[lastModifiedISO];
-      const lastModifiedToExifDateTimeMatch = gfsByExifDateTime[lastModifiedISO];
-
-      let lastModifiedCompareResults = null;
-
-      if (!lastModifiedToDateTimeMatch && !lastModifiedToExifDateTimeMatch) {
-
-        let baseDT = dtStartOfSecond(lastModified);
-
-        let dtMatch = null;
-        for (let i = -5; i <= 5; i++) {
-          dtMatch = matchAdjustedLastModifiedToGF(baseDT, i, gfsByDateTime, gfsByExifDateTime);
-          if (dtMatch) break;
-        }
-
-        // TODO - tmp
-        lastModifiedCompareResults = [
-          dtMatch,
-          null
-        ];
-      }
-      else {
-        lastModifiedCompareResults = [
-          lastModifiedToDateTimeMatch,
-          lastModifiedToExifDateTimeMatch
-        ];
-      }
-      resolve(lastModifiedCompareResults);
-    });
-  });
-}
-
-
-function getDFGFSDateTimeMatch(df, gfStore) {
-
-  return new Promise( (resolve) => {
-
-    // look for matches between drive photo file's exif date and google photos' dates
-    let allExifDateTimeMatchesPromise = getAllExifDateTimeMatches(df, gfStore);
-    let allLastModifiedDateTimeMatchesPromise = getAllLastModifiedDateTimeMatches(df, gfStore);
-
-    Promise.all([allExifDateTimeMatchesPromise, allLastModifiedDateTimeMatchesPromise]).then( (results) => {
-      resolve(results);
-    }, (err) => {
-      console.log(err);
-      debugger;
-    });
-  });
-}
-
 let allResults = {};
 function setResults(df, result) {
   allResults[df.getPath()] = result;
@@ -280,9 +24,9 @@ function setResults(df, result) {
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise( (resolve) => {
-    let gfsMatchingDFNameAndDimensionsPromise = getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
+    let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.getNameWithDimensionsMatch( drivePhotoFile, getState().googlePhotos);
 
-    let dateTimeMatchPromise = getDFGFSDateTimeMatch(drivePhotoFile, getState().googlePhotos);
+    let dateTimeMatchPromise = dateMatcher.getDFGFSDateTimeMatch(drivePhotoFile, getState().googlePhotos);
 
     Promise.all([gfsMatchingDFNameAndDimensionsPromise, dateTimeMatchPromise]).then( (results) => {
 
@@ -440,33 +184,6 @@ function loadExistingSearchResults() {
       resolve(existingSearchResults);
     });
   });
-}
-
-function dimensionsMatch(googlePhoto) {
-  return (comparePhotos(Number(googlePhoto.width), Number(googlePhoto.height), this.width, this.height));
-}
-
-// return true if the dimensions match or their aspect ratios are 'really' close
-const minSizeRequiringComparison = 1750000;
-function comparePhotos(googlePhotoWidth, googlePhotoHeight, drivePhotoWidth, drivePhotoHeight) {
-  if (googlePhotoWidth === drivePhotoWidth && googlePhotoHeight === drivePhotoHeight) {
-    return true;
-  }
-
-  if (drivePhotoWidth * drivePhotoHeight > minSizeRequiringComparison) {
-    const googlePhotoAspectRatio = googlePhotoWidth / googlePhotoHeight;
-    const drivePhotoAspectRatio = drivePhotoWidth / drivePhotoHeight;
-
-    const minValue = 0.99;
-    const maxValue = 1.01;
-
-    const aspectRatioRatio = googlePhotoAspectRatio / drivePhotoAspectRatio;
-    if (aspectRatioRatio > minValue && aspectRatioRatio < maxValue) {
-      return true;
-    }
-  }
-
-  return false;
 }
 
 function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
@@ -810,13 +527,3 @@ const MANUAL_MATCH_PENDING = 'MANUAL_MATCH_PENDING';
 const MANUAL_MATCH_FAILURE = 'MANUAL_MATCH_FAILURE';
 
 const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
-
-const NO_NAME_MATCH = 'NO_NAME_MATCH';
-const NAME_MATCH_EXACT = 'NAME_MATCH_EXACT';
-const TIF_NAME_MATCH = 'TIF_NAME_MATCH';
-const ALT_NAME_MATCH = 'ALT_NAME_MATCH';
-const NAME_MATCH_EXACT_NO_DIMS_MATCH = 'NAME_MATCH_EXACT_NO_DIMS_MATCH';
-const TIF_NAME_MATCH_NO_DIMS_MATCH = 'TIF_NAME_MATCH_NO_DIMS_MATCH';
-const ALT_NAME_MATCH_NO_DIMS_MATCH = 'ALT_NAME_MATCH_NO_DIMS_MATCH';
-
-// const NO_DATETIME_MATCH = '';
