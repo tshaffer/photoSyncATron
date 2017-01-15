@@ -23,7 +23,15 @@ export class DrivePhotoFile {
     this.lastModified = lastModified;
   }
 
+  getLastModified() {
+    return this.lastModified;
+  }
+
   setLastModifiedISO(lastModifiedISO) {
     this.lastModifiedISO = lastModifiedISO;
+  }
+
+  getLastModifiedISO() {
+    return this.lastModifiedISO;
   }
 }

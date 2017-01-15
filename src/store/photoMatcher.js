@@ -602,6 +602,40 @@ export function matchPhotos(volumeName) {
   };
 }
 
+function summarizeSearchResult(rawSearchResult) {
+
+  let summarySearchResult = {};
+  summarySearchResult.matchResult = rawSearchResult.matchResult;
+  summarySearchResult.path = rawSearchResult.drivePhotoFile.getPath();
+
+  switch (rawSearchResult.matchResult) {
+    case 'MATCH_FOUND':
+      summarySearchResult.gfName = rawSearchResult.matchingGF.getName();
+      break;
+    case 'MANUAL_MATCH_FOUND':
+      // TODO - need to add exif date to summarySearchResult (as well as to df)
+      summarySearchResult.dfLastModifiedISO = rawSearchResult.drivePhotoFile.getLastModifiedISO();
+      summarySearchResult.gfName = rawSearchResult.matchingGF.getName();
+      summarySearchResult.gfDateTime = rawSearchResult.matchingGF.getDateTime();
+      summarySearchResult.gfExifDateTime = rawSearchResult.matchingGF.getExifDateTime();
+      break;
+    case 'NO_MATCH_FOUND':
+      break;
+    case 'MANUAL_MATCH_FAILURE':
+      summarySearchResult.matchResult = 'NO_MATCH_FOUND';
+      break;
+    case 'MANUAL_MATCH_PENDING':
+      // TODO - need to add exif date to summarySearchResult (as well as to df)
+      summarySearchResult.dfLastModifiedISO = rawSearchResult.drivePhotoFile.getLastModifiedISO();
+      // TODO - show gfList summary (names only)?
+      break;
+    default:
+      debugger;
+      break;
+  }
+  return summarySearchResult;
+}
+
 export function saveResults() {
 
   return function (_, getState) {
@@ -614,20 +648,30 @@ export function saveResults() {
     let searchResults = state.matchPhotosData.searchResults;
 
     // search results for current volume
-    let driveMatchResults = state.matchPhotosData.driveMatchResults;
+    let rawDriveMatchResults = state.matchPhotosData.driveMatchResults;
+
+    // generated summarized search results from raw search results
+    let summarizedSearchResults = {};
+    for (let photoFilePath in rawDriveMatchResults) {
+      if (rawDriveMatchResults.hasOwnProperty(photoFilePath)) {
+        summarizedSearchResults[photoFilePath] = summarizeSearchResult(rawDriveMatchResults[photoFilePath]);
+      }
+    }
 
     // if necessary, merge them together
     const existingVolumeResults = searchResults.Volumes[volumeName];
     if (existingVolumeResults) {
-      for (let photoFilePath in driveMatchResults) {
-        if (driveMatchResults.hasOwnProperty(photoFilePath)) {
-          existingVolumeResults.resultsByPhoto[photoFilePath] = driveMatchResults[photoFilePath];
+      // TODO untested
+      debugger;
+      for (let photoFilePath in summarizedSearchResults) {
+        if (summarizedSearchResults.hasOwnProperty(photoFilePath)) {
+          existingVolumeResults.resultsByPhoto[photoFilePath] = summarizedSearchResults[photoFilePath];
         }
       }
     }
     else {
       searchResults.Volumes[volumeName] = {};
-      searchResults.Volumes[volumeName].resultsByPhoto = driveMatchResults;
+      searchResults.Volumes[volumeName].resultsByPhoto = summarizedSearchResults;
     }
 
     // update statistics for current volume
@@ -641,6 +685,7 @@ export function saveResults() {
         const compareResult = driveResults[drivePhotoFilePath].matchResult;
         switch (compareResult) {
           case 'MATCH_FOUND':
+          case 'MANUAL_MATCH_FOUND':
             numMatchesFound++;
             break;
           case 'NO_MATCH_FOUND':
