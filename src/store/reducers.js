@@ -1,3 +1,5 @@
+// @flow
+
 import {combineReducers} from 'redux';
 import GooglePhotosReducer from './googlePhotos';
 import DrivePhotosReducer from './drivePhotos';

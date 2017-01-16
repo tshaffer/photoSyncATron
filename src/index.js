@@ -1,3 +1,5 @@
+// @flow
+
 'use strict';
 
 import thunkMiddleware from 'redux-thunk';
@@ -12,7 +14,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import reducers from './store/reducers';
 
-import App from './components/app';
+import App from './components/App';
 import MatchPhotosProgressContainer from './containers/matchPhotosProgressContainer';
 import ComparePhotosContainer from './containers/comparePhotosContainer';
 

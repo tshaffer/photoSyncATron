@@ -1,3 +1,5 @@
+// @flow
+
 const path = require('path');
 var fs = require('fs-extra');
 const childProcess = require('child_process');
@@ -16,7 +18,14 @@ const convertCmd = 'convert';
 
 class ComparePhotos extends Component {
 
-  constructor(props) {
+  state: Object;
+  targetDir: string;
+  numDrivePhotosToCompare: number;
+  drivePhotoIndex: number;
+  numGooglePhotosToCompare: number;
+  googlePhotoIndex: number;
+
+  constructor(props: Object) {
     super(props);
     this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
     // this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
@@ -43,7 +52,7 @@ class ComparePhotos extends Component {
     this.updatePhotosToCompare();
   }
 
-  convertPhoto(sourcePhoto, targetPath) {
+  convertPhoto(sourcePhoto:string, targetPath) {
 
     return new Promise( (resolve, reject) => {
 

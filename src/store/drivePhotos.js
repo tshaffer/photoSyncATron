@@ -1,6 +1,8 @@
-const recursive = require('recursive-readdir');
-import path from 'path';
+// @flow
 
+const recursive = require('recursive-readdir');
+
+import { DrivePhoto } from '../entities/drivePhoto';
 import * as utils from '../utilities/utils';
 
 // ------------------------------------
@@ -47,14 +49,14 @@ export function readDrivePhotoFiles() {
 // ------------------------------------
 // Action Creators
 // ------------------------------------
-export function setVolumeName(volumeName) {
+export function setVolumeName(volumeName: string) {
   return {
     type: SET_VOLUME_NAME,
     payload: volumeName
   };
 }
 
-export function setDrivePhotos(drivePhotos) {
+export function setDrivePhotos(drivePhotos: Array<DrivePhoto>) {
   return {
     type: SET_DRIVE_PHOTOS,
     payload: drivePhotos
@@ -67,13 +69,13 @@ export function setDrivePhotos(drivePhotos) {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {
+const initialState: Object = {
   volumeName: '',
   drivePhotos: [],
   numPhotoFiles: 0
 };
 
-export default function(state = initialState, action) {
+export default function(state: Object = initialState, action: Object) {
 
   let newState;
 

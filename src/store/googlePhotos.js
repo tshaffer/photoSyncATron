@@ -1,3 +1,5 @@
+// @flow
+
 const fs = require('fs');
 import axios from 'axios';
 
@@ -205,7 +207,7 @@ function readGooglePhotoFiles(path) {
   });
 }
 
-export function buildPhotoDictionaries(dispatch, getState) {
+export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
 
   let gfsByExifDateTime = {};
   let gfsByDateTime = {};
@@ -267,7 +269,7 @@ export function buildPhotoDictionaries(dispatch, getState) {
 export function loadGooglePhotos() {
 
   console.log("index.js::loadGooglePhotos");
-  return function(dispatch, _) {
+  return function(dispatch: Function) {
 
     // initial implementation: read all photos from google; don't read from file and
     // therefore don't merge photos from file with photos from cloud.
@@ -292,7 +294,7 @@ export function loadGooglePhotos() {
 
 export function readGooglePhotos() {
 
-  return function (dispatch, _) {
+  return function (dispatch: Function) {
 
     let promise = readGooglePhotoFiles('googlePhotos.json');
     promise.then((googlePhotosStr) => {
@@ -340,7 +342,7 @@ function setGooglePhotoDictionaries(
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {
+const initialState: Object = {
   googlePhotos: [],
   gfsByExifDateTime: {},
   gfsByName: {},
@@ -348,7 +350,7 @@ const initialState = {
 
 };
 
-export default function(state = initialState, action) {
+export default function(state: Object = initialState, action: Object) {
 
   switch (action.type) {
 

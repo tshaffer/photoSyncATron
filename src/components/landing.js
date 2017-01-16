@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
 
@@ -7,6 +9,8 @@ import TextField from 'material-ui/TextField';
 
 
 class Landing extends Component {
+
+  volumeNameField: Object;
 
   componentWillMount() {
     console.log("landing.js::componentWillMount invoked");
