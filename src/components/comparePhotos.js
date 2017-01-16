@@ -18,13 +18,6 @@ const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 class ComparePhotos extends Component {
 
-  state: Object;
-  targetDir: string;
-  numDrivePhotosToCompare: number;
-  drivePhotoIndex: number;
-  numGooglePhotosToCompare: number;
-  googlePhotoIndex: number;
-
   constructor(props: Object) {
     super(props);
     // this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
@@ -35,6 +28,8 @@ class ComparePhotos extends Component {
       remainingPhotosToCompare: 0
     };
   }
+
+  state: Object;
 
   componentWillMount() {
 
@@ -51,6 +46,12 @@ class ComparePhotos extends Component {
 
     this.updatePhotosToCompare();
   }
+
+  targetDir: string;
+  numDrivePhotosToCompare: number;
+  drivePhotoIndex: number;
+  numGooglePhotosToCompare: number;
+  googlePhotoIndex: number;
 
   convertPhoto(sourcePhoto:string, targetPath) {
 
