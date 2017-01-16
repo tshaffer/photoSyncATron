@@ -1,6 +1,7 @@
 // @flow
 
 const fs = require('fs');
+const Jimp = require("jimp");
 const sizeOf = require('image-size');
 
 import { DrivePhoto } from '../entities/drivePhoto';
@@ -95,16 +96,53 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       }
       else if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
 
-        let photoCompareItem = {};
-        photoCompareItem.baseFile = drivePhotoFile;
-        photoCompareItem.photoList = nameMatchResults.gfList;
-        photoCompareList.push(photoCompareItem);
+        // files to compare
+        //    drivePhotoFile.path
+        //    photoCompareItem.photoList[i].url (for all i <= photoList.length - 1) / nameMatchResults.gfList
+        const dfPath = drivePhotoFile.path;
+        const gf = nameMatchResults.gfList[0];
+        console.log("jimpCompare: ", dfPath, gf.url);
+        Jimp.read(dfPath).then( (dfImage) => {
+          Jimp.read(gf.url).then( (gfImage) => {
+            const dfHash = dfImage.hash();
+            const gfHash = gfImage.hash();
+            const hammingDistance = Jimp.distance(dfImage, gfImage);
+            console.log(dfHash);
+            console.log(gfHash);
+            console.log("hammingDistance for: ", dfPath, "; ", gf.url);
+            console.log(hammingDistance);
+            if (hammingDistance < .1) {
+              result = {
+                drivePhotoFile,
+                matchResult: MATCH_FOUND,
+                matchingGF: gf
+              };
+            }
+            else {
+              let photoCompareItem = {};
+              photoCompareItem.baseFile = drivePhotoFile;
+              photoCompareItem.photoList = nameMatchResults.gfList;
+              photoCompareList.push(photoCompareItem);
 
-        result = {
-          drivePhotoFile,
-          matchResult: MANUAL_MATCH_PENDING,
-          gfList: nameMatchResults.gfList
-        };
+              result = {
+                drivePhotoFile,
+                matchResult: MANUAL_MATCH_PENDING,
+                gfList: nameMatchResults.gfList
+              };
+            }
+            dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+            setDrivePhotoMatchResult(drivePhotoFile, result);
+            resolve();
+            return;
+          }).catch( (err) => {
+            console.error(err);
+            debugger;
+          });
+        }).catch( (err) => {
+          console.error(err);
+          debugger;
+        });
+        return;
       }
       else {
         result = {

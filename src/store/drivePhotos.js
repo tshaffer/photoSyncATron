@@ -1,5 +1,7 @@
 // @flow
 
+const path = require('path');
+
 const recursive = require('recursive-readdir');
 
 import { DrivePhoto } from '../entities/drivePhoto';
