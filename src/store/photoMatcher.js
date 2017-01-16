@@ -178,7 +178,7 @@ function filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths) {
 function loadExistingSearchResults() {
 
   return new Promise( (resolve) => {
-    fs.readFile('searchResults.json', (err: ?Object, data: string) => {
+    fs.readFile('searchResults.json', { encoding: null, flag: 'r' }, (err: ?Object, data: Buffer) => {
 
       let existingSearchResults;
 
@@ -187,7 +187,7 @@ function loadExistingSearchResults() {
         existingSearchResults.Volumes = {};
       }
       else {
-        existingSearchResults = JSON.parse(data);
+        existingSearchResults = JSON.parse(data.toString('ascii'));
       }
       resolve(existingSearchResults);
     });
