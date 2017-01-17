@@ -322,7 +322,7 @@ export function readGooglePhotos() {
       googlePhotosSpec.photos.forEach( (googlePhotoSpec ) => {
         let googlePhoto = new GooglePhoto(googlePhotoSpec);
         googlePhotos.push(googlePhoto);
-        if (!googlePhoto.hash && hashCount < 4) {
+        if (!googlePhoto.hash && hashCount < 20) {
           gfHashingPromises.push(hashGF(googlePhoto));
           hashCount++;
         }
@@ -332,6 +332,9 @@ export function readGooglePhotos() {
         console.log("Number of existing google photos: ", googlePhotos.length);
         dispatch(addGooglePhotos(googlePhotos));
         debugger;
+        const googlePhotosSpecStr = JSON.stringify(googlePhotos, null, 2);
+        fs.writeFileSync('googlePhotos.json', googlePhotosSpecStr);
+
       });
     }, (reason) => {
       console.log('Error reading allGooglePhotos.json: ', reason);
