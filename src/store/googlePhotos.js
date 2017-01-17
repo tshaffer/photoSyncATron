@@ -1,6 +1,7 @@
 // @flow
 
 const fs = require('fs');
+const Jimp = require("jimp");
 import axios from 'axios';
 
 import { GooglePhoto } from '../entities/googlePhoto';
@@ -292,6 +293,20 @@ export function loadGooglePhotos() {
   };
 }
 
+function hashGF(gf) {
+  return new Promise ( (resolve, reject) => {
+    console.log("Jimp.read: ", gf.url);
+    Jimp.read(gf.url).then((gfImage) => {
+      gf.hash = gfImage.hash(2);
+      console.log("gf.hash: ", gf.hash);
+      resolve();
+    }).catch( (err) => {
+      reject(err);
+    });
+  });
+}
+
+
 export function readGooglePhotos() {
 
   return function (dispatch: Function) {
@@ -301,12 +316,23 @@ export function readGooglePhotos() {
       let googlePhotosSpec = JSON.parse(googlePhotosStr);
 
       let googlePhotos = [];
-      googlePhotosSpec.photos.forEach( (googlePhotoSpec) => {
-        googlePhotos.push(new GooglePhoto(googlePhotoSpec));
+      let hashCount = 0;
+      let gfHashingPromises = [];
+      console.log("# of googlePhotoSpecs=", googlePhotosSpec.photos.length);
+      googlePhotosSpec.photos.forEach( (googlePhotoSpec ) => {
+        let googlePhoto = new GooglePhoto(googlePhotoSpec);
+        googlePhotos.push(googlePhoto);
+        if (!googlePhoto.hash && hashCount < 4) {
+          gfHashingPromises.push(hashGF(googlePhoto));
+          hashCount++;
+        }
       });
 
-      console.log("Number of existing google photos: ", googlePhotos.length);
-      dispatch(addGooglePhotos(googlePhotos));
+      Promise.all(gfHashingPromises).then( () => {
+        console.log("Number of existing google photos: ", googlePhotos.length);
+        dispatch(addGooglePhotos(googlePhotos));
+        debugger;
+      });
     }, (reason) => {
       console.log('Error reading allGooglePhotos.json: ', reason);
     });
