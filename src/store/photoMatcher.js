@@ -104,13 +104,16 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         console.log("jimpCompare: ", dfPath, gf.url);
         Jimp.read(dfPath).then( (dfImage) => {
           Jimp.read(gf.url).then( (gfImage) => {
-            const dfHash = dfImage.hash();
-            const gfHash = gfImage.hash();
+            const dfHash = dfImage.hash(2);
+            const gfHash = gfImage.hash(2);
             const hammingDistance = Jimp.distance(dfImage, gfImage);
+            const hammingDistanceByHash = Jimp.distanceByHash(dfHash, gfHash);
             console.log(dfHash);
             console.log(gfHash);
             console.log("hammingDistance for: ", dfPath, "; ", gf.url);
             console.log(hammingDistance);
+            console.log("hammingDistanceByHash for: ", dfPath, "; ", gf.url);
+            console.log(hammingDistanceByHash);
             if (hammingDistance < .1) {
               result = {
                 drivePhotoFile,
