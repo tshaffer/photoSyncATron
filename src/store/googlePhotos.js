@@ -276,7 +276,7 @@ export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
   });
 
   console.log(gfsWithDuplicateHash);
-  
+
   dispatch(setGooglePhotoDictionaries(
     gfsByDateTime,
     gfsByExifDateTime,
@@ -320,10 +320,11 @@ export function loadGooglePhotos() {
   };
 }
 
+// TODO - make this reusable - don't set gf.hash; resolve with hash value
 function hashGF(gf) {
   return new Promise( (resolve, reject) => {
-    Jimp.read(gf.url).then((gfImage) => {
-      gf.hash = gfImage.hash(2);
+    Jimp.read(gf.url).then((image) => {
+      gf.hash = image.hash(2);
       resolve();
     }).catch( (err) => {
       reject(err);
@@ -404,14 +405,18 @@ function setGooglePhotoDictionaries(
   gfsByDateTime,
   gfsByExifDateTime,
   gfsByName,
-  photosByAltKey) {
+  photosByAltKey,
+  gfsByHash,
+  gfsSortedByHash) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
       gfsByDateTime,
       gfsByExifDateTime,
       gfsByName,
-      photosByAltKey
+      photosByAltKey,
+      gfsByHash,
+      gfsSortedByHash
     }
   };
 }
@@ -423,7 +428,9 @@ const initialState: Object = {
   googlePhotos: [],
   gfsByExifDateTime: {},
   gfsByName: {},
-  photosByAltKey: {}
+  photosByAltKey: {},
+  gfsByHash: {},
+  gfsSortedByHash: []
 
 };
 
@@ -445,6 +452,8 @@ export default function(state: Object = initialState, action: Object) {
         newState.gfsByExifDateTime = payload.gfsByExifDateTime;
         newState.gfsByName = payload.gfsByName;
         newState.photosByAltKey = payload.photosByAltKey;
+        newState.gfsByHash = payload.gfsByHash;
+        newState.gfsSortedByHash = payload.gfsSortedByHash;
         return newState;
       }
   }
