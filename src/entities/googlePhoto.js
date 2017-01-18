@@ -16,6 +16,7 @@ export class GooglePhoto {
     this.height = googlePhotoSpec.height;
     this.dateTime = googlePhotoSpec.dateTime;
     this.exifDateTime = googlePhotoSpec.exifDateTime;
+    this.hash = googlePhotoSpec.hash;
   }
 
   getName(): string {

@@ -294,11 +294,9 @@ export function loadGooglePhotos() {
 }
 
 function hashGF(gf) {
-  return new Promise ( (resolve, reject) => {
-    console.log("Jimp.read: ", gf.url);
+  return new Promise( (resolve, reject) => {
     Jimp.read(gf.url).then((gfImage) => {
       gf.hash = gfImage.hash(2);
-      console.log("gf.hash: ", gf.hash);
       resolve();
     }).catch( (err) => {
       reject(err);
@@ -306,6 +304,26 @@ function hashGF(gf) {
   });
 }
 
+const maxGFSToHash = 500;
+let gfsToHash = [];
+
+function hashGFs(dispatch, googlePhotos) {
+
+  console.log("number of remaining googlePhotos to hash: ", gfsToHash.length);
+
+  if (gfsToHash.length > 0) {
+    let gf = gfsToHash.shift();
+    hashGF(gf).then( () => {
+      hashGFs(dispatch, googlePhotos);
+    });
+  }
+  else {
+    dispatch(addGooglePhotos(googlePhotos));
+    const googlePhotosSpecStr = JSON.stringify(googlePhotos, null, 2);
+    fs.writeFileSync('googlePhotos.json', googlePhotosSpecStr);
+    console.log("GF Hashing Complete");
+  }
+}
 
 export function readGooglePhotos() {
 
@@ -316,28 +334,25 @@ export function readGooglePhotos() {
       let googlePhotosSpec = JSON.parse(googlePhotosStr);
 
       let googlePhotos = [];
-      let hashCount = 0;
-      let gfHashingPromises = [];
-      console.log("# of googlePhotoSpecs=", googlePhotosSpec.photos.length);
-      googlePhotosSpec.photos.forEach( (googlePhotoSpec ) => {
+      googlePhotosSpec.forEach( (googlePhotoSpec ) => {
         let googlePhoto = new GooglePhoto(googlePhotoSpec);
         googlePhotos.push(googlePhoto);
-        if (!googlePhoto.hash && hashCount < 20) {
-          gfHashingPromises.push(hashGF(googlePhoto));
-          hashCount++;
+
+        // limit number of photos to hash for now
+        if (!googlePhoto.hash && gfsToHash.length < maxGFSToHash) {
+          gfsToHash.push(googlePhoto);
         }
       });
 
-      Promise.all(gfHashingPromises).then( () => {
-        console.log("Number of existing google photos: ", googlePhotos.length);
+      if (gfsToHash.length === 0) {
         dispatch(addGooglePhotos(googlePhotos));
-        debugger;
-        const googlePhotosSpecStr = JSON.stringify(googlePhotos, null, 2);
-        fs.writeFileSync('googlePhotos.json', googlePhotosSpecStr);
-
-      });
+      }
+      else {
+        hashGFs(dispatch, googlePhotos);
+      }
     }, (reason) => {
       console.log('Error reading allGooglePhotos.json: ', reason);
+      debugger;
     });
   };
 }
