@@ -211,6 +211,9 @@ function readGooglePhotoFiles(path) {
 
 export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
 
+  let gfsByHash = {};
+  let gfsWithDuplicateHash = 0;
+
   let gfsByExifDateTime = {};
   let gfsByDateTime = {};
   let gfsByName = {};
@@ -219,6 +222,13 @@ export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
   let gfs = getState().googlePhotos.googlePhotos;
 
   gfs.forEach( (gf) => {
+
+    if (gf.hash) {
+      if (gfsByHash[gf.hash]) {
+        gfsWithDuplicateHash++;
+      }
+      gfsByHash[gf.hash] = gf;
+    }
 
     const name = gf.name;
 
@@ -253,11 +263,27 @@ export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
     }
   });
 
+  let gfsSortedByHash = gfs.sort( (a, b) => {
+    const hashA = a.hash ? a.hash : '';
+    const hashB = b.hash ? b.hash : '';
+    if (hashA < hashB) {
+      return -1;
+    }
+    if (hashB > hashA) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(gfsWithDuplicateHash);
+  
   dispatch(setGooglePhotoDictionaries(
     gfsByDateTime,
     gfsByExifDateTime,
     gfsByName,
-    gfsByAltKey));
+    gfsByAltKey,
+    gfsByHash,
+    gfsSortedByHash));
 
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
   // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
