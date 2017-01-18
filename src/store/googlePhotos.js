@@ -305,7 +305,7 @@ function hashGF(gf) {
   });
 }
 
-const maxGFSToHash = 7;
+const maxGFSToHash = 20;
 let gfsToHash = [];
 
 function hashGFs(dispatch, googlePhotos) {
@@ -341,7 +341,7 @@ export function readGooglePhotos() {
 
         // limit number of photos to hash for now
         if (!googlePhoto.hash && gfsToHash.length < maxGFSToHash) {
-          let extname = path.extname[googlePhoto.name];
+          let extname = path.extname(googlePhoto.name);
           if (extname) {
             extname = extname.toLowerCase();
           }
