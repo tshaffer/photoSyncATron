@@ -1,6 +1,7 @@
 // @flow
 
 const fs = require('fs');
+const path = require('path');
 const Jimp = require("jimp");
 import axios from 'axios';
 
@@ -304,7 +305,7 @@ function hashGF(gf) {
   });
 }
 
-const maxGFSToHash = 500;
+const maxGFSToHash = 7;
 let gfsToHash = [];
 
 function hashGFs(dispatch, googlePhotos) {
@@ -340,7 +341,13 @@ export function readGooglePhotos() {
 
         // limit number of photos to hash for now
         if (!googlePhoto.hash && gfsToHash.length < maxGFSToHash) {
-          gfsToHash.push(googlePhoto);
+          let extname = path.extname[googlePhoto.name];
+          if (extname) {
+            extname = extname.toLowerCase();
+          }
+          if (extname !== '.mov' && extname !== '.mp4') {
+            gfsToHash.push(googlePhoto);
+          }
         }
       });
 
@@ -419,3 +426,47 @@ export default function(state: Object = initialState, action: Object) {
   return state;
 }
 
+// bad photos
+/*
+ {
+ "name": "img_0052.mov",
+ "url": "https://lh3.googleusercontent.com/-wMteD-1cJ_w/WGBcLvH9p8I/AAAAAAAAEJs/K4esJ_JdD-oRc9iMGYj7z8gCRZJfhkgPQCHM/IMG_0052.MOV",
+ "width": "854",
+ "height": "480",
+ "dateTime": "2013-09-27T14:01:13.000Z",
+ "exifDateTime": ""
+ },
+ {
+ "name": "img_0053.mov",
+ "url": "https://lh3.googleusercontent.com/-3xc3MmV9Eoo/WGBcLshjfeI/AAAAAAAAEJs/O4zCQwioenE-_XN728gjrbZ-cATWeJbxQCHM/IMG_0053.MOV",
+ "width": "854",
+ "height": "480",
+ "dateTime": "2013-09-27T14:03:53.000Z",
+ "exifDateTime": ""
+ },
+ {
+ "name": "img_0793.mov",
+ "url": "https://lh3.googleusercontent.com/-PaZcckrkmbw/WGBbgcYI55I/AAAAAAAAEJI/_k3K-ih91lwEcAtJ1cI4DW9woQOcdjZ4QCHM/IMG_0793.MOV",
+ "width": "480",
+ "height": "854",
+ "dateTime": "2015-06-14T01:21:43.000Z",
+ "exifDateTime": ""
+ },
+ {
+ "name": "img_0794.mov",
+ "url": "https://lh3.googleusercontent.com/-oleTvxj5OuY/WGBbgXNYVyI/AAAAAAAAEJI/rxC95TUh9Tkm6bNhCDUPYhwx418wBaN2gCHM/IMG_0794.MOV",
+ "width": "480",
+ "height": "854",
+ "dateTime": "2015-06-14T01:21:56.000Z",
+ "exifDateTime": ""
+ },
+ {
+ "name": "img_0272.mov",
+ "url": "https://lh3.googleusercontent.com/-ihgnzf3yi5I/WGBbgR_vX9I/AAAAAAAAEJI/xJpxJpbuKhc0Q0ecV7vYM4WHLWIZuIrhQCHM/IMG_0272.MOV",
+ "width": "480",
+ "height": "854",
+ "dateTime": "2015-06-21T03:43:36.000Z",
+ "exifDateTime": ""
+ },
+
+ */
