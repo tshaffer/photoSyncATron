@@ -36,6 +36,23 @@ function hashPhoto(url) {
   });
 }
 
+function getNearestNumber(gfs, dfHash) {
+
+  let currentIndex = 0;
+  let currentValue = 2;
+  gfs.forEach( (gf, index) => {
+    if (gf.hash) {
+      let newValue = Jimp.distanceByHash(dfHash, gf.hash);
+      if (newValue < currentValue) {
+        currentValue = newValue;
+        currentIndex = index;
+      }
+    }
+  });
+
+  return currentIndex;
+}
+
 let numInvokes = 0;
 let numResolves = 0;
 
@@ -44,7 +61,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
   numInvokes++;
 
   let gfStore = getState().googlePhotos;
-  let { gfsByHash, gfsSortedByHash } = gfStore;
+  let { googlePhotos, gfsByHash } = gfStore;
 
   return new Promise( (resolve) => {
 
@@ -56,10 +73,17 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
       let result = null;
       if (!matchingGF) {
-        result = {
-          drivePhotoFile,
-          matchResult: NO_MATCH_FOUND
-        };
+
+        let indexOFNearestNumber = getNearestNumber(googlePhotos, dfHash);
+        console.log(indexOFNearestNumber);
+        console.log(googlePhotos[indexOFNearestNumber]);
+        console.log(dfPath);
+        debugger;
+
+        // result = {
+        //   drivePhotoFile,
+        //   matchResult: NO_MATCH_FOUND
+        // };
       }
       else {
         result = {
@@ -278,7 +302,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotos = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  // drivePhotoFiles = drivePhotoFiles.slice(0, 20);
+  drivePhotos = drivePhotos.slice(0, 20);
 
   console.log("Number of photos on drive: ", drivePhotos.length);
   matchAllPhotoFiles(dispatch, getState, drivePhotos);

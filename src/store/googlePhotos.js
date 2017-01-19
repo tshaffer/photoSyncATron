@@ -263,18 +263,6 @@ export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
     }
   });
 
-  let gfsSortedByHash = gfs.sort( (a, b) => {
-    const hashA = a.hash ? a.hash : '';
-    const hashB = b.hash ? b.hash : '';
-    if (hashA < hashB) {
-      return -1;
-    }
-    if (hashB > hashA) {
-      return 1;
-    }
-    return 0;
-  });
-
   console.log(gfsWithDuplicateHash);
 
   dispatch(setGooglePhotoDictionaries(
@@ -282,8 +270,7 @@ export function buildPhotoDictionaries(dispatch: Function, getState: Function) {
     gfsByExifDateTime,
     gfsByName,
     gfsByAltKey,
-    gfsByHash,
-    gfsSortedByHash));
+    gfsByHash));
 
   // fs.writeFileSync('photosByExifDateTime.json', JSON.stringify(photosByExifDateTime, null, 2));
   // fs.writeFileSync('photosByName.json', JSON.stringify(photosByName, null, 2));
@@ -406,8 +393,7 @@ function setGooglePhotoDictionaries(
   gfsByExifDateTime,
   gfsByName,
   photosByAltKey,
-  gfsByHash,
-  gfsSortedByHash) {
+  gfsByHash) {
   return {
     type: SET_GOOGLE_PHOTO_DICTIONARIES,
     payload: {
@@ -415,8 +401,7 @@ function setGooglePhotoDictionaries(
       gfsByExifDateTime,
       gfsByName,
       photosByAltKey,
-      gfsByHash,
-      gfsSortedByHash
+      gfsByHash
     }
   };
 }
@@ -429,9 +414,7 @@ const initialState: Object = {
   gfsByExifDateTime: {},
   gfsByName: {},
   photosByAltKey: {},
-  gfsByHash: {},
-  gfsSortedByHash: []
-
+  gfsByHash: {}
 };
 
 export default function(state: Object = initialState, action: Object) {
@@ -453,7 +436,6 @@ export default function(state: Object = initialState, action: Object) {
         newState.gfsByName = payload.gfsByName;
         newState.photosByAltKey = payload.photosByAltKey;
         newState.gfsByHash = payload.gfsByHash;
-        newState.gfsSortedByHash = payload.gfsSortedByHash;
         return newState;
       }
   }
