@@ -41,6 +41,18 @@ function getNearestNumber(gfs, dfHash) {
   let currentIndex = 0;
   let currentValue = 2;
   gfs.forEach( (gf, index) => {
+    // if (gf.name.indexOf('p6160012') >= 0) {
+    //   console.log('p6160012: gf.hash =', gf.hash);
+    // }
+    // if (gf.name.indexOf('_dsc3912') >= 0) {
+    //   console.log('_dsc3912: gf.hash =', gf.hash);
+    // }
+    // if (gf.name === 'p6160012.jpg') {
+    //   console.log('p6160012.jpg: gf.hash =', gf.hash);
+    // }
+    // if (gf.name === 'p6160012.jpg') {
+    //   console.log('_dsc3912.jpg: gf.hash =', gf.hash);
+    // }
     if (gf.hash) {
       let newValue = Jimp.distanceByHash(dfHash, gf.hash);
       if (newValue < currentValue) {
@@ -80,6 +92,10 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       let result = null;
       if (!matchingGFByHash) {
 
+        // if (dfPath.indexOf('p6160012') >= 0) {
+        //   debugger;
+        // }
+        //
         let hashCompareResults = getNearestNumber(googlePhotos, dfHash);
         let indexOfNearestNumber = hashCompareResults.index;
         console.log(indexOfNearestNumber);
@@ -143,11 +159,17 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         }
 
         gfMatchAllResults[dfPath] = {
+          dfHash,
           matchingGFByHash,
           matchingGFByNearestHash,
           matchingGFByDateTime,
           matchingGFByNameList
         };
+
+        if (matchingGFByHash && !(matchingGFByDateTime || matchingGFByNameList)) {
+          debugger;
+        }
+
         let result = {};
         result.matchResult = MATCH_FOUND;
         dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
@@ -156,6 +178,23 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         console.log(numInvokes, " ", numResolves);
         resolve();
         if (numInvokes === numResolves) {
+
+          let highestHashDeltaWithDateMatch = 0;
+
+          for (let dfPath in gfMatchAllResults) {
+            let hashResult = gfMatchAllResults[dfPath];
+            if (hashResult.matchingGFByNearestHash) {
+              if (hashResult.matchingGFByDateTime) {
+                let value = hashResult.matchingGFByNearestHash.hashCompareResults;
+                console.log("date time match, hashValue=", value);
+                if (Number(value) > highestHashDeltaWithDateMatch) {
+                  highestHashDeltaWithDateMatch = Number(value);
+                }
+              }
+            }
+          }
+          const hashCompareResultsStr = JSON.stringify(gfMatchAllResults, null, 2);
+          fs.writeFileSync('hashCompareResults.json', hashCompareResultsStr);
           debugger;
         }
       }, (err) => {
@@ -270,7 +309,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotos = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  drivePhotos = drivePhotos.slice(0, 20);
+  // drivePhotos = drivePhotos.slice(0, 20);
 
   console.log("Number of photos on drive: ", drivePhotos.length);
   matchAllPhotoFiles(dispatch, getState, drivePhotos);

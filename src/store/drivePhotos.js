@@ -17,9 +17,8 @@ const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 // const rootFolder = "d:/";
 
 // On Mac
-// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/photoSyncATron", "PhotosOnMac");
-const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
-// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
+// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
+const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "PHOTOS5");
 
 // On Windows PC
