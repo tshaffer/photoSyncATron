@@ -39,7 +39,7 @@ function hashPhoto(url) {
 function getNearestNumber(gfs, dfHash) {
 
   let currentIndex = 0;
-  let currentValue = 2;
+  let currentValue = 1;
   gfs.forEach( (gf, index) => {
     if (gf.hash) {
       let newValue = Jimp.distanceByHash(dfHash, gf.hash);
@@ -55,8 +55,6 @@ function getNearestNumber(gfs, dfHash) {
     value: currentValue
   };
 }
-
-// let gfMatchAllResults = {};
 
 function gfWithNearestMatchingDFHash(drivePhotoFile, gfStore) {
 
@@ -92,6 +90,8 @@ function gfWithNearestMatchingDFHash(drivePhotoFile, gfStore) {
   });
 }
 
+const hashThreshold = 0.04;
+
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   // let dfPath = drivePhotoFile.path;
@@ -99,36 +99,48 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise((resolve) => {
 
-    // gfNearestMatchingDFHash(drivePhotoFile, googlePhotos).then( (nearestMatchingGF) => {
     let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(drivePhotoFile, gfStore);
     let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchingDFDimensions(drivePhotoFile, gfStore);
     let gfsMatchingDFDateTimesPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, gfStore);
 
     Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise, gfWithNearestMatchingDFHashPromise]).then((results) => {
 
-      debugger;
       const nameMatchResults = results[0];
       const exifDateTimeMatches = results[1][0];
       const lastModifiedDateTimeMatches = results[1][1];
       const hashMatchResults = results[2];
-      const matchingGFByHash = hashMatchResults.matchingGFByHash;
-      const matchingGFByNearestHash = hashMatchResults.matchingGFByNearestHash;
+      let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
 
-      let matchingGFByDateTime = null;
-      if (exifDateTimeMatches) {
+      let matchingGF = null;
 
-        let {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
-        if (createDateToDateTimeExifMatch) {
-          matchingGFByDateTime = createDateToDateTimeExifMatch;
-        }
-        else if (dateTimeOriginalToDateTimeExifMatch) {
-          matchingGFByDateTime = dateTimeOriginalToDateTimeExifMatch;
-        }
-        else if (createDateToExifDateTimeExifMatch) {
-          matchingGFByDateTime = createDateToExifDateTimeExifMatch;
-        }
-        else if (dateTimeOriginalToExifDateTime) {
-          matchingGFByDateTime = dateTimeOriginalToExifDateTime;
+      // TODO - what other checks need to be done with a hashMatch?
+      // TODO - a name match exists.
+      // TODO - its dimensions are the same or the same aspect ratio.
+      // TODO - there is not a date/time match with a different name
+
+      if (matchingGFByHash) {
+        matchingGF = matchingGFByHash;
+      }
+      else if (matchingGFByNearestHash && matchingGFByNearestHash.hashCompareResults < hashThreshold) {
+        matchingGF = matchingGFByNearestHash.gf;
+      }
+
+      if (!matchingGF) {
+        if (exifDateTimeMatches) {
+
+          let {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
+          if (createDateToDateTimeExifMatch) {
+            matchingGF = createDateToDateTimeExifMatch;
+          }
+          else if (dateTimeOriginalToDateTimeExifMatch) {
+            matchingGF = dateTimeOriginalToDateTimeExifMatch;
+          }
+          else if (createDateToExifDateTimeExifMatch) {
+            matchingGF = createDateToExifDateTimeExifMatch;
+          }
+          else if (dateTimeOriginalToExifDateTime) {
+            matchingGF = dateTimeOriginalToExifDateTime;
+          }
         }
       }
 
@@ -139,57 +151,46 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         lastModifiedToExifDateTimeMatch = lastModifiedDateTimeMatches[1];
       }
 
-      if (!matchingGFByDateTime) {
+      if (!matchingGF) {
         if (lastModifiedToDateTimeMatch) {
-          matchingGFByDateTime = lastModifiedToDateTimeMatch;
+          matchingGF = lastModifiedToDateTimeMatch;
         }
         else if (lastModifiedToExifDateTimeMatch) {
-          matchingGFByDateTime = lastModifiedToExifDateTimeMatch;
+          matchingGF = lastModifiedToExifDateTimeMatch;
         }
       }
 
-      let matchingGFByNameList = null;
-      if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
-        matchingGFByNameList = nameMatchResults.gfList;
+      let result = null;
+      if (matchingGF) {
+        result = {
+          drivePhotoFile,
+          matchResult: MATCH_FOUND,
+          matchingGF
+        };
+      }
+      else if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+
+        let photoCompareItem = {};
+        photoCompareItem.baseFile = drivePhotoFile;
+        photoCompareItem.photoList = nameMatchResults.gfList;
+        photoCompareList.push(photoCompareItem);
+
+        result = {
+          drivePhotoFile,
+          matchResult: MANUAL_MATCH_PENDING,
+          gfList: nameMatchResults.gfList
+        };
+      }
+      else {
+        result = {
+          drivePhotoFile,
+          matchResult: NO_MATCH_FOUND
+        };
       }
 
-      // gfMatchAllResults[dfPath] = {
-      //   dfHash,
-      //   matchingGFByHash,
-      //   matchingGFByNearestHash,
-      //   matchingGFByDateTime,
-      //   matchingGFByNameList
-      // };
-      //
-      // if (matchingGFByHash && !(matchingGFByDateTime || matchingGFByNameList)) {
-      //   debugger;
-      // }
-
-      let result = {};
-      result.matchResult = MATCH_FOUND;
       dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
       setDrivePhotoMatchResult(drivePhotoFile, result);
       resolve();
-      // if (numInvokes === numResolves) {
-      //
-      //   let highestHashDeltaWithDateMatch = 0;
-      //
-      //   for (let dfPath in gfMatchAllResults) {
-      //     let hashResult = gfMatchAllResults[dfPath];
-      //     if (hashResult.matchingGFByNearestHash) {
-      //       if (hashResult.matchingGFByDateTime) {
-      //         let value = hashResult.matchingGFByNearestHash.hashCompareResults;
-      //         console.log("date time match, hashValue=", value);
-      //         if (Number(value) > highestHashDeltaWithDateMatch) {
-      //           highestHashDeltaWithDateMatch = Number(value);
-      //         }
-      //       }
-      //     }
-      //   }
-      //   const hashCompareResultsStr = JSON.stringify(gfMatchAllResults, null, 2);
-      //   fs.writeFileSync('hashCompareResults.json', hashCompareResultsStr);
-      //   debugger;
-      // }
     }, (err) => {
       console.log(err);
       debugger;
@@ -291,7 +292,7 @@ function matchPhotoFiles(dispatch, getState) {
   let drivePhotos = getState().drivePhotos.drivePhotos;
 
   // for testing a subset of all the files.
-  drivePhotos = drivePhotos.slice(0, 20);
+  // drivePhotos = drivePhotos.slice(0, 20);
 
   console.log("Number of photos on drive: ", drivePhotos.length);
   matchAllPhotoFiles(dispatch, getState, drivePhotos);
