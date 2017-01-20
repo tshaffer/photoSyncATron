@@ -50,11 +50,16 @@ function getNearestNumber(gfs, dfHash) {
     }
   });
 
-  return currentIndex;
+  return {
+    index: currentIndex,
+    value: currentValue
+  };
 }
 
 let numInvokes = 0;
 let numResolves = 0;
+let getHashInvocation = 0;
+let gfMatchAllResults = {};
 
 function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
@@ -69,35 +74,94 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     let dfPath = drivePhotoFile.path;
     hashPhoto(dfPath).then( ( dfHash ) => {
 
-      let matchingGF = gfsByHash[dfHash] ? gfsByHash[dfHash] : null;
+      let matchingGFByHash = gfsByHash[dfHash] ? gfsByHash[dfHash] : null;
+      let matchingGFByNearestHash = null;
 
       let result = null;
-      if (!matchingGF) {
+      if (!matchingGFByHash) {
 
-        let indexOFNearestNumber = getNearestNumber(googlePhotos, dfHash);
-        console.log(indexOFNearestNumber);
-        console.log(googlePhotos[indexOFNearestNumber]);
+        let hashCompareResults = getNearestNumber(googlePhotos, dfHash);
+        let indexOfNearestNumber = hashCompareResults.index;
+        console.log(indexOfNearestNumber);
+        console.log(googlePhotos[indexOfNearestNumber]);
         console.log(dfPath);
-        debugger;
 
-        // result = {
-        //   drivePhotoFile,
-        //   matchResult: NO_MATCH_FOUND
-        // };
-      }
-      else {
-        result = {
-          drivePhotoFile,
-          matchResult: MATCH_FOUND,
-          matchingGF
+        matchingGFByNearestHash = {
+          hashCompareResults,
+          gf: googlePhotos[indexOfNearestNumber],
         };
       }
 
-      dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
-      setDrivePhotoMatchResult(drivePhotoFile, result);
-      numResolves++;
-      console.log(numInvokes, " ", numResolves);
-      resolve();
+      console.log(getHashInvocation++);
+
+      let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchingDFDimensions( drivePhotoFile, gfStore);
+      let gfsMatchingDFDateTimesPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, gfStore);
+
+      Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then( (results) => {
+
+        const nameMatchResults = results[0];
+        const exifDateTimeMatches = results[1][0];
+        const lastModifiedDateTimeMatches = results[1][1];
+
+        let matchingGFByDateTime = null;
+        if (exifDateTimeMatches) {
+
+          let {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
+          if (createDateToDateTimeExifMatch) {
+            matchingGFByDateTime = createDateToDateTimeExifMatch;
+          }
+          else if (dateTimeOriginalToDateTimeExifMatch) {
+            matchingGFByDateTime = dateTimeOriginalToDateTimeExifMatch;
+          }
+          else if (createDateToExifDateTimeExifMatch) {
+            matchingGFByDateTime = createDateToExifDateTimeExifMatch;
+          }
+          else if (dateTimeOriginalToExifDateTime) {
+            matchingGFByDateTime = dateTimeOriginalToExifDateTime;
+          }
+        }
+
+        let lastModifiedToDateTimeMatch = lastModifiedDateTimeMatches[0];
+        let lastModifiedToExifDateTimeMatch = lastModifiedDateTimeMatches[1];
+        if (lastModifiedDateTimeMatches) {
+          lastModifiedToDateTimeMatch = lastModifiedDateTimeMatches[0];
+          lastModifiedToExifDateTimeMatch = lastModifiedDateTimeMatches[1];
+        }
+
+        if (!matchingGFByDateTime) {
+          if (lastModifiedToDateTimeMatch) {
+            matchingGFByDateTime = lastModifiedToDateTimeMatch;
+          }
+          else if (lastModifiedToExifDateTimeMatch) {
+            matchingGFByDateTime = lastModifiedToExifDateTimeMatch;
+          }
+        }
+
+        let matchingGFByNameList = null;
+        if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+          matchingGFByNameList = nameMatchResults.gfList;
+        }
+
+        gfMatchAllResults[dfPath] = {
+          matchingGFByHash,
+          matchingGFByNearestHash,
+          matchingGFByDateTime,
+          matchingGFByNameList
+        };
+        let result = {};
+        result.matchResult = MATCH_FOUND;
+        dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+        setDrivePhotoMatchResult(drivePhotoFile, result);
+        numResolves++;
+        console.log(numInvokes, " ", numResolves);
+        resolve();
+        if (numInvokes === numResolves) {
+          debugger;
+        }
+      }, (err) => {
+        console.log(err);
+        debugger;
+      });
     }).catch( (err) => {
       let result = {
         drivePhotoFile,
@@ -109,103 +173,6 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       console.log(numInvokes, " ", numResolves);
       resolve();
     });
-
-    // let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchingDFDimensions( drivePhotoFile, gfStore);
-    //
-    // let gfsMatchingDFDateTimesPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, gfStore);
-    //
-    // Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then( (results) => {
-    //
-    //   // analyze results
-    //   // TODO - figure out a better way to do this?
-    //   const nameMatchResults = results[0];
-    //   const exifDateTimeMatches = results[1][0];
-    //   const lastModifiedDateTimeMatches = results[1][1];
-    //
-    //   let matchingGF = null;
-    //   if (exifDateTimeMatches) {
-    //
-    //     // TODO - Joel, why doesn't this work (declared them earlier)?
-    //     // TODO - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-    //     // let createDateToDateTimeExifMatch;
-    //     // let dateTimeOriginalToDateTimeExifMatch;
-    //     // let createDateToExifDateTimeExifMatch;
-    //     // let dateTimeOriginalToExifDateTime;
-    //     // {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
-    //     let {createDateToDateTimeExifMatch, dateTimeOriginalToDateTimeExifMatch, createDateToExifDateTimeExifMatch, dateTimeOriginalToExifDateTime} = exifDateTimeMatches;
-    //
-    //
-    //     // TODO - if / else or look at all of them? I think I want to at least look at the name matches? show all successful matches?
-    //
-    //     if (createDateToDateTimeExifMatch) {
-    //       matchingGF = createDateToDateTimeExifMatch;
-    //     }
-    //     else if (dateTimeOriginalToDateTimeExifMatch) {
-    //       matchingGF = dateTimeOriginalToDateTimeExifMatch;
-    //     }
-    //     else if (createDateToExifDateTimeExifMatch) {
-    //       matchingGF = createDateToExifDateTimeExifMatch;
-    //     }
-    //     else if (dateTimeOriginalToExifDateTime) {
-    //       matchingGF = dateTimeOriginalToExifDateTime;
-    //     }
-    //   }
-    //
-    //   let lastModifiedToDateTimeMatch = lastModifiedDateTimeMatches[0];
-    //   let lastModifiedToExifDateTimeMatch = lastModifiedDateTimeMatches[1];
-    //   if (lastModifiedDateTimeMatches) {
-    //     lastModifiedToDateTimeMatch = lastModifiedDateTimeMatches[0];
-    //     lastModifiedToExifDateTimeMatch = lastModifiedDateTimeMatches[1];
-    //   }
-    //
-    //   if (!matchingGF) {
-    //     if (lastModifiedToDateTimeMatch) {
-    //       matchingGF = lastModifiedToDateTimeMatch;
-    //     }
-    //     else if (lastModifiedToExifDateTimeMatch) {
-    //       matchingGF = lastModifiedToExifDateTimeMatch;
-    //     }
-    //   }
-    //
-    //   let result = null;
-    //   if (matchingGF || lastModifiedToDateTimeMatch || lastModifiedToExifDateTimeMatch) {
-    //     result = {
-    //       drivePhotoFile,
-    //       matchResult: MATCH_FOUND,
-    //       matchingGF
-    //     };
-    //   }
-    //   else if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
-    //
-    //     let photoCompareItem = {};
-    //     photoCompareItem.baseFile = drivePhotoFile;
-    //     photoCompareItem.photoList = nameMatchResults.gfList;
-    //     photoCompareList.push(photoCompareItem);
-    //
-    //     result = {
-    //       drivePhotoFile,
-    //       matchResult: MANUAL_MATCH_PENDING,
-    //       gfList: nameMatchResults.gfList
-    //     };
-    //
-    //     dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
-    //     setDrivePhotoMatchResult(drivePhotoFile, result);
-    //     resolve();
-    //     return;
-    //   }
-    //   else {
-    //     result = {
-    //       drivePhotoFile,
-    //       matchResult: NO_MATCH_FOUND
-    //     };
-    //   }
-    //   dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
-    //   setDrivePhotoMatchResult(drivePhotoFile, result);
-    //   resolve();
-    // }, (err) => {
-    //   console.log(err);
-    //   debugger;
-    // });
   });
 }
 
@@ -288,6 +255,7 @@ function matchAllPhotoFiles(dispatch, getState, drivePhotoFiles) {
     promises.push(matchPhotoFile(dispatch, getState, drivePhotoFile));
   });
   Promise.all(promises).then( (_) => {
+    // debugger;
     dispatch(setPhotoCompareList(photoCompareList));
     dispatch(setPhotoMatchResults(dfMatchResults));
     dispatch(setPhotoMatchingComplete());
