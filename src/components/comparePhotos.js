@@ -1,7 +1,7 @@
 // @flow
 
 const path = require('path');
-var fs = require('fs-extra');
+const fs = require('fs-extra');
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
@@ -60,10 +60,20 @@ class ComparePhotos extends Component {
     if (extension === '.tif') {
 
       const fileNameWithoutExtension = path.basename(diskImage, '.tif');
-      const targetPath = path.join(this.targetDir, fileNameWithoutExtension + ".jpg");
+      let targetPath = path.join(this.targetDir, fileNameWithoutExtension + ".jpg");
       // TODO - figure out how to avoid doing a second conversion from tif to jpg.
       let promise = convertPhoto(diskImage, targetPath);
       promise.then( () => {
+
+        // TODO - don't know why, but it appears as though sometimes a '-0' is appended to the photo file name
+        if (!fs.existsSync(targetPath)) {
+          console.log(targetPath, ' converted file does not exist');
+          targetPath = path.join(this.targetDir, fileNameWithoutExtension + "-0.jpg");
+          if (!fs.existsSync(targetPath)) {
+            debugger;
+          }
+        }
+
         self.setState({
           diskImage: targetPath,
           googleImage

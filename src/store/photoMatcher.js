@@ -174,11 +174,22 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
             result = {};
             const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
             const guid = utils.guid();
-            const targetPath = path.join(targetDir, fileNameWithoutExtension + guid + ".jpg");
+            let targetPath = path.join(targetDir, fileNameWithoutExtension + guid + ".jpg");
             console.log('convertPhoto then perform hash compare: ', drivePhotoFile.path);
+
+
             let promise = convertPhoto(drivePhotoFile.path, targetPath);
             promise.then( () => {
-              // converted file is at targetPath
+              // converted file should be at targetPath
+              // TODO - don't know why, but it appears as though sometimes a '-0' is appended to the photo file name
+              if (!fs.existsSync(targetPath)) {
+                console.log(targetPath, ' converted file does not exist');
+                targetPath = path.join(targetDir, fileNameWithoutExtension + guid + "-0.jpg");
+                if (!fs.existsSync(targetPath)) {
+                  debugger;
+                }
+              }
+
               performHashMatch(drivePhotoFile, targetPath, nameMatchResults, dispatch, gfStore, resolve);
               return;
             });
