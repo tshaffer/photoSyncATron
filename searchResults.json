@@ -15467,6 +15467,2495 @@
         "noMatchesFoundCount": 50,
         "manualMatchesPendingCount": 0
       }
+    },
+    "Photos4": {
+      "resultsByPhoto": {
+        "d:\\buttons2.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\closeicon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\cropicon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\imageadjusticon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\rotateicon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\saveicon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\undoredoicon.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\buttons3.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\buttons4.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\buttons5.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\apr_98_joel_bday_15.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\apr_98_21.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\apr_98_joel_bday_03.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\apr_98_joel_bday_12.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\apr_98_joel_bday_13.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_03.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_17.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_10.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_20.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_26.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_22.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_23.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_01_27.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_02_20.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_02_21.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_03.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_03_15.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_03_02.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_06.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_07.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_09.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_10.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_15.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_16.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_17.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_20.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_25.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_02.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_02.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\feb_98_oly_26.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_03.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_07.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_09.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_14.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_15.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_16.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_17.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_21.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_22.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_07.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_rachel_bday_23.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_08.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_25.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_26.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_00.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\buttons1.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_23.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\special\\joelhat.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\special\\samyosemite.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\bad photos\\dec_99_1\\dcp_0714.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\bad photos\\dec_99_1\\dcp_0717.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\photoarchives\\mar_98_01_05.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\holidaygreeting.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\newholidaygreeting.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\newestholidaygreeting.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\newagf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\guido-crop\\1.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pb180576.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\imageadjusticon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\joelicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\closeicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\rachelicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\cropicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpegtest.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\rotateicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\samicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\undoredoicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\saveicon.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\apr_98\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\apr_98\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\apr_98\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "18.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "17.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "19.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "26.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "22.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "20.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "23.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "24.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\27.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "27.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "25.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "21.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\apr_98_joel_bday\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\apr_98_joel_bday\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\apr_98_joel_bday\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\dec_99_2\\agf00007.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\feb_98_oly\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "17.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "20.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_oly\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "18.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "22.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "19.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "21.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "26.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "23.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "24.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2901.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2800.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "25.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3305.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3204.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3103.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3810.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3709.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3507.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_02\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4012.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3911.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_oly\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4517.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3002.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3608.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4719.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4618.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4214.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4315.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5123.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5022.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "3406.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5426.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_02\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5224.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4416.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5802.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4820.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5701.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\27.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5527.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5325.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4921.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5903.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6408.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "5600.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_03\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6307.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_03\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6509.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6610.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6105.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6711.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6206.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7519.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7216.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7115.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7418.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6812.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0001.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\feb_98_03\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7317.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "6913.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_03\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "7014.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0005.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0000.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0007.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0006.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1111.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0008.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1616.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0009.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0002.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1717.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "0004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1919.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_02\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "4113.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1313.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2020.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2222.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1414.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2424.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2323.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2626.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2525.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1515.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\27.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2727.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1818.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1010.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "2121.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "18.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "17.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "20.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "21.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "22.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "19.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "26.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "23.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "25.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "24.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\mar_98_01\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "20.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "19.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "18.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "17.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\mar_98_01\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "21.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "26.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\mar_98_01\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "22.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "23.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "25.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\05.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "05.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_01\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "24.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\00.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "00.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\04.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "04.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\may_98\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\may_98\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\may_98\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\may_98\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\21.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "21.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\may_98\\18.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "18.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\17.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "17.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\19.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "19.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\20.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "20.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\mar_98_rachel_bday\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\22.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "22.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\23.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "23.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\24.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "24.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\25.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "25.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\26.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "26.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\28.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "28.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\feb_98_01\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "1212.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\may_98\\27.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "27.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\oct_98\\03.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "03.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\08.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "08.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\09.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "09.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\12.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "12.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\10.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\15.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "15.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\oct_98\\16.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "16.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00005.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00005.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00007.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00007.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\oct_98\\13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00008.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00008.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00006.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00009.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00011.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00011.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\complete\\oct_99_6\\agf00004.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing2\\agf00010.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00010.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00012.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00013.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\raw\\ongoing2\\agf00015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00015.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00014.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00014.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00019.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing2\\agf00016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00016.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00017.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00018.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00002.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing5\\agf00004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00006.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00007.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00007.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing2\\agf00001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00001.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00009.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00014.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00014.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00012.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00013.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00017.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing2\\agf00002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00002.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00015.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00018.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00016.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00020.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00020.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00001.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\ongoing5\\agf00023.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00023.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\jpeg-6b\\jeff.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p4160106.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\raw\\ongoing5\\agf00011.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00011.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\jpeg-6b\\testimg.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\14.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "14.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\jpeg-6b\\testimgp.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\jpeg-6b\\testorig.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\jpeg-6b\\testprog.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\jpeg-6b\\djpeg\\release\\jeff.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p4160106.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\raw\\trial 4\\image02.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image02.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\trial 4\\image01.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image01.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\trial 4\\image06.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image06.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\trial 4\\image07.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image07.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\src\\jpeg-6b\\testimg.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\jpeg-6b\\testimgp.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\jpeg-6b\\testorig.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing5\\agf00019.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00019.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\src\\jpeg6b-new\\jpeg-6b\\testimg.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\jpeg6b-new\\jpeg-6b\\testimgp.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\jpeg6b-new\\jpeg-6b\\testorig.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jpeg\\src\\jpeg6b-new\\jpeg-6b\\testprog.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\trial 4\\image13.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image13.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\raw\\trial 4\\image11.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "image11.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\jpeg\\src\\guido-crop\\3.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pb180576.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\jpeg\\src\\guido-crop\\4.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pb180576.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\jpeg\\src\\guido-crop\\2.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pb180576.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\src\\guido-crop\\5.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing5\\agf00005.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00005.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\jpeg\\src\\jpeg-6b\\testprog.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\raw\\ongoing5\\agf00021.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "agf00021.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\complete\\dec_99_1\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_3\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00016.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_98\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_98\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_1\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_1\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_1\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_1\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_3\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_98\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\canada\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\12.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\11.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\18.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\24.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\15.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\21.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\16.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\22.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\10.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\14.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\9.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\0.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_98\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\1_98\\17.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00013.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_1\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_98\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_98\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_98\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_98\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_98\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jun_99\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\jul_99\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_3\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_2\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_3\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_1\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_99_3\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\dec_98\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\01.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00013.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00012.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00017.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00018.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00014.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\05.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00012.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\04.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00015.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00014.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_2\\agf00012.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_3\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00019.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00012.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_3\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\00.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_98\\17.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00015.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_6\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_2\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\nov_99_4\\agf00014.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_7\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_1\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_6\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\sep_99\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_6\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_6\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_4\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_7\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\complete\\oct_99_5\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 292,
+        "noMatchesFoundCount": 243,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
