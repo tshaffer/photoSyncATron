@@ -22592,6 +22592,579 @@
         "noMatchesFoundCount": 59,
         "manualMatchesPendingCount": 0
       }
+    },
+    "Scans Oct-Dec 94": {
+      "resultsByPhoto": {
+        "d:\\my scans\\1994\\10_october-s116\\negscan0196.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0104.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0105.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0106.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0107.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0108.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0109.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0111.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0110.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0112.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0113.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0115.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0116.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0114.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0117.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0118.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0119.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0120.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0121.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0122.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0124.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0123.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0127.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0129.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0131.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0130.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0133.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0132.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0134.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0135.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\12_december-s120\\negscan0136.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0066.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0066.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0096.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0096.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0078.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-25T14:25:34.570Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0078.jpg",
+          "gfDateTime": "2005-02-27T15:30:00.000Z",
+          "gfExifDateTime": "2005-02-27T07:30:00.000Z"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0080.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0080.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0070.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0070.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0083.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0083.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0065.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-24T14:25:22.620Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0065.jpg",
+          "gfDateTime": "2005-02-27T15:28:24.000Z",
+          "gfExifDateTime": "2005-02-27T07:28:24.000Z"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0089.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0089.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0063.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0063.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0094.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0094.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0086.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0086.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0095.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0095.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0079.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0079.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0098.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0098.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0099.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0099.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0103.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0103.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0101.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0101.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0097.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0097.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0102.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0102.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0100.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0100.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0082.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0082.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0081.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0081.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0093.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0093.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0088.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-27T14:14:57.140Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0088.jpg",
+          "gfDateTime": "2005-02-27T15:30:23.000Z",
+          "gfExifDateTime": "2005-02-27T07:30:23.000Z"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0087.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0087.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0092.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0092.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0047.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0047.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0076.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0076.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0033.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0033.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0031.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0031.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0045.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0045.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0042.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0042.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0028.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0028.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0029.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0029.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0026.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0026.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0057.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0057.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0064.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-24T14:23:26.560Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0064.jpg",
+          "gfDateTime": "2005-02-27T15:28:21.000Z",
+          "gfExifDateTime": "2005-02-27T07:28:21.000Z"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0027.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-22T01:48:04.390Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0027.jpg",
+          "gfDateTime": "2005-02-27T15:14:35.000Z",
+          "gfExifDateTime": "2005-02-27T07:14:35.000Z"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0015.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0015.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0067.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0067.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0030.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0030.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0024.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0024.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0046.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0046.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0090.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0090.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0014.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0014.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0017.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0017.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0058.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0058.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0059.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0059.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0025.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0025.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0071.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0071.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0061.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0061.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0077.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0077.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0085.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0085.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0062.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0062.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0048.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0048.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0060.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0060.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0084.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0084.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0044.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0044.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0072.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-24T14:40:25.170Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0072.jpg",
+          "gfDateTime": "2005-02-27T15:28:44.000Z",
+          "gfExifDateTime": "2005-02-27T07:28:44.000Z"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0018.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0018.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0043.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0043.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0073.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0073.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\12_december-s119\\negscan0091.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0091.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0032.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0032.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0055.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0055.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0041.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0041.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0040.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0040.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0039.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0039.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0056.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0056.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0053.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0053.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0069.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0069.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0054.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0054.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0068.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0068.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\my scans\\1994\\11_november-s118\\negscan0050.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2005-02-24T13:59:52.320Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "negscan0050.jpg",
+          "gfDateTime": "2005-02-27T15:27:44.000Z",
+          "gfExifDateTime": "2005-02-27T07:27:44.000Z"
+        },
+        "d:\\my scans\\1994\\10_october-s117\\negscan0016.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0016.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 75,
+        "noMatchesFoundCount": 31,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
