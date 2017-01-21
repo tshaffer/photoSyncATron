@@ -15,6 +15,8 @@ import { buildPhotoDictionaries } from './googlePhotos';
 
 import * as nameMatcher from '../utilities/nameMatcher';
 import * as dateMatcher from '../utilities/dateMatcher';
+import { convertPhoto } from '../utilities/photoUtilities';
+import * as utils from '../utilities/utils';
 
 let photoCompareList = [];
 let dfMatchResults = {};
@@ -58,11 +60,10 @@ function getNearestNumber(gfs, dfHash) {
   };
 }
 
-function gfWithNearestMatchingDFHash(drivePhotoFile, gfStore) {
+function gfWithNearestMatchingDFHash(dfPath, gfStore) {
 
   return new Promise((resolve, reject) => {
 
-    let dfPath = drivePhotoFile.path;
     let {googlePhotos, gfsByHash} = gfStore;
     hashPhoto(dfPath).then( ( dfHash ) => {
 
@@ -149,6 +150,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
       let result = null;
       if (matchingGF) {
+
         result = {
           drivePhotoFile,
           matchResult: MATCH_FOUND,
@@ -158,92 +160,61 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
       }
       else {
 
-        // jimp doesn't support tif - convert to jpg here.
         const extension = path.extname(drivePhotoFile.path);
         if (extension === '.tif') {
-          if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
 
-            let photoCompareItem = {};
-            photoCompareItem.baseFile = drivePhotoFile;
-            photoCompareItem.photoList = nameMatchResults.gfList;
-            photoCompareList.push(photoCompareItem);
-
-            result = {
-              drivePhotoFile,
-              matchResult: MANUAL_MATCH_PENDING,
-              gfList: nameMatchResults.gfList
-            };
+          // jimp doesn't support tif - convert to jpg here for hash comparison
+          // but only proceed with hash comparison if their is gf with the same name (not dimensions)
+          let dfName = path.basename(drivePhotoFile.path).toLowerCase();
+          let fileNameWithoutExtension = dfName.slice(0, -4);
+          dfName = fileNameWithoutExtension + ".jpg";
+          const gfsByName = gfStore.gfsByName;
+          if (gfsByName[dfName]) {
+            // gf with matching name; convert then do hash compare
+            result = {};
+            const targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+            const guid = utils.guid();
+            const targetPath = path.join(targetDir, fileNameWithoutExtension + guid + ".jpg");
+            console.log('convertPhoto then perform hash compare: ', drivePhotoFile.path);
+            let promise = convertPhoto(drivePhotoFile.path, targetPath);
+            promise.then( () => {
+              // converted file is at targetPath
+              performHashMatch(drivePhotoFile, targetPath, nameMatchResults, dispatch, gfStore, resolve);
+              return;
+            });
           }
           else {
-            result = {
-              drivePhotoFile,
-              matchResult: NO_MATCH_FOUND
-            };
-          }
+            if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+              // console.log("tif file with NAME_MATCH_EXACT");
 
-          dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
-          setDrivePhotoMatchResult(drivePhotoFile, result);
-          resolve();
-          return;
+              let photoCompareItem = {};
+              photoCompareItem.baseFile = drivePhotoFile;
+              photoCompareItem.photoList = nameMatchResults.gfList;
+              photoCompareList.push(photoCompareItem);
 
-        }
-        else {
-
-          // TODO - what other checks need to be done with a hashMatch?
-          // TODO - a name match exists.
-          // TODO - its dimensions are the same or the same aspect ratio.
-          // TODO - there is not a date/time match with a different name
-
-          let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(drivePhotoFile, gfStore);
-          gfWithNearestMatchingDFHashPromise.then( (hashMatchResults) => {
-            let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
-            let hashCompareValue = 0;
-            if (matchingGFByHash) {
-              matchingGF = matchingGFByHash;
-            }
-            else if (matchingGFByNearestHash) {
-              hashCompareValue = matchingGFByNearestHash.hashCompareResults.value;
-              if (hashCompareValue < hashThreshold) {
-                matchingGF = matchingGFByNearestHash.gf;
-              }
-            }
-
-            if (matchingGF) {
               result = {
                 drivePhotoFile,
-                matchResult: MATCH_FOUND,
-                matchType: MATCH_BY_HASH,
-                hashCompareValue: hashCompareValue.toString(),
-                matchingGF
+                matchResult: MANUAL_MATCH_PENDING,
+                gfList: nameMatchResults.gfList
               };
             }
             else {
-              if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+              // console.log("tif file, no name/dims match");
 
-                let photoCompareItem = {};
-                photoCompareItem.baseFile = drivePhotoFile;
-                photoCompareItem.photoList = nameMatchResults.gfList;
-                photoCompareList.push(photoCompareItem);
-
-                result = {
-                  drivePhotoFile,
-                  matchResult: MANUAL_MATCH_PENDING,
-                  gfList: nameMatchResults.gfList
-                };
-              }
-              else {
-                result = {
-                  drivePhotoFile,
-                  matchResult: NO_MATCH_FOUND
-                };
-              }
+              result = {
+                drivePhotoFile,
+                matchResult: NO_MATCH_FOUND
+              };
             }
 
             dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
             setDrivePhotoMatchResult(drivePhotoFile, result);
             resolve();
             return;
-          });
+          }
+        }
+        else {
+          performHashMatch(drivePhotoFile, drivePhotoFile.getPath(), nameMatchResults, dispatch, gfStore, resolve);
           return;
         }
       }
@@ -258,6 +229,72 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
   });
 }
 
+function performHashMatch(drivePhotoFile: DrivePhoto, dfPath, nameMatchResults, dispatch, gfStore, resolve) {
+
+  // TODO - what other checks need to be done with a hashMatch?
+  // TODO - a name match exists.
+  // TODO - its dimensions are the same or the same aspect ratio.
+  // TODO - there is not a date/time match with a different name
+
+  console.log("invoke gfWithNearestMatchingDFHashPromise: ", dfPath);
+
+  let result = null;
+  let matchingGF = null;
+
+  let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(dfPath, gfStore);
+  gfWithNearestMatchingDFHashPromise.then( (hashMatchResults) => {
+
+    console.log("return from gfWithNearestMatchingDFHashPromise: ", dfPath);
+    console.log(hashMatchResults);
+
+    let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
+    let hashCompareValue = 0;
+    if (matchingGFByHash) {
+      matchingGF = matchingGFByHash;
+    }
+    else if (matchingGFByNearestHash) {
+      hashCompareValue = matchingGFByNearestHash.hashCompareResults.value;
+      if (hashCompareValue < hashThreshold) {
+        matchingGF = matchingGFByNearestHash.gf;
+      }
+    }
+
+    if (matchingGF) {
+      result = {
+        drivePhotoFile,
+        matchResult: MATCH_FOUND,
+        matchType: MATCH_BY_HASH,
+        hashCompareValue: hashCompareValue.toString(),
+        matchingGF
+      };
+    }
+    else {
+      if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+
+        let photoCompareItem = {};
+        photoCompareItem.baseFile = drivePhotoFile;
+        photoCompareItem.photoList = nameMatchResults.gfList;
+        photoCompareList.push(photoCompareItem);
+
+        result = {
+          drivePhotoFile,
+          matchResult: MANUAL_MATCH_PENDING,
+          gfList: nameMatchResults.gfList
+        };
+      }
+      else {
+        result = {
+          drivePhotoFile,
+          matchResult: NO_MATCH_FOUND
+        };
+      }
+    }
+
+    dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+    setDrivePhotoMatchResult(drivePhotoFile, result);
+    resolve();
+  });
+}
 
 function getPhotoDimensions(photoFilePath): ?Object {
 
