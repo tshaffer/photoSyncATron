@@ -112,7 +112,9 @@ export function gfsMatchingDFDimensions(df: DrivePhoto, gfStore: Object) {
       else {
         // name match found with matching dimensions
         if (extension === '.tif') {
-          nameMatchResult = TIF_NAME_MATCH;
+          // TODO - comparisons are done to general constant, not detailed constant.
+          // nameMatchResult = TIF_NAME_MATCH;
+          nameMatchResult = NAME_MATCH_EXACT;
         }
         else {
           nameMatchResult = NAME_MATCH_EXACT;

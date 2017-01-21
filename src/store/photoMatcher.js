@@ -107,10 +107,6 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then((results) => {
 
       const nameMatchResults = results[0];
-      if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
-        console.log("NAME_MATCH_EXACT: ", drivePhotoFile.path);
-      }
-
       const exifDateTimeMatches = results[1][0];
       const lastModifiedDateTimeMatches = results[1][1];
 
@@ -156,6 +152,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
         result = {
           drivePhotoFile,
           matchResult: MATCH_FOUND,
+          matchType: MATCH_BY_DATE_TIME,
           matchingGF
         };
       }
@@ -200,17 +197,23 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
           let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(drivePhotoFile, gfStore);
           gfWithNearestMatchingDFHashPromise.then( (hashMatchResults) => {
             let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
+            let hashCompareValue = 0;
             if (matchingGFByHash) {
               matchingGF = matchingGFByHash;
             }
-            else if (matchingGFByNearestHash && matchingGFByNearestHash.hashCompareResults.value < hashThreshold) {
-              matchingGF = matchingGFByNearestHash.gf;
+            else if (matchingGFByNearestHash) {
+              hashCompareValue = matchingGFByNearestHash.hashCompareResults.value;
+              if (hashCompareValue < hashThreshold) {
+                matchingGF = matchingGFByNearestHash.gf;
+              }
             }
 
             if (matchingGF) {
               result = {
                 drivePhotoFile,
                 matchResult: MATCH_FOUND,
+                matchType: MATCH_BY_HASH,
+                hashCompareValue: hashCompareValue.toString(),
                 matchingGF
               };
             }
@@ -454,11 +457,14 @@ function summarizeSearchResult(rawSearchResult) {
 
   let summarySearchResult = {};
   summarySearchResult.matchResult = rawSearchResult.matchResult;
-  summarySearchResult.path = rawSearchResult.drivePhotoFile.getPath();
 
   switch (rawSearchResult.matchResult) {
     case 'MATCH_FOUND':
       summarySearchResult.gfName = rawSearchResult.matchingGF.getName();
+      summarySearchResult.matchType = rawSearchResult.matchType;
+      if (rawSearchResult.matchType === MATCH_BY_HASH) {
+        summarySearchResult.hashDistance = rawSearchResult.hashCompareValue;
+      }
       break;
     case 'MANUAL_MATCH_FOUND':
       summarySearchResult.dfLastModifiedISO = rawSearchResult.drivePhotoFile.getLastModifiedISO();
@@ -653,6 +659,8 @@ const PHOTO_MATCHING_COMPLETE = 'PHOTO_MATCHING_COMPLETE';
 const SET_PHOTO_COMPARE_LIST = 'SET_PHOTO_COMPARE_LIST';
 const SET_PHOTO_MATCH_RESULTS = 'SET_PHOTO_MATCH_RESULTS';
 const MATCH_FOUND = 'MATCH_FOUND';
+const MATCH_BY_DATE_TIME = 'MATCH_BY_DATE_TIME';
+const MATCH_BY_HASH = 'MATCH_BY_HASH';
 const NO_MATCH_FOUND = 'NO_MATCH_FOUND';
 const MANUAL_MATCH_FOUND = 'MANUAL_MATCH_FOUND';
 const MANUAL_MATCH_PENDING = 'MANUAL_MATCH_PENDING';
