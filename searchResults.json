@@ -23165,6 +23165,1485 @@
         "noMatchesFoundCount": 31,
         "manualMatchesPendingCount": 0
       }
+    },
+    "2004 Photos 3": {
+      "resultsByPhoto": {
+        "d:\\december 26 2004\\my negatives\\park city\\dsc_0965.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1030.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1030.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1037.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1037.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1044.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1044.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1063.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1063.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my negatives\\12_december_2\\dsc_2065.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1090.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1081.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1081.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1085.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1085.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1087.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_1\\dsc_1076.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1076.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1115.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1117.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1126.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1122.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1129.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1120.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1140.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1138.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1135.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1143.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1164.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1152.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1147.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1148.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1167.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1171.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1173.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1242.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1242.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1244_cropped.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1245.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1245.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1241.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1241.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_2\\dsc_1177.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1252.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-12-09T04:26:49.130Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1252.jpg",
+          "gfDateTime": "2004-09-12T21:38:36.000Z",
+          "gfExifDateTime": "2004-09-12T14:38:36.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1244.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1244.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1257.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1257.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1246.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1262.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1262.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1269.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1269.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1261.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1261.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1321.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1321.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_5\\dsc_1266.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1266.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1324.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1324.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1330.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1330.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1326.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1326.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1328.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1328.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1344.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1344.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1337.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1337.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1332.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1332.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1336.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1336.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1346.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-12-11T14:05:41.890Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1346.jpg",
+          "gfDateTime": "2004-09-25T21:08:42.000Z",
+          "gfExifDateTime": "2004-09-25T14:08:42.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1347.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1347.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1377.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1377.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1357.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1357.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1380.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1380.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1350.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1350.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1379.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1379.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1383.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1383.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_7\\dsc_1356.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-11-12T14:24:55.900Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1356.jpg",
+          "gfDateTime": "2004-09-25T21:17:06.000Z",
+          "gfExifDateTime": "2004-09-25T14:17:06.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1274.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1274.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1276.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1276.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1272.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1272.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1272_auto colors.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1272.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1278.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1278.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1283.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1283.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1281.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1281.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1284.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1284.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1287.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1287.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1289.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1289.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1288.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1288.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1286.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-12-11T14:04:27.360Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1286.jpg",
+          "gfDateTime": "2004-09-18T22:32:17.000Z",
+          "gfExifDateTime": "2004-09-18T15:32:17.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1291.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1291.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1290.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1290.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1296.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1296.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1292.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1292.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1297.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1297.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1298.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1298.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1295.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1295.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1306.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1306.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1300_2.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1300_1.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1303.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1303.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1300.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1300.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1313.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1313.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1308.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1308.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1312.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1312.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1319.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1319.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1314.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1314.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1320.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1320.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1550.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1302.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1302.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1548.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1556.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\09_september_6\\dsc_1316.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1316.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1559.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1558.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1560.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1568.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1562.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1573.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1566.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1571.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1572.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1576.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1583.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1580.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1569.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1586.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1584.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1587.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1589.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1588.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1590.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1594.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1599.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1596.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1602.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1601.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1603.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_2\\dsc_1604.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1394.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1394.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1395.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1395.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1396.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1396.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1393.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1393.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1401.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1401.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1399.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1399.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1403.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1403.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1400.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1400.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1410.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1410.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1419.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1419.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1415.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1415.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1404.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1404.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1411.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1411.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1427.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1427.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1425.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1425.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1429.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-12-11T14:06:40.690Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1429.jpg",
+          "gfDateTime": "2004-10-03T22:30:52.000Z",
+          "gfExifDateTime": "2004-10-03T15:30:52.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1424.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1424.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1433.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1433.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1453.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1453.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1432.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1432.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1435.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1435.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1448.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1448.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1458.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1458.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1436.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1436.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1442.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-12-09T04:32:08.520Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1442.jpg",
+          "gfDateTime": "2004-10-03T23:06:38.000Z",
+          "gfExifDateTime": "2004-10-03T16:06:38.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1439.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1439.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1446.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1446.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1466.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1466.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1460.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1460.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1469.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1469.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1473.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1473.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1476.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1476.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1471.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1471.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1474.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1474.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1477.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1477.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1475.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1475.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1482.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1482.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1483.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1483.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1480.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1480.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1481.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2004-11-14T13:22:20.810Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "dsc_1481.jpg",
+          "gfDateTime": "2004-10-09T17:13:45.000Z",
+          "gfExifDateTime": "2004-10-09T10:13:45.000Z"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1485.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1485.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1479.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1479.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1484.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1484.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1486.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1486.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1492.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1488.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1488.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1487.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1487.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1494.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1491.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1490.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1489.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "dsc_1489.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1493_motion.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1493_fire.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1495.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1508.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1510.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1497.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1514.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1509.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1520.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1505.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1504.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1513.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1518.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1517.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1526.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1537.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1528.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1540.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1543.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1535.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1544.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1607.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1606.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1605.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1612.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1608.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1613.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1616.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1617.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1621.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1625.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1627.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1628.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1629.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1631.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1632.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1634.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1637.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1493.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1638.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1639.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1641.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1640.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1623.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1644.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1646.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1643.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1647.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1650.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1652.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1658.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1655.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1945.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1618.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1946.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1949.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1950.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1948.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1688.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_1\\dsc_1498.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_10\\_dsc1947.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1689.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1626.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1695.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1710.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1728.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1727.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1734.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_2\\dsc_1714.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1664.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1674.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1667.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1671.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1677.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1676.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1678.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1679.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1680.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1682.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1684.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1687.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_1\\dsc_1685.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1749.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1752.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1754.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1755.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1757.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1765.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1766.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_4\\dsc_1767.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1769.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1768.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1771.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1775.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1773.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1776.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1785.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1778.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1770.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_5\\dsc_1779.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1781.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1780.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1786.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1782.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1806.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1787.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1795.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1807.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1809.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1811.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_6\\dsc_1813.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1697.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1701.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1703.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1708.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc1245.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1705.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1712.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1704.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1709.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1711.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1713.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "10.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1717.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1719.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1721.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1716.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1722.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1718.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1724.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1729.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1723.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1730.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1732.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1733.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1735.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1736.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1738.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1737.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1739.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1740.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1747.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1742.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1741.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1745.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1744.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_3\\dsc_1746.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1981.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1982.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1985.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1986.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1987.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1993.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1992.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1990.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1994.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1995.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1997.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc1998.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2003.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2009.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\10_october_3\\dsc_1642.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2021.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2020.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2019.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\12_december_1\\_dsc2022.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1816.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1818.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1817.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1819.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1827.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1829.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1828.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1830.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1835.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1833.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1837.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1838.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1842.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1841.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1843.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1846.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1847.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1851.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1852.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1854.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1855.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1856.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1858.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1857.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1862.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1862_filtered.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1822.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1866.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1863.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1867.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1868.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1869.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\december 26 2004\\my pictures\\2004\\11_november_7\\dsc_1871.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 114,
+        "noMatchesFoundCount": 255,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
