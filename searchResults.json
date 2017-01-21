@@ -4004,6 +4004,656 @@
         "noMatchesFoundCount": 176,
         "manualMatchesPendingCount": 0
       }
+    },
+    "8-12-2006": {
+      "resultsByPhoto": {
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\d1_negscan0141.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "d1_negscan0141.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0137.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "d1_negscan0141.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0138.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0137.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0139.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0137.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0140.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0138.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0142.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0139.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0143.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0140.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0144.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0142.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0145.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0143.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0146.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0145.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0147.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0145.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0148.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0146.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0149.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0147.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0150.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0149.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0151.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0149.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0152.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0150.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0153.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0152.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0154.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0153.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0155.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0153.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0156.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0154.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0157.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0155.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0158.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0156.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0159.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0159.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0160.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0159.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0161.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0160.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0162.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0161.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0163.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0161.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0164.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0163.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0165.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0163.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0166.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0165.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0167.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0166.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0168.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0166.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1995\\01_january-s121\\negscan0169.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0168.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0139.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0139.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0140.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0140.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0141.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0141.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0142.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0142.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0143.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0143.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0144.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0144.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0145.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0145.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0146.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0146.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0147.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0146.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0148.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0147.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1998\\08_august_4\\slidescan0149.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0149.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0417.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0417.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0418.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0417.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0419.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0417.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0420.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0418.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0421.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0419.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0422.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0420.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0423.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0422.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0424.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0423.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0425.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0424.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0426.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0424.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0427.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0425.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0428.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0426.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\1999\\03_march_1\\negscan0429.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "negscan0427.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4478.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4478.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4479.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4479.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4488.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4488.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4494.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4494.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4498.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4498.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4503.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4503.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4504.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4504.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4505.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4505.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4506.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4506.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my pictures\\2006\\05_may_1\\_dsc4507.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc4507.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8-12-2006\\my raw scans\\1999\\08_august_2\\slidescan0150.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8-12-2006\\my raw scans\\1999\\08_august_2\\slidescan0151.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8-12-2006\\my raw scans\\1999\\08_august_2\\slidescan0152.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8-12-2006\\my raw scans\\1999\\08_august_2\\slidescan0153.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8-12-2006\\my raw scans\\1999\\08_august_2\\slidescan0154.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0141.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0141.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0143.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-11T13:54:12.760Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0143.jpg",
+          "gfDateTime": "2006-08-11T14:16:31.000Z",
+          "gfExifDateTime": "2006-08-11T07:16:31.000Z"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0144.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0144.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0140.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0140.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0117.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0117.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0118.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0118.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0139.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0139.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0145.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0145.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0142.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0142.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0146.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0146.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0147.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0147.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0148.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0148.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0115.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0115.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0113.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:48:38.010Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0113.jpg",
+          "gfDateTime": "2006-08-09T14:21:23.000Z",
+          "gfExifDateTime": "2006-08-09T07:21:23.000Z"
+        },
+        "d:\\8-12-2006\\my scans\\1998\\08_august_4\\slidescan0149.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0149.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0114.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0114.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0116.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0116.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0108.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0108.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0109.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0109.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0111.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0111.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0112.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0112.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0096.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:41:06.070Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0096.jpg",
+          "gfDateTime": "2006-08-09T14:20:34.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:34.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0107.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:46:03.670Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0107.jpg",
+          "gfDateTime": "2006-08-09T14:21:03.000Z",
+          "gfExifDateTime": "2006-08-09T07:21:03.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0091.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0091.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0087.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0087.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0088.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0088.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0101.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:43:22.850Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0101.jpg",
+          "gfDateTime": "2006-08-09T14:20:48.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:48.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0095.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0095.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0104.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:44:44.810Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0104.jpg",
+          "gfDateTime": "2006-08-09T14:20:56.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:56.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0093.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0093.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0099.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:42:28.540Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0099.jpg",
+          "gfDateTime": "2006-08-09T14:20:42.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:42.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0106.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0106.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0098.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:42:00.430Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0098.jpg",
+          "gfDateTime": "2006-08-09T14:20:39.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:39.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0090.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0090.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0110.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:47:16.820Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0110.jpg",
+          "gfDateTime": "2006-08-09T14:21:12.000Z",
+          "gfExifDateTime": "2006-08-09T07:21:12.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0094.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0094.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0105.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0105.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0092.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0092.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0103.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0103.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0102.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:43:50.710Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0102.jpg",
+          "gfDateTime": "2006-08-09T14:20:51.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:51.000Z"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0097.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0097.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0100.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "slidescan0100.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8-12-2006\\my raw scans\\1998\\08_august_2\\slidescan0089.tif": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2006-08-07T22:37:59.600Z",
+          "dfExifCreateDate": "",
+          "dfExifDateTimeOriginal": "",
+          "gfName": "slidescan0089.jpg",
+          "gfDateTime": "2006-08-09T14:20:05.000Z",
+          "gfExifDateTime": "2006-08-09T07:20:05.000Z"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 110,
+        "noMatchesFoundCount": 5,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
