@@ -10,7 +10,7 @@ const childProcess = require('child_process');
 const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 
-export function convertPhoto(sourcePhoto:string, targetPath) {
+export function convertPhoto(sourcePhoto:string, targetPath: string) {
 
   return new Promise( (resolve, reject) => {
 

@@ -8,6 +8,7 @@ export class GooglePhoto {
   height: string;
   dateTime: string;
   exifDateTime: string;
+  hash: ?Object
 
   constructor(googlePhotoSpec: Object) {
     this.name = googlePhotoSpec.name;

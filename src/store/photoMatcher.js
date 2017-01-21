@@ -107,6 +107,10 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
     Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then((results) => {
 
       const nameMatchResults = results[0];
+      if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+        console.log("NAME_MATCH_EXACT: ", drivePhotoFile.path);
+      }
+
       const exifDateTimeMatches = results[1][0];
       const lastModifiedDateTimeMatches = results[1][1];
 
