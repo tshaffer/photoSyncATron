@@ -1,6 +1,7 @@
 // @flow
 
 const fs = require('fs');
+const path = require('path');
 const Jimp = require('jimp');
 const sizeOf = require('image-size');
 
@@ -41,6 +42,7 @@ function getNearestNumber(gfs, dfHash) {
   let currentIndex = 0;
   let currentValue = 1;
   gfs.forEach( (gf, index) => {
+
     if (gf.hash) {
       let newValue = Jimp.distanceByHash(dfHash, gf.hash);
       if (newValue < currentValue) {
@@ -99,31 +101,16 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
 
   return new Promise((resolve) => {
 
-    let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(drivePhotoFile, gfStore);
     let gfsMatchingDFNameAndDimensionsPromise = nameMatcher.gfsMatchingDFDimensions(drivePhotoFile, gfStore);
     let gfsMatchingDFDateTimesPromise = dateMatcher.gfsMatchingDFDateTimes(drivePhotoFile, gfStore);
 
-    Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise, gfWithNearestMatchingDFHashPromise]).then((results) => {
+    Promise.all([gfsMatchingDFNameAndDimensionsPromise, gfsMatchingDFDateTimesPromise]).then((results) => {
 
       const nameMatchResults = results[0];
       const exifDateTimeMatches = results[1][0];
       const lastModifiedDateTimeMatches = results[1][1];
-      const hashMatchResults = results[2];
-      let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
 
       let matchingGF = null;
-
-      // TODO - what other checks need to be done with a hashMatch?
-      // TODO - a name match exists.
-      // TODO - its dimensions are the same or the same aspect ratio.
-      // TODO - there is not a date/time match with a different name
-
-      if (matchingGFByHash) {
-        matchingGF = matchingGFByHash;
-      }
-      else if (matchingGFByNearestHash && matchingGFByNearestHash.hashCompareResults < hashThreshold) {
-        matchingGF = matchingGFByNearestHash.gf;
-      }
 
       if (!matchingGF) {
         if (exifDateTimeMatches) {
@@ -168,24 +155,90 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
           matchingGF
         };
       }
-      else if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
-
-        let photoCompareItem = {};
-        photoCompareItem.baseFile = drivePhotoFile;
-        photoCompareItem.photoList = nameMatchResults.gfList;
-        photoCompareList.push(photoCompareItem);
-
-        result = {
-          drivePhotoFile,
-          matchResult: MANUAL_MATCH_PENDING,
-          gfList: nameMatchResults.gfList
-        };
-      }
       else {
-        result = {
-          drivePhotoFile,
-          matchResult: NO_MATCH_FOUND
-        };
+
+        // jimp doesn't support tif - convert to jpg here.
+        const extension = path.extname(drivePhotoFile.path);
+        if (extension === '.tif') {
+          if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+
+            let photoCompareItem = {};
+            photoCompareItem.baseFile = drivePhotoFile;
+            photoCompareItem.photoList = nameMatchResults.gfList;
+            photoCompareList.push(photoCompareItem);
+
+            result = {
+              drivePhotoFile,
+              matchResult: MANUAL_MATCH_PENDING,
+              gfList: nameMatchResults.gfList
+            };
+          }
+          else {
+            result = {
+              drivePhotoFile,
+              matchResult: NO_MATCH_FOUND
+            };
+          }
+
+          dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+          setDrivePhotoMatchResult(drivePhotoFile, result);
+          resolve();
+          return;
+
+        }
+        else {
+
+          // TODO - what other checks need to be done with a hashMatch?
+          // TODO - a name match exists.
+          // TODO - its dimensions are the same or the same aspect ratio.
+          // TODO - there is not a date/time match with a different name
+
+          let gfWithNearestMatchingDFHashPromise = gfWithNearestMatchingDFHash(drivePhotoFile, gfStore);
+          gfWithNearestMatchingDFHashPromise.then( (hashMatchResults) => {
+            let { matchingGFByHash, matchingGFByNearestHash } = hashMatchResults;
+            if (matchingGFByHash) {
+              matchingGF = matchingGFByHash;
+            }
+            else if (matchingGFByNearestHash && matchingGFByNearestHash.hashCompareResults.value < hashThreshold) {
+              matchingGF = matchingGFByNearestHash.gf;
+            }
+
+            if (matchingGF) {
+              result = {
+                drivePhotoFile,
+                matchResult: MATCH_FOUND,
+                matchingGF
+              };
+            }
+            else {
+              if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
+
+                let photoCompareItem = {};
+                photoCompareItem.baseFile = drivePhotoFile;
+                photoCompareItem.photoList = nameMatchResults.gfList;
+                photoCompareList.push(photoCompareItem);
+
+                result = {
+                  drivePhotoFile,
+                  matchResult: MANUAL_MATCH_PENDING,
+                  gfList: nameMatchResults.gfList
+                };
+              }
+              else {
+                result = {
+                  drivePhotoFile,
+                  matchResult: NO_MATCH_FOUND
+                };
+              }
+            }
+
+            dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
+            setDrivePhotoMatchResult(drivePhotoFile, result);
+            resolve();
+            return;
+          });
+          return;
+        }
       }
 
       dispatch(automaticMatchAttemptComplete(result.matchResult === MATCH_FOUND));
