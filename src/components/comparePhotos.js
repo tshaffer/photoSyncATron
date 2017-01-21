@@ -15,8 +15,8 @@ class ComparePhotos extends Component {
 
   constructor(props: Object) {
     super(props);
-    // this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
-    this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
+    this.targetDir = "C:\\Users\\Ted\\Documents\\Projects\\photoSyncATron\\tmpFiles";
+    // this.targetDir = "/Users/tedshaffer/Documents/Projects/photoSyncATron/tmpFiles";
     this.state = {
       diskImage: '',
       googleImage: '',
@@ -61,7 +61,7 @@ class ComparePhotos extends Component {
 
       const fileNameWithoutExtension = path.basename(diskImage, '.tif');
       const targetPath = path.join(this.targetDir, fileNameWithoutExtension + ".jpg");
-
+      // TODO - figure out how to avoid doing a second conversion from tif to jpg.
       let promise = convertPhoto(diskImage, targetPath);
       promise.then( () => {
         self.setState({

@@ -6,8 +6,8 @@ const childProcess = require('child_process');
 // ------------------------------------
 // Constants
 // ------------------------------------
-// const convertCmd = 'convert';
-const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
+const convertCmd = 'convert';
+// const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
 
 
 export function convertPhoto(sourcePhoto:string, targetPath: string) {

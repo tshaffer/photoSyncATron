@@ -18,13 +18,13 @@ const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
 // On Mac
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
-const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
+// const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "testPhotos");
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "PHOTOS5");
 
 // On Windows PC
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\d6-25-2006";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\d2005Photos8";
-// const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos2";
+const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos2";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos5";
 // const rootFolder = "C:\\Users\\Ted\\Documents\\testPhotos\\Photos3-2";
 
