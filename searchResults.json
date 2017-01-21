@@ -19922,6 +19922,828 @@
         "noMatchesFoundCount": 0,
         "manualMatchesPendingCount": 0
       }
+    },
+    "Photos1": {
+      "resultsByPhoto": {
+        "d:\\07_july\\p7060252.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7060252.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7060253.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7060253.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7060255.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7060255.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7070261.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7070261.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7070259.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7070259.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7070265.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7070265.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7090268.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090268.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7070264.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7070264.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7090271.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090271.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8170003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170003.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8240004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8240004.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8240006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8240006.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8240008.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8240008.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8240009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8240009.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8270002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8270002.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8270004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8270004.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_august\\p8310001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8310001.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7160001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7160001.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7160002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7160002.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7160004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7160004.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7160006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7160006.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7160008.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7160008.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7170010.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7170010.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7170012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7170012.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7170013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7170013.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180014.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180014.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180016.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180018.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180017.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180019.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180019.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7180020.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7180020.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190001.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190002.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190004.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190005.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190005.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190006.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190007.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190007.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190009.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190013.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190012.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190014.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190014.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190015.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190016.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7190017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7190017.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200019.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200019.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200020.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200020.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200021.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200021.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200022.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200022.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200023.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200023.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200024.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200024.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200027.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200027.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200028.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200028.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200029.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200029.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200030.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200030.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200031.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200031.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200032.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200032.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\08_europeanvacation\\p7200033.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7200033.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\p9280002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p9280002.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\p9280004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p9280004.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\p9280007.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p9280007.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\p9280009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p9280009.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa020010.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa020010.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa020013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa020013.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030015.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030017.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030018.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030021.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030021.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030022.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030022.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\09_september\\pa030023.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa030023.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_october\\pa260003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260003.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_october\\pa260011.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260011.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_october\\pa260013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260013.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_october\\pa260016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260016.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_october\\pa260018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260018.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7090270.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090270.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\07_july\\p7070258.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\07_july\\p7060254.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\07_july\\p7070257.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_august\\p8270001.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_august\\p8270003.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_august\\p8270005.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140001.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140002.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140005.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140005.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\08_europeanvacation\\p7140004.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140006.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140007.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140007.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140010.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140009.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140011.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140015.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140014.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140016.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140017.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140018.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140018.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140022.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140022.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\08_europeanvacation\\p7140019.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140021.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140020.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140020.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140023.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140024.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140025.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140026.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140026.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\08_europeanvacation\\p7140027.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140027.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140028.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140028.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140029.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140029.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140030.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7140032.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140032.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140034.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140034.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140033.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140033.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140031.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140031.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\08_europeanvacation\\p7140035.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140035.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150002.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150002.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140037.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140037.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7140036.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7140036.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150003.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150005.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080510.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\08_europeanvacation\\p7150007.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150009.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150011.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150011.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150010.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150012.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150014.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7150015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150015.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150016.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150013.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "_dsc1216.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7150017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7150017.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\08_europeanvacation\\p7160005.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7160007.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7180015.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7180021.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7190008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7190010.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7190011.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\08_europeanvacation\\p7190018.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\p9280003.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\p9280006.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\p9280005.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\p9280008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa020011.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa020012.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa030016.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa020014.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa030019.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\09_september\\pa030020.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\output1.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "output1.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\10_october\\pa260001.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260002.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260004.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260005.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260010.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260012.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260015.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260014.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa260017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa260016.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.03125"
+        },
+        "d:\\10_october\\pa260019.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa300020.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa300021.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa300021.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\10_october\\pa300022.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa300023.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa300023.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\10_october\\pa300024.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa300024.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\10_october\\pa300025.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa310026.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa310027.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_october\\pa310028.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa310028.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\11_november\\p1010001.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010001.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\11_november\\p1010002.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\11_november\\p1010003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\11_november\\p1010004.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\11_november\\p1010007.jpg": {
+          "matchResult": "MANUAL_MATCH_FOUND",
+          "dfLastModifiedISO": "2002-11-15T04:10:36.000Z",
+          "dfExifCreateDate": "0000:00:00 00:00:00",
+          "dfExifDateTimeOriginal": "0000:00:00 00:00:00",
+          "gfName": "p1010007.jpg",
+          "gfDateTime": "2003-01-05T13:39:47.000Z",
+          "gfExifDateTime": "2003-01-05T05:39:47.000Z"
+        },
+        "d:\\11_november\\p1010008.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\11_november\\p1010009.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010009.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\11_november\\p1010010.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010010.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\11_november\\p1010011.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\11_november\\p1010012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010012.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\11_november\\p1010013.jpg": {
+          "matchResult": "NO_MATCH_FOUND"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 114,
+        "noMatchesFoundCount": 67,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
