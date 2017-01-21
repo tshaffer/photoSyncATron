@@ -11657,6 +11657,1705 @@
         "noMatchesFoundCount": 61,
         "manualMatchesPendingCount": 0
       }
+    },
+    "PHOTOS3-2": {
+      "resultsByPhoto": {
+        "d:\\10_00_zionbryce\\a2.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "a1.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\aup.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070413cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070402.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "a1.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070403.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070403.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070404.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070404.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070406.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070406.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070407.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070407.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070408.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070408.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070410.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070410.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070412.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070412.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070413.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070413cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070414.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070414.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070415.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070415.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070417.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070417cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070418.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070418.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070420.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070420.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070423.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070423.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070424.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070424.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070425.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070425.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070427.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070427.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070426.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070426.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070428.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070428.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070430.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070430.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070432.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070432.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070433.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070433.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070436.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070436.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070434.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070434.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070438.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070438.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070439.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070439.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070440.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070440.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070441.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070441.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070445.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070445.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070451.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070451.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070452.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070452.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070453.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070453.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070455.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070455.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070458.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070458.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070413cropped.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070413cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070417cropped.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070417cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa070413cropped2.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa070413cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080459.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080459.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080460.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080460.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080462.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080462.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080463.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080463.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080465.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080465.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080464.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080464.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080466.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080466.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080467.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080467.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080468.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080468.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080469.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080469.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080470.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080470.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080471.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080471.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080472.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080472.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080473.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080473.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080475.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080475.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080476.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080476.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080477.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080477.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080478.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080478.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080479.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080479.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080480.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080480.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080481.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080481cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080482.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080482.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080483.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080483.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080484.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080484.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080485.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080485.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080488.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080488.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080490.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080490.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080489.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080489.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080491.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080491.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080492.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080492.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080493.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080493.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080494.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080494.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080495.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080495.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080496.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080496.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080497.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080497.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080481cropped.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080481cropped.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080498.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080498.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080500.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080500.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080501.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080501.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080502.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080502.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080503.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080503.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080507.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080507.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa080510.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa080510.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090511.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090511.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090513.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090513.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090515.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090515.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090517.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090517.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090518.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090518.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090519.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090519.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090521.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090521.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090523.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090523.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090522.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090522.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090524.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090524.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090525.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090525.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090526.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090526.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090527.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090527.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090528.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090528.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090529.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090529.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090530.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090530.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090531.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090531.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090533.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090533.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090532.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090532.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090534.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090534.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090535.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090535.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090536.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090536.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090537.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090537.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090538.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090538.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090539.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090539.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090540.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090540.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090541.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090541.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090543.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090543.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090545.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090545.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090546.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090546.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090547.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090547.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090548.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090548.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090549.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090549.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\pa090551.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pa090551.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_1\\agf00001sharpen50.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00002sharpen50.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_3\\p6250005.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250005.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250006.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250006.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250011.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250011.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250012.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250012.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250016.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250016.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250015.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250015.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250017.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250017.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250020.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250020.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250021.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250021.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250022.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250022.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250023.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250023.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250026.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250026.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250028.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250028.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250031.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250031.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250037.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250037.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250033.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250033.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250038.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250038.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250039.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250039.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250040.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250040.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250042.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250042.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250043.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250043.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6250044.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6250044.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6270048.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6270048.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6270049.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6270049.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6270052.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6270052.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6270050.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6270050.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040156.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040156.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\6_00_3\\p6270053.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6270053.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040160.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040160.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040162.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040162.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040165.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040165.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040166.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040166.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040169.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040169.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040172.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040172.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7080183.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080183.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7080190.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080190.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7080191.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080191.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7080203.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080203.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7080207.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080207.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080208.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080208.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080209.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080209.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080211.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080211.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080212.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080212.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080213.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080213.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080214.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080214.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080215.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080215.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7080216.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7080216.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090218.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090218.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090219.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090219.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090220.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090220.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090223.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090223.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090226.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090226.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090228.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090228.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_2\\p7090231.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7090231.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300060.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300060.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300061.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300061.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300063.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300063.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300064.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300064.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300065.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300065.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300069.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300069.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300071.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300071.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300072.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300072.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p6300074.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p6300074.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010076.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010076.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010078.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010078.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010079.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010079.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010080.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010080.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010081.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010081.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010083.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010083.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010084.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010084.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010085.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010085.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010086.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010086.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010087.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010087.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010088.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010088.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010089.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010089.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010090.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010090.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010092.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010092.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010093.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010093.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010094.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010094.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010095.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010095.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010096.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010096.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010097.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010097.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010098.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010098.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010099.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010099.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010100.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010100.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010101.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010101.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010102.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010102.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7010103.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7010103.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020104.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020104.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020105.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020105.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020106.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020106.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020107.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020107.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020112.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020112.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020116.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020116.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020119.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020119.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020120.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020120.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020122.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020122.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020123.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020123.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7020124.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7020124.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030127.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030127.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030129.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030129.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030130.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030130.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030131.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030131.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030132.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030132.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030136.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030136.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030137.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030137.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030138.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030138.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030139.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030139.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030141.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030141.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_santacruz\\p7030144.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7030144.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8060335.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8060335.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8060336.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8060336.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8060339.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8060339.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8060340.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8060340.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8060341.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8060341.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_1\\p8110343.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8110343.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120343.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120343.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120347.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120347.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120349.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120349.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120352.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120352.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8130355.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8130355.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120353.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120353.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8130356.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8130356.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8130357.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8130357.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8140359.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8140359.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8140362.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8140362.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8160363.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8160363.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8160364.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8160364.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8160365.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8160365.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8160366.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8160366.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170367.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170367.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170369.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170369.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170370.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170370.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170371.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170371.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170372.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170372.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170373.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170373.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8170374.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8170374.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\racheleye.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8_00_santabarbara\\p8180375.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8180375.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8180376.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8180376.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\pc090590.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "pc090590.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280271.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280271.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280272.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280272.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280273.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280273.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280274.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280274.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280275.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280275.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280276.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280276.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280277.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280277.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280278.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280278.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280279.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280279.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280280.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280280.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280281.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280281.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280282.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280282.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280283.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280283.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280286.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280286.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280287.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280287.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280289.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280289.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280290.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280290.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280291.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280291.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280292.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280292.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280293.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280293.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280294.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280294.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7280295.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7280295.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290296.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290296.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290297.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290297.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290298.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290298.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290299.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290299.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290301.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290301.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290303.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290303.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290304.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290304.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290307.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290307.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290308.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290308.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290309.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290309.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290310.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290310.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290311.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290311.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290314.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290314.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290315.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290315.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290316.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290316.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290317.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290317.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290318.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290318.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7290319.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7290319.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7300321.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7300321.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7300323.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7300323.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7300324.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7300324.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7300327.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7300327.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\7_00_1\\p7040161.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7040161.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\a1.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "a1.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\10_00_zionbryce\\a3.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "a1.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\monterey\\p7300329.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p7300329.jpg",
+          "matchType": "MATCH_BY_DATE_TIME"
+        },
+        "d:\\8_00_santabarbara\\p8120350cropped.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8120350cropped.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\6_00_3\\p1010003.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010003.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\6_00_3\\p1010004.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p1010004.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\8_00_santabarbara\\test2.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "test1.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\6_00_2\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_2\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\4_00_1\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8_00_santabarbara\\test1.jpg": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "test1.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0.015625"
+        },
+        "d:\\6_00_1\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\4_00_1\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_2\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00014.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\4_00_1\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00009.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00013.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00010.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00012.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_3\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_3\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00003.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_2\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00005.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00004.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00007.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00011.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\3_00_2\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\10_00_zionbryce\\a1.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "a1.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\3_00_3\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\6_00_1\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\8_00_santabarbara\\p8130355.tif": {
+          "matchResult": "MATCH_FOUND",
+          "gfName": "p8130355.jpg",
+          "matchType": "MATCH_BY_HASH",
+          "hashDistance": "0"
+        },
+        "d:\\dec_99_4\\agf00008.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\dec_99_4\\agf00006.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\dec_99_4\\agf00001.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jan_00_1\\4.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\dec_99_4\\agf00002.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jan_00_1\\1.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        },
+        "d:\\jan_00_1\\2.tif": {
+          "matchResult": "NO_MATCH_FOUND"
+        }
+      },
+      "summaryResults": {
+        "matchesFoundCount": 312,
+        "noMatchesFoundCount": 41,
+        "manualMatchesPendingCount": 0
+      }
     }
   },
   "lastUpdated": "1/21/2017"
