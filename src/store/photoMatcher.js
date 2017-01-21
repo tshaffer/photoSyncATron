@@ -182,6 +182,7 @@ function matchPhotoFile(dispatch, getState, drivePhotoFile) {
               performHashMatch(drivePhotoFile, targetPath, nameMatchResults, dispatch, gfStore, resolve);
               return;
             });
+            return;
           }
           else {
             if (nameMatchResults.nameMatchResult === 'NAME_MATCH_EXACT') {
