@@ -2,7 +2,6 @@
 
 const path = require('path');
 var fs = require('fs-extra');
-const childProcess = require('child_process');
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
@@ -10,11 +9,7 @@ import { hashHistory } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
-// ------------------------------------
-// Constants
-// ------------------------------------
-// const convertCmd = 'convert';
-const convertCmd = '/usr/local/Cellar/imagemagick/6.9.7-2/bin/convert';
+import { convertPhoto } from '../utilities/photoUtilities';
 
 class ComparePhotos extends Component {
 
@@ -53,35 +48,6 @@ class ComparePhotos extends Component {
   numGooglePhotosToCompare: number;
   googlePhotoIndex: number;
 
-  convertPhoto(sourcePhoto:string, targetPath) {
-
-    return new Promise( (resolve, reject) => {
-
-      // deal with spaces in the sourcePhoto path as needed.
-      let paths = sourcePhoto.split(path.sep);
-      paths.forEach( (subPath, index) => {
-        if (subPath.indexOf(' ') >= 0) {
-          paths[index] = '\"' + subPath + '\"';
-        }
-      });
-      sourcePhoto = "";
-      paths.forEach( (subPath) => {
-        sourcePhoto += subPath + "/";
-      });
-      // sourcePhoto = path.join.apply(null, paths);
-      sourcePhoto = sourcePhoto.substr(0, sourcePhoto.length - 1);
-
-      let command = convertCmd + " " + sourcePhoto + " " + targetPath;
-      console.log(command);
-      childProcess.exec(command, (err) => {
-        if (err) {
-          reject(err);
-        }
-        resolve();
-      });
-    });
-  }
-
   updatePhotosToCompare() {
 
     let self = this;
@@ -96,7 +62,7 @@ class ComparePhotos extends Component {
       const fileNameWithoutExtension = path.basename(diskImage, '.tif');
       const targetPath = path.join(this.targetDir, fileNameWithoutExtension + ".jpg");
 
-      let promise = this.convertPhoto(diskImage, targetPath);
+      let promise = convertPhoto(diskImage, targetPath);
       promise.then( () => {
         self.setState({
           diskImage: targetPath,
