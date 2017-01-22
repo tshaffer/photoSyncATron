@@ -48,7 +48,7 @@ class Landing extends Component {
 
   handleMatchPhotos() {
 
-    this.props.onMatchPhotos(this.state.selectedFolderLabel);
+    this.props.onMatchPhotos(this.state.selectedFolder, this.state.selectedFolderLabel);
     hashHistory.push('/matchPhotosProgressContainer');
   }
 

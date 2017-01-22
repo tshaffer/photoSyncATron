@@ -13,8 +13,11 @@ import * as utils from '../utilities/utils';
 const SET_VOLUME_NAME = 'SET_VOLUME_NAME';
 const SET_DRIVE_PHOTOS = 'SET_DRIVE_PHOTOS';
 
+// FreeAgent
+// const rootFolder = 'e:\\RemovableMedia\\Photos 2';
+
 // CD / DVD drive
-const rootFolder = "d:/";
+// const rootFolder = "d:/";
 
 // On Mac
 // const rootFolder = path.join("/Users/tedshaffer/Documents/Projects/testPhotos", "Photos2");
@@ -31,7 +34,7 @@ const rootFolder = "d:/";
 // ------------------------------------
 // Helper functions
 // ------------------------------------
-export function readDrivePhotoFiles() {
+export function readDrivePhotoFiles(rootFolder) {
 
   return new Promise( (resolve, reject) => {
 

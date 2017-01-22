@@ -22,8 +22,8 @@ function mapDispatchToProps(dispatch) {
     onReadGooglePhotos: () => {
       dispatch(readGooglePhotos());
     },
-    onMatchPhotos: (volumeName) => {
-      dispatch(matchPhotos(volumeName));
+    onMatchPhotos: (volumePath, volumeName) => {
+      dispatch(matchPhotos(volumePath, volumeName));
     }
   };
 }

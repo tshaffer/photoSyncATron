@@ -466,7 +466,7 @@ export function noMatchFound(drivePhoto: DrivePhoto) {
 // ------------------------------------
 // Actions Creators
 // ------------------------------------
-export function matchPhotos(volumeName: string) {
+export function matchPhotos(volumePath: string, volumeName: string) {
 
   console.log("photoMatcher.js::matchPhotos");
 
@@ -482,7 +482,7 @@ export function matchPhotos(volumeName: string) {
       dispatch(setVolumeName(volumeName));
 
       // read the photo files from the drive
-      readDrivePhotoFiles().then( (drivePhotoFilePaths) => {
+      readDrivePhotoFiles( volumePath ).then( (drivePhotoFilePaths) => {
 
         drivePhotoFilePaths = filterDrivePhotos(volumeName, searchResults, drivePhotoFilePaths);
 
